@@ -1,7 +1,12 @@
 apache-tomcat-8.5.53
 .idea
 .class
+.classpath
+.project
+.vscode/
+.settings/
 target/
+out/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -11,3 +16,5 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+cs122b-spring20-team-53.iml
+project.iml
