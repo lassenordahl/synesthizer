@@ -12,13 +12,28 @@
 
 
     <!-- Font Import (Google CDN) -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- CSS Imports -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/helper.css">
   </head>
-  <body class="App">
-    hdssehe
+  <body class="App flex-center">
+    <div class="landing">
+      <div class="landing-content flex-center">
+        <div class="card">
+          <div>
+            <h1>CS122B</h1>
+            <p>
+              What are we doing
+            </p>
+            <div class="button button-primary">
+              Go to Piazza!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
