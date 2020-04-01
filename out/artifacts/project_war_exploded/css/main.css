@@ -39,12 +39,11 @@
   /* background: rgba(255, 255, 255, 0.07); */
   left: 12vmin;
   top: 30vmin;
-  animation: morph-smaller 15s linear infinite alternate, spin 20s linear infinite;
+  animation: morph-smaller 15s linear infinite alternate;
   z-index: 100;
   will-change: border-radius, transform;
   transform-origin: 55% 55%;
   pointer-events: none;
-  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
 }
 
 .landing::after {
@@ -57,12 +56,11 @@
   /* background: rgba(255, 255, 255, 0.07); */
   left: -20vmin;
   top: -20vmin;
-  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+  animation: morph 10s linear infinite alternate;
   z-index: 1;
   will-change: border-radius, transform;
   transform-origin: 55% 55%;
   pointer-events: none;
-  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
 }
 
 @keyframes morph {
@@ -72,5 +70,5 @@
 
 @keyframes morph-smaller {
   0% {border-radius: 63% 37% 44% 56% / 23% 53% 47% 77%; }
-  100% {border-radius: 40% 60%;}
+  100% {border-radius: 69% 31% 25% 75% / 71% 22% 78% 29% ;}
 }
