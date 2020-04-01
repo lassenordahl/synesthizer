@@ -1,6 +1,53 @@
+/* 
+- Gradient background
+    - Lighter - `#252B38`
+    - Darker  - `#1d222e`
+- Cards - `#323A49`
+- Colors
+    - Salmon - `#ff7668`
+    - Purple - `#8D68C5`
+    - Teal - `#4CD9FF`
+*/
+
 .App {
   width: 100vw;
   height: 100vh;
+  background-image: linear-gradient(to right,#252B38, #1d222e);
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
 
-  font-family: 'Open Sans', sans-serif;
+.landing {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.landing-content {
+  width: 50vw;
+}
+
+.landing::after {
+  /* border-radius: 83% 55% 43% 40% / 40% 70% 75% 76%; */
+  background: #ff7668;
+  content: "";
+  width: 70vmax;
+  height: 70vmax;
+  position: absolute;
+  /* background: rgba(255, 255, 255, 0.07); */
+  left: -20vmin;
+  top: -20vmin;
+  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+  z-index: 1;
+  will-change: border-radius, transform;
+  transform-origin: 55% 55%;
+  pointer-events: none;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+@keyframes morph {
+  0% {border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;}
+  100% {border-radius: 40% 60%;}
 }
