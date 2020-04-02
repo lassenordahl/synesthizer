@@ -38,9 +38,7 @@ CREATE TABLE track_meta (
 CREATE TABLE track (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(100) NOT NULL,
-    artist_id VARCHAR(25) NOT NULL,
-    album_id VARCHAR(25) DEFAULT "",
-    year INTEGER NOT NULL,
+    track_number integer NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id) REFERENCES track_meta(id)
 );
@@ -48,6 +46,9 @@ CREATE TABLE track (
 -- Need to add to this
 CREATE TABLE album (
     id VARCHAR(25) NOT NULL,
+    album_type VARCHAR(25),
+    image VARCHAR(200),
+    release_date VARCHAR(40),
     PRIMARY KEY (id)
 );
 
@@ -60,6 +61,8 @@ CREATE TABLE track_in_album (
 
 CREATE TABLE artist (
     id VARCHAR(25) NOT NULL,
+    name VARCHAR(40) NOT NULL,
+    image VARCHAR(200) NOT NULL,
     PRIMARY KEY (id)
 );
 
