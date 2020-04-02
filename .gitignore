@@ -7,7 +7,6 @@ apache-tomcat-8.5.53
 .settings/
 env/
 target/
-out/
 aws/
 pom.xml.tag
 pom.xml.releaseBackup
