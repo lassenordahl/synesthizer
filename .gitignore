@@ -8,6 +8,7 @@ apache-tomcat-8.5.53
 env/
 target/
 aws/
+out/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
