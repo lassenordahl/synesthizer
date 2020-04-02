@@ -7,7 +7,7 @@ scope = 'user-library-read'
 username = 'lassenordahl'
 
 SONG_IDS_FILENAME = 'song_ids.txt'
-SONG_DETAILS_FILENAME = 'song_ids.txt'
+SONG_DETAILS_FILENAME = 'track_details.json'
 ARTIST_IDS_FILENAME = 'artist_ids.txt'
 TRACK_INFO_FILENAME = 'track_info.json'
 TRACK_DATA_FILENAME = 'track_data.json'
