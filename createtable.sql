@@ -12,90 +12,90 @@ DROP TABLE credit_card;
 DROP TABLE rating;
 
 CREATE TABLE track_meta (
-    id varchar(10) not null,
-    primary key (id)
+    id VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE track (
-    id varchar(10) not null,
-    title varchar(100) not null,
-    artist_id varchar(10) not null,
-    album_id varchar(10) default "",
-    year integer not null,
-    primary key (id),
-    foreign key (id) references track_meta(id)
+    id VARCHAR(10) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    artist_id VARCHAR(10) NOT NULL,
+    album_id VARCHAR(10) DEFAULT "",
+    year INTEGER NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES track_meta(id)
 );
 
 CREATE TABLE album (
-    id varchar(10) not null,
-    primary key (id)
+    id VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE track_in_album (
-    track_id varchar(10) not null,
-    album_id varchar(10) not null,
-    foreign key (track_id) references track(id),
-    foreign key (album_id) references album(id)
+    track_id VARCHAR(10) NOT NULL,
+    album_id VARCHAR(10) NOT NULL,
+    FOREIGN KEY (track_id) REFERENCES track(id),
+    FOREIGN KEY (album_id) REFERENCES album(id)
 );
 
 CREATE TABLE artist (
-    id varchar(10) not null,
-    primary key (id)
+    id VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE artist_in_track (
-    artist_id varchar(10) not null,
-    track_id varchar(10) not null,
-    foreign key (artist_id) references artist(id),
-    foreign key (track_id) references track(id)
+    artist_id VARCHAR(10) NOT NULL,
+    track_id VARCHAR(10) NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES artist(id),
+    FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
 CREATE TABLE genre (
-    id integer not null AUTO_INCREMENT,
-    name varchar (32) not null,
-    primary key (id)
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR (32) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE genre_in_track (
-    genre_id integer not null,
-    track_id varchar(10) not null,
-    foreign key (genre_id) references genre(id),
-    foreign key (track_id) references track(id)
+    genre_id INTEGER NOT NULL,
+    track_id VARCHAR(10) NOT NULL,
+    FOREIGN KEY (genre_id) REFERENCES genre(id),
+    FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
 CREATE TABLE credit_card (
-    id varchar(20) not null,
-    first_name varchar(50) not null,
-    last_name varchar(50) not null,
-    expiration date not null,
-    primary key (id)
+    id VARCHAR(20) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    expiration DATE NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE customer (
-    id integer not null AUTO_INCREMENT,
-    first_name varchar(50) not null,
-    last_name varchar(50) not null,
-    cc_id varchar(20) not null,
-    address varchar(200) not null,
-    email varchar(50) not null,
-    password varchar(20) not null,
-    primary key (id),
-    foreign key (cc_id) references credit_card(id)
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    cc_id VARCHAR(20) NOT NULL,
+    address VARCHAR(200) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (cc_id) REFERENCES credit_card(id)
 );
 
 CREATE TABLE sale (
-    id integer not null AUTO_INCREMENT,
-    customer_id integer not null,
-    track_id varchar(10) not null,
-    sale_date date not null,
-    primary key (id),
-    foreign key (customer_id) references customer(id),
-    foreign key (track_id) references track(id)
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    customer_id INTEGER NOT NULL,
+    track_id VARCHAR(10) NOT NULL,
+    sale_DATE DATE NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
 CREATE TABLE rating (
-    track_id varchar(10) not null,
-    rating float not null,
-    num_votes integer not null,
-    foreign key (track_id) references track(id)
+    track_id VARCHAR(10) NOT NULL,
+    rating FLOAT NOT NULL,
+    num_votes INTEGER NOT NULL,
+    FOREIGN KEY (track_id) REFERENCES track(id)
 );
