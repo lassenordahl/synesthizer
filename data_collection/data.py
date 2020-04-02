@@ -11,6 +11,8 @@ SONG_DETAILS_FILENAME = 'song_ids.txt'
 ARTIST_IDS_FILENAME = 'artist_ids.txt'
 TRACK_INFO_FILENAME = 'track_info.json'
 TRACK_DATA_FILENAME = 'track_data.json'
+ARTIST_DATA_FILENAME = 'artist_data.json'
+ALBUM_DATA_FILENAME ='album_data.json'
 
 SCRAPING_PLAYLIST_ID = '2n4Z5LcJPLWEMciZ40jLIC'
 
@@ -82,6 +84,29 @@ def get_track_data(token):
     with open(TRACK_INFO_FILENAME, 'w') as fp:
       json.dump(response_data, fp)
 
+def get_artist_data(token):
+    with open(ARTIST_IDS_FILENAME, 'r') as ids:
+        sp = spotipy.Spotify(auth=token)
+
+        artist_ids = [row.rstrip('\n') for row in set(ids)]
+        grouped_ids = [artist_ids[i: i + 20] for i in range(0, len(grouped_ids), 20)]
+
+        response_data = {}
+        response_data['artist_details'] = []
+
+        for id_group in grouped_ids:
+            response = sp.artists(id_group)
+            response_data['artist_data'].extend(response)
+
+        with open(ARTIST_DATA_FILENAME, 'w') as df:
+            json.dump(response_data, df)
+
+def get_album_data(token):
+    with open(TRACK_DATA_FILENAME, 'r') as tracks:
+        sp = spotipy.Spotify(auth=token)
+
+        for track in tracks['track_details']:
+            print(track['album'])
 
 def test_print():
   with open(TRACK_INFO_FILENAME, 'r') as fp:
@@ -110,8 +135,9 @@ if __name__ == '__main__':
   )
 
   # get_track_ids(token)
-  get_track_details(token)
+  # get_track_details(token)
   # get_track_data(token)
+  get_artist_data(token)
   # test_print()
 
 

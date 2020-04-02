@@ -5,6 +5,7 @@ apache-tomcat-8.5.53
 .project
 .vscode
 .settings/
+env/
 target/
 out/
 aws/
