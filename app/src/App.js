@@ -1,27 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     BrowserRouter,
-    Link,
     Route,
-    Switch
+    Switch,
+    Redirect
 } from 'react-router-dom';
+import './App.css';
+import './helper.css';
+
+import { Landing, SongsView, SongView, Footer } from './app/views';
  
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        {/* <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}> */}
-        <BrowserRouter basename={'unnamed'}>
-          <div>
-            hello world
-          </div>
-        </BrowserRouter>
-      </div>
-    );
-  }
+function App() {
+
+  return (
+    <div className="App">
+      <BrowserRouter basename={'/unnamed'}>
+        <Switch>
+          <Route exact path="/landing" component={Landing}></Route>
+          <Route path="/">
+            <Route exact path="/songs" component={SongsView}></Route>
+            <Route path="/songs/:songId" component={SongView}></Route>
+            <Footer>
+
+            </Footer>
+          </Route>
+          
+        </Switch>
+        <Redirect from="/" to ="/landing"></Redirect>
+      </BrowserRouter>
+    </div>
+  );
 }
  
 export default App;

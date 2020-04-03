@@ -1,0 +1,28 @@
+.songs-page {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.songs-page-content { 
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.songs-page-search {
+  margin-top: 180px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 64px;
+}
+
+.songs-page-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
