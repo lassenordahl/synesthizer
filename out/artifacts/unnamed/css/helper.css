@@ -1,0 +1,66 @@
+/* 
+- Gradient background
+    - Lighter - `#252B38`
+    - Darker  - `#1d222e`
+- Cards - `#323A49`
+- Colors
+    - Salmon - `#ff7668`
+    - Purple - `#8D68C5`
+    - Teal - `#4CD9FF`
+*/
+
+.button {
+  color: white;
+  width: 160px;
+  height: 40px;
+  background-color: #1d222e;
+  border-radius: 20px;
+  transition: all .2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.button:hover {
+  background-color: #252B38;
+  transform: scale(1.05); 
+}
+
+.button-primary {
+  background-color: #ff7668;
+}
+
+.button-primary:hover {
+  background-color: #f79489;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #323A49;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  max-width: 80vw;
+}
+
+.card div {
+  margin: 48px;
+}
+
+.box-shadow {
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}

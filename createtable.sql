@@ -17,10 +17,10 @@ CREATE TABLE track_meta (
     acousticness FLOAT,
     analysis_url VARCHAR(200),
     danceability FLOAT,
-    duration_ms	INTEGER,
+    duration_ms  INTEGER,
     energy FLOAT,
     instrumentalness FLOAT,
-    key INTEGER,
+    note INTEGER,
     liveness FLOAT,
     loudness FLOAT,
     mode INTEGER,
@@ -29,12 +29,12 @@ CREATE TABLE track_meta (
     time_signature INTEGER,
     track_href VARCHAR(200),
     type VARCHAR(60),
-    uri	VARCHAR(200),
-    valence	FLOAT,
+    uri VARCHAR(200),
+    valence FLOAT,
     PRIMARY KEY (id)
 );
 
--- Need to add to this
+
 CREATE TABLE track (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(100) NOT NULL,
@@ -59,6 +59,13 @@ CREATE TABLE track_in_album (
     FOREIGN KEY (album_id) REFERENCES album(id)
 );
 
+-- Need to fix
+CREATE TABLE album_in_genre (
+    genre VARCHAR(25) NOT NULL,
+    album_id VARCHAR(25) NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES album(id)
+);
+
 CREATE TABLE artist (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(40) NOT NULL,
@@ -73,52 +80,45 @@ CREATE TABLE artist_in_track (
     FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
-CREATE TABLE genre (
-    id INTEGER NOT NULL AUTO_INCREMENT,
-    name VARCHAR (32) NOT NULL,
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE genre_in_track (
-    genre_id INTEGER NOT NULL,
+CREATE TABLE artist_in_genre (
+    genre VARCHAR(25) NOT NULL,
     track_id VARCHAR(25) NOT NULL,
-    FOREIGN KEY (genre_id) REFERENCES genre(id),
     FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
-CREATE TABLE credit_card (
-    id VARCHAR(20) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    expiration DATE NOT NULL,
-    PRIMARY KEY (id)
-);
 
-CREATE TABLE customer (
+-- user data
+
+
+CREATE TABLE user (
     id INTEGER NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    cc_id VARCHAR(20) NOT NULL,
     address VARCHAR(200) NOT NULL,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(20) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (cc_id) REFERENCES credit_card(id)
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE sale (
+CREATE TABLE playlist (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    customer_id INTEGER NOT NULL,
-    track_id VARCHAR(25) NOT NULL,
-    sale_DATE DATE NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (customer_id) REFERENCES customer(id),
-    FOREIGN KEY (track_id) REFERENCES track(id)
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(300) NOT NULL,
+    image VARCHAR(300),
+    creation_date DATE NOT NULL,
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE rating (
+CREATE TABLE playlist_to_user (
+    playlist_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (playlist_id) REFERENCES playlist(id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+CREATE TABLE track_in_playlist (
     track_id VARCHAR(25) NOT NULL,
-    rating FLOAT NOT NULL,
-    num_votes INTEGER NOT NULL,
-    FOREIGN KEY (track_id) REFERENCES track(id)
+    playlist_id INTEGER NOT NULL,
+    FOREIGN KEY (track_id) REFERENCES track(id),
+    FOREIGN KEY (playlist_id) REFERENCES playlist(id)
 );
