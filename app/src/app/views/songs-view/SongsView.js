@@ -5,7 +5,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import { Button } from "../../components";
+import { Button, SkeletonPulse } from "../../components";
 import { Card } from "../../containers";
 
 function SongsView() {
@@ -54,11 +54,13 @@ function SongsView() {
             return (
               <Card 
                 key={index} 
-                style={{ margin: "16px" }} 
+                style={{ margin: "24px" }} 
                 willHover={true}
                 onClick={() => selectCard(item)}
               >
-                This is a card
+                <div style={{width: '30px', height: '30px'}}>
+                  <SkeletonPulse></SkeletonPulse>
+                </div>
               </Card>
             );
           })}

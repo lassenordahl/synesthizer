@@ -1,10 +1,14 @@
 import React from "react";
 import './SongView.css';
 
+import { Card } from '../../containers';
+
 function SongView({props, match}) {
   return (
     <div className="song-view">
-      template [{match.params.songId}]
+      <Card className="song-view-card">
+        Template card for {match.params.songId}
+      </Card>
     </div>
   );
 }

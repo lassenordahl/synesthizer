@@ -4,7 +4,10 @@ import './Footer.css';
 function Footer() {
   return (
     <div className="footer">
-      Footer
+      Made with ❤ over Zoom
+      <p className="subtitle">
+        Zachary Pinto and Lasse Nordahl
+      </p>
     </div>
   );
 }
