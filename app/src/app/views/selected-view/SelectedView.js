@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./SongView.css";
+import "./SelectedView.css";
 
-import { Card } from "../../containers";
 import { SkeletonPulse } from "../../components";
 
-function SongView({ props, match }) {
+function SelectedView({ props, match }) {
   const [expandCard, setExpandCard] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -20,18 +19,18 @@ function SongView({ props, match }) {
   }, []);
 
   return (
-    <div className="song-view">
+    <div className="selected-view">
       <div
         className={
-          "song-view-card" + (expandCard ? " song-view-card-expanded" : "")
+          "selected-view-card" + (expandCard ? " selected-view-card-expanded" : "")
         }
       >
-        <div className="song-view-song-info">
-          <div className="song-view-main-info">
-            <div className="song-view-album-art">
+        <div className="selected-view-song-info">
+          <div className="selected-view-main-info">
+            <div className="selected-view-album-art">
               <SkeletonPulse></SkeletonPulse>
             </div>
-            <div className="song-view-details">
+            <div className="selected-view-details">
               <h2>
                 <SkeletonPulse style={{ width: "160px", height: "24px" }} />
               </h2>
@@ -44,7 +43,7 @@ function SongView({ props, match }) {
             </div>
           </div>
           {showDetails ? (
-            <div className="song-view-extra-info">
+            <div className="selected-view-extra-info">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (item, index) {
                 return (
                   <div
@@ -68,4 +67,4 @@ function SongView({ props, match }) {
   );
 }
 
-export default SongView;
+export default SelectedView;

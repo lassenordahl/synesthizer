@@ -1,53 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import "./App.css";
+import "./helper.css";
+
 import {
-    BrowserRouter,
-    Route,
-    Switch,
-    Redirect
-} from 'react-router-dom';
-import './App.css';
-import './helper.css';
+  Landing,
+  Footer,
+  Sidebar,
+  ContentView,
+  SelectedView,
+} from "./app/views";
 
-import { Landing, SongsView, SongView, Footer, Sidebar } from './app/views';
- 
 function App() {
-
   const [showSidebar, setShowSidebar] = useState(true);
 
   return (
     <div className="App">
-      <BrowserRouter basename={'/unnamed'}>
-        <Sidebar showSidebar={showSidebar}></Sidebar>
+      <BrowserRouter basename={"/unnamed"}>
+        <Route path="/app">
+          <Sidebar showSidebar={showSidebar}></Sidebar>
+        </Route>
         <div className="app-content">
-          <div className="app-content-sidebar-button" onClick={() => setShowSidebar(!showSidebar)}>
-            
-          </div>
-          <Switch>
-            <Route path="/app">
-              <div className="app-header">
-                <h1>
-                <Route exact path="/app/songs">
-                  Song Search
-                </Route>
-                <Route exact path="/app/songs/:songId">
-                  Selected Song
-                </Route>
-                </h1>
-              </div>
-            </Route> 
-          </Switch>
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
-              <Route exact path="/app/songs" component={SongsView}></Route>
-              <Route path="/app/songs/:songId" component={SongView}></Route>
-              <Footer/>
-            </Route> 
+              <div className="app-header"></div>
+              <div
+                className="app-content-sidebar-button"
+                onClick={() => setShowSidebar(!showSidebar)}
+              >
+                <span style={{ marginBottom: "2px" }}>
+                  {showSidebar ? "<" : ">"}
+                </span>
+              </div>
+              <div className="app-content-sidebar-route"></div>
+              <Route
+                exact
+                path="/app/:contentType"
+                component={ContentView}
+              ></Route>
+              <Route
+                path="/app/:contentType/:itemId"
+                component={SelectedView}
+              ></Route>
+              <Footer />
+            </Route>
           </Switch>
         </div>
       </BrowserRouter>
     </div>
   );
 }
- 
+
 export default App;

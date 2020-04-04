@@ -1,11 +1,11 @@
-.songs-page {
+.content-view {
   flex: 1 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.songs-page-content { 
+.content-view-content { 
   width: 80%;
   height: 100%;
   display: flex;
@@ -14,20 +14,20 @@
   flex-direction: column;
 }
 
-.songs-page-search {
+.content-view-search {
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-bottom: 64px;
 }
 
-.songs-page-cards {
+.content-view-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.songs-page-filter-wrapper {
+.content-view-filter-wrapper {
   height: 64px;
   width: 100%;
   display: flex;
@@ -36,16 +36,16 @@
   margin-bottom: 32px;
 }
 
-.songs-page-filter {
+.content-view-filter {
   display: flex;
   flex-direction: row;
 }
 
-.songs-page-filter p {
+.content-view-filter p {
   margin-right: 24px;
   cursor: pointer;
 }
 
-.songs-page-filter p:last-child {
+.content-view-filter p:last-child {
   margin-right: 0px;
 }

@@ -7,4 +7,6 @@
   align-self: flex-end;
   justify-self: flex-end;
   flex-direction: column;
+  margin-top: 64px;
+  margin-bottom: 64px;
 }
