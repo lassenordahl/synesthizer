@@ -24,7 +24,6 @@ function App() {
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
-              <div className="app-header"></div>
               <div
                 className="app-content-sidebar-button"
                 onClick={() => setShowSidebar(!showSidebar)}
@@ -33,7 +32,14 @@ function App() {
                   {showSidebar ? "<" : ">"}
                 </span>
               </div>
-              <div className="app-content-sidebar-route"></div>
+              <div className="app-content-sidebar-route">
+                <Route path="/app/:contentType">
+                  {({match}) => {
+                    return <h2>{match.params.contentType}</h2>
+                  }}
+                </Route>
+              </div>
+              <div className="app-header"></div>
               <Route
                 exact
                 path="/app/:contentType"

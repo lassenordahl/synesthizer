@@ -35,6 +35,26 @@
   cursor: pointer;
 }
 
+.app-content-sidebar-route {
+  position: absolute;
+  height: 48px;
+  top: 24px;
+  left: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.app-content-sidebar-route h2 {
+  margin: 0;
+  margin-right: 24px;
+}
+
+.app-content-sidebar-route p {
+  margin: 0;
+}
+
 .app-header {
   min-height: 120px;
   display: flex;
