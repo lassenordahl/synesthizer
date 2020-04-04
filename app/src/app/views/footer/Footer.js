@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <div className="footer">
-      Made with ❤ over Zoom
+      Made with ❤ over Zoom @ UCI
       <p className="subtitle">
         Zachary Pinto and Lasse Nordahl
       </p>

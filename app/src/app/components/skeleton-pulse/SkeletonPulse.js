@@ -1,9 +1,9 @@
 import React from "react";
 import './SkeletonPulse.css';
 
-function SkeletonPulse() {
+function SkeletonPulse(props) {
   return (
-    <div className="skeleton-pulse"/>
+    <div className="skeleton-pulse" style={props.style}/>
   );
 }
 

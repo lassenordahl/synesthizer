@@ -13,7 +13,7 @@ function Card(props) {
       style={props.style}
       onClick={() => (props.onClick !== undefined ? props.onClick() : null)}
     >
-      <div className="card-margin">{props.children}</div>
+      <div className={"card-margin"} style={props.innerStyle}>{props.children}</div>
     </div>
   );
 }

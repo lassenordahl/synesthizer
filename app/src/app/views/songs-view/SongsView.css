@@ -15,7 +15,6 @@
 }
 
 .songs-page-search {
-  margin-top: 180px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -25,4 +24,28 @@
 .songs-page-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.songs-page-filter-wrapper {
+  height: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.songs-page-filter {
+  display: flex;
+  flex-direction: row;
+}
+
+.songs-page-filter p {
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.songs-page-filter p:last-child {
+  margin-right: 0px;
 }

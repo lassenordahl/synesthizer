@@ -1,10 +1,17 @@
 .App {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-image: linear-gradient(to right,#252B38, #1d222e);
   color: white;
   display: flex;
   flex-direction: column;
+}
+
+.app-header {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .subtitle {

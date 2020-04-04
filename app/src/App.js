@@ -15,18 +15,30 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter basename={'/unnamed'}>
+        
+            <Switch>
+              <Route path="/app">
+                <div className="app-header">
+                  <h1>
+                  <Route exact path="/app/songs">
+                    Song Search
+                  </Route>
+                  <Route exact path="/app/songs/:songId">
+                    Selected Song
+                  </Route>
+                  </h1>
+                </div>
+              </Route> 
+            </Switch>
+       
         <Switch>
           <Route exact path="/landing" component={Landing}></Route>
-          <Route path="/">
-            <Route exact path="/songs" component={SongsView}></Route>
-            <Route path="/songs/:songId" component={SongView}></Route>
-            <Footer>
-
-            </Footer>
-          </Route>
-          
+          <Route path="/app">
+            <Route exact path="/app/songs" component={SongsView}></Route>
+            <Route path="/app/songs/:songId" component={SongView}></Route>
+            <Footer/>
+          </Route> 
         </Switch>
-        <Redirect from="/" to ="/landing"></Redirect>
       </BrowserRouter>
     </div>
   );
