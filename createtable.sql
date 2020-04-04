@@ -44,7 +44,7 @@ CREATE TABLE track (
     FOREIGN KEY (id) REFERENCES track_meta(id)
 );
 
--- Need to add to this
+
 CREATE TABLE album (
     id VARCHAR(25) NOT NULL,
     album_type VARCHAR(25),
@@ -90,9 +90,9 @@ CREATE TABLE artist_in_album (
 );
 
 CREATE TABLE artist_in_genre (
-    track_id VARCHAR(25) NOT NULL,
+    artist_id VARCHAR(25) NOT NULL,
     genre VARCHAR(25) NOT NULL,
-    FOREIGN KEY (track_id) REFERENCES track(id)
+    FOREIGN KEY (artist_id) REFERENCES artist(id)
 );
 
 
