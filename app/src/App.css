@@ -3,7 +3,33 @@
   background-image: linear-gradient(to right,#252B38, #1d222e);
   color: white;
   display: flex;
+  flex-direction: row;
+}
+
+.app-content {
+  position: relative;
+  display: flex;
   flex-direction: column;
+  flex: 1 1;
+}
+
+.app-content-sidebar-button {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background-color: #ff7668;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-content-sidebar-button:hover {
+  background-color: #f79489;
+  cursor: pointer;
 }
 
 .app-header {
