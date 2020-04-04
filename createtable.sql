@@ -1,15 +1,16 @@
+DROP TABLE track_in_playlist;
+DROP TABLE playlist_to_user ;
+DROP TABLE playlist;
+DROP TABLE user;
+DROP TABLE artist_in_genre;
+DROP TABLE artist_in_album;
+DROP TABLE artist_in_track;
+DROP TABLE artist;
+DROP TABLE album_in_genre; 
+DROP TABLE track_in_album;
+DROP TABLE album;
 DROP TABLE track;
 DROP TABLE track_meta;
-DROP TABLE album;
-DROP TABLE track_in_album;
-DROP TABLE artist;
-DROP TABLE artist_in_track;
-DROP TABLE genre;
-DROP TABLE genre_in_track;
-DROP TABLE customer;
-DROP TABLE sale;
-DROP TABLE credit_card;
-DROP TABLE rating;
 
 
 CREATE TABLE track_meta (
@@ -59,6 +60,7 @@ CREATE TABLE track_in_album (
     FOREIGN KEY (album_id) REFERENCES album(id)
 );
 
+
 -- Need to fix
 CREATE TABLE album_in_genre (
     genre VARCHAR(25) NOT NULL,
@@ -80,9 +82,16 @@ CREATE TABLE artist_in_track (
     FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
+CREATE TABLE artist_in_album (
+    artist_id VARCHAR(25) NOT NULL,
+    album_id VARCHAR(25) NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES artist(id),
+    FOREIGN KEY (album_id) REFERENCES album(id)
+);
+
 CREATE TABLE artist_in_genre (
-    genre VARCHAR(25) NOT NULL,
     track_id VARCHAR(25) NOT NULL,
+    genre VARCHAR(25) NOT NULL,
     FOREIGN KEY (track_id) REFERENCES track(id)
 );
 
@@ -103,22 +112,21 @@ CREATE TABLE user (
 CREATE TABLE playlist (
     id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    description VARCHAR(300) NOT NULL,
     image VARCHAR(300),
-    creation_date DATE NOT NULL,
+    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE playlist_to_user (
-    playlist_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
+    playlist_id INTEGER NOT NULL,
     FOREIGN KEY (playlist_id) REFERENCES playlist(id),
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE track_in_playlist (
-    track_id VARCHAR(25) NOT NULL,
     playlist_id INTEGER NOT NULL,
+    track_id VARCHAR(25) NOT NULL,
     FOREIGN KEY (track_id) REFERENCES track(id),
     FOREIGN KEY (playlist_id) REFERENCES playlist(id)
 );
