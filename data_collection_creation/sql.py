@@ -1,4 +1,10 @@
+import os
 import json
+import random
+import ssl
+import shutil
+from randomuser import RandomUser
+from randomwordgenerator import randomwordgenerator
 
 SONG_IDS_FILENAME = 'collected_data/song_ids.txt'
 SONG_DETAILS_FILENAME = 'collected_data/track_details.json'
@@ -8,10 +14,21 @@ TRACK_DATA_FILENAME = 'collected_data/track_data.json'
 ARTIST_DATA_FILENAME = 'collected_data/artist_data.json'
 ALBUM_DATA_FILENAME = 'collected_data/album_data.json'
 
+CREATE_TABLES_FILE = '../createtable.sql'
+
+# to create on .sql file, add a name below and change WRITE_PERM to 'a'
+CREATION_INSERTION_FILE = 'CreationInsertion'
+WRITE_PERM = 'a'
+
+
+USER_COUNT = 100
+PLAYLIST_COUNT = 1000
+SONGS_IN_PLAYLIST = 8000
+
 
 def insert(table, columns):
     def quote_str(col): return "\"{}\"".format(col.replace(
-        '\"', '').replace('\\"', '')) if type(col) == str else str(col)
+        '\"', '').replace('\\"', '')) if type(col) == str and col != 'DEFAULT' else str(col)
     return 'INSERT IGNORE INTO {} VALUES({});\n'.format(table, ','.join(map(quote_str, columns)))
 
 
@@ -19,7 +36,7 @@ def create_table(data_file_name, data_key, table_name, get_columns):
     with open(data_file_name, 'r') as items_data:
         items = json.load(items_data)
         items = items[data_key]
-        with open('sql_creation/{}.sql'.format(table_name), 'w') as table_file:
+        with open('sql_creation/{}.sql'.format(CREATION_INSERTION_FILE or table_name), WRITE_PERM) as table_file:
             for i in items:
                 table_file.write(insert(table_name, get_columns(i)))
 
@@ -28,7 +45,7 @@ def create_table_many_many(data_file_name, data_key, table_name, get_columns):
     with open(data_file_name, 'r') as items_data:
         items = json.load(items_data)
         items = items[data_key]
-        with open('sql_creation/{}.sql'.format(table_name), 'w') as table_file:
+        with open('sql_creation/{}.sql'.format(CREATION_INSERTION_FILE or table_name), WRITE_PERM) as table_file:
             for i in items:
                 rows_to_add = [list()]
                 columns = get_columns(i)
@@ -49,6 +66,68 @@ def create_table_many_many(data_file_name, data_key, table_name, get_columns):
                 for row in rows_to_add:
                     if len(row) == len(columns):
                         table_file.write(insert(table_name, row))
+
+
+def create_fake_user_data(output_file_name, total_users, total_playlists, total_songs):
+    with open('sql_creation/{}.sql'.format(CREATION_INSERTION_FILE or output_file_name), WRITE_PERM) as f:
+        for id in range(0, total_users):
+            f.write(insert('user', get_user_columns(id)))
+
+        random_words = randomwordgenerator.generate_random_words(n=5000)
+        for id in range(0, total_playlists):
+            f.write(insert('playlist', get_playlist_columns(id, random_words)))
+
+        for _ in range(0, total_playlists):
+            f.write(insert('playlist_to_user', get_playlist_to_user_columns(
+                total_users, total_playlists)))
+
+        with open(SONG_DETAILS_FILENAME, 'r') as tracks_data:
+            tracks = json.load(tracks_data)
+            tracks = tracks['track_details']
+            for _ in range(0, total_songs):
+                f.write(insert('track_in_playlist', get_track_in_playlist_columns(
+                    total_playlists, tracks)))
+
+
+def get_user_columns(id):
+    cols = []
+    user = RandomUser()
+    cols.append(id)
+    cols.append(user.get_first_name())
+    cols.append(user.get_last_name())
+    cols.append('{} {}, {} {}'.format(user.get_street(), user.get_city(),
+                                      user.get_state(), str(user.get_zipcode())))
+    cols.append(user.get_email())
+    cols.append(user.get_password())
+    return cols
+
+
+def get_playlist_columns(id, random_words):
+    cols = []
+    cols.append(id)
+
+    rw1 = random_words[random.randint(0, len(random_words) - 1)]
+    rw2 = random_words[random.randint(0, len(random_words) - 1)]
+    cols.append('{} {}'.format(rw1, rw2))
+
+    cols.append("https://picsum.photos/200")
+    cols.append('DEFAULT')
+    return cols
+
+
+def get_playlist_to_user_columns(user_count, playlist_count):
+    cols = []
+    cols.append(random.randint(0, user_count))
+    cols.append(random.randint(0, playlist_count))
+    return cols
+
+
+def get_track_in_playlist_columns(playlist_count, tracks):
+    cols = []
+    cols.append(random.randint(0, playlist_count))
+    random_track = tracks[random.randint(0, len(tracks) - 1)]
+    cols.append(random_track['id'])
+    return cols
 
 
 def get_track_columns(t):
@@ -154,10 +233,22 @@ def get_genre_to_artist_columns(a):
 
 
 if __name__ == '__main__':
+
+    if CREATION_INSERTION_FILE:
+        shutil.copyfile(os.path.dirname(__file__) +
+                        CREATE_TABLES_FILE, 'sql_creation/{}.sql'.format(CREATION_INSERTION_FILE))
+
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
+
     one_to_one_tables = [
-        (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
         (TRACK_INFO_FILENAME, 'track_information',
          'track_meta', get_track_meta_columns),
+        (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
         (ALBUM_DATA_FILENAME, 'album_details', 'album', get_album_columns),
         (ARTIST_DATA_FILENAME, 'artist_details', 'artist', get_artist_columns),
         (SONG_DETAILS_FILENAME, 'track_details',
@@ -175,8 +266,14 @@ if __name__ == '__main__':
          'artist_in_genre', get_genre_to_artist_columns)
     ]
 
+    # create one to one tables
     for table in one_to_one_tables:
         create_table(*table)
 
+    # create many to many tables
     for table in many_to_many_tables:
         create_table_many_many(*table)
+
+    # create fake users
+    create_fake_user_data('user_data', USER_COUNT,
+                          PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
