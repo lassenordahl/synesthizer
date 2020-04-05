@@ -1,29 +1,9 @@
-/* 
-- Gradient background
-    - Lighter - `#252B38`
-    - Darker  - `#1d222e`
-- Cards - `#323A49`
-- Colors
-    - Salmon - `#ff7668`
-    - Purple - `#8D68C5`
-    - Teal - `#4CD9FF`
-*/
-
-.App {
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(to right,#252B38, #1d222e);
-  color: white;
-  font-family: 'Quicksand', sans-serif;
-}
-
 .landing {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  overflow: hidden;
 }
 
 .landing-content {
@@ -35,7 +15,7 @@
   background: #4CD9FF;
   content: "";
   width: 45vmax;
-  height: 40vmax;
+  height: 35vmax;
   position: absolute;
   /* background: rgba(255, 255, 255, 0.07); */
   left: 12vmin;
@@ -52,7 +32,7 @@
   background: #ff7668;
   content: "";
   width: 70vmax;
-  height: 70vmax;
+  height: 55vmax;
   position: absolute;
   /* background: rgba(255, 255, 255, 0.07); */
   left: -20vmin;

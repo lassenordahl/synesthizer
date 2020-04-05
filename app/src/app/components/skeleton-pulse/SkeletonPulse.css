@@ -1,0 +1,9 @@
+.skeleton-pulse {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(-90deg, #1d222e 0%, #252B38 70%, #1d222e 100%);
+  background-size: 400% 400%;
+  border-radius: 5px;
+  animation: pulse 1.2s ease-in-out infinite;
+}
