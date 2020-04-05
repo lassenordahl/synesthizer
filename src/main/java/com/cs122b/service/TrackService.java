@@ -29,7 +29,7 @@ public class TrackService implements Config {
             e.printStackTrace();
         }
 
-        // Create an execute an SQL statement to select all of table"Stars" records
+        // Create an execute an SQL statement to select all of table tracks records
         Statement select = connection.createStatement();
         String query = "SELECT * FROM track LIMIT " + Integer.toString(limit);
         ResultSet result = select.executeQuery(query);

@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "rm ../web/precache-manifest.* && cp -r build/* ../web/"
   },
   "eslintConfig": {
     "extends": "react-app"
