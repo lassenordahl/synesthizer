@@ -3,8 +3,10 @@ import json
 import random
 import ssl
 import shutil
-from randomuser import RandomUser
-from randomwordgenerator import randomwordgenerator
+# from randomuser import RandomUser
+# from randomwordgenerator import randomwordgenerator
+
+# Needed to comment the above out because I was getting an import error
 
 SONG_IDS_FILENAME = 'collected_data/song_ids.txt'
 SONG_DETAILS_FILENAME = 'collected_data/track_details.json'
@@ -231,49 +233,70 @@ def get_genre_to_artist_columns(a):
         cols.append(a.get('genres', []))
     return cols
 
+def get_album_names():
+    album_id_album_tuples = []
+    with open('collected_data/track_details.json') as track_details_file:
+        items = json.load(track_details_file)
+        for track in items['track_details']:
+            # print(track)
+            # break
+            album_id_album_tuples.append((track['album']['id'], track['album']['name']))
+        print(album_id_album_tuples)
+    return album_id_album_tuples
+
+
+def add_album_names_to_sql_file(album_id_album_tuples):
+    with open('sql_creation/CreationInsertionAlbumFix.sql', 'a') as sql_file:
+        sql_file.write('\nALTER TABLE album ADD name VARCHAR(150);' + '\n')
+        for album_id, album_name in album_id_album_tuples:
+            sql_file.write('UPDATE album SET name = "' + album_name.replace('"', '')[:150] + '" WHERE id = "' + album_id + '";\n')
+
+    
 
 if __name__ == '__main__':
 
-    if CREATION_INSERTION_FILE:
-        shutil.copyfile(os.path.dirname(__file__) +
-                        CREATE_TABLES_FILE, 'sql_creation/{}.sql'.format(CREATION_INSERTION_FILE))
+    add_album_names_to_sql_file(get_album_names())
 
-    try:
-        _create_unverified_https_context = ssl._create_unverified_context
-    except AttributeError:
-        pass
-    else:
-        ssl._create_default_https_context = _create_unverified_https_context
+    # if CREATION_INSERTION_FILE:
+    #     shutil.copyfile(os.path.dirname(__file__) +
+    #                     CREATE_TABLES_FILE, 'sql_creation/{}.sql'.format(CREATION_INSERTION_FILE))
 
-    one_to_one_tables = [
-        (TRACK_INFO_FILENAME, 'track_information',
-         'track_meta', get_track_meta_columns),
-        (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
-        (ALBUM_DATA_FILENAME, 'album_details', 'album', get_album_columns),
-        (ARTIST_DATA_FILENAME, 'artist_details', 'artist', get_artist_columns),
-        (SONG_DETAILS_FILENAME, 'track_details',
-         'track_in_album', get_track_to_album_columns)
-    ]
+    # try:
+    #     _create_unverified_https_context = ssl._create_unverified_context
+    # except AttributeError:
+    #     pass
+    # else:
+    #     ssl._create_default_https_context = _create_unverified_https_context
 
-    many_to_many_tables = [
-        (SONG_DETAILS_FILENAME, 'track_details',
-         'artist_in_track', get_artist_to_track_columns),
-        (ALBUM_DATA_FILENAME, 'album_details',
-         'artist_in_album', get_artist_to_album_columns),
-        (ALBUM_DATA_FILENAME, 'album_details',
-         'album_in_genre', get_genre_to_album_columns),
-        (ARTIST_DATA_FILENAME, 'artist_details',
-         'artist_in_genre', get_genre_to_artist_columns)
-    ]
+    # one_to_one_tables = [
+    #     (TRACK_INFO_FILENAME, 'track_information',
+    #      'track_meta', get_track_meta_columns),
+    #     (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
+    #     (ALBUM_DATA_FILENAME, 'album_details', 'album', get_album_columns),
+    #     (ARTIST_DATA_FILENAME, 'artist_details', 'artist', get_artist_columns),
+    #     (SONG_DETAILS_FILENAME, 'track_details',
+    #      'track_in_album', get_track_to_album_columns)
+    # ]
 
-    # create one to one tables
-    for table in one_to_one_tables:
-        create_table(*table)
+    # many_to_many_tables = [
+    #     (SONG_DETAILS_FILENAME, 'track_details',
+    #      'artist_in_track', get_artist_to_track_columns),
+    #     (ALBUM_DATA_FILENAME, 'album_details',
+    #      'artist_in_album', get_artist_to_album_columns),
+    #     (ALBUM_DATA_FILENAME, 'album_details',
+    #      'album_in_genre', get_genre_to_album_columns),
+    #     (ARTIST_DATA_FILENAME, 'artist_details',
+    #      'artist_in_genre', get_genre_to_artist_columns)
+    # ]
 
-    # create many to many tables
-    for table in many_to_many_tables:
-        create_table_many_many(*table)
+    # # create one to one tables
+    # for table in one_to_one_tables:
+    #     create_table(*table)
 
-    # create fake users
-    create_fake_user_data('user_data', USER_COUNT,
-                          PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
+    # # create many to many tables
+    # for table in many_to_many_tables:
+    #     create_table_many_many(*table)
+
+    # # create fake users
+    # create_fake_user_data('user_data', USER_COUNT,
+    #                       PLAYLIST_COUNT, SONGS_IN_PLAYLIST)

@@ -10,7 +10,7 @@ function AlbumCard(props) {
           { props.skeletonPulse === undefined ? 
             <img
               alt="album art"
-              src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/12/attachment_68585523.jpg"
+              src={props.album.image}
             ></img> :
             <SkeletonPulse></SkeletonPulse> 
           }
@@ -18,19 +18,19 @@ function AlbumCard(props) {
         <div className="album-card-info">
           <h2>
             { props.skeletonPulse === undefined ? 
-              "Blinding Lights" :
+              props.album.name :
               <SkeletonPulse style={{width: "128px", height: "24px"}}/>
             }
           </h2>
           <p>
           { props.skeletonPulse === undefined ? 
-              "The Weeknd - After Hours" :
+              props.album.artist_name :
               <SkeletonPulse style={{width: "200px", height: "20px"}}/>
             }
           </p>
           <p className="subtitle">
             { props.skeletonPulse === undefined ? 
-              "Playlist Count: 18" :
+              "Release Date: " + props.album.release_date :
               <SkeletonPulse style={{width: "81px", height: "12px"}}/>
             }
           </p>
