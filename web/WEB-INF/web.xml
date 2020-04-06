@@ -13,6 +13,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>TrackServlet</servlet-name>
-        <url-pattern>/tracks</url-pattern>
+        <url-pattern>/api/tracks</url-pattern>
     </servlet-mapping>
 </web-app>

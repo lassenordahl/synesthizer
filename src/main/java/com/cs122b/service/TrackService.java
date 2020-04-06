@@ -23,8 +23,8 @@ public class TrackService implements Config {
         // Connect to the test database
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:" + Config.dbtype + ":///" + Config.dbname + "?autoReconnect=true&useSSL=false",
-                    Config.username, Config.password);
+            connection = DriverManager.getConnection("jdbc:" + Config.dbtype + ":///" + Config.dbname + "?autoReconnect=true",
+                    Config.username, Config.password); // &useSSL=false
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -43,6 +43,9 @@ public class TrackService implements Config {
             tracks.add(track);
         }
 
+        select.close();
+        result.close();
+        connection.close();
 
         return tracks;
     }
