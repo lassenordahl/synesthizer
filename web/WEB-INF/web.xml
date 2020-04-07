@@ -28,6 +28,14 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>TrackServlet</servlet-name>
+        <url-pattern>/api/track</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TracksServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TracksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TracksServlet</servlet-name>
         <url-pattern>/api/tracks</url-pattern>
     </servlet-mapping>
 
