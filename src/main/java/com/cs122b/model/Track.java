@@ -28,9 +28,10 @@ public class Track {
     // Track_to_artist
     private ArrayList<Artist> artists;
 
-    public Track() {
-        this.artists = new ArrayList<Artist>();
-    }
+    // Track_to_album
+    private Album album;
+
+    public Track() {}
 
     public String getId() {
         return id;
@@ -193,6 +194,17 @@ public class Track {
     }
 
     public void addArtists(Artist artist) {
+        if (this.artists == null) {
+            this.artists = new ArrayList<Artist>();
+        }
         this.artists.add(artist);
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }

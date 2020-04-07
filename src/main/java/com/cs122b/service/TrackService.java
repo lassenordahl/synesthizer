@@ -3,6 +3,7 @@ package com.cs122b.service;
 import com.cs122b.client.Config;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
+import com.cs122b.model.Album;
 import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
 
@@ -12,9 +13,9 @@ import java.util.List;
 
 public class TrackService implements Config {
 
-    public static SQLClient db;
+    private static SQLClient db;
 
-    public static void setTrackAttrs(Track track, ResultSet query) throws SQLException {
+    private static void setTrackAttrs(Track track, ResultSet query) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));
@@ -46,8 +47,21 @@ public class TrackService implements Config {
 
             track.addArtists(artist);
         }
-
         queryArtist.closeQuery();
+
+        Query queryAlbum = db.query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \"" + track.getId() + "\"");
+
+        ResultSet albumResult = queryAlbum.getResult();
+        albumResult.next();
+
+        track.setAlbum(new Album(albumResult.getString("id"),
+                albumResult.getString("name"),
+                albumResult.getString("album_type"),
+                albumResult.getString("image"),
+                albumResult.getString("release_date"),
+                null));
+
+        queryAlbum.closeQuery();
     }
 
     public static List<Track> fetchTracks(int offset, int limit, String sortBy) throws SQLException {

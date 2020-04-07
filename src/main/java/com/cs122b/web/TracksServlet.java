@@ -41,9 +41,14 @@ public class TracksServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String tracksResponse = this.gson.toJson(tracks);
-
         PrintWriter out = response.getWriter();
-        out.print("{ \"songs\": " + tracksResponse + " }");
+
+        if (tracks.size() > 0) {
+            String tracksResponse = this.gson.toJson(tracks);
+            out.print("{ \"songs\": " + tracksResponse + " }");
+        } else {
+            response.setStatus(404);
+            out.print("{ \"message\": \"resource not found\"}");
+        }
     }
 }
