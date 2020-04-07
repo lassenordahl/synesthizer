@@ -17,6 +17,7 @@
             <param-value>*</param-value>
         </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>CorsFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -30,6 +31,7 @@
         <servlet-name>TrackServlet</servlet-name>
         <url-pattern>/api/track</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>TracksServlet</servlet-name>
         <servlet-class>com.cs122b.web.TracksServlet</servlet-class>
@@ -40,12 +42,22 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AlbumsServlet</servlet-name>
-        <servlet-class>com.cs122b.web.AlbumsServlet</servlet-class>
+        <servlet-name>ArtistServlet</servlet-name>
+        <servlet-class>com.cs122b.web.ArtistServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AlbumsServlet</servlet-name>
-        <url-pattern>/api/albums</url-pattern>
+        <servlet-name>ArtistServlet</servlet-name>
+        <url-pattern>/api/artist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArtistsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.ArtistsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ArtistsServlet</servlet-name>
+        <url-pattern>/api/artists</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -55,6 +67,15 @@
     <servlet-mapping>
         <servlet-name>AlbumServlet</servlet-name>
         <url-pattern>/api/album/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.AlbumsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <url-pattern>/api/albums</url-pattern>
     </servlet-mapping>
 
 

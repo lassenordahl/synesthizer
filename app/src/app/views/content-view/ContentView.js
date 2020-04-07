@@ -27,13 +27,19 @@ function ContentView({ props, match }) {
   // Data Array
   const [albums, setAlbums] = useState([]);
 
-  const [songs, setSongs] = useState(null);
+  const [artists, setArtists] = useState([]);
+
+  const [songs, setSongs] = useState([]);
 
   useEffect(() => {
     if (match.params.contentType === "albums") {
       getAlbums();
+    } else if (match.params.contentType === "artists") {
+      getArtists();
+    } else if (match.params.contentType === "songs") {
+      getSongs();
     }
-  }, []);
+  }, [match.params.contentType]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -49,18 +55,51 @@ function ContentView({ props, match }) {
   }, [willRedirectArtist, willRedirectAlbum, willRedirectSong]);
 
   useEffect(() => {
-    if (selectedCardId !== null) {
+    if (selectedCardId === null) {
+      return;
+    }
+
+    if (match.params.contentType === "albums") {
+      redirectAlbum(true);
+    } else if (match.params.contentType === "artists") {
+      redirectArtist(true);
+    } else if (match.params.contentType === "songs") {
       redirectSong(true);
     }
   }, [selectedCardId]);
 
   function getAlbums() {
-    axios.get(api.albums)
-      .then(function(response) {
+    axios
+      .get(api.albums)
+      .then(function (response) {
         console.log(response);
-        setAlbums(response.data);
+        setTimeout(() => setAlbums(response.data), 1000);
       })
-      .catch(function(error) {
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function getArtists() {
+    axios
+      .get(api.artists)
+      .then(function (response) {
+        console.log(response);
+        setTimeout(() => setArtists(response.data.artists), 1000);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  function getSongs() {
+    axios
+      .get(api.songs)
+      .then(function (response) {
+        console.log(response);
+        setTimeout(() => setSongs(response.data.songs), 1000);
+      })
+      .catch(function (error) {
         console.error(error);
       });
   }
@@ -71,37 +110,47 @@ function ContentView({ props, match }) {
 
   function renderContentCards() {
     if (match.params.contentType === "songs") {
-      return [1, 2, 3, 4, 5, 6].map(function (item, index) {
+      return (songs.length > 0 ? songs : [1, 2, 3, 4, 5, 6]).map(function (
+        song,
+        index
+      ) {
         return (
           <SongCard
-            song={item}
+            song={song}
             key={index}
             style={{ margin: "32px" }}
-            onClick={() => selectCard(item)}
-            skeletonPulse
+            onClick={() => selectCard(song.id)}
+            skeletonPulse={songs.length > 0 ? undefined : true}
           ></SongCard>
         );
       });
     } else if (match.params.contentType === "albums") {
-      return albums.map(function (album, index) {
+      return (albums.length > 0 ? albums : [1, 2, 3, 4, 5, 6]).map(function (
+        album,
+        index
+      ) {
         return (
           <AlbumCard
             album={album}
             key={index}
             style={{ margin: "32px" }}
             onClick={() => selectCard(album.id)}
+            skeletonPulse={albums.length > 0 ? undefined : true}
           ></AlbumCard>
         );
       });
     } else if (match.params.contentType === "artists") {
-      return [1, 2, 3, 4, 5, 6].map(function (item, index) {
+      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6]).map(function (
+        artist,
+        index
+      ) {
         return (
           <ArtistCard
-            artist={item}
+            artist={artist}
             key={index}
             style={{ margin: "32px" }}
-            onClick={() => selectCard(item)}
-            skeletonPulse
+            onClick={() => selectCard(artist.id)}
+            skeletonPulse={artists.length > 0 ? undefined : true}
           ></ArtistCard>
         );
       });
@@ -112,8 +161,14 @@ function ContentView({ props, match }) {
 
   return (
     <div className="content-view">
-      {willRedirectSong ? (
+      {willRedirectAlbum ? (
         <Redirect push to={"/app/albums/" + selectedCardId}></Redirect>
+      ) : null}
+      {willRedirectArtist ? (
+        <Redirect push to={"/app/artist/" + selectedCardId}></Redirect>
+      ) : null}
+      {willRedirectSong ? (
+        <Redirect push to={"/app/song/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
         <div className="content-view-search">
