@@ -5,5 +5,6 @@ let baseUrl = "http://localhost:8080/unnamed/api";
 // let baseUrl = "http://home-tippers.ics.uci.edu/api";
 
 export default {
-  albums: baseUrl + "/albums"
+  albums: baseUrl + "/albums",
+  album: baseUrl + "/album"
 }

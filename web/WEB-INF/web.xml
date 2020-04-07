@@ -32,12 +32,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.AlbumsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <url-pattern>/api/albums</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AlbumServlet</servlet-name>
         <servlet-class>com.cs122b.web.AlbumServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AlbumServlet</servlet-name>
-        <url-pattern>/api/albums</url-pattern>
+        <url-pattern>/api/album/*</url-pattern>
     </servlet-mapping>
+
+
+
 
 </web-app>

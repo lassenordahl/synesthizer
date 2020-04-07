@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "TrackServlet", urlPatterns = {"/albums"})
-public class AlbumServlet extends HttpServlet {
+public class AlbumsServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     @Override
@@ -24,17 +25,14 @@ public class AlbumServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        String albumId = request.getParameter("id");
-
-        Album album = null;
-
+        List<Album> albums = null;
         try {
-            album = AlbumService.fetchAlbum(albumId);
+            albums = AlbumService.fetchAlbums(0, 20);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String tracksResponse = this.gson.toJson(album);
+        String tracksResponse = this.gson.toJson(albums);
 
         PrintWriter out = response.getWriter();
         out.print(tracksResponse);
