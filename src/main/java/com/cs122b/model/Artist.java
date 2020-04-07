@@ -11,7 +11,8 @@ public class Artist {
     // Artist in album
     private ArrayList<Album> albums;
 
-    public Artist() {}
+    public Artist() {
+    }
 
     public String getId() {
         return id;

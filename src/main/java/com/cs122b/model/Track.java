@@ -2,6 +2,7 @@ package com.cs122b.model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
 public class Track {
     // Track
     private String id;
@@ -31,7 +32,8 @@ public class Track {
     // Track_to_album
     private Album album;
 
-    public Track() {}
+    public Track() {
+    }
 
     public String getId() {
         return id;

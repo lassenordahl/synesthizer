@@ -36,10 +36,12 @@ public class TrackService implements Config {
         track.setType(query.getString("type"));
         track.setValence(query.getFloat("valence"));
 
-        Query queryArtist = db.query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \"" + track.getId() + "\"");
+        Query queryArtist = db
+                .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
+                        + track.getId() + "\"");
         ResultSet artistsResult = queryArtist.getResult();
 
-        while(artistsResult.next()) {
+        while (artistsResult.next()) {
             Artist artist = new Artist();
             artist.setId(artistsResult.getString("id"));
             artist.setName(artistsResult.getString("name"));
@@ -49,17 +51,16 @@ public class TrackService implements Config {
         }
         queryArtist.closeQuery();
 
-        Query queryAlbum = db.query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \"" + track.getId() + "\"");
+        Query queryAlbum = db
+                .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \""
+                        + track.getId() + "\"");
 
         ResultSet albumResult = queryAlbum.getResult();
         albumResult.next();
 
-        track.setAlbum(new Album(albumResult.getString("id"),
-                albumResult.getString("name"),
-                albumResult.getString("album_type"),
-                albumResult.getString("image"),
-                albumResult.getString("release_date"),
-                null));
+        track.setAlbum(new Album(albumResult.getString("id"), albumResult.getString("name"),
+                albumResult.getString("album_type"), albumResult.getString("image"),
+                albumResult.getString("release_date"), null));
 
         queryAlbum.closeQuery();
     }
@@ -69,8 +70,8 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM track NATURAL JOIN track_meta ORDER BY " + sortBy +
-                                            " LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+        Query query = db.query("SELECT * FROM track NATURAL JOIN track_meta ORDER BY " + sortBy + " LIMIT "
+                + Integer.toString(offset) + "," + Integer.toString(limit));
 
         List<Track> tracks = new ArrayList<Track>();
         ResultSet result = query.getResult();
@@ -80,7 +81,6 @@ public class TrackService implements Config {
             tracks.add(track);
         }
         query.closeQuery();
-
 
         db.closeConnection();
         return tracks;

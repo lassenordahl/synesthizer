@@ -16,7 +16,7 @@ import java.util.List;
 
 import static com.cs122b.service.TrackService.*;
 
-@WebServlet(name = "TrackServlet", urlPatterns = {"/tracks"})
+@WebServlet(name = "TrackServlet", urlPatterns = { "/tracks" })
 public class TracksServlet extends HttpServlet {
     private Gson gson = new Gson();
 
