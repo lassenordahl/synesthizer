@@ -1,4 +1,4 @@
-package com.cs122b;
+package com.cs122b.client;
 
 public interface Config {
     String dbtype = "mysql";

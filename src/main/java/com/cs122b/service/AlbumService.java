@@ -1,6 +1,6 @@
 package com.cs122b.service;
 
-import com.cs122b.Config;
+import com.cs122b.client.Config;
 import com.cs122b.model.Album;
 
 import java.sql.*;

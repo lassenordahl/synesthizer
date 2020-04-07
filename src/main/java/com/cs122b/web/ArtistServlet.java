@@ -1,6 +1,6 @@
 package com.cs122b.web;
 
-import com.cs122b.model.Track;
+import com.cs122b.model.Artist;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import static com.cs122b.service.TrackService.fetchTrack;
+import static com.cs122b.service.ArtistService.fetchArtist;
 
-@WebServlet(name = "TrackServlet", urlPatterns = { "/track" })
-public class TrackServlet extends HttpServlet {
+@WebServlet(name = "ArtistServlet", urlPatterns = { "/artist" })
+public class ArtistServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     @Override
@@ -24,21 +24,21 @@ public class TrackServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        Track track = null;
+        Artist artist = null;
         try {
-            track = fetchTrack(request.getParameter("id"));
+            artist = fetchArtist(request.getParameter("id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         PrintWriter out = response.getWriter();
 
-        if (track == null) {
+        if (artist == null) {
             response.setStatus(404);
             out.print("{ \"message\": \"resource not found\"}");
         } else {
-            String trackResponse = this.gson.toJson(track);
-            out.print("{ \"song\": " + trackResponse + " }");
+            String artistResponse = this.gson.toJson(artist);
+            out.print("{ \"artist\": " + artistResponse + " }");
         }
     }
 
