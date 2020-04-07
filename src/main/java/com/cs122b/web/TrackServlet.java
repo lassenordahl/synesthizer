@@ -25,7 +25,6 @@ public class TrackServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-
         List<Track> tracks = null;
         try {
             tracks = TrackService.fetchTracks(0, 20);

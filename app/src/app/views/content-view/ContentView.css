@@ -24,7 +24,7 @@
 .content-view-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .content-view-filter-wrapper {
