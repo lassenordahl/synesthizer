@@ -6,6 +6,7 @@ let baseUrl = "http://localhost:8080/unnamed/api";
 export default {
   albums: baseUrl + "/albums",
   album: baseUrl + "/album",
+  tracksForAlbum: baseUrl + "/albums/tracks",
   artists: baseUrl + "/artists",
   artist: baseUrl + "/artist",
   songs: baseUrl + "/tracks",

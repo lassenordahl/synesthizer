@@ -18,13 +18,11 @@ function ArtistCard(props) {
           )}
         </div>
         <div className="artist-card-info">
-          <h2>
-            {props.skeletonPulse === undefined ? (
-              props.artist.name
-            ) : (
-              <SkeletonPulse style={{ width: "128px", height: "24px" }} />
-            )}
-          </h2>
+          {props.skeletonPulse === undefined ? (
+            <h2>{props.artist.name}</h2>
+          ) : (
+            <SkeletonPulse style={{ width: "128px", height: "24px" }} />
+          )}
         </div>
       </div>
     </div>

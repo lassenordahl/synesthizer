@@ -35,7 +35,7 @@ public class TracksServlet extends HttpServlet {
         List<Track> tracks = null;
         try {
             tracks = fetchTracks(offset != null ? Integer.parseInt(offset):  0,
-                                        limit != null ? Integer.parseInt(limit) : 20,
+                                        limit != null ? Integer.parseInt(limit) : 30,
                                         sortBy != null ? sortBy : "name");
         } catch (SQLException e) {
             e.printStackTrace();

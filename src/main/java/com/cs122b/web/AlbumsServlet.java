@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "TrackServlet", urlPatterns = {"/albums"})
+@WebServlet(name = "AlbumsServlet", urlPatterns = {"/albums"})
 public class AlbumsServlet extends HttpServlet {
     private Gson gson = new Gson();
 
@@ -27,7 +27,7 @@ public class AlbumsServlet extends HttpServlet {
 
         List<Album> albums = null;
         try {
-            albums = AlbumService.fetchAlbums(0, 20);
+            albums = AlbumService.fetchAlbums(0, 30);
         } catch (SQLException e) {
             e.printStackTrace();
         }

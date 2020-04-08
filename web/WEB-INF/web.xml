@@ -61,15 +61,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AlbumServlet</servlet-name>
-        <servlet-class>com.cs122b.web.AlbumServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AlbumServlet</servlet-name>
-        <url-pattern>/api/album/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AlbumsServlet</servlet-name>
         <servlet-class>com.cs122b.web.AlbumsServlet</servlet-class>
     </servlet>
@@ -78,7 +69,22 @@
         <url-pattern>/api/albums</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.AlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbumServlet</servlet-name>
+        <url-pattern>/api/album</url-pattern>
+    </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>TracksForAlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TracksForAlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TracksForAlbumServlet</servlet-name>
+        <url-pattern>/api/albums/tracks</url-pattern>
+    </servlet-mapping>
 
 </web-app>

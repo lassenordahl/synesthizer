@@ -1,6 +1,6 @@
 package com.cs122b.web;
 
-import com.cs122b.model.Album;
+import com.cs122b.model.TrackForAlbum;
 import com.cs122b.service.AlbumService;
 import com.google.gson.Gson;
 
@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
-@WebServlet(name = "AlbumServlet", urlPatterns = {"/albums"})
-public class AlbumServlet extends HttpServlet {
+@WebServlet(name = "TracksForAlbumServlet", urlPatterns = {"/albums"})
+public class TracksForAlbumServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     @Override
@@ -26,15 +27,15 @@ public class AlbumServlet extends HttpServlet {
 
         String albumId = request.getParameter("id");
 
-        Album album = null;
+        List<TrackForAlbum> tracksForAlbum = null;
 
         try {
-            album = AlbumService.fetchAlbum(albumId);
+            tracksForAlbum = AlbumService.fetchTracksForAlbum(albumId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String tracksResponse = this.gson.toJson(album);
+        String tracksResponse = this.gson.toJson(tracksForAlbum);
 
         PrintWriter out = response.getWriter();
         out.print(tracksResponse);
