@@ -110,7 +110,7 @@ function ContentView({ props, match }) {
 
   function renderContentCards() {
     if (match.params.contentType === "songs") {
-      return (songs.length > 0 ? songs : [1, 2, 3, 4, 5, 6]).map(function (
+      return (songs.length > 0 ? songs : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
         song,
         index
       ) {
@@ -125,7 +125,7 @@ function ContentView({ props, match }) {
         );
       });
     } else if (match.params.contentType === "albums") {
-      return (albums.length > 0 ? albums : [1, 2, 3, 4, 5, 6]).map(function (
+      return (albums.length > 0 ? albums : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
         album,
         index
       ) {
@@ -181,7 +181,7 @@ function ContentView({ props, match }) {
             className="content-view-filter"
             innerStyle={{
               display: "flex",
-              "flex-direction": "row",
+              flexDirection: "row",
               margin: "8px 24px 8px 24px",
             }}
           >
@@ -200,7 +200,7 @@ function ContentView({ props, match }) {
             className="content-view-filter"
             innerStyle={{
               display: "flex",
-              "flex-direction": "row",
+              flexDirection: "row",
               margin: "8px 24px 8px 24px",
             }}
           >

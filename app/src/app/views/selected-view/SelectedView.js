@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
 import "./SelectedView.css";
 
+import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 import api from "../../../api";
@@ -17,6 +16,7 @@ function SelectedView({ props, match }) {
   const [song, setSong] = useState(null);
   const [artist, setArtist] = useState(null);
   const [album, setAlbum] = useState(null);
+  const [tracksForAlbum, setTracksForAlbum] = useState([]);
 
   useEffect(() => {
     if (match.params.contentType === "song") {
@@ -25,6 +25,7 @@ function SelectedView({ props, match }) {
       getArtist();
     } else if (match.params.contentType === "album") {
       getAlbum();
+      getTracksForAlbum();
     }
   }, []);
 
@@ -81,6 +82,22 @@ function SelectedView({ props, match }) {
     } else if (match.params.contentType === "album") {
       return <AlbumSelection album={album} />;
     }
+  }
+
+  function getTracksForAlbum() {
+    axios
+      .get(api.tracksForAlbum, {
+        params: {
+          id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        // setAlbum(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
 
   return (

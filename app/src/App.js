@@ -53,6 +53,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Redirect from="/" to="/landing"/>
       </BrowserRouter>
     </div>
   );
