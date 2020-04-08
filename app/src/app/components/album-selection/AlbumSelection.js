@@ -4,13 +4,12 @@ import "./AlbumSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 function AlbumSelection(props) {
-  const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowDetails(true);
-    }, 500);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setShowDetails(true);
+  //   }, 500);
+  // }, []);
 
   return (
     <React.Fragment>
@@ -46,7 +45,7 @@ function AlbumSelection(props) {
           </p>
         </div>
       </div>
-      {showDetails ? (
+      {/* {showDetails ? (
         <div className="selected-view-extra-info">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (item, index) {
             return (
@@ -64,7 +63,7 @@ function AlbumSelection(props) {
             );
           })}
         </div>
-      ) : null}
+      ) : null} */}
     </React.Fragment>
   );
 }

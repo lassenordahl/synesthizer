@@ -51,9 +51,9 @@ function App() {
               ></Route>
               <Footer />
             </Route>
+            <Redirect exact from="/" to="/landing"/>
           </Switch>
         </div>
-        <Redirect from="/" to="/landing"/>
       </BrowserRouter>
     </div>
   );
