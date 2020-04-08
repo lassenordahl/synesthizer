@@ -119,7 +119,10 @@ function ContentView({ props, match }) {
             song={song}
             key={index}
             style={{ margin: "32px" }}
-            onClick={() => selectCard(song.id)}
+            onClick={() => {
+              if (songs.length > 0)
+                selectCard(song.id)
+            }}
             skeletonPulse={songs.length > 0 ? undefined : true}
           ></SongCard>
         );
@@ -134,7 +137,10 @@ function ContentView({ props, match }) {
             album={album}
             key={index}
             style={{ margin: "32px" }}
-            onClick={() => selectCard(album.id)}
+            onClick={() => {
+              if (albums.length > 0)
+                selectCard(album.id)
+            }}
             skeletonPulse={albums.length > 0 ? undefined : true}
           ></AlbumCard>
         );
@@ -149,7 +155,10 @@ function ContentView({ props, match }) {
             artist={artist}
             key={index}
             style={{ margin: "32px" }}
-            onClick={() => selectCard(artist.id)}
+            onClick={() => {
+              if (artists.length > 0)
+                selectCard(artist.id)
+            }}
             skeletonPulse={artists.length > 0 ? undefined : true}
           ></ArtistCard>
         );
