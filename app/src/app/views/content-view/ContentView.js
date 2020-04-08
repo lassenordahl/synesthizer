@@ -162,7 +162,7 @@ function ContentView({ props, match }) {
   return (
     <div className="content-view">
       {willRedirectAlbum ? (
-        <Redirect push to={"/app/albums/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/album/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectArtist ? (
         <Redirect push to={"/app/artist/" + selectedCardId}></Redirect>
