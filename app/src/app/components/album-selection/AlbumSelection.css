@@ -1,0 +1,53 @@
+.selected-view-card-expanded {
+    height: 372px;
+}
+
+.selected-view-album-art {
+    width: 160px;
+    height: 160px;
+    margin: 24px;
+    border-radius: 10px;
+}
+
+.selected-view-album-art img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.selected-view-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    flex: 1 1;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.selected-view-main-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.selected-view-extra-info {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 1px;
+    /* Needs to have a bounded height or it doesn't flex to fit container (weird) */
+}
+
+.selected-view-details h2 {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-view-details p {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-view-card-open {
+    height: 360px;
+}

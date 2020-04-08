@@ -1,34 +1,62 @@
 import React, { useState, useEffect } from "react";
-import "./SelectedView.css";
-
 import axios from "axios";
 
-import { SkeletonPulse } from "../../components";
+import "./SelectedView.css";
 
-import api from "api.js";
+import { Redirect } from "react-router-dom";
+
+import api from "../../../api";
+import { Selection } from "../../containers";
+import {
+  SongSelection,
+  ArtistSelection,
+  AlbumSelection,
+} from "../../components";
 
 function SelectedView({ props, match }) {
-  const [expandCard, setExpandCard] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-
+  const [song, setSong] = useState(null);
+  const [artist, setArtist] = useState(null);
   const [album, setAlbum] = useState(null);
 
   useEffect(() => {
-    if (match.params.contentType === "albums") {
+    if (match.params.contentType === "song") {
+      getSong();
+    } else if (match.params.contentType === "artist") {
+      getArtist();
+    } else if (match.params.contentType === "album") {
       getAlbum();
     }
   }, []);
 
-  // Expand the card after the API request is made for the content
-  useEffect(() => {
-    setTimeout(() => {
-      setExpandCard(true);
+  function getSong() {
+    axios
+      .get(api.song, {
+        params: {
+          id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        setSong(response.data.song);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
 
-      setTimeout(() => {
-        setShowDetails(true);
-      }, 500);
-    }, 250);
-  }, []);
+  function getArtist() {
+    axios
+      .get(api.artist, {
+        params: {
+          id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        setArtist(response.data.artist);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
 
   function getAlbum() {
     axios
@@ -38,85 +66,26 @@ function SelectedView({ props, match }) {
         },
       })
       .then(function (response) {
-        console.log(response);
-        setAlbum(response.data);
+        setTimeout(() => setAlbum(response.data), 2000);
       })
       .catch(function (error) {
         console.error(error);
       });
   }
 
-  function renderCard() {
-    if (match.params.contentType === "albums") {
-      return (
-        <div className="selected-view-song-info">
-          <div className="selected-view-main-info">
-            <div className="selected-view-album-art">
-              {album !== null ? (
-                <img alt="album art" src={album.image} />
-              ) : (
-                <SkeletonPulse></SkeletonPulse>
-              )}
-            </div>
-            <div className="selected-view-details">
-              <h2>
-                {album !== null ? (
-                  album.name
-                ) : (
-                  <SkeletonPulse style={{ width: "160px", height: "24px" }} />
-                )}
-              </h2>
-              <p>
-                {album !== null ? (
-                  album.artist_name
-                ) : (
-                  <SkeletonPulse style={{ width: "256px", height: "24px" }} />
-                )}
-              </p>
-              <p>
-                {album !== null ? (
-                  "Release Date: " + album.release_date
-                ) : (
-                  <SkeletonPulse style={{ width: "128px", height: "24px" }} />
-                )}
-              </p>
-            </div>
-          </div>
-          {showDetails ? (
-            <div className="selected-view-extra-info">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (item, index) {
-                return (
-                  <div
-                    className={"fade-in"}
-                    style={{
-                      height: "20px",
-                      width: "110px",
-                      margin: "24px 0px 0px 24px",
-                      animationDelay: index / 6 + "s",
-                    }}
-                  >
-                    <SkeletonPulse></SkeletonPulse>
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
-      );
+  function renderSelection() {
+    if (match.params.contentType === "song") {
+      return <SongSelection song={song} />;
+    } else if (match.params.contentType === "artist") {
+      return <ArtistSelection artist={artist} />;
+    } else if (match.params.contentType === "album") {
+      return <AlbumSelection album={album} />;
     }
-    return null;
   }
 
   return (
-    <div className="selected-view">
-      <div
-        className={
-          "selected-view-card" +
-          (expandCard ? " selected-view-card-expanded" : "")
-        }
-      >
-        {renderCard()}
-      </div>
+    <div>
+      <Selection>{renderSelection()}</Selection>
     </div>
   );
 }

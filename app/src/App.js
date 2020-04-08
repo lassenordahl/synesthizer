@@ -34,8 +34,8 @@ function App() {
               </div>
               <div className="app-content-sidebar-route">
                 <Route path="/app/:contentType">
-                  {({match}) => {
-                    return <h2>{match.params.contentType}</h2>
+                  {({ match }) => {
+                    return <h2>{match.params.contentType}</h2>;
                   }}
                 </Route>
               </div>

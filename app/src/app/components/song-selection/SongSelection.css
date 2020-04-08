@@ -1,0 +1,62 @@
+.selected-song-song-art {
+    width: 160px;
+    height: 160px;
+    margin: 24px;
+    border-radius: 10px;
+}
+
+.selected-song-song-art img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.selected-song-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    flex: 1 1;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.selected-song-main-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.selected-song-extra-info {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 1px;
+    /* Needs to have a bounded height or it doesn't flex to fit container (weird) */
+}
+
+.selected-song-extra-info-item {
+    font-size: small;
+    height: 20px;
+    width: 150px;
+    margin: 24px 0px 0px 24px;
+}
+
+.selected-song-details h2 {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-song-details h3 {
+    margin-top: 0px;
+    margin-bottom: 12px;
+    font-size: small;
+}
+
+.selected-song-details p {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-song-card-open {
+    height: 360px;
+}
