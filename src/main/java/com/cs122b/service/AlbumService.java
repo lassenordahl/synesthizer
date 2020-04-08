@@ -1,13 +1,20 @@
 package com.cs122b.service;
 
 import com.cs122b.client.Config;
+import com.cs122b.client.Query;
+import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
+import com.cs122b.model.Track;
+import com.cs122b.model.TrackForAlbum;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumService implements Config {
+
+    private static SQLClient db;
+
     public static List<Album> fetchAlbums(int offset, int limit) throws SQLException {
         // Incorporate mySQL driver
         try {
@@ -97,5 +104,28 @@ public class AlbumService implements Config {
         connection.close();
 
         return album;
+    }
+
+    public static List<TrackForAlbum> fetchTracksForAlbum(String id) throws SQLException {
+
+        db = new SQLClient();
+
+        Query query = db.query("SELECT track.id, track.name, track_meta.duration_ms FROM album\n" +
+                "LEFT JOIN track_in_album ON track_in_album.album_id = album.id\n" +
+                "LEFT JOIN track ON track.id = track_in_album.track_id\n" +
+                "LEFT JOIN track_meta ON track_meta.id = track.id WHERE album.id = \"" + id + "\";");
+
+        List<TrackForAlbum> tracksForAlbum = new ArrayList<TrackForAlbum>();
+        ResultSet result = query.getResult();
+        while (result.next()) {
+            TrackForAlbum track = new TrackForAlbum(result.getString("id"),
+                    result.getString("name"),
+                    result.getInt("duration_ms"));
+            tracksForAlbum.add(track);
+        }
+        query.closeQuery();
+
+        db.closeConnection();
+        return tracksForAlbum;
     }
 }

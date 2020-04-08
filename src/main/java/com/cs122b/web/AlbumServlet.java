@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet(name = "TrackServlet", urlPatterns = {"/albums"})
+@WebServlet(name = "AlbumServlet", urlPatterns = {"/albums"})
 public class AlbumServlet extends HttpServlet {
     private Gson gson = new Gson();
 
