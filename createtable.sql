@@ -47,6 +47,7 @@ CREATE TABLE track (
 
 CREATE TABLE album (
     id VARCHAR(25) NOT NULL,
+    name VARCHAR(45) NOT NULL,
     album_type VARCHAR(25),
     image VARCHAR(200),
     release_date VARCHAR(40),
