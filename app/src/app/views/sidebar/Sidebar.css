@@ -13,6 +13,7 @@
 .sidebar a {
   color: white;
   outline: none;
+  height: 50px;
 }
 
 .sidebar-expanded {

@@ -8,7 +8,7 @@ function Card(props) {
         "card" +
         (props.willHover ? " card-hover" : "") +
         " " +
-        (props.className !== undefined ? props.className : "null")
+        (props.className !== undefined ? props.className : "")
       }
       style={props.style}
       onClick={() => (props.onClick !== undefined ? props.onClick() : null)}

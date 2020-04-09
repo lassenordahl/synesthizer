@@ -6,7 +6,7 @@ import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 function AlbumSelection(props) {
   return (
     <React.Fragment>
-      <div className="selected-view-main-info">
+      <div className="fade-in selected-view-main-info">
         <div className="selected-view-album-art">
           {props.album !== null ? (
             <img alt="album art" src={props.album.image} />

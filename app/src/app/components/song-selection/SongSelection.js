@@ -12,10 +12,11 @@ function SongSelection(props) {
 
   useEffect(() => {
     if (props.song !== null) {
-      setTimeout(() => {
-        setShowDetails(true);
-        setTimeout(() => setShowContent(true), 2000);
-      }, 500);
+      // setTimeout(() => {
+      setShowDetails(true);
+      setShowContent(true);
+        // setTimeout(() => setShowContent(true), 2000);
+      // }, 500);
     }
   }, [props.song]);
 
