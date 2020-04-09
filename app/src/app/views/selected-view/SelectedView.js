@@ -19,11 +19,11 @@ function SelectedView({ props, match }) {
   const [tracksForAlbum, setTracksForAlbum] = useState([]);
 
   useEffect(() => {
-    if (match.params.contentType === "song") {
+    if (match.params.contentType === "songs") {
       getSong();
-    } else if (match.params.contentType === "artist") {
+    } else if (match.params.contentType === "artists") {
       getArtist();
-    } else if (match.params.contentType === "album") {
+    } else if (match.params.contentType === "albums") {
       getAlbum();
       getTracksForAlbum();
     }
@@ -92,11 +92,11 @@ function SelectedView({ props, match }) {
   }
 
   function renderSelection() {
-    if (match.params.contentType === "song") {
+    if (match.params.contentType === "songs") {
       return <SongSelection song={song} />;
-    } else if (match.params.contentType === "artist") {
+    } else if (match.params.contentType === "artists") {
       return <ArtistSelection artist={artist} />;
-    } else if (match.params.contentType === "album") {
+    } else if (match.params.contentType === "albums") {
       return <AlbumSelection album={album} tracksForAlbum={tracksForAlbum} />;
     }
   }

@@ -1,7 +1,9 @@
 import React from "react";
 import "./SongCard.css";
-import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
+import { Link } from "react-router-dom";
+
+import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { isOverCardLimit } from "../../../global/helper";
 
 function SongCard(props) {
@@ -27,13 +29,16 @@ function SongCard(props) {
           )}
           <div className={isOverCardLimit(props.song.name) ? "shift-card-content": "no-shift-content"}>
           {props.skeletonPulse === undefined ? (
-            <p>
-              {props.song.artists.map(function (artist, index) {
-                return index < props.song.artists.length - 1
-                  ? artist.name + ", "
-                  : artist.name;
-              })}
-            </p>
+            <Link to={"/app/artists/" + props.song.artists[0].id} >
+              <p>
+                {props.song.artists.map(function (artist, index) {
+                  return index < props.song.artists.length - 1
+                    ? artist.name + ", "
+                    : artist.name;
+                })}
+              </p>
+            </Link>
+            
           ) : (
             <SkeletonPulse style={{ width: "200px", height: "20px", marginBottom: "8px" }} />
           )}

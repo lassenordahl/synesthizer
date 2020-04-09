@@ -171,13 +171,13 @@ function ContentView({ props, match }) {
   return (
     <div className="content-view">
       {willRedirectAlbum ? (
-        <Redirect push to={"/app/album/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/albums/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectArtist ? (
-        <Redirect push to={"/app/artist/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/artists/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectSong ? (
-        <Redirect push to={"/app/song/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/songs/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
         <div className="content-view-search">
