@@ -3,8 +3,8 @@ import json
 import random
 import ssl
 import shutil
-# from randomuser import RandomUser
-# from randomwordgenerator import randomwordgenerator
+from randomuser import RandomUser
+from randomwordgenerator import randomwordgenerator
 
 # Needed to comment the above out because I was getting an import error
 
@@ -169,6 +169,7 @@ def get_album_columns(a):
     cols = []
     if a:
         cols.append(a['id'])
+        cols.append(a['name'])
         cols.append(a['album_type'])
         cols.append(a['images'][0]['url'])
         cols.append(a['release_date'])
@@ -255,48 +256,48 @@ def add_album_names_to_sql_file(album_id_album_tuples):
 
 if __name__ == '__main__':
 
-    add_album_names_to_sql_file(get_album_names())
+    # add_album_names_to_sql_file(get_album_names())
 
-    # if CREATION_INSERTION_FILE:
-    #     shutil.copyfile(os.path.dirname(__file__) +
-    #                     CREATE_TABLES_FILE, 'sql_creation/{}.sql'.format(CREATION_INSERTION_FILE))
+    if CREATION_INSERTION_FILE:
+        shutil.copyfile(os.path.dirname(__file__) +
+                        CREATE_TABLES_FILE, 'sql_creation/{}.sql'.format(CREATION_INSERTION_FILE))
 
-    # try:
-    #     _create_unverified_https_context = ssl._create_unverified_context
-    # except AttributeError:
-    #     pass
-    # else:
-    #     ssl._create_default_https_context = _create_unverified_https_context
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
 
-    # one_to_one_tables = [
-    #     (TRACK_INFO_FILENAME, 'track_information',
-    #      'track_meta', get_track_meta_columns),
-    #     (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
-    #     (ALBUM_DATA_FILENAME, 'album_details', 'album', get_album_columns),
-    #     (ARTIST_DATA_FILENAME, 'artist_details', 'artist', get_artist_columns),
-    #     (SONG_DETAILS_FILENAME, 'track_details',
-    #      'track_in_album', get_track_to_album_columns)
-    # ]
+    one_to_one_tables = [
+        (TRACK_INFO_FILENAME, 'track_information',
+         'track_meta', get_track_meta_columns),
+        (SONG_DETAILS_FILENAME, 'track_details', 'track', get_track_columns),
+        (ALBUM_DATA_FILENAME, 'album_details', 'album', get_album_columns),
+        (ARTIST_DATA_FILENAME, 'artist_details', 'artist', get_artist_columns),
+        (SONG_DETAILS_FILENAME, 'track_details',
+         'track_in_album', get_track_to_album_columns)
+    ]
 
-    # many_to_many_tables = [
-    #     (SONG_DETAILS_FILENAME, 'track_details',
-    #      'artist_in_track', get_artist_to_track_columns),
-    #     (ALBUM_DATA_FILENAME, 'album_details',
-    #      'artist_in_album', get_artist_to_album_columns),
-    #     (ALBUM_DATA_FILENAME, 'album_details',
-    #      'album_in_genre', get_genre_to_album_columns),
-    #     (ARTIST_DATA_FILENAME, 'artist_details',
-    #      'artist_in_genre', get_genre_to_artist_columns)
-    # ]
+    many_to_many_tables = [
+        (SONG_DETAILS_FILENAME, 'track_details',
+         'artist_in_track', get_artist_to_track_columns),
+        (ALBUM_DATA_FILENAME, 'album_details',
+         'artist_in_album', get_artist_to_album_columns),
+        (ALBUM_DATA_FILENAME, 'album_details',
+         'album_in_genre', get_genre_to_album_columns),
+        (ARTIST_DATA_FILENAME, 'artist_details',
+         'artist_in_genre', get_genre_to_artist_columns)
+    ]
 
-    # # create one to one tables
-    # for table in one_to_one_tables:
-    #     create_table(*table)
+    # create one to one tables
+    for table in one_to_one_tables:
+        create_table(*table)
 
-    # # create many to many tables
-    # for table in many_to_many_tables:
-    #     create_table_many_many(*table)
+    # create many to many tables
+    for table in many_to_many_tables:
+        create_table_many_many(*table)
 
-    # # create fake users
-    # create_fake_user_data('user_data', USER_COUNT,
-    #                       PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
+    # create fake users
+    create_fake_user_data('user_data', USER_COUNT,
+                          PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
