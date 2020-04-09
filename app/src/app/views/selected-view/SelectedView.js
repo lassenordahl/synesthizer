@@ -27,7 +27,7 @@ function SelectedView({ props, match }) {
       getAlbum();
       getTracksForAlbum();
     }
-  }, []);
+  }, [match.params.contentType]);
 
   function getSong() {
     axios
@@ -102,7 +102,9 @@ function SelectedView({ props, match }) {
   }
 
   return (
-    <Selection>{renderSelection()}</Selection>
+    <div>
+      <Selection>{renderSelection()}</Selection>
+    </div>
   );
 }
 

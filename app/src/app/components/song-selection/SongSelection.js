@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./SongSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
@@ -56,7 +57,10 @@ function SongSelection(props) {
           </h2>
           <h3>
             {showContent ? (
-              <div className="fade-in">{`${props.song.album.name} (${props.song.album.release_date})`}</div>
+              <Link
+                to={`/app/album/${props.song.album.id}`}
+                className="fade-in"
+              >{`${props.song.album.name} (${props.song.album.release_date})`}</Link>
             ) : (
               <SkeletonPulse style={{ width: "160px", height: "24px" }} />
             )}
@@ -65,9 +69,13 @@ function SongSelection(props) {
             {showContent ? (
               <div className="fade-in">
                 {props.song.artists.map(function (artist, index) {
-                  return index < props.song.artists.length - 1
-                    ? artist.name + ", "
-                    : artist.name;
+                  return index < props.song.artists.length - 1 ? (
+                    <Link
+                      to={`/app/artist/${artist.id}`}
+                    >{`${artist.name}, `}</Link>
+                  ) : (
+                    <Link to={`/app/artist/${artist.id}`}>{artist.name}</Link>
+                  );
                 })}
               </div>
             ) : (

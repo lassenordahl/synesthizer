@@ -1,17 +1,17 @@
-.selected-view-song-art {
+.selected-artist-song-art {
     width: 160px;
     height: 160px;
     margin: 24px;
     border-radius: 10px;
 }
 
-.selected-view-song-art img {
+.selected-artist-song-art img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
 }
 
-.selected-view-details {
+.selected-artist-details {
     display: flex;
     flex-direction: column;
     margin-top: 32px;
@@ -20,44 +20,44 @@
     text-align: start;
 }
 
-.selected-view-main-info {
+.selected-artist-main-info {
     display: flex;
     flex-direction: row;
 }
 
-.selected-view-extra-info {
+.selected-artist-extra-info {
     display: flex;
     flex: 1 1;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     height: 1px;
     /* Needs to have a bounded height or it doesn't flex to fit container (weird) */
 }
 
-.selected-view-extra-info-item {
+.selected-artist-extra-info-item {
     font-size: small;
     height: 20px;
     width: 150px;
     margin: 24px 0px 0px 24px;
 }
 
-.selected-view-details h2 {
+.selected-artist-details h2 {
     margin: 0;
     margin-bottom: 12px;
 }
 
-.selected-view-details h3 {
+.selected-artist-details h3 {
     margin-top: 0px;
     margin-bottom: 12px;
     width: 170px;
-    font-size: x-small;
+    font-size: small;
 }
 
-.selected-view-details p {
+.selected-artist-details p {
     margin: 0;
     margin-bottom: 12px;
 }
 
-.selected-view-card-open {
+.selected-artist-card-open {
     height: 360px;
 }
