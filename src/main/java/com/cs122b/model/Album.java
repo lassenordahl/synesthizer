@@ -8,14 +8,16 @@ public class Album {
     private String image;
     private String release_date;
     private String artist_name;
+    private String artist_id;
 
-    public Album(String id, String name, String album_type, String image, String release_date, String artist_name) {
+    public Album(String id, String name, String album_type, String image, String release_date, String artist_name, String artist_id) {
         this.id = id;
         this.name = name;
         this.album_type = album_type;
         this.image = image;
         this.release_date = release_date;
         this.artist_name = artist_name;
+        this.artist_id = artist_id;
     }
 
     public String getId() {
@@ -64,5 +66,13 @@ public class Album {
 
     public void setArtist_name(String artist_name) {
         this.artist_name = artist_name;
+    }
+
+    public String getArtist_id() {
+        return artist_id;
+    }
+
+    public void setArtist_id(String artist_id) {
+        this.artist_id = artist_id;
     }
 }

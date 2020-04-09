@@ -60,7 +60,7 @@ public class TrackService implements Config {
 
         track.setAlbum(new Album(albumResult.getString("id"), albumResult.getString("name"),
                 albumResult.getString("album_type"), albumResult.getString("image"),
-                albumResult.getString("release_date"), null));
+                albumResult.getString("release_date"), null, null));
 
         queryAlbum.closeQuery();
     }

@@ -34,7 +34,8 @@ public class ArtistService {
                     albumResult.getString("album_type"),
                     albumResult.getString("image"),
                     albumResult.getString("release_date"),
-                    artist.getName()));
+                    artist.getName(),
+                    artist.getId()));
         }
         queryAlbums.closeQuery();
     }

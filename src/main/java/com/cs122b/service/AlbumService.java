@@ -38,7 +38,8 @@ public class AlbumService implements Config {
 
         // Create an execute an SQL statement to select all of table tracks records
         Statement select = connection.createStatement();
-        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, artist.name as artist_name FROM album\n" +
+        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, " +
+                "artist.name as artist_name, artist.id as artist_id FROM album\n" +
                 "LEFT JOIN artist_in_album as a_to_a ON a_to_a.album_id = album.id\n" +
                 "LEFT JOIN artist ON a_to_a.artist_id = artist.id LIMIT " + Integer.toString(limit);
         ResultSet result = select.executeQuery(query);
@@ -51,7 +52,8 @@ public class AlbumService implements Config {
                     result.getString("album_type"),
                     result.getString("image"),
                     result.getString("release_date"),
-                    result.getString("artist_name"));
+                    result.getString("artist_name"),
+                    result.getString("artist_id"));
             albums.add(album);
         }
 
@@ -84,7 +86,8 @@ public class AlbumService implements Config {
 
         // Create an execute an SQL statement to select all of table tracks records
         Statement select = connection.createStatement();
-        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, artist.name as artist_name FROM album\n" +
+        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, " +
+                "artist.name as artist_name, artist.id as artist_id FROM album\n" +
                 "LEFT JOIN artist_in_album as a_to_a ON a_to_a.album_id = album.id\n" +
                 "LEFT JOIN artist ON a_to_a.artist_id = artist.id \n" +
                 "WHERE album.id = \"" + id + "\"";
@@ -97,7 +100,8 @@ public class AlbumService implements Config {
                 result.getString("album_type"),
                 result.getString("image"),
                 result.getString("release_date"),
-                result.getString("artist_name"));
+                result.getString("artist_name"),
+                result.getString("artist_id"));
 
         select.close();
         result.close();
