@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./ArtistSelection.css";
+import AlbumCard from "../album-card/AlbumCard";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 function SongSelection(props) {
+  let history = useHistory();
+
   const [showContent, setShowContent] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -40,7 +44,10 @@ function SongSelection(props) {
           </h2>
           <h3>
             {showContent ? (
-              props.artist.genres.map(function (genre, index) {
+              (props.artist.genres ? props.artist.genres : []).map(function (
+                genre,
+                index
+              ) {
                 return index < props.artist.genres.length - 1
                   ? genre + ", "
                   : genre;
@@ -53,14 +60,20 @@ function SongSelection(props) {
       </div>
       {showDetails ? (
         <div className="selected-artist-extra-info">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (attribute, index) {
+          {props.artist.albums.map(function (album, index) {
             return (
-              <div
-                className={"fade-in selected-artist-extra-info-item"}
-                style={{ animationDelay: index / 9 + "s" }}
-              >
-                <SkeletonPulse></SkeletonPulse>
-              </div>
+              <AlbumCard
+                album={album}
+                key={index}
+                style={{
+                  margin: "32px",
+                  "background-color": "#1d222e",
+                }}
+                onClick={() => {
+                  history.push(`/app/album/${album.id}`);
+                }}
+                skeletonPulse={showContent ? undefined : true}
+              ></AlbumCard>
             );
           })}
         </div>
