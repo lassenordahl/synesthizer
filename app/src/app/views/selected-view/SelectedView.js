@@ -67,7 +67,24 @@ function SelectedView({ props, match }) {
         },
       })
       .then(function (response) {
-        setTimeout(() => setAlbum(response.data), 2000);
+        setAlbum(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function getTracksForAlbum() {
+    axios
+      .get(api.tracksForAlbum, {
+        params: {
+          id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        setTracksForAlbum(response.data);
+        // setAlbum(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -80,24 +97,8 @@ function SelectedView({ props, match }) {
     } else if (match.params.contentType === "artist") {
       return <ArtistSelection artist={artist} />;
     } else if (match.params.contentType === "album") {
-      return <AlbumSelection album={album} />;
+      return <AlbumSelection album={album} tracksForAlbum={tracksForAlbum} />;
     }
-  }
-
-  function getTracksForAlbum() {
-    axios
-      .get(api.tracksForAlbum, {
-        params: {
-          id: match.params.itemId,
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-        // setAlbum(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
   }
 
   return (
