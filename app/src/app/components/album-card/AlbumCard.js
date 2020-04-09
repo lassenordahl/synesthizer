@@ -2,6 +2,7 @@ import React from "react";
 import "./AlbumCard.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
+import { Link } from "react-router-dom";
 import { isOverCardLimit } from "../../../global/helper";
 
 function AlbumCard(props) {
@@ -27,7 +28,11 @@ function AlbumCard(props) {
           )}
           <div className={isOverCardLimit(props.album.name) ? "shift-card-content": "no-shift-content"}>
             {props.skeletonPulse === undefined ? (
-              <p>{props.album.artist_name}</p>
+              <Link to={"/app/artists/" + props.album.artist_id} >
+                <p>
+                  {props.album.artist_name}
+                </p>
+              </Link>
             ) : (
               <SkeletonPulse style={{ width: "200px", height: "20px", marginBottom: "8px" }} />
             )}

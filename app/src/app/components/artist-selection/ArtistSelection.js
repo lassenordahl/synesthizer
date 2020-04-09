@@ -12,11 +12,8 @@ function SongSelection(props) {
 
   useEffect(() => {
     if (props.artist !== null) {
-      console.log(props.artist);
-      setTimeout(() => {
-        setShowDetails(true);
-        setTimeout(() => setShowContent(true), 2000);
-      }, 500);
+      setShowDetails(true);
+      setShowContent(true);
     }
   }, [props.artist]);
 
@@ -70,7 +67,7 @@ function SongSelection(props) {
                   "background-color": "#1d222e",
                 }}
                 onClick={() => {
-                  history.push(`/app/album/${album.id}`);
+                  history.push(`/app/albums/${album.id}`);
                 }}
                 skeletonPulse={showContent ? undefined : true}
               ></AlbumCard>

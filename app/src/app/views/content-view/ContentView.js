@@ -73,7 +73,8 @@ function ContentView({ props, match }) {
       .get(api.albums)
       .then(function (response) {
         console.log(response);
-        setTimeout(() => setAlbums(response.data), 1000);
+        setAlbums(response.data);
+        // setTimeout(() => setAlbums(response.data), 1000);
       })
       .catch(function (error) {
         console.error(error);
@@ -85,7 +86,8 @@ function ContentView({ props, match }) {
       .get(api.artists)
       .then(function (response) {
         console.log(response);
-        setTimeout(() => setArtists(response.data.artists), 1000);
+        setArtists(response.data.artists);
+        // setTimeout(() => setArtists(response.data.artists), 1000);
       })
       .catch(function (error) {
         console.log(error);
@@ -97,7 +99,8 @@ function ContentView({ props, match }) {
       .get(api.songs)
       .then(function (response) {
         console.log(response);
-        setTimeout(() => setSongs(response.data.songs), 1000);
+        setSongs(response.data.songs);
+        // setTimeout(() => setSongs(response.data.songs), 1000);
       })
       .catch(function (error) {
         console.error(error);
