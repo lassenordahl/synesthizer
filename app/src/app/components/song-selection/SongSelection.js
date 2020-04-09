@@ -74,7 +74,7 @@ function SongSelection(props) {
                       to={`/app/artist/${artist.id}`}
                     >{`${artist.name}, `}</Link>
                   ) : (
-                    <Link to={`/app/artist/${artist.id}`}>{artist.name}</Link>
+                    <Link to={`/app/artists/${artist.id}`}>{artist.name}</Link>
                   );
                 })}
               </div>
