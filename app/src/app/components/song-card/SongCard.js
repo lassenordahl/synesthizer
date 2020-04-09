@@ -1,14 +1,11 @@
 import React from "react";
 import "./SongCard.css";
 
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom";
 
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { isOverCardLimit } from "../../../global/helper";
 
->>>>>>> made the url's better follow rest specs
 function SongCard(props) {
   return (
     <div
