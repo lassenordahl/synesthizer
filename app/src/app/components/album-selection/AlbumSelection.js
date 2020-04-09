@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AlbumSelection.css";
 
+import { Link } from "react-router-dom";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 function AlbumSelection(props) {
@@ -34,12 +35,15 @@ function AlbumSelection(props) {
       </div>
       {props.tracksForAlbum.length > 0 ? (
         <div className="selected-view-song-list">
+          <h3>Songs</h3>
           {props.tracksForAlbum.map(function (track, index) {
             return (
-              <div className="selected-view-song-row" key={index}>
-                <p>{track.name}</p>
-                <p>{Math.floor(track.duration_ms / 60000)}:{Math.floor(track.duration_ms % 60000 / 1000)}</p>
-              </div>
+              <Link to={"app/songs/" + track.id}>
+                <div className="selected-view-song-row" key={index}>
+                  <p>{track.name}</p>
+                  <p>{Math.floor(track.duration_ms / 60000)}:{Math.floor(track.duration_ms % 60000 / 1000)}</p>
+                </div>
+              </Link>
             );
           })}
         </div>

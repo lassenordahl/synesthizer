@@ -1,5 +1,4 @@
 export function isOverCardLimit(str) {
-  console.log(str);
   if (str === undefined) {
     return false;
   }

@@ -58,7 +58,7 @@ function SongSelection(props) {
           <h3>
             {showContent ? (
               <Link
-                to={`/app/album/${props.song.album.id}`}
+                to={`/app/albums/${props.song.album.id}`}
                 className="fade-in"
               >{`${props.song.album.name} (${props.song.album.release_date})`}</Link>
             ) : (
