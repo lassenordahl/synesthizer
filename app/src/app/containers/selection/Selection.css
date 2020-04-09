@@ -11,14 +11,9 @@
     max-width: 80vw;
     text-align: center;
     transition: all 0.5s ease-in;
-    height: 160px;
     width: 540px;
     display: flex;
     flex-direction: row;
-}
-
-.selected-view-card-expanded {
-    height: 372px;
 }
 
 .selected-view-info {

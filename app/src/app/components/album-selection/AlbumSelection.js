@@ -4,13 +4,6 @@ import "./AlbumSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 function AlbumSelection(props) {
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowDetails(true);
-  //   }, 500);
-  // }, []);
-
   return (
     <React.Fragment>
       <div className="selected-view-main-info">
@@ -22,48 +15,35 @@ function AlbumSelection(props) {
           )}
         </div>
         <div className="selected-view-details">
-          <h2>
-            {props.album !== null ? (
-              props.album.name
-            ) : (
-              <SkeletonPulse style={{ width: "160px", height: "24px" }} />
-            )}
-          </h2>
-          <p>
-            {props.album !== null ? (
-              props.album.artist_name
-            ) : (
-              <SkeletonPulse style={{ width: "256px", height: "24px" }} />
-            )}
-          </p>
-          <p>
-            {props.album !== null ? (
-              "Release Date: " + props.album.release_date
-            ) : (
-              <SkeletonPulse style={{ width: "128px", height: "24px" }} />
-            )}
-          </p>
+          {props.album !== null ? (
+            <h2>{props.album.name}</h2>
+          ) : (
+            <SkeletonPulse style={{ width: "160px", height: "24px", marginBottom: "8px" }} />
+          )}
+          {props.album !== null ? (
+            <p>{props.album.artist_name}</p>
+          ) : (
+            <SkeletonPulse style={{ width: "256px", height: "24px", marginBottom: "8px" }} />
+          )}
+          {props.album !== null ? (
+            <p className="subtitle">Release Date: {props.album.release_date}</p>
+          ) : (
+            <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
+          )}
         </div>
       </div>
-      {/* {showDetails ? (
-        <div className="selected-view-extra-info">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (item, index) {
+      {props.tracksForAlbum.length > 0 ? (
+        <div className="selected-view-song-list">
+          {props.tracksForAlbum.map(function (track, index) {
             return (
-              <div
-                className={"fade-in"}
-                style={{
-                  height: "20px",
-                  width: "110px",
-                  margin: "24px 0px 0px 24px",
-                  animationDelay: index / 6 + "s",
-                }}
-              >
-                <SkeletonPulse></SkeletonPulse>
+              <div className="selected-view-song-row" key={index}>
+                <p>{track.name}</p>
+                <p>{Math.floor(track.duration_ms / 60000)}:{Math.floor(track.duration_ms % 60000 / 1000)}</p>
               </div>
             );
           })}
         </div>
-      ) : null} */}
+      ) : null}
     </React.Fragment>
   );
 }
