@@ -6,6 +6,7 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
+import com.cs122b.model.TrackMeta;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -94,6 +95,40 @@ public class TrackService implements Config {
 
         db.closeConnection();
         return tracks;
+    }
+
+    public static TrackMeta fetchTrackMeta(String id) throws SQLException {
+        db = new SQLClient();
+
+        Query query = db.query("SELECT * FROM track_meta\n" +
+                "WHERE track_meta.id = \"" + id + "\"");
+
+        TrackMeta trackMeta = new TrackMeta();
+        ResultSet result = query.getResult();
+
+        result.next();
+
+        trackMeta.setAcousticness(result.getFloat("acousticness"));
+        trackMeta.setAnalysis_url(result.getString("analysis_url"));
+        trackMeta.setDanceability(result.getFloat("danceability"));
+        trackMeta.setDuration_ms(result.getInt("duration_ms"));
+        trackMeta.setEnergy(result.getFloat("energy"));
+        trackMeta.setInstrumentalness(result.getFloat("instrumentalness"));
+        trackMeta.setNote(result.getInt("note"));
+        trackMeta.setLiveness(result.getFloat("liveness"));
+        trackMeta.setLoudness(result.getFloat("loudness"));
+        trackMeta.setMode(result.getInt("mode"));
+        trackMeta.setSpeechiness(result.getFloat("speechiness"));
+        trackMeta.setTempo(result.getFloat("tempo"));
+        trackMeta.setTime_signature(result.getInt("time_signature"));
+        trackMeta.setTrack_href(result.getString("track_href"));
+        trackMeta.setType(result.getString("type"));
+        trackMeta.setValence(result.getFloat("valence"));
+
+        query.closeQuery();
+        db.closeConnection();
+
+        return trackMeta;
     }
 
     public static Track fetchTrack(String id) throws SQLException {

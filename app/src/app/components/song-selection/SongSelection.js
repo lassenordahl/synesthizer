@@ -13,13 +13,12 @@ function SongSelection(props) {
 
   useEffect(() => {
     if (props.song !== null) {
-      // setTimeout(() => {
-      setShowDetails(true);
       setShowContent(true);
-        // setTimeout(() => setShowContent(true), 2000);
-      // }, 500);
     }
-  }, [props.song]);
+    if (props.songMeta !== null) {
+      setShowDetails(true);
+    }
+  }, [props.song, props.songMeta]);
 
   const mapping = [
     "acousticness",
@@ -89,8 +88,8 @@ function SongSelection(props) {
           {(showContent
             ? mapping
                 .map(function (attr, index) {
-                  if (props.song[attr]) {
-                    return capitalize(attr) + ": " + props.song[attr];
+                  if (props.songMeta[attr]) {
+                    return capitalize(attr) + ": " + props.songMeta[attr];
                   }
                 })
                 .filter((song) => song)
@@ -100,6 +99,7 @@ function SongSelection(props) {
               <div
                 className={"fade-in selected-song-extra-info-item"}
                 style={{ animationDelay: index / 9 + "s" }}
+                key={index}
               >
                 {showContent ? (
                   <div className="fade-in">{attribute}</div>

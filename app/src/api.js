@@ -11,5 +11,6 @@ export default {
   artists: baseUrl + "/artists",
   artist: baseUrl + "/artist",
   songs: baseUrl + "/tracks",
-  song: baseUrl + "/track"
+  song: baseUrl + "/track",
+  songMeta: baseUrl + "/track/meta",
 }
