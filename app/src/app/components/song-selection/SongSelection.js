@@ -71,7 +71,7 @@ function SongSelection(props) {
                 {props.song.artists.map(function (artist, index) {
                   return index < props.song.artists.length - 1 ? (
                     <Link
-                      to={`/app/artist/${artist.id}`}
+                      to={`/app/artists/${artist.id}`}
                     >{`${artist.name}, `}</Link>
                   ) : (
                     <Link to={`/app/artists/${artist.id}`}>{artist.name}</Link>
