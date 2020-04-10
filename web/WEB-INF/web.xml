@@ -3,4 +3,88 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/index.html</location>
+    </error-page>
+
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+        <init-param>
+            <param-name>cors.allowed.origins</param-name>
+            <param-value>*</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>TrackServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TrackServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrackServlet</servlet-name>
+        <url-pattern>/api/track</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TracksServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TracksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TracksServlet</servlet-name>
+        <url-pattern>/api/tracks</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArtistServlet</servlet-name>
+        <servlet-class>com.cs122b.web.ArtistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArtistServlet</servlet-name>
+        <url-pattern>/api/artist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArtistsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.ArtistsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ArtistsServlet</servlet-name>
+        <url-pattern>/api/artists</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.AlbumsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <url-pattern>/api/albums</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.AlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlbumServlet</servlet-name>
+        <url-pattern>/api/album</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TracksForAlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TracksForAlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TracksForAlbumServlet</servlet-name>
+        <url-pattern>/api/albums/tracks</url-pattern>
+    </servlet-mapping>
+
 </web-app>

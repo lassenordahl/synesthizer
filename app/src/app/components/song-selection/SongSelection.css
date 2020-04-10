@@ -1,0 +1,64 @@
+.selected-song-song-art {
+    width: 160px;
+    height: 160px;
+    margin: 24px;
+    border-radius: 10px;
+    box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.selected-song-song-art img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.selected-song-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    flex: 1 1;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.selected-song-main-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.selected-song-extra-info {
+    display: flex;
+    flex: 1 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: height 0.5s ease-in;
+}
+
+.selected-song-extra-info-item {
+    font-size: small;
+    height: 20px;
+    width: 150px;
+    margin: 12px;
+}
+
+.selected-song-details h2 {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-song-details h3 {
+    margin-top: 0px;
+    margin-bottom: 12px;
+    font-size: small;
+}
+
+.selected-song-details p {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.selected-song-card-open {
+    height: 360px;
+}

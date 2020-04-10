@@ -1,0 +1,23 @@
+.selected-view {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-view-card {
+    background-color: #323A49;
+    box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+    max-width: 80vw;
+    text-align: center;
+    transition: all 0.5s ease-in;
+    width: 540px;
+    display: flex;
+    flex-direction: row;
+}
+
+.selected-view-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

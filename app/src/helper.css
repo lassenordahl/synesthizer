@@ -1,0 +1,134 @@
+/* 
+- Gradient background
+    - Lighter - `#252B38`
+    - Darker  - `#1d222e`
+- Cards - `#323A49`
+- Colors
+    - Salmon - `#ff7668`
+    - Purple - `#8D68C5`
+    - Teal - `#4CD9FF`
+*/
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  color: white;
+  width: 160px;
+  height: 40px;
+  background-color: #1d222e;
+  border-radius: 20px;
+  transition: all 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.button:hover {
+  background-color: #252b38;
+  transform: scale(1.05);
+}
+
+.button-primary {
+  background-color: #ff7668;
+}
+
+.button-primary:hover {
+  background-color: #f79489;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #323a49;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  max-width: 80vw;
+}
+
+.box-shadow {
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.max-view {
+  width: 100vw;
+  height: 100vh;
+}
+
+.fade-in {
+  opacity: 0;
+  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: -135% 0%;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
