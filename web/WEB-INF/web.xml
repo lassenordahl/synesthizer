@@ -31,6 +31,15 @@
         <servlet-name>TrackServlet</servlet-name>
         <url-pattern>/api/track</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TrackMetaServlet</servlet-name>
+        <servlet-class>com.cs122b.web.TrackMetaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrackMetaServlet</servlet-name>
+        <url-pattern>/api/track/meta</url-pattern>
+    </servlet-mapping>
     
     <servlet>
         <servlet-name>TracksServlet</servlet-name>

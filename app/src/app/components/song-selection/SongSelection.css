@@ -19,6 +19,7 @@
     flex: 1 1;
     align-items: flex-start;
     text-align: start;
+    margin-right: 24px;
 }
 
 .selected-song-main-info {
