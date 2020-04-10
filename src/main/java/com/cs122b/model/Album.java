@@ -9,6 +9,7 @@ public class Album {
     private String release_date;
     private String artist_name;
     private String artist_id;
+    private int popularity;
 
     public Album(String id, String name, String album_type, String image, String release_date, String artist_name, String artist_id) {
         this.id = id;
@@ -74,5 +75,13 @@ public class Album {
 
     public void setArtist_id(String artist_id) {
         this.artist_id = artist_id;
+    }
+
+    public int getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(int popularity) {
+        this.popularity = popularity;
     }
 }

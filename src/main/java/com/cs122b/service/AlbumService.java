@@ -38,10 +38,16 @@ public class AlbumService implements Config {
 
         // Create an execute an SQL statement to select all of table tracks records
         Statement select = connection.createStatement();
-        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, " +
-                "artist.name as artist_name, artist.id as artist_id FROM album\n" +
-                "LEFT JOIN artist_in_album as a_to_a ON a_to_a.album_id = album.id\n" +
-                "LEFT JOIN artist ON a_to_a.artist_id = artist.id LIMIT " + Integer.toString(limit);
+        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, (\n" +
+                "\tSELECT COUNT(track_in_playlist.playlist_id) FROM track_in_album\n" +
+                "\tLEFT JOIN track_in_playlist ON track_in_playlist.track_id = track_in_album.track_id\n" +
+                "\tWHERE track_in_album.album_id = album.id\n" +
+                "    GROUP BY track_in_album.album_id\n" +
+                ")as popularity, artist.name as artist_name, artist.id as artist_id FROM album\n" +
+                "LEFT JOIN artist_in_album ON artist_in_album.album_id = album.id\n" +
+                "LEFT JOIN artist ON artist.id = artist_in_album.artist_id\n" +
+                "ORDER BY popularity DESC\n" +
+                "LIMIT 0," + Integer.toString(limit) + ";";
         ResultSet result = select.executeQuery(query);
 
         List<Album> albums = new ArrayList<Album>();
@@ -54,6 +60,7 @@ public class AlbumService implements Config {
                     result.getString("release_date"),
                     result.getString("artist_name"),
                     result.getString("artist_id"));
+            album.setPopularity(result.getInt("popularity"));
             albums.add(album);
         }
 
