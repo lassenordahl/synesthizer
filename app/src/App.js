@@ -11,6 +11,8 @@ import {
   SelectedView,
 } from "./app/views";
 
+import { ExpandableCart } from "./app/components";
+
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
 
@@ -24,6 +26,7 @@ function App() {
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
+              {/* <ExpandableCart/> */}
               <div
                 className="app-content-sidebar-button"
                 onClick={() => setShowSidebar(!showSidebar)}
