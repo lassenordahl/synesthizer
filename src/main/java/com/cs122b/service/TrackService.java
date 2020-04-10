@@ -15,7 +15,7 @@ public class TrackService implements Config {
 
     private static SQLClient db;
 
-    private static void setTrackAttrs(Track track, ResultSet query) throws SQLException {
+    private static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));
@@ -35,6 +35,9 @@ public class TrackService implements Config {
         track.setTrack_href(query.getString("track_href"));
         track.setType(query.getString("type"));
         track.setValence(query.getFloat("valence"));
+        if (addPopularity) {
+            track.setPopularity(query.getInt("popularity"));
+        }
 
         Query queryArtist = db
                 .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
@@ -70,14 +73,21 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM track NATURAL JOIN track_meta ORDER BY " + sortBy + " LIMIT "
-                + Integer.toString(offset) + "," + Integer.toString(limit));
+        Query query = db.query("SELECT *, \n" +
+                "IFNULL((\n" +
+                "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" +
+                "WHERE tip.track_id = track.id\n" +
+                "GROUP BY tip.track_id\n" +
+                "), 0) as popularity FROM track\n" +
+                "LEFT JOIN track_meta ON track.id = track_meta.id\n" +
+                "ORDER BY popularity DESC\n" +
+                "LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
 
         List<Track> tracks = new ArrayList<Track>();
         ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
-            setTrackAttrs(track, result);
+            setTrackAttrs(track, result, true);
             tracks.add(track);
         }
         query.closeQuery();
@@ -96,7 +106,7 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         result.next();
         Track track = new Track();
-        setTrackAttrs(track, result);
+        setTrackAttrs(track, result, false);
 
         query.closeQuery();
         db.closeConnection();

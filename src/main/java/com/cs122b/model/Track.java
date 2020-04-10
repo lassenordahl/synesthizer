@@ -25,6 +25,7 @@ public class Track {
     private String track_href;
     private String type;
     private float valence;
+    private int popularity;
 
     // Track_to_artist
     private ArrayList<Artist> artists;
@@ -208,5 +209,13 @@ public class Track {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public int getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(int popularity) {
+        this.popularity = popularity;
     }
 }

@@ -3,7 +3,7 @@ import "./AlbumCard.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 import { Link } from "react-router-dom";
-import { isOverCardLimit } from "../../../global/helper";
+import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 
 function AlbumCard(props) {
   return (
@@ -22,7 +22,7 @@ function AlbumCard(props) {
         </div>
         <div className="album-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{props.album.name}</h2>
+            <h2>{truncateTitle(props.album.name)}</h2>
           ) : (
             <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
           )}
