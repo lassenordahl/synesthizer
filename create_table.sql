@@ -1,20 +1,6 @@
 CREATE DATABASE cs122b;
 USE cs122b;
 
-DROP TABLE track_in_playlist;
-DROP TABLE playlist_to_user ;
-DROP TABLE playlist;
-DROP TABLE user;
-DROP TABLE artist_in_genre;
-DROP TABLE artist_in_album;
-DROP TABLE artist_in_track;
-DROP TABLE artist;
-DROP TABLE album_in_genre; 
-DROP TABLE track_in_album;
-DROP TABLE album;
-DROP TABLE track;
-DROP TABLE track_meta;
-
 
 CREATE TABLE track_meta (
     id VARCHAR(25) NOT NULL,
