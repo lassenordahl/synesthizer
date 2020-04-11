@@ -6,6 +6,7 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
+import com.cs122b.model.TrackMeta;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class TrackService implements Config {
 
     private static SQLClient db;
 
-    private static void setTrackAttrs(Track track, ResultSet query) throws SQLException {
+    private static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));
@@ -35,6 +36,9 @@ public class TrackService implements Config {
         track.setTrack_href(query.getString("track_href"));
         track.setType(query.getString("type"));
         track.setValence(query.getFloat("valence"));
+        if (addPopularity) {
+            track.setPopularity(query.getInt("popularity"));
+        }
 
         Query queryArtist = db
                 .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
@@ -70,20 +74,61 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM track NATURAL JOIN track_meta ORDER BY " + sortBy + " LIMIT "
-                + Integer.toString(offset) + "," + Integer.toString(limit));
+        Query query = db.query("SELECT *, \n" +
+                "IFNULL((\n" +
+                "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" +
+                "WHERE tip.track_id = track.id\n" +
+                "GROUP BY tip.track_id\n" +
+                "), 0) as popularity FROM track\n" +
+                "LEFT JOIN track_meta ON track.id = track_meta.id\n" +
+                "ORDER BY popularity DESC\n" +
+                "LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
 
         List<Track> tracks = new ArrayList<Track>();
         ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
-            setTrackAttrs(track, result);
+            setTrackAttrs(track, result, true);
             tracks.add(track);
         }
         query.closeQuery();
 
         db.closeConnection();
         return tracks;
+    }
+
+    public static TrackMeta fetchTrackMeta(String id) throws SQLException {
+        db = new SQLClient();
+
+        Query query = db.query("SELECT * FROM track_meta\n" +
+                "WHERE track_meta.id = \"" + id + "\"");
+
+        TrackMeta trackMeta = new TrackMeta();
+        ResultSet result = query.getResult();
+
+        result.next();
+
+        trackMeta.setAcousticness(result.getFloat("acousticness"));
+        trackMeta.setAnalysis_url(result.getString("analysis_url"));
+        trackMeta.setDanceability(result.getFloat("danceability"));
+        trackMeta.setDuration_ms(result.getInt("duration_ms"));
+        trackMeta.setEnergy(result.getFloat("energy"));
+        trackMeta.setInstrumentalness(result.getFloat("instrumentalness"));
+        trackMeta.setNote(result.getInt("note"));
+        trackMeta.setLiveness(result.getFloat("liveness"));
+        trackMeta.setLoudness(result.getFloat("loudness"));
+        trackMeta.setMode(result.getInt("mode"));
+        trackMeta.setSpeechiness(result.getFloat("speechiness"));
+        trackMeta.setTempo(result.getFloat("tempo"));
+        trackMeta.setTime_signature(result.getInt("time_signature"));
+        trackMeta.setTrack_href(result.getString("track_href"));
+        trackMeta.setType(result.getString("type"));
+        trackMeta.setValence(result.getFloat("valence"));
+
+        query.closeQuery();
+        db.closeConnection();
+
+        return trackMeta;
     }
 
     public static Track fetchTrack(String id) throws SQLException {
@@ -96,7 +141,7 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         result.next();
         Track track = new Track();
-        setTrackAttrs(track, result);
+        setTrackAttrs(track, result, false);
 
         query.closeQuery();
         db.closeConnection();

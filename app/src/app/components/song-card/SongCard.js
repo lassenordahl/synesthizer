@@ -4,7 +4,7 @@ import "./SongCard.css";
 import { Link } from "react-router-dom";
 
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
-import { isOverCardLimit } from "../../../global/helper";
+import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 
 function SongCard(props) {
   return (
@@ -23,7 +23,7 @@ function SongCard(props) {
         </div>
         <div className="song-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{props.song.name}</h2>
+            <h2>{truncateTitle(props.song.name)}</h2>
           ) : (
             <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
           )}
@@ -42,7 +42,7 @@ function SongCard(props) {
             <SkeletonPulse style={{ width: "200px", height: "20px", marginBottom: "8px" }} />
           )}
           {props.skeletonPulse === undefined ? (
-            <p className="subtitle">Playlist Count: 18</p>
+            <p className="subtitle">Playlist Count: {props.song.popularity}</p>
           ) : (
             <SkeletonPulse style={{ width: "81px", height: "12px", marginBottom: "8px" }} />
           )}

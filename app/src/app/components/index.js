@@ -6,3 +6,4 @@ export { default as ArtistCard } from "./artist-card/ArtistCard";
 export { default as SongSelection } from "./song-selection/SongSelection";
 export { default as ArtistSelection } from "./artist-selection/ArtistSelection";
 export { default as AlbumSelection } from "./album-selection/AlbumSelection";
+export { default as ExpandableCart } from "./expandable-cart/ExpandableCart";

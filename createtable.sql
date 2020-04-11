@@ -1,3 +1,6 @@
+CREATE DATABASE cs122b;
+USE cs122b;
+
 DROP TABLE track_in_playlist;
 DROP TABLE playlist_to_user ;
 DROP TABLE playlist;
