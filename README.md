@@ -4,7 +4,7 @@
 
 ### Project 1
 
--
+- https://www.youtube.com/watch?v=t2Wi-SXb-Z4
 
 ## Deployment Instructions
 
