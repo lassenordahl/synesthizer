@@ -11,14 +11,7 @@ public class Album {
     private String artist_id;
     private int popularity;
 
-    public Album(String id, String name, String album_type, String image, String release_date, String artist_name, String artist_id) {
-        this.id = id;
-        this.name = name;
-        this.album_type = album_type;
-        this.image = image;
-        this.release_date = release_date;
-        this.artist_name = artist_name;
-        this.artist_id = artist_id;
+    public Album() {
     }
 
     public String getId() {
