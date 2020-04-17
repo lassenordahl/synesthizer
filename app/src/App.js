@@ -9,6 +9,8 @@ import {
   Sidebar,
   ContentView,
   SelectedView,
+  Playlists,
+  CreatePlaylist,
 } from "./app/views";
 
 import { ExpandableCart } from "./app/components";
@@ -26,7 +28,7 @@ function App() {
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
-              {/* <ExpandableCart/> */}
+              <ExpandableCart />
               <div
                 className="app-content-sidebar-button"
                 onClick={() => setShowSidebar(!showSidebar)}
@@ -36,25 +38,51 @@ function App() {
                 </span>
               </div>
               <div className="app-content-sidebar-route">
-                <Route path="/app/:contentType">
+                <Route
+                  exact
+                  path={[
+                    "/app/explore/:route",
+                    "/app/user/:route",
+                    "/app/user/:route/:secondaryRoute",
+                  ]}
+                >
                   {({ match }) => {
-                    return <h2>{match.params.contentType}</h2>;
+                    return match !== null ? (
+                      <div className="route-title">
+                        <h2>{match.params.route}</h2>
+                        {/* {match.params.secondaryRoute !== undefined ? ">" : null} */}
+                        <p>
+                          {match.params.secondaryRoute}
+                        </p>
+                      </div>
+                    ) : null;
                   }}
                 </Route>
               </div>
               <div className="app-header"></div>
               <Route
                 exact
-                path="/app/:contentType"
+                path="/app/explore/:contentType"
                 component={ContentView}
               ></Route>
               <Route
-                path="/app/:contentType/:itemId"
+                exact
+                path="/app/explore/:contentType/:itemId"
                 component={SelectedView}
+              ></Route>
+              <Route
+                exact
+                path="/app/user/playlists"
+                component={Playlists}
+              ></Route>
+              <Route
+                exact
+                path="/app/user/playlists/create"
+                component={CreatePlaylist}
               ></Route>
               <Footer />
             </Route>
-            <Redirect exact from="/" to="/landing"/>
+            <Redirect exact from="/" to="/landing" />
           </Switch>
         </div>
       </BrowserRouter>

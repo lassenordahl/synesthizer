@@ -57,7 +57,7 @@ function SongSelection(props) {
           <h3>
             {showContent ? (
               <Link
-                to={`/app/albums/${props.song.album.id}`}
+                to={`/app/explore/albums/${props.song.album.id}`}
                 className="fade-in"
               >{`${props.song.album.name} (${props.song.album.release_date})`}</Link>
             ) : (
@@ -70,10 +70,10 @@ function SongSelection(props) {
                 {props.song.artists.map(function (artist, index) {
                   return index < props.song.artists.length - 1 ? (
                     <Link
-                      to={`/app/artists/${artist.id}`}
+                      to={`/app/explore/artists/${artist.id}`}
                     >{`${artist.name}, `}</Link>
                   ) : (
-                    <Link to={`/app/artists/${artist.id}`}>{artist.name}</Link>
+                    <Link to={`/app/explore/artists/${artist.id}`}>{artist.name}</Link>
                   );
                 })}
               </div>

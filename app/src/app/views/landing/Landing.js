@@ -24,7 +24,7 @@ function Landing() {
 
   return (
     <div className="landing flex-center">
-      { willRedirectSongs ? <Redirect to="/app/songs"></Redirect> : null}
+      { willRedirectSongs ? <Redirect to="/app/explore/songs"></Redirect> : null}
       <div className="landing-content flex-center">
         <Card>
           <h1>CS122B</h1>

@@ -10,14 +10,20 @@ function Sidebar(props) {
     <div className={"sidebar" + (props.showSidebar ? " sidebar-expanded" : "")}>
       { props.showSidebar ? 
         <React.Fragment>
-          <Link to="/app/songs">
+          <Link to="/app/explore/songs">
             Songs
           </Link>
-          <Link to="/app/albums">
+          <Link to="/app/explore/albums">
             Albums
           </Link>
-          <Link to="/app/artists">
+          <Link to="/app/explore/artists">
             Artists
+          </Link>
+          <Link to="/app/user/playlists">
+            Playlists
+          </Link>
+          <Link to="/app/user/playlists/create">
+            Create Playlist
           </Link>
         </React.Fragment>
         : null 
