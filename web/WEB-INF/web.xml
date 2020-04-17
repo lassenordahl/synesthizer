@@ -97,6 +97,7 @@
     </servlet-mapping>
 
     <servlet>
+<<<<<<< HEAD
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.cs122b.web.LoginServlet</servlet-class>
     </servlet>
@@ -113,5 +114,15 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/api/user</url-pattern>
     </servlet-mapping>
+=======
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <url-pattern>/api/playlist/session</url-pattern>
+    </servlet-mapping>
+
+>>>>>>> playlist session
 
 </web-app>

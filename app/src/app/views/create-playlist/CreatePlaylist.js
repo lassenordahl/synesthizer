@@ -1,12 +1,29 @@
 import React, { useState, useEffect } from "react";
 import './CreatePlaylist.css';
 
+import axios from "axios";
+
 import { Card } from "./../../containers";
 import { Button } from "./../../components";
+import api from "../../../api";
 
 function CreatePlaylist() {
 
   const [playlistSession, setPlaylistSession] = useState([]);
+
+  useEffect(() => {
+    getSessionPlaylist();
+  }, []);
+
+  function getSessionPlaylist() {
+    axios.get(api.playlistSession)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+  }
 
   return (
     <div className="create-playlist">
