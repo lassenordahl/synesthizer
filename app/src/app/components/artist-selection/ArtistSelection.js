@@ -67,7 +67,7 @@ function SongSelection(props) {
                   "background-color": "#1d222e",
                 }}
                 onClick={() => {
-                  history.push(`/app/albums/${album.id}`);
+                  history.push(`/app/explore/albums/${album.id}`);
                 }}
                 skeletonPulse={showContent ? undefined : true}
               ></AlbumCard>

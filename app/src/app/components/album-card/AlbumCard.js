@@ -28,7 +28,7 @@ function AlbumCard(props) {
           )}
           <div className={isOverCardLimit(props.album.name) ? "shift-card-content": "no-shift-content"}>
             {props.skeletonPulse === undefined ? (
-              <Link to={"/app/artists/" + props.album.artist_id} >
+              <Link to={"/app/explore/artists/" + props.album.artist_id} >
                 <p>
                   {props.album.artist_name}
                 </p>

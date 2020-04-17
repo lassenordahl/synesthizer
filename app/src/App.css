@@ -46,6 +46,18 @@
   flex-direction: row;
 }
 
+.route-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.route-title p {
+  font-size: 1.5em;
+  /* margin-left: 24px !important; */
+}
+
+
 .app-content-sidebar-route h2 {
   margin: 0;
   margin-right: 24px;

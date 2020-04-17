@@ -29,7 +29,7 @@ function SongCard(props) {
           )}
           <div className={isOverCardLimit(props.song.name) ? "shift-card-content": "no-shift-content"}>
           {props.skeletonPulse === undefined ? (
-            <Link to={"/app/artists/" + props.song.artists[0].id} >
+            <Link to={"/app/explore/artists/" + props.song.artists[0].id} >
               <p>
                 {props.song.artists.map(function (artist, index) {
                   return index < props.song.artists.length - 1

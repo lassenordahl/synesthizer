@@ -17,9 +17,10 @@ function ExpandableCart(props) {
         { isExpanded ? 
           <div className="cart-content">
             <div className="cart-content-header" style={{animationDelay: '0.25s'}}>
-              Playlist  
+              <h3>
+                playlist  
+              </h3>
             </div>
-
           </div>
         : "cart"}
       </div>

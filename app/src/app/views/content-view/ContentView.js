@@ -149,7 +149,7 @@ function ContentView({ props, match }) {
         );
       });
     } else if (match.params.contentType === "artists") {
-      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6]).map(function (
+      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(function (
         artist,
         index
       ) {
@@ -174,13 +174,13 @@ function ContentView({ props, match }) {
   return (
     <div className="content-view">
       {willRedirectAlbum ? (
-        <Redirect push to={"/app/albums/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectArtist ? (
-        <Redirect push to={"/app/artists/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/artists/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectSong ? (
-        <Redirect push to={"/app/songs/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/songs/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
         <div className="content-view-search">

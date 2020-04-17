@@ -5,13 +5,19 @@ function Button(props) {
 
   function getButtonColor() {
     if (props.isPrimary) {
-      return "button-primary"
+      return "button-primary";
+    }
+    if (props.isBlue) {
+      return "button-blue";
+    }
+    if (props.isGreen) {
+
     }
     return "";
   }
 
   return (
-    <div className={"button " + getButtonColor()} onClick={() => props.onClick()}>
+    <div style={props.style} className={"button " + getButtonColor()} onClick={() => props.onClick()}>
       {props.children}
     </div>
   );
