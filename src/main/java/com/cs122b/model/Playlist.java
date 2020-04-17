@@ -10,7 +10,7 @@ public class Playlist {
 
     private ArrayList<Track> tracks;
 
-    Playlist() {
+    public Playlist() {
     }
 
     public int getId() {

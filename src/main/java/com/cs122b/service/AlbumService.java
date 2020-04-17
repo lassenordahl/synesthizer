@@ -1,6 +1,5 @@
 package com.cs122b.service;
 
-import com.cs122b.client.Config;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
@@ -10,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlbumService implements Config {
+public class AlbumService {
 
     private static SQLClient db;
 

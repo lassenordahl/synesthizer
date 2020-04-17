@@ -12,7 +12,7 @@ public class User {
 
     private ArrayList<Playlist> playlists;
 
-    User() {
+    public User() {
     }
 
     public int getId() {
