@@ -28,7 +28,9 @@ function App() {
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
-              <ExpandableCart />
+              <Route exact path="/app/explore/:route">
+                <ExpandableCart />
+              </Route>
               <div
                 className="app-content-sidebar-button"
                 onClick={() => setShowSidebar(!showSidebar)}

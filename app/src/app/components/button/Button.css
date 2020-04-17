@@ -1,6 +1,6 @@
 .button {
   color: white;
-  width: 160px;
+  min-width: 160px;
   height: 40px;
   background-color: #1d222e;
   border-radius: 20px;
@@ -21,5 +21,13 @@
 }
 
 .button-primary:hover {
+  background-color: #f79489;
+}
+
+.button-blue {
+  background-color: #ff7668;
+}
+
+.button-blue:hover {
   background-color: #f79489;
 }

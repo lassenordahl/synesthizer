@@ -35,6 +35,11 @@
 .create-playlist-header-info {
   margin-left: 48px;
   margin-right: 48px;
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .create-playlist-header-info input {

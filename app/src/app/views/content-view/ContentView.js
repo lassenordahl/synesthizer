@@ -149,7 +149,7 @@ function ContentView({ props, match }) {
         );
       });
     } else if (match.params.contentType === "artists") {
-      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6]).map(function (
+      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(function (
         artist,
         index
       ) {
