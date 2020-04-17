@@ -43,9 +43,24 @@ public class LoginFilter implements Filter {
     }
 
     public void init(FilterConfig fConfig) {
+
+        // Album
+        allowedURIs.add("api/albums");
+        allowedURIs.add("api/album");
+        allowedURIs.add("api/albums/tracks");
+
+        // Artist
+        allowedURIs.add("api/artists");
+        allowedURIs.add("api/artist");
+
+        // Track
+        allowedURIs.add("api/tracks");
+        allowedURIs.add("api/track");
+        allowedURIs.add("api/track/meta");
+
+        // Auth
         allowedURIs.add("api/login");
         allowedURIs.add("api/logout");
-        allowedURIs.add("api/tracks");
     }
 
     public void destroy() {
