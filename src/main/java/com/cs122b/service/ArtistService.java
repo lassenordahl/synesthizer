@@ -21,21 +21,27 @@ public class ArtistService {
 
         Query queryGenres = db.query("SELECT * FROM artist_in_genre WHERE artist_id = \"" + artist.getId() + "\"");
         ResultSet genreResult = queryGenres.getResult();
-        while(genreResult.next()) {
+        while (genreResult.next()) {
             artist.addGenre(genreResult.getString("genre"));
         }
         queryGenres.closeQuery();
 
-        Query queryAlbums = db.query("SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = \"" + artist.getId() + "\"");
+        Query queryAlbums = db
+                .query("SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = \""
+                        + artist.getId() + "\"");
         ResultSet albumResult = queryAlbums.getResult();
-        while(albumResult.next()) {
-            artist.addAlbum(new Album(albumResult.getString("id"),
-                    albumResult.getString("name"),
-                    albumResult.getString("album_type"),
-                    albumResult.getString("image"),
-                    albumResult.getString("release_date"),
-                    artist.getName(),
-                    artist.getId()));
+        while (albumResult.next()) {
+            Album album = new Album();
+
+            album.setId(albumResult.getString("id"));
+            album.setName(albumResult.getString("name"));
+            album.setAlbum_type(albumResult.getString("album_type"));
+            album.setImage(albumResult.getString("image"));
+            album.setRelease_date(albumResult.getString("release_date"));
+            album.setArtist_name(artist.getName());
+            album.setArtist_id(artist.getId());
+
+            artist.addAlbum(album);
         }
         queryAlbums.closeQuery();
     }
@@ -43,8 +49,8 @@ public class ArtistService {
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy) throws SQLException {
         db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy +
-                " LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+        Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT " + Integer.toString(offset) + ","
+                + Integer.toString(limit));
 
         List<Artist> artists = new ArrayList<Artist>();
         ResultSet result = query.getResult();

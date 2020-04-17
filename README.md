@@ -19,7 +19,7 @@ mysql -u cs122b -p < create_table.sql
 cd ..
 mysql -u cs122b -p --database=cs122b < CreationInsertion.sql
 
-mysql -u cs122b -p -e "use cs122b;select count(*) from artist;select count(*) from tracks;"
+mysql -u cs122b -p -e "use cs122b;select count(*) from artist;select count(*) from track;"
 
 
 #start tomcat server
@@ -27,8 +27,7 @@ source /home/ubuntu/tomcat/bin/startup.sh
 
 # run react app build
 cd cs122b-spring20-team-53/app
-REACT_APP_API_URL=http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/api
-npm run-script build
+REACT_APP_API_URL=http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/api npm run-script build
 
 # copy build to web dir
 npm run-script predeploy
