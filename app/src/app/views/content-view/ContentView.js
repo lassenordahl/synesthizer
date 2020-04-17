@@ -12,6 +12,7 @@ import {
   ArtistCard,
 } from "../../components";
 import { Card } from "../../containers";
+import { QueryParams } from "../../hooks";
 
 import api from "api.js";
 
@@ -26,12 +27,16 @@ function ContentView({ props, match }) {
 
   // Data Array
   const [albums, setAlbums] = useState([]);
-
   const [artists, setArtists] = useState([]);
-
   const [songs, setSongs] = useState([]);
 
+  // Query Parameters
+  let queryParams = QueryParams();
+
   useEffect(() => {
+
+    console.log(queryParams);
+
     if (match.params.contentType === "albums") {
       getAlbums();
     } else if (match.params.contentType === "artists") {
