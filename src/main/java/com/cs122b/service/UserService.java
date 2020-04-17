@@ -22,7 +22,7 @@ public class UserService {
     private static void insertUser(User user) throws SQLException {
         db = new SQLClient();
 
-        Query insertQuery = db.query(String.format("INSERT INTO user VALUES(0,'%s','%s','%s','%s','%s')",
+        Query insertQuery = db.query(String.format("INSERT INTO user VALUES(DEFAULT, '%s','%s','%s','%s','%s')",
                 user.getFirst_name(), user.getLast_name(), user.getAddress(), user.getEmail(), user.getPassword()));
 
         insertQuery.closeQuery();
@@ -62,10 +62,13 @@ public class UserService {
         String email = userJson.get("email").getAsString();
         // Check if exists (return null if exists)
         Query query = db.query(String.format("SELECT *  FROM user WHERE email='%s'", email));
+        System.out.println(email);
         ResultSet result = query.getResult();
-        if (result.next() == false) {
+        if (result.next() != false) {
             return null;
         }
+
+        System.out.println("creating user");
 
         query.closeQuery();
 
@@ -87,7 +90,7 @@ public class UserService {
     public static User fetchUser(int id) throws SQLException {
         db = new SQLClient();
 
-        Query query = db.query(String.format("SELECT *  FROM user WHERE id='%d'", id));
+        Query query = db.query(String.format("SELECT * FROM user WHERE id='%d'", id));
 
         User user = new User();
         ResultSet result = query.getResult();
