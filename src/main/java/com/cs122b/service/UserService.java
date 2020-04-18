@@ -22,18 +22,56 @@ public class UserService {
     private static void insertUser(User user) throws SQLException {
         db = new SQLClient();
 
-        Query insertQuery = db.query(String.format("INSERT INTO user VALUES(DEFAULT, '%s','%s','%s','%s','%s')",
-                user.getFirst_name(), user.getLast_name(), user.getAddress(), user.getEmail(), user.getPassword()));
+        String insertQuery = "INSERT INTO user(id, first_name, last_name, address, email, password) "
+                + "VALUES(DEFAULT,?,?,?,?,?);";
 
-        insertQuery.closeQuery();
+        PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
 
-        Query createdUserQuery = db.query(String.format("SELECT *  FROM user WHERE email='%s'", user.getEmail()));
+        pstmt.setString(1, user.getFirst_name());
+        pstmt.setString(2, user.getLast_name());
+        pstmt.setString(3, user.getAddress());
+        pstmt.setString(4, user.getEmail());
+        pstmt.setString(5, user.getPassword());
 
-        ResultSet result = createdUserQuery.getResult();
+        int affectedRows = pstmt.executeUpdate();
 
-        result.next();
+        if (affectedRows > 0) {
+            // get the ID back
+            ResultSet rs = pstmt.getGeneratedKeys();
+            if (rs.next()) {
+                user.setId(rs.getInt(1));
+            }
+        }
 
-        user.setId(result.getInt("id"));
+        pstmt.close();
+    }
+
+    public static User createUser(JsonObject userJson) throws SQLException {
+        db = new SQLClient();
+
+        String email = userJson.get("email").getAsString();
+        // Check if exists (return null if exists)
+        Query query = db.query(String.format("SELECT *  FROM user WHERE email='%s'", email));
+        ResultSet result = query.getResult();
+        if (result.next() != false) {
+            return null;
+        }
+
+        query.closeQuery();
+
+        // Create user
+        User user = new User();
+
+        user.setFirst_name(userJson.get("first_name").getAsString());
+        user.setLast_name(userJson.get("last_name").getAsString());
+        user.setAddress(userJson.get("address").getAsString());
+        user.setEmail(userJson.get("email").getAsString());
+        user.setPassword(userJson.get("password").getAsString());
+
+        insertUser(user);
+
+        db.closeConnection();
+        return user;
     }
 
     public static User authenticateUser(String email, String password) throws SQLException {
@@ -52,37 +90,6 @@ public class UserService {
         setUserAttrs(user, result);
 
         query.closeQuery();
-        db.closeConnection();
-        return user;
-    }
-
-    public static User createUser(JsonObject userJson) throws SQLException {
-        db = new SQLClient();
-
-        String email = userJson.get("email").getAsString();
-        // Check if exists (return null if exists)
-        Query query = db.query(String.format("SELECT *  FROM user WHERE email='%s'", email));
-        System.out.println(email);
-        ResultSet result = query.getResult();
-        if (result.next() != false) {
-            return null;
-        }
-
-        System.out.println("creating user");
-
-        query.closeQuery();
-
-        // Create user
-        User user = new User();
-
-        user.setFirst_name(userJson.get("first_name").getAsString());
-        user.setLast_name(userJson.get("last_name").getAsString());
-        user.setAddress(userJson.get("address").getAsString());
-        user.setEmail(userJson.get("email").getAsString());
-        user.setPassword(userJson.get("password").getAsString());
-
-        insertUser(user);
-
         db.closeConnection();
         return user;
     }

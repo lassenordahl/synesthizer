@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "e2898c1e-8561-4a4d-b853-e308bc97b816",
+		"name": "CS122B API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/tracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tracks?offset=0&limit=5&sortBy=name",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/track",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/track?id=0rQtoQXQfwpDW0c7Fw1NeM",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"track"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0rQtoQXQfwpDW0c7Fw1NeM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/track/meta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/track/meta?id=0rQtoQXQfwpDW0c7Fw1NeM",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"track",
+						"meta"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0rQtoQXQfwpDW0c7Fw1NeM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/albums",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/albums",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/album",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/album?id=007DWn799UWvfY1wwZeENR",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"album"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "007DWn799UWvfY1wwZeENR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/albums/tracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/albums/tracks?id=007DWn799UWvfY1wwZeENR",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"albums",
+						"tracks"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "007DWn799UWvfY1wwZeENR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/artists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/artists?offset=0&limit=100&sortBy=name",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"artists"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/artists?offset=0&limit=100&sortBy=name",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"artists"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"maya.miles@example.com\",\n\t\"password\": \"cyclones\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Zachary\",\n\t\"last_name\": \"Pinto\",\n\t\"address\": \"3340 Ashbourne Circle, San Ramon CA 94583\",\n\t\"email\": \"zpinto@uci.edu\",\n\t\"password\": \"helloworld\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/playlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/playlists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/playlist?id=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"playlist"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"The Best Playlist\",\n\t\"image\": \"https://cdn.britannica.com/26/116526-050-76C37BBC/Cathedral-of-St-Basil-the-Blessed-Moscow.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/playlist",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

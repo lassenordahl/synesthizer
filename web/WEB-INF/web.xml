@@ -104,6 +104,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/api/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.cs122b.web.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
@@ -122,7 +130,6 @@
         <servlet-name>PlaylistSessionServlet</servlet-name>
         <url-pattern>/api/playlist/session</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>PlaylistSessionTrackServlet</servlet-name>
         <servlet-class>com.cs122b.web.PlaylistSessionTrackServlet</servlet-class>
@@ -132,4 +139,20 @@
         <url-pattern>/api/playlist/session/track</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PlaylistServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistServlet</servlet-name>
+        <url-pattern>/api/playlist</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistsServlet</servlet-name>
+        <url-pattern>/api/playlists</url-pattern>
+    </servlet-mapping>
 </web-app>
