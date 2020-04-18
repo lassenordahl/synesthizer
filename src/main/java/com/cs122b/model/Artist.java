@@ -1,6 +1,7 @@
 package com.cs122b.model;
 
 import java.util.ArrayList;
+import com.cs122b.model.Album;
 
 public class Artist {
     private String id;

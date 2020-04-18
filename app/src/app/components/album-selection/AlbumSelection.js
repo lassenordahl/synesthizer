@@ -38,7 +38,7 @@ function AlbumSelection(props) {
           <h3>Songs</h3>
           {props.tracksForAlbum.map(function (track, index) {
             return (
-              <Link to={"/app/explore/songs/" + track.id}>
+              <Link to={"/app/explore/songs/" + track.id} key={index}>
                 <div className="selected-view-song-row" key={index}>
                   <p>{track.name}</p>
                   <p>{Math.floor(track.duration_ms / 60000)}:{Math.floor(track.duration_ms % 60000 / 1000)}</p>

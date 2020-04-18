@@ -33,9 +33,12 @@ function ContentView({ props, match }) {
   // Query Parameters
   let queryParams = QueryParams();
 
-  useEffect(() => {
+  // Session Tracks
+  const [sessionTracks, setSessionTracks] = useState([]);
 
+  useEffect(() => {
     console.log(queryParams);
+    getPlaylistSession();
 
     if (match.params.contentType === "albums") {
       getAlbums();
@@ -78,7 +81,7 @@ function ContentView({ props, match }) {
       .get(api.albums)
       .then(function (response) {
         console.log(response);
-        setAlbums(response.data);
+        setAlbums(response.data.albums);
         // setTimeout(() => setAlbums(response.data), 1000);
       })
       .catch(function (error) {
@@ -116,61 +119,111 @@ function ContentView({ props, match }) {
     setSelectedCardId(id);
   }
 
+  // Get what songs are in the playlist once in the parent so each card can know if it's selected or not
+  function getPlaylistSession() {
+    axios
+      .get(api.playlistSession)
+      .then(function (response) {
+        console.log(response);
+        setSessionTracks(response.data.tracks);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function addToSession(songId) {
+    axios
+      .post(api.playlistSessionTrack, {
+        id: songId,
+      })
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function removeFromSession(songId) {
+    axios
+      .delete(api.playlistSessionTrack, {
+        params: { id: songId },
+      })
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function isInSession(songId) {
+    for (let i = 0; i < sessionTracks.length; i++) {
+      if (songId === sessionTracks[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function renderContentCards() {
     if (match.params.contentType === "songs") {
-      return (songs.length > 0 ? songs : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
-        song,
-        index
-      ) {
+      return (songs.length > 0
+        ? songs
+        : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      ).map(function (song, index) {
         return (
           <SongCard
             song={song}
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (songs.length > 0)
-                selectCard(song.id)
+              if (songs.length > 0) selectCard(song.id);
             }}
             skeletonPulse={songs.length > 0 ? undefined : true}
+            addToSession={addToSession}
+            removeFromSession={removeFromSession}
+            isInSession={isInSession(song.id)}
           ></SongCard>
         );
       });
     } else if (match.params.contentType === "albums") {
-      return (albums.length > 0 ? albums : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
-        album,
-        index
-      ) {
+      return (albums.length > 0
+        ? albums
+        : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      ).map(function (album, index) {
         return (
           <AlbumCard
             album={album}
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (albums.length > 0)
-                selectCard(album.id)
+              if (albums.length > 0) selectCard(album.id);
             }}
             skeletonPulse={albums.length > 0 ? undefined : true}
+            addToSession={addToSession}
           ></AlbumCard>
         );
       });
     } else if (match.params.contentType === "artists") {
-      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(function (
-        artist,
-        index
-      ) {
-        return (
-          <ArtistCard
-            artist={artist}
-            key={index}
-            style={{ margin: "32px" }}
-            onClick={() => {
-              if (artists.length > 0)
-                selectCard(artist.id)
-            }}
-            skeletonPulse={artists.length > 0 ? undefined : true}
-          ></ArtistCard>
-        );
-      });
+      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(
+        function (artist, index) {
+          return (
+            <ArtistCard
+              artist={artist}
+              key={index}
+              style={{ margin: "32px" }}
+              onClick={() => {
+                if (artists.length > 0) selectCard(artist.id);
+              }}
+              skeletonPulse={artists.length > 0 ? undefined : true}
+            ></ArtistCard>
+          );
+        }
+      );
     }
 
     return null;

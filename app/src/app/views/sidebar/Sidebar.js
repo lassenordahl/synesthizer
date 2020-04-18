@@ -3,8 +3,6 @@ import './Sidebar.css';
 
 import { Link } from "react-router-dom"
 
-import { Card } from "./../../containers";
-
 function Sidebar(props) {
   return (
     <div className={"sidebar" + (props.showSidebar ? " sidebar-expanded" : "")}>

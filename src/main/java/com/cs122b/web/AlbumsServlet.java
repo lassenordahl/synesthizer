@@ -32,9 +32,14 @@ public class AlbumsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String tracksResponse = this.gson.toJson(albums);
-
         PrintWriter out = response.getWriter();
-        out.print(tracksResponse);
+
+        if (albums.size() > 0) {
+            String albumsResponse = this.gson.toJson(albums);
+            out.print("{ \"albums\": " + albumsResponse + " }");
+        } else {
+            response.setStatus(404);
+            out.print("{ \"message\": \"resource not found\"}");
+        }
     }
 }

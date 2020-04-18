@@ -27,10 +27,14 @@ public class TrackService implements Config {
 
         Query queryArtist = db
                 .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
-                        + track.getId() + "\"");
+                        + track.getId() + "\";");
         ResultSet artistsResult = queryArtist.getResult();
 
+
         while (artistsResult.next()) {
+            if (artistsResult == null) {
+                break;
+            }
             Artist artist = new Artist();
             artist.setId(artistsResult.getString("id"));
             artist.setName(artistsResult.getString("name"));
@@ -38,11 +42,12 @@ public class TrackService implements Config {
 
             track.addArtists(artist);
         }
+
         queryArtist.closeQuery();
 
         Query queryAlbum = db
                 .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \""
-                        + track.getId() + "\"");
+                        + track.getId() + "\";");
 
         ResultSet albumResult = queryAlbum.getResult();
         albumResult.next();

@@ -7,6 +7,7 @@
   height: 120px;
   width: 490px;
   text-align: start;
+  position: relative;
 }
 
 .song-card:hover {

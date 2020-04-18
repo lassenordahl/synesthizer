@@ -2,8 +2,12 @@ package com.cs122b.model;
 
 import java.util.ArrayList;
 
+// Even though these aren't "required", I'm getting weird errors trying to call the add_track function elsewhere
+import com.cs122b.model.Track;
+
 public class Playlist {
 
+    // Playlist
     private int id;
     private String name;
     private int user_id;
@@ -12,6 +16,7 @@ public class Playlist {
     private ArrayList<Track> tracks;
 
     public Playlist() {
+        tracks = new ArrayList<Track>();
     }
 
     public void setName(String name) {
@@ -52,6 +57,15 @@ public class Playlist {
 
     public void addTrack(Track track) {
         this.tracks.add(track);
+    }
+
+    public void removeTrack(String id) {
+        for (int i = 0; i < tracks.size(); i++) {
+            if (tracks.get(i).getId().equals(id)) {
+                tracks.remove(i);
+                break;
+            }
+        }
     }
 
     public int getUser_id() {

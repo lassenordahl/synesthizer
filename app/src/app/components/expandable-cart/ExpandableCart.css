@@ -51,3 +51,23 @@
   margin: 0;
   margin-left: 16px;
 }
+
+.cart-content-songs {
+  flex: 1 1;
+  overflow-y: hidden;
+}
+
+.cart-content-song-row {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  transition: 0.25s all ease-in;
+}
+
+.cart-content-song-row h4 {
+  margin: 0;
+  margin-left: 16px;
+
+}
