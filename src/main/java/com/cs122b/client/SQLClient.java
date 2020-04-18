@@ -19,16 +19,20 @@ public class SQLClient implements Config {
 
         // Connect to the test database
         try {
-            connection = DriverManager.getConnection("jdbc:" + Config.dbtype + ":///" + Config.dbname + "?autoReconnect=true",
-                    Config.username, Config.password); // &useSSL=false
-        } catch (
-                SQLException e) {
+            connection = DriverManager.getConnection(
+                    "jdbc:" + Config.dbtype + ":///" + Config.dbname + "?autoReconnect=true", Config.username,
+                    Config.password); // &useSSL=false
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public Query query(String query) throws SQLException {
         return new Query(connection.createStatement(), query);
+    }
+
+    public Connection getConnection() {
+        return this.connection;
     }
 
     public void closeConnection() throws SQLException {
