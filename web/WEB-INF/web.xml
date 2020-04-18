@@ -104,6 +104,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/api/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.cs122b.web.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
