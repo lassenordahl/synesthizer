@@ -118,7 +118,9 @@ function SelectedView({ props, match }) {
   }
 
   return (
-    <Selection>{renderSelection()}</Selection>
+    <Selection>
+      {renderSelection()}
+    </Selection>
   );
 }
 

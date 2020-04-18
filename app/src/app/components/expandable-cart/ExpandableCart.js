@@ -3,16 +3,23 @@ import "./ExpandableCart.css";
 
 import axios from "axios";
 
+import { Button } from "../../components";
 import api from "../../../api";
 
 function ExpandableCart(props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showTrackContent, setShowTrackContent] = useState(false);
+
+  // Session Tracks
   const [sessionTracks, setSessionTracks] = useState([]);
 
   useEffect(() => {
     if (isExpanded) {
-      getSessionTracks();
+      // Get the data if it's specified to, this is so we can nicely load the cart total
+      // by passing data in from the outside on changes
+      if (props.getsOwnData) {
+        getPlaylistSession();
+      }
 
       setTimeout(() => {
         setShowTrackContent(true);
@@ -22,12 +29,17 @@ function ExpandableCart(props) {
     }
   }, [isExpanded]);
 
-  function getSessionTracks() {
+  useEffect(() => {
+    if (!props.getsOwnData) {
+      setSessionTracks(props.sessionTracks);
+    }
+  }, [props.sessionTracks]);
+
+  function getPlaylistSession() {
     axios
       .get(api.playlistSession)
       .then(function (response) {
         console.log(response);
-        // setSessionTracks(response.data.tracks);
         setSessionTracks(response.data.tracks);
       })
       .catch(function (error) {
@@ -37,6 +49,14 @@ function ExpandableCart(props) {
 
   return (
     <div className="expandable-cart-wrapper">
+      {isExpanded ? (
+        <div
+          className="expandable-cart-opaque-cover fade-in"
+          onClick={() => {
+            setIsExpanded(!isExpanded);
+          }}
+        />
+      ) : null}
       <div
         className={
           "expandable-cart " +
@@ -84,18 +104,17 @@ function ExpandableCart(props) {
                             </span>
                           </div>
                         </div>
-                        {/* {index !== sessionTracks.length - 1 ? (
-                          <div
-                            className="light-border fade-in"
-                            style={{ animationDelay: 0.1 * index + "s" }}
-                          ></div>
-                        ) : null} */}
                       </React.Fragment>
                     );
                   })
                 : null}
             </div>
+            <Button isGreen={true} className="create-playlist-button fade-in">
+              Create Playlist
+            </Button>
           </div>
+        ) : sessionTracks.length > 0 ? (
+          sessionTracks.length
         ) : (
           "cart"
         )}

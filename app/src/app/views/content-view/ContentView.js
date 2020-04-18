@@ -13,6 +13,7 @@ import {
 } from "../../components";
 import { Card } from "../../containers";
 import { QueryParams } from "../../hooks";
+import { ExpandableCart } from "../../components";
 
 import api from "api.js";
 
@@ -36,8 +37,12 @@ function ContentView(props) {
   // Match is passed in under props now because the <Route> component needed props and I had issues passing match normally
   let match = props.match;
 
+  // Session Tracks
+  const [sessionTracks, setSessionTracks] = useState([]);
+
   useEffect(() => {
     console.log(queryParams);
+    getPlaylistSession();
 
     if (match.params.contentType === "albums") {
       getAlbums();
@@ -118,6 +123,56 @@ function ContentView(props) {
     setSelectedCardId(id);
   }
 
+  // Get what songs are in the playlist once in the parent so each card can know if it's selected or not
+  function getPlaylistSession() {
+    axios
+      .get(api.playlistSession)
+      .then(function (response) {
+        console.log(response);
+        setSessionTracks(response.data.tracks);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function addToSession(songId) {
+    axios
+      .post(api.playlistSessionTrack, {
+        id: songId,
+      })
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function removeFromSession(songId) {
+    axios
+      .delete(api.playlistSessionTrack, {
+        params: { id: songId },
+      })
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
+  function isInSession(songId) {
+    for (let i = 0; i < sessionTracks.length; i++) {
+      if (songId === sessionTracks[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function renderContentCards() {
     if (match.params.contentType === "songs") {
       return (songs.length > 0
@@ -133,9 +188,9 @@ function ContentView(props) {
               if (songs.length > 0) selectCard(song.id);
             }}
             skeletonPulse={songs.length > 0 ? undefined : true}
-            addToSession={props.addToSession}
-            removeFromSession={props.removeFromSession}
-            isInSession={props.isInSession(song.id)}
+            addToSession={addToSession}
+            removeFromSession={removeFromSession}
+            isInSession={isInSession(song.id)}
           ></SongCard>
         );
       });
@@ -153,8 +208,8 @@ function ContentView(props) {
               if (albums.length > 0) selectCard(album.id);
             }}
             skeletonPulse={albums.length > 0 ? undefined : true}
-            addToSession={props.addToSession}
-            removeFromSession={props.removeFromSession}
+            addToSession={addToSession}
+            removeFromSession={removeFromSession}
           ></AlbumCard>
         );
       });
@@ -181,6 +236,7 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
+      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false}/>
       {willRedirectAlbum ? (
         <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}

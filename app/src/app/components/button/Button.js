@@ -11,13 +11,13 @@ function Button(props) {
       return "button-blue";
     }
     if (props.isGreen) {
-
+      return "button-green";
     }
     return "";
   }
 
   return (
-    <div style={props.style} className={"button " + getButtonColor()} onClick={() => props.onClick()}>
+    <div style={props.style} className={"button " + (props.className !== undefined ? props.className : "" ) + " " + getButtonColor()} onClick={() => props.onClick()}>
       {props.children}
     </div>
   );
