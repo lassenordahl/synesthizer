@@ -16,7 +16,7 @@ import { QueryParams } from "../../hooks";
 
 import api from "api.js";
 
-function ContentView({ props, match }) {
+function ContentView(props) {
   // Selection Variables
   const [selectedCardId, setSelectedCardId] = useState(null);
 
@@ -33,12 +33,11 @@ function ContentView({ props, match }) {
   // Query Parameters
   let queryParams = QueryParams();
 
-  // Session Tracks
-  const [sessionTracks, setSessionTracks] = useState([]);
+  // Match is passed in under props now because the <Route> component needed props and I had issues passing match normally
+  let match = props.match;
 
   useEffect(() => {
     console.log(queryParams);
-    getPlaylistSession();
 
     if (match.params.contentType === "albums") {
       getAlbums();
@@ -119,56 +118,6 @@ function ContentView({ props, match }) {
     setSelectedCardId(id);
   }
 
-  // Get what songs are in the playlist once in the parent so each card can know if it's selected or not
-  function getPlaylistSession() {
-    axios
-      .get(api.playlistSession)
-      .then(function (response) {
-        console.log(response);
-        setSessionTracks(response.data.tracks);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }
-
-  function addToSession(songId) {
-    axios
-      .post(api.playlistSessionTrack, {
-        id: songId,
-      })
-      .then(function (response) {
-        console.log(response);
-        getPlaylistSession();
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }
-
-  function removeFromSession(songId) {
-    axios
-      .delete(api.playlistSessionTrack, {
-        params: { id: songId },
-      })
-      .then(function (response) {
-        console.log(response);
-        getPlaylistSession();
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }
-
-  function isInSession(songId) {
-    for (let i = 0; i < sessionTracks.length; i++) {
-      if (songId === sessionTracks[i].id) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   function renderContentCards() {
     if (match.params.contentType === "songs") {
       return (songs.length > 0
@@ -184,9 +133,9 @@ function ContentView({ props, match }) {
               if (songs.length > 0) selectCard(song.id);
             }}
             skeletonPulse={songs.length > 0 ? undefined : true}
-            addToSession={addToSession}
-            removeFromSession={removeFromSession}
-            isInSession={isInSession(song.id)}
+            addToSession={props.addToSession}
+            removeFromSession={props.removeFromSession}
+            isInSession={props.isInSession(song.id)}
           ></SongCard>
         );
       });
@@ -204,7 +153,8 @@ function ContentView({ props, match }) {
               if (albums.length > 0) selectCard(album.id);
             }}
             skeletonPulse={albums.length > 0 ? undefined : true}
-            addToSession={addToSession}
+            addToSession={props.addToSession}
+            removeFromSession={props.removeFromSession}
           ></AlbumCard>
         );
       });
