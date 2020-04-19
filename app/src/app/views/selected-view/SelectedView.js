@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./SelectedView.css";
 
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 import api from "../../../api";
 import { Selection } from "../../containers";
@@ -119,7 +118,9 @@ function SelectedView({ props, match }) {
   }
 
   return (
-    <Selection>{renderSelection()}</Selection>
+    <Selection>
+      {renderSelection()}
+    </Selection>
   );
 }
 

@@ -121,7 +121,24 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/api/user</url-pattern>
     </servlet-mapping>
-    
+
+    <servlet>
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <url-pattern>/api/playlist/session</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionTrackServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <url-pattern>/api/playlist/session/track</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>PlaylistServlet</servlet-name>
         <servlet-class>com.cs122b.web.PlaylistServlet</servlet-class>

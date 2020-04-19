@@ -7,3 +7,4 @@ export { default as SongSelection } from "./song-selection/SongSelection";
 export { default as ArtistSelection } from "./artist-selection/ArtistSelection";
 export { default as AlbumSelection } from "./album-selection/AlbumSelection";
 export { default as ExpandableCart } from "./expandable-cart/ExpandableCart";
+export { default as SessionButton } from "./session-button/SessionButton";

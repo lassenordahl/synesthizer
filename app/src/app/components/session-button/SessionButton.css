@@ -1,0 +1,60 @@
+/* Reusabel CSS for all of the added to playlist buttons */
+.song-card-playlist-button {
+  width: 20px;
+  height: 20px;
+  transition: 0.1s all ease-in;
+  color: #7bd385;
+  position: absolute;
+  right: 24px;
+  border-radius: 12px;
+  border-collapse: separate;
+  perspective: 1px;
+  box-shadow: 0 0 0 2px #7bd385;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-card-playlist-button:hover {
+  background-color: #57985dc8;
+}
+
+.song-card-playlist-button-selected {
+  background-color: #7bd385;
+  /* box-shadow: none; */
+  color: white;
+}
+
+/* CSS taken from https://stackoverflow.com/questions/21968531/how-to-draw-a-checkmark-tick-using-css */
+.checkmark {
+  display:inline-block;
+  width: 22px;
+  height:22px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  margin-bottom: 6px;
+  margin-right: 5px;
+}
+
+.checkmark_stem {
+  position: absolute;
+  width:3px;
+  height:9px;
+  background-color: #7bd385;
+  left:11px;
+  top:6px;
+}
+
+.checkmark_kick {
+  position: absolute;
+  width:3px;
+  height:3px;
+  background-color: #7bd385;
+  left:8px;
+  top:12px;
+}
+
+.checkmark-selected {
+  background-color: white;
+}

@@ -2,10 +2,12 @@
   flex: 1 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .create-playlist-card {
   width: 80%;
+  height: fit-content;
 }
 
 .create-playlist-header {

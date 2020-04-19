@@ -31,3 +31,12 @@
 .button-blue:hover {
   background-color: #f79489;
 }
+
+.button-green {
+  background-color: #8bf797;
+  color: #252B38;
+}
+
+.button-green:hover {
+  background-color: #adf5b5;
+}

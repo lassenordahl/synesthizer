@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import "./helper.css";
@@ -13,9 +13,8 @@ import {
   CreatePlaylist,
 } from "./app/views";
 
-import { ExpandableCart } from "./app/components";
-
 function App() {
+  // Visual Variables
   const [showSidebar, setShowSidebar] = useState(true);
 
   return (
@@ -28,9 +27,6 @@ function App() {
           <Switch>
             <Route exact path="/landing" component={Landing}></Route>
             <Route path="/app">
-              <Route exact path="/app/explore/:route">
-                <ExpandableCart />
-              </Route>
               <div
                 className="app-content-sidebar-button"
                 onClick={() => setShowSidebar(!showSidebar)}
@@ -53,9 +49,7 @@ function App() {
                       <div className="route-title">
                         <h2>{match.params.route}</h2>
                         {/* {match.params.secondaryRoute !== undefined ? ">" : null} */}
-                        <p>
-                          {match.params.secondaryRoute}
-                        </p>
+                        <p>{match.params.secondaryRoute}</p>
                       </div>
                     ) : null;
                   }}
@@ -65,7 +59,11 @@ function App() {
               <Route
                 exact
                 path="/app/explore/:contentType"
-                component={ContentView}
+                component={({ props, match }) => (
+                  <ContentView
+                    match={match}
+                  />
+                )}
               ></Route>
               <Route
                 exact

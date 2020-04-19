@@ -71,9 +71,12 @@ function SongSelection(props) {
                   return index < props.song.artists.length - 1 ? (
                     <Link
                       to={`/app/explore/artists/${artist.id}`}
+                      key={index}
                     >{`${artist.name}, `}</Link>
                   ) : (
-                    <Link to={`/app/explore/artists/${artist.id}`}>{artist.name}</Link>
+                    <Link to={`/app/explore/artists/${artist.id}`} key={index}>
+                      {artist.name}
+                    </Link>
                   );
                 })}
               </div>

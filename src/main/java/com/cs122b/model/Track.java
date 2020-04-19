@@ -1,6 +1,8 @@
 package com.cs122b.model;
 
 import java.util.ArrayList;
+import com.cs122b.model.Album;
+import com.cs122b.model.Artist;
 
 public class Track {
     // Track
