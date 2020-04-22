@@ -23,6 +23,9 @@ function Sidebar(props) {
           <Link to="/app/user/playlists/create">
             Create Playlist
           </Link>
+          <Link to="/app/user/login">
+            Login
+          </Link>
         </React.Fragment>
         : null 
       }

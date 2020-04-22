@@ -11,6 +11,7 @@ import {
   SelectedView,
   Playlists,
   CreatePlaylist,
+  LoginView
 } from "./app/views";
 
 function App() {
@@ -70,6 +71,11 @@ function App() {
                 path="/app/explore/:contentType/:itemId"
                 component={SelectedView}
               ></Route>
+              <Route
+                exact
+                path="/app/user/login"
+                component={LoginView}
+              />
               <Route
                 exact
                 path="/app/user/playlists"
