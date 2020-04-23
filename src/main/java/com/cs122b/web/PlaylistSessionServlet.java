@@ -2,6 +2,8 @@ package com.cs122b.web;
 
 import com.cs122b.model.Playlist;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.cs122b.utils.JsonParse;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,20 +45,23 @@ public class PlaylistSessionServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
 
+        JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());
+
         // Get a instance of current session on the request
         HttpSession session = request.getSession();
-
         Playlist sessionPlaylist = (Playlist) session.getAttribute("sessionPlaylist");
 
         if (sessionPlaylist == null) {
             session.setAttribute("sessionPlaylist", new Playlist());
         }
+        sessionPlaylist.setName(jsonRequestBody.get("name").getAsString());
+        sessionPlaylist.setImage(jsonRequestBody.get("image").getAsString());
 
         // If we don't have an available session playlist, we send a blank one instead
         if (sessionPlaylist == null) {

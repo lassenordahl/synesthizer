@@ -22,6 +22,7 @@ function CreatePlaylist() {
       .then(function (response) {
         console.log(response);
         // setPlaylistSession(response.data);
+        
         setPlaylistName(response.data.name);
         setPlaylistSession({
           id: 0,
@@ -67,8 +68,35 @@ function CreatePlaylist() {
   }
 
   function handleChange(e) {
-    console.log(e.target.value);
-    setPlaylistName(e.target.value);
+     setPlaylistName(e.target.value);
+  }
+
+  function createPlaylist() {
+    let postPlaylist = playlistSession;
+    postPlaylist.name = playlistName;
+    console.log(postPlaylist);
+    axios
+      .post(api.playlist, postPlaylist)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+  }
+
+  function savePlaylist() {
+    let putPlaylist = playlistSession;
+    putPlaylist.name = playlistName;
+    console.log(putPlaylist);
+    axios
+      .put(api.playlistSession, putPlaylist)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
   }
 
   return (
@@ -141,11 +169,11 @@ function CreatePlaylist() {
         </div>
       </Card>
       <div className="create-playlist-button-wrapper">
-        <Button isGreen={true}>
+        <Button isGreen={true} onClick={() => savePlaylist()}>
           Save Playlist
         </Button>
         <div style={{ width: "48px"}}/>
-        <Button isPrimary={true}>
+        <Button isPrimary={true} onClick={() => createPlaylist()}>
           Create Playlist
         </Button>
       </div>

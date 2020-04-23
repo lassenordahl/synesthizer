@@ -21,6 +21,7 @@ public class PlaylistServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
+        // DEV
 //        int userId = (Integer) request.getSession().getAttribute("user_id");
 
         JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());

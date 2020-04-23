@@ -14,5 +14,6 @@ export default {
   song: baseUrl + "/track",
   songMeta: baseUrl + "/track/meta",
   playlistSession: baseUrl + "/playlist/session",
-  playlistSessionTrack: baseUrl + "/playlist/session/track"
+  playlistSessionTrack: baseUrl + "/playlist/session/track",
+  playlist: baseUrl + "/playlist",
 }
