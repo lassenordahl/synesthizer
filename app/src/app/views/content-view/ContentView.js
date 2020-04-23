@@ -78,7 +78,8 @@ function ContentView(props) {
 
   function getAlbums() {
     // axios
-    getRoute(api.albums)
+    axios
+      .get(api.albums)
       .then(function (response) {
         console.log(response);
         setAlbums(response.data.albums);
