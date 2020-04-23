@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useCookies } from "react-cookie";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import "./UserView.css";
 
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { LoggedInContext } from "../../context/LoggedInContext";
 
 import { Card } from "../../containers";
 import { CreateUserForm, LoginForm } from "../../components";
@@ -13,16 +14,21 @@ import axios from "axios";
 import api from "../../../utils/api";
 
 function UserView({ props, match }) {
-  const [loggingIn, setLoggingIn] = useState(true);
-
-  const [cookies, setCookie] = useCookies(["name"]);
+  let history = useHistory();
+  const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+  const [cookies, setCookie] = useCookies([]);
 
   function login(form) {
     axios
       .post(api.login, form)
       .then(function (response) {
         console.log(response);
-        // Redirect to main page
+        if (response.status === 200) {
+          setLoggedIn(true);
+          setCookie("logged_in", true);
+          // Redirect to main page
+          history.push("/app/explore/songs");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -57,8 +63,6 @@ function UserView({ props, match }) {
     if (match.params.mode === "login") {
       return <LoginForm onSubmit={login} />;
     } else if (match.params.mode === "create") {
-      setCookie("hello", "hello", { path: "/unnamed" });
-      console.log();
       return <CreateUserForm onSubmit={createUser} />;
     } else if (match.params.mode === "update") {
       return <h1>Update User</h1>;
