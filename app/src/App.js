@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import "./App.css";
 import "./helper.css";
 
@@ -18,10 +17,7 @@ import {
 function App() {
   // Visual Variables
   const [showSidebar, setShowSidebar] = useState(true);
-  const [cookies, setCookie] = useCookies(["name"]);
 
-  setCookie("hello", "hello", { path: "/unnamed" });
-  console.log(cookies);
   return (
     <div className="App">
       <Route path="/app">

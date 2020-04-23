@@ -8,14 +8,18 @@ import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { CookiesProvider } from "react-cookie";
 
+import { LoggedInContextProvider } from "./app/context/LoggedInContext";
+
 export const history = createBrowserHistory({ basename: "/unnamed" });
 ReactDOM.render(
   <CookiesProvider>
-    <React.StrictMode>
-      <Router history={history}>
-        <App />
-      </Router>
-    </React.StrictMode>
+    <LoggedInContextProvider>
+      <React.StrictMode>
+        <Router history={history}>
+          <App />
+        </Router>
+      </React.StrictMode>
+    </LoggedInContextProvider>
   </CookiesProvider>,
   document.getElementById("root")
 );

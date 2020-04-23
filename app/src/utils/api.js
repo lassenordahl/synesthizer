@@ -3,7 +3,7 @@ import {
   history
 } from "../index"
 
-let baseUrl = "http://localhost:8080/unnamed/api"
+let baseUrl = "http://127.0.0.1:8080/unnamed/api"
 
 axios.interceptors.response.use(undefined, error => {
   if (error.response.status === 401) {
