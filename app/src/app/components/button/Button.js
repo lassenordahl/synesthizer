@@ -1,8 +1,7 @@
 import React from "react";
-import './Button.css';
+import "./Button.css";
 
 function Button(props) {
-
   function getButtonColor() {
     if (props.isPrimary) {
       return "button-primary";
@@ -17,8 +16,19 @@ function Button(props) {
   }
 
   return (
-    <div style={props.style} className={"button " + (props.className !== undefined ? props.className : "" ) + " " + getButtonColor()} onClick={() => props.onClick()}>
-      {props.children}
+    <div
+      style={props.style}
+      className={
+        "button " +
+        (props.className !== undefined ? props.className : "") +
+        " " +
+        getButtonColor()
+      }
+      onClick={() => props.onClick()}
+    >
+      <span style={{marginLeft: "12px", marginRight: "12px"}}>
+        {props.children}
+      </span>
     </div>
   );
 }

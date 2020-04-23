@@ -1,6 +1,7 @@
 .button {
   color: white;
   min-width: 160px;
+  width: fit-content;
   height: 40px;
   background-color: #1d222e;
   border-radius: 20px;
@@ -25,11 +26,12 @@
 }
 
 .button-blue {
-  background-color: #ff7668;
+  background-color: #4CD9FF;
+  color: #252B38;
 }
 
 .button-blue:hover {
-  background-color: #f79489;
+  background-color: rgb(117, 217, 245);
 }
 
 .button-green {

@@ -138,6 +138,14 @@
         <servlet-name>PlaylistSessionTrackServlet</servlet-name>
         <url-pattern>/api/playlist/session/track</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSessionNameServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionNameServlet</servlet-name>
+        <url-pattern>/api/playlist/session/name</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>PlaylistServlet</servlet-name>

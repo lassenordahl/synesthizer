@@ -1,0 +1,61 @@
+/* Reusabel CSS for all of the added to playlist buttons */
+.remove-playlist-button {
+  width: 20px;
+  height: 20px;
+  transition: 0.1s all ease-in;
+  color: #ff7668;
+  position: absolute;
+  right: 24px;
+  border-radius: 12px;
+  border-collapse: separate;
+  perspective: 1px;
+  box-shadow: 0 0 0 2px #ff7668;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-playlist-button:hover {
+  background-color: #ff77687c;
+}
+
+.remove-playlist-button-selected {
+  background-color: #ff7668;
+  /* box-shadow: none; */
+  color: white;
+}
+
+/* CSS taken from https://stackoverflow.com/questions/21968531/how-to-draw-a-checkmark-tick-using-css */
+.remove-playlist-X {
+  position: absolute;
+  display: inline-block;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+}
+
+.remove-playlist-X:hover {
+  cursor: pointer;
+}
+
+.remove-playlist-X-left { 
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  background-color: #ff7668;
+}
+
+.remove-playlist-X-right {
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  background-color: #ff7668;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}

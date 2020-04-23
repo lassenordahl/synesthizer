@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .create-playlist-card {
@@ -73,8 +74,57 @@
 
 .format-column-grid {
   display: grid;
-  grid-template-columns: 2fr repeat(2, 1fr) .5fr 1fr;
+  text-align: left;
+  grid-template-columns: 2fr 1fr 1fr .5fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+.formatted-song-row {
+  margin-top: 16px;
+}
+
+.clouds-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.clouds-wrapper:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.cloud {
+  position: relative;
+  margin: 16px;
+}
+
+.cloud-one {
+  position: absolute;
+  background-color: #323A49;
+  height: 20px;
+  border-radius: 15px;
+  width: 56px;
+  left: -28px;
+}
+
+.cloud-two {
+  position: absolute;
+  background-color: #323A49;
+  height: 20px;
+  border-radius: 15px;
+  width: 30px;
+  left: -14px;
+  top: -9px;
+}
+
+.create-playlist-button-wrapper {
+  display: flex;
+  margin-top: 48px;
 }

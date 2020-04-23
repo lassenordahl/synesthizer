@@ -236,7 +236,7 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
-      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false}/>
+      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false} removeFromSession={removeFromSession}/>
       {willRedirectAlbum ? (
         <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}

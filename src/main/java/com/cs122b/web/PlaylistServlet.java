@@ -21,7 +21,7 @@ public class PlaylistServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        int userId = (Integer) request.getSession().getAttribute("user_id");
+//        int userId = (Integer) request.getSession().getAttribute("user_id");
 
         JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());
 
@@ -29,7 +29,10 @@ public class PlaylistServlet extends HttpServlet {
 
         Playlist playlist = null;
         try {
-            playlist = PlaylistService.createPlaylist(jsonRequestBody, userId);
+            //            DEV
+            playlist = PlaylistService.createPlaylist(jsonRequestBody, 1);
+
+//            playlist = PlaylistService.createPlaylist(jsonRequestBody, userId);
         } catch (SQLException e) {
             e.printStackTrace();
             response.setStatus(400);

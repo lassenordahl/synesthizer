@@ -9,6 +9,10 @@ env/
 target/
 aws/
 out/
+web/static
+web/service-worker.js
+web/asset-manifest.json
+web/index.html
 sql_creation/
 collected_data/
 pom.xml.tag
