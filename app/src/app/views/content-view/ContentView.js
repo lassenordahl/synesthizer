@@ -4,18 +4,14 @@ import "./ContentView.css";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-import {
-  Button,
-  SkeletonPulse,
-  SongCard,
-  AlbumCard,
-  ArtistCard,
-} from "../../components";
+import { Button, SongCard, AlbumCard, ArtistCard } from "../../components";
 import { Card } from "../../containers";
-import { QueryParams } from "../../hooks";
+import { QueryParams } from "../../../hooks";
 import { ExpandableCart } from "../../components";
 
-import api from "api.js";
+import api from "../../../utils/api.js";
+
+import { getRoute } from "../../../utils/api";
 
 function ContentView(props) {
   // Selection Variables
@@ -81,8 +77,8 @@ function ContentView(props) {
   }, [selectedCardId]);
 
   function getAlbums() {
-    axios
-      .get(api.albums)
+    // axios
+    getRoute(api.albums)
       .then(function (response) {
         console.log(response);
         setAlbums(response.data.albums);
@@ -236,7 +232,7 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
-      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false}/>
+      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false} />
       {willRedirectAlbum ? (
         <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}

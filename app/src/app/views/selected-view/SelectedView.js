@@ -3,7 +3,7 @@ import "./SelectedView.css";
 
 import axios from "axios";
 
-import api from "../../../api";
+import api from "../../../utils/api";
 import { Selection } from "../../containers";
 import {
   SongSelection,
@@ -12,7 +12,6 @@ import {
 } from "../../components";
 
 function SelectedView({ props, match }) {
-
   const [song, setSong] = useState(null);
   const [songMeta, setSongMeta] = useState(null);
   const [artist, setArtist] = useState(null);
@@ -47,17 +46,18 @@ function SelectedView({ props, match }) {
   }
 
   function getSongMeta() {
-    axios.get(api.songMeta, {
-      params: {
-        id: match.params.itemId,
-      },
-    })
-    .then(function(response) {
-      setSongMeta(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    })
+    axios
+      .get(api.songMeta, {
+        params: {
+          id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        setSongMeta(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
 
   function getArtist() {
@@ -109,7 +109,7 @@ function SelectedView({ props, match }) {
 
   function renderSelection() {
     if (match.params.contentType === "songs") {
-      return <SongSelection song={song} songMeta={songMeta}/>;
+      return <SongSelection song={song} songMeta={songMeta} />;
     } else if (match.params.contentType === "artists") {
       return <ArtistSelection artist={artist} />;
     } else if (match.params.contentType === "albums") {
@@ -117,11 +117,7 @@ function SelectedView({ props, match }) {
     }
   }
 
-  return (
-    <Selection>
-      {renderSelection()}
-    </Selection>
-  );
+  return <Selection>{renderSelection()}</Selection>;
 }
 
 export default SelectedView;

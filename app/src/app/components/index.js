@@ -8,3 +8,5 @@ export { default as ArtistSelection } from "./artist-selection/ArtistSelection";
 export { default as AlbumSelection } from "./album-selection/AlbumSelection";
 export { default as ExpandableCart } from "./expandable-cart/ExpandableCart";
 export { default as SessionButton } from "./session-button/SessionButton";
+export { default as LoginForm } from "./login-form/LoginForm";
+export { default as CreateUserForm } from "./create-user-form/CreateUserForm";
