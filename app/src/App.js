@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import "./helper.css";
@@ -13,6 +13,8 @@ import {
   CreatePlaylist,
   UserView,
 } from "./app/views";
+
+import { PrivateRoute } from "./app/components";
 
 function App() {
   // Visual Variables
@@ -66,21 +68,26 @@ function App() {
               path="/app/explore/:contentType/:itemId"
               component={SelectedView}
             ></Route>
-            <Route
+            <PrivateRoute
               exact
-              path="/app/user/playlists"
-              component={Playlists}
-            ></Route>
-            <Route
-              exact
-              path="/app/user/playlists/create"
-              component={CreatePlaylist}
-            ></Route>
+              path="/app/user/account/update"
+              component={({ props, match }) => <UserView match={match} />}
+            ></PrivateRoute>
             <Route
               exact
               path="/app/user/account/:mode"
               component={({ props, match }) => <UserView match={match} />}
             ></Route>
+            <PrivateRoute
+              exact
+              path="/app/user/playlists"
+              component={Playlists}
+            ></PrivateRoute>
+            <PrivateRoute
+              exact
+              path="/app/user/playlists/create"
+              component={CreatePlaylist}
+            ></PrivateRoute>
             <Footer />
           </Route>
           <Redirect exact from="/" to="/landing" />
