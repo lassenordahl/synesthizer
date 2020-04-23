@@ -4,7 +4,7 @@ import "./ExpandableCart.css";
 import axios from "axios";
 
 import { Button } from "../../components";
-import api from "../../../api";
+import api from "../../../utils/api";
 
 function ExpandableCart(props) {
   const [isExpanded, setIsExpanded] = useState(false);

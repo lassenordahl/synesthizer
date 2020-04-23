@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { Card } from "./../../containers";
 import { Button } from "./../../components";
-import api from "../../../api";
+import api from "../../../utils/api";
 
 function CreatePlaylist() {
   const [playlistSession, setPlaylistSession] = useState(null);

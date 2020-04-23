@@ -39,7 +39,8 @@ public class LoginServlet extends HttpServlet {
             responseJsonObject.addProperty("message", "success");
 
         } else {
-            responseJsonObject.addProperty("status", "fail");
+            response.setStatus(401);
+            responseJsonObject.addProperty("status", "incorrect username or password");
         }
 
         response.getWriter().write(responseJsonObject.toString());
