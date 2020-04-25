@@ -3,6 +3,8 @@ package com.cs122b.service;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Playlist;
+import com.cs122b.model.Track;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.sql.*;
@@ -24,12 +26,9 @@ public class PlaylistService {
         db = new SQLClient();
 
         String insertQuery = "INSERT INTO playlist(id, name, image, creation_date) " + "VALUES(DEFAULT,?,?,DEFAULT);";
-
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-
         pstmt.setString(1, playlist.getName());
         pstmt.setString(2, playlist.getImage());
-
         int affectedRows = pstmt.executeUpdate();
 
         if (affectedRows > 0) {
@@ -43,14 +42,19 @@ public class PlaylistService {
         pstmt.close();
 
         String insertRelationQuery = "INSERT INTO playlist_to_user(user_id, playlist_id) " + "VALUES(?,?);";
-
         PreparedStatement relationPstmt = db.getConnection().prepareStatement(insertRelationQuery,
                 Statement.RETURN_GENERATED_KEYS);
-
         relationPstmt.setInt(1, userId);
         relationPstmt.setInt(2, playlist.getId());
-
         relationPstmt.executeUpdate();
+
+        String insertTrackPlaylistQuery = "INSERT INTO track_in_playlist(playlist_id, track_id) VALUES ";
+        for (int i = 0; i < playlist.getTracks().size(); i++)
+            insertTrackPlaylistQuery += "(" + playlist.getId() + ", \"" + playlist.getTracks().get(i).getId() + "\")" + ((i < playlist.getTracks().size() - 1) ? "," : "");
+        PreparedStatement insertTracksStatement = db.getConnection().prepareStatement(insertTrackPlaylistQuery,
+                Statement.RETURN_GENERATED_KEYS);
+        insertTracksStatement.executeUpdate();
+
         relationPstmt.close();
     }
 
@@ -74,6 +78,14 @@ public class PlaylistService {
 
         playlist.setName(name);
         playlist.setImage(playlistJson.get("image").getAsString());
+        JsonArray tracks = playlistJson.getAsJsonArray("tracks");
+
+        for (int i = 0; i < tracks.size(); i++) {
+            JsonObject track = (JsonObject) tracks.get(i);
+            Track newTrack = new Track();
+            newTrack.setId(track.get("id").getAsString());
+            playlist.addTrack(newTrack);
+        }
 
         insertPlaylist(playlist, userId);
 

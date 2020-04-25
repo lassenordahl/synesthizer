@@ -38,7 +38,7 @@ function SongCard(props) {
         </div>
         <div className="song-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{truncateTitle(props.song.name)}</h2>
+            <h2>{truncateTitle(props.song.name, 52)}</h2>
           ) : (
             <SkeletonPulse
               style={{ width: "128px", height: "24px", marginBottom: "8px" }}

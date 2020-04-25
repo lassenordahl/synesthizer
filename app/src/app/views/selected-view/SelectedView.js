@@ -21,7 +21,6 @@ function SelectedView({ props, match }) {
   useEffect(() => {
     if (match.params.contentType === "songs") {
       getSong();
-      getSongMeta();
     } else if (match.params.contentType === "artists") {
       getArtist();
     } else if (match.params.contentType === "albums") {
@@ -39,6 +38,7 @@ function SelectedView({ props, match }) {
       })
       .then(function (response) {
         setSong(response.data.song);
+        getSongMeta();
       })
       .catch(function (error) {
         console.error(error);

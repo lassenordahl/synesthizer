@@ -22,7 +22,7 @@ function AlbumCard(props) {
         </div>
         <div className="album-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{truncateTitle(props.album.name)}</h2>
+            <h2>{truncateTitle(props.album.name, 52)}</h2>
           ) : (
             <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
           )}

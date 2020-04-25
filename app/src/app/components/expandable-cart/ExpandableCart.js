@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./ExpandableCart.css";
 
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-import { Button } from "../../components";
-import api from "../../../utils/api";
+import { Button, DeleteSessionButton } from "../../components";
+import api from "../../../api";
 
 function ExpandableCart(props) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -97,21 +98,35 @@ function ExpandableCart(props) {
                           style={{ animationDelay: 0.1 * index + "s" }}
                         >
                           <img src={track.album.image} alt="album-art"></img>
-                          <div>
-                            <p>{track.name}</p>
-                            <span style={{ fontSize: "0.5em" }}>
-                              {track.artists[0].name}
-                            </span>
+                          <div className="card-content-song-row-wrapper">
+                            <div>
+                              <p>{track.name}</p>
+                              <span style={{ fontSize: "0.5em" }}>
+                                {track.artists[0].name}
+                              </span>
+                            </div>
                           </div>
+                          <DeleteSessionButton
+                            style={{ position: "absolute", right: "24px" }}
+                            onClick={() => {
+                              props.removeFromSession(track.id);
+                            }}
+                          />
                         </div>
                       </React.Fragment>
                     );
                   })
                 : null}
             </div>
-            <Button isGreen={true} className="create-playlist-button fade-in">
-              Create Playlist
-            </Button>
+            <Link to="/app/user/playlists/create">
+              <Button
+                isGreen={true}
+                onClick={() => {}}
+                className="create-playlist-button fade-in"
+              >
+                Create Playlist
+              </Button>
+            </Link>
           </div>
         ) : sessionTracks.length > 0 ? (
           sessionTracks.length

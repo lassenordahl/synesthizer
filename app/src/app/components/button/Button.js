@@ -27,7 +27,9 @@ function Button(props) {
       }
       onClick={() => props.onClick()}
     >
-      {props.children}
+      <span style={{marginLeft: "12px", marginRight: "12px"}}>
+        {props.children}
+      </span>
     </div>
   );
 }

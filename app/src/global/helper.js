@@ -6,9 +6,9 @@ export function isOverCardLimit(str) {
   return str.length > 30;
 }
 
-export function truncateTitle(str) {
-  if (str.length > 52) {
-    return str.substring(0, 52) + "...";
+export function truncateTitle(str, count) {
+  if (str.length > count) {
+    return str.substring(0, count) + "...";
   } else {
     return str;
   }
