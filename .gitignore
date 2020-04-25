@@ -10,9 +10,13 @@ target/
 aws/
 out/
 web/static
+web/static/js
+web/static/css/main*.css
+web/static/css/main*.map
 web/service-worker.js
 web/asset-manifest.json
 web/index.html
+web/precache-manifest*.js
 sql_creation/
 collected_data/
 pom.xml.tag
