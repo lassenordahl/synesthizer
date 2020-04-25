@@ -4,6 +4,7 @@ import "./DeleteSessionButton.css";
 function DeleteSessionButton(props) {
   return (
     <div
+      style={props.style}
       className={
         "remove-playlist-button " +
         (props.isSelected ? "remove-playlist-button-selected" : "") +

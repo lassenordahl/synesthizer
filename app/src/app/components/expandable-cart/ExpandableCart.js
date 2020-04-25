@@ -106,7 +106,12 @@ function ExpandableCart(props) {
                               </span>
                             </div>
                           </div>
-                          <DeleteSessionButton onClick={() => {props.removeFromSession(track.id)}}/>
+                          <DeleteSessionButton
+                            style={{ position: "absolute", right: "24px" }}
+                            onClick={() => {
+                              props.removeFromSession(track.id);
+                            }}
+                          />
                         </div>
                       </React.Fragment>
                     );
@@ -114,7 +119,11 @@ function ExpandableCart(props) {
                 : null}
             </div>
             <Link to="/app/user/playlists/create">
-              <Button isGreen={true} onClick={() => {}} className="create-playlist-button fade-in">
+              <Button
+                isGreen={true}
+                onClick={() => {}}
+                className="create-playlist-button fade-in"
+              >
                 Create Playlist
               </Button>
             </Link>

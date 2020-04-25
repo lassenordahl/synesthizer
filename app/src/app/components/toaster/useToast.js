@@ -25,13 +25,13 @@ function useToast() {
   function showError(text) {
     setType("error");
     setShow(true);
-    setShow(text);
+    setText(text);
   }
 
   function getLabelColor() {
     if (type === "success") {
       return "toaster-label-green";
-    } else if (type === "red") {
+    } else if (type === "error") {
       return "toaster-label-red";
     }
     return "";

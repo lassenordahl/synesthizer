@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Card } from "./../../containers";
-import { Button, SkeletonPulse, useToast } from "./../../components";
+import { Button, SkeletonPulse, useToast, DeleteSessionButton } from "./../../components";
 import api from "../../../api";
 
 function CreatePlaylist() {
@@ -26,14 +26,15 @@ function CreatePlaylist() {
     axios
       .get(api.playlistSession)
       .then(function (response) {
-        console.log(response);
-        setPlaylistName(response.data.name);
         if (response.data.name === undefined) {
-          response.data.name = "";
+          setPlaylistName("");
+        } else {
+          setPlaylistName(response.data.name);
         }
         if (response.data.image === undefined) {
           response.data.image = "";
         }
+
         setPlaylistSession(response.data);
       })
       .catch(function (error) {
@@ -53,9 +54,12 @@ function CreatePlaylist() {
       .post(api.playlist, postPlaylist)
       .then(function(response) {
         console.log(response);
+        showSuccess("Successfully submitted playlist");
+        getSessionPlaylist();
       })
       .catch(function(error) {
         console.error(error);
+        showError("Error creating playlist");
       });
   }
 
@@ -73,6 +77,20 @@ function CreatePlaylist() {
       .catch(function(error) {
         console.error(error);
         showError("Error saving playlist");
+      });
+  }
+
+  function removeFromSession(songId) {
+    axios
+      .delete(api.playlistSessionTrack, {
+        params: { id: songId },
+      })
+      .then(function (response) {
+        console.log(response);
+        getSessionPlaylist();
+      })
+      .catch(function (error) {
+        console.error(error);
       });
   }
 
@@ -112,7 +130,7 @@ function CreatePlaylist() {
             <div>Song</div>
             <div>Artist</div>
             <div>Album</div>
-            <div>Length</div>
+            <div className="flex-center">Length</div>
             <div></div>
           </div>
           {playlistSession !== null ? (
@@ -133,7 +151,12 @@ function CreatePlaylist() {
                       <Link to="">
                         <div>{song.album.name}</div>
                       </Link>
-                      <div>{song.duration_ms}</div>
+                      <div className="flex-center">
+                        {song.duration_ms}
+                      </div>
+                      <div className="flex-center">
+                        <DeleteSessionButton onClick={() => removeFromSession(song.id)}/>
+                      </div>
                     </div>
                   );
                 })}
@@ -147,7 +170,7 @@ function CreatePlaylist() {
         </div>
       </Card>
       <div className="create-playlist-button-wrapper">
-        <Button isGreen={true} onClick={() => showError("request submitted successfully")}>
+        <Button isGreen={true} onClick={() => savePlaylist()}>
           Save Playlist
         </Button>
         <div style={{ width: "48px"}}/>
