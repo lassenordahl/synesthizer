@@ -1,41 +1,47 @@
 import React, { useState, useEffect } from "react";
+import "./UserForm.css";
+
 import { useForm } from "react-hook-form";
 
 import { Button } from "../../components";
 
-function CreateUserForm(props) {
+function UserForm(props) {
   const { handleSubmit, register, errors } = useForm();
 
   return (
-    <form>
-      <div>
+    <div className="user-form">
+      <form>
         <input
           name="first_name"
           placeholder="first name"
+          defaultValue={props.defaults ? props.defaults.first_name : undefined}
           ref={register({
             required: true,
           })}
         ></input>
-        {errors.first_name && "first name required"}
+        <span>{errors.first_name && "first name required"}</span>
         <input
           name="last_name"
           placeholder="last name"
+          defaultValue={props.defaults ? props.defaults.last_name : undefined}
           ref={register({
             required: true,
           })}
         ></input>
-        {errors.last_name && "last name required"}
+        <span>{errors.last_name && "last name required"}</span>
         <input
           name="address"
           placeholder="address"
+          defaultValue={props.defaults ? props.defaults.address : undefined}
           ref={register({
             required: true,
           })}
         ></input>
-        {errors.address && "address required"}
+        <span>{errors.address && "address required"}</span>
         <input
           name="email"
           placeholder="email"
+          defaultValue={props.defaults ? props.defaults.email : undefined}
           ref={register({
             required: true,
             pattern: {
@@ -43,7 +49,7 @@ function CreateUserForm(props) {
             },
           })}
         ></input>
-        {errors.email && "invalid email address"}
+        <span>{errors.email && "invalid email address"}</span>
         <input
           type="password"
           name="password"
@@ -53,18 +59,20 @@ function CreateUserForm(props) {
             validate: (value) => value && value.length > 0,
           })}
         ></input>
-        {errors.password && "password required"}
-      </div>
-      <Button
-        style={{ width: "200px" }}
-        type="submit"
-        isPrimary={true}
-        onClick={handleSubmit(props.onSubmit)}
-      >
-        Login
-      </Button>
-    </form>
+        <span>{errors.password && "password required"}</span>
+        <div className="user-form-button">
+          <Button
+            type="submit"
+            style={{ width: "65px", height: "35px" }}
+            isPrimary={true}
+            onClick={handleSubmit(props.onSubmit)}
+          >
+            {props.action}
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 }
 
-export default CreateUserForm;
+export default UserForm;
