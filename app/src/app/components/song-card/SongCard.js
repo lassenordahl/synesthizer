@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 import { SessionButton } from "../../components";
-import api from "../../../api";
+import api from "../../../utils/api";
 
 function SongCard(props) {
   return (

@@ -18,6 +18,7 @@ function Button(props) {
   return (
     <div
       style={props.style}
+      type={props.type}
       className={
         "button " +
         (props.className !== undefined ? props.className : "") +

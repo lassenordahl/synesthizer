@@ -2,8 +2,10 @@ package com.cs122b.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.JsonObject;
 
@@ -40,8 +42,8 @@ public class LoginFilter implements Filter {
 
     private boolean isUrlAllowedWithoutLogin(String requestURI) {
         // DEV
-        return true;
-//        return allowedURIs.stream().anyMatch(requestURI.toLowerCase()::endsWith);
+//        return true;
+         return allowedURIs.stream().anyMatch(requestURI.toLowerCase()::endsWith);
     }
 
     public void init(FilterConfig fConfig) {
@@ -64,9 +66,11 @@ public class LoginFilter implements Filter {
         allowedURIs.add("api/playlist/session");
         allowedURIs.add("api/playlist/session/track");
 
+        // User
+        allowedURIs.add("api/user");
+
         // Auth
         allowedURIs.add("api/login");
-        allowedURIs.add("api/logout");
     }
 
     public void destroy() {

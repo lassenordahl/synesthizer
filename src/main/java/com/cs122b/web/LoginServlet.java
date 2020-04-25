@@ -6,9 +6,7 @@ import com.cs122b.utils.JsonParse;
 
 import com.google.gson.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.sql.SQLException;
 import java.io.IOException;
 
@@ -39,7 +37,8 @@ public class LoginServlet extends HttpServlet {
             responseJsonObject.addProperty("message", "success");
 
         } else {
-            responseJsonObject.addProperty("status", "fail");
+            response.setStatus(401);
+            responseJsonObject.addProperty("status", "incorrect username or password");
         }
 
         response.getWriter().write(responseJsonObject.toString());
