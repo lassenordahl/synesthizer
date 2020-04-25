@@ -6,14 +6,8 @@ export const LoggedInContext = createContext();
 
 // Create a provider for components to consume and subscribe to changes
 export const LoggedInContextProvider = (props) => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [cookies, setCookie] = useCookies([]);
-
-  useEffect(() => {
-    if (cookies.logged_in === "true") {
-      setLoggedIn(true);
-    }
-  }, []);
+  const [loggedIn, setLoggedIn] = useState(cookies.logged_in);
 
   return (
     <LoggedInContext.Provider value={[loggedIn, setLoggedIn]}>

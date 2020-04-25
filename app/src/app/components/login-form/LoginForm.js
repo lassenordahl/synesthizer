@@ -8,8 +8,8 @@ function LoginForm(props) {
   const { handleSubmit, register, errors } = useForm();
 
   return (
-    <form>
-      <div>
+    <div className="login-form">
+      <form>
         <input
           name="email"
           placeholder="email"
@@ -20,7 +20,7 @@ function LoginForm(props) {
             },
           })}
         ></input>
-        {errors.email && "invalid email address"}
+        <span>{errors.email && "invalid email address"}</span>
         <input
           type="password"
           name="password"
@@ -30,17 +30,19 @@ function LoginForm(props) {
             validate: (value) => value && value.length > 0,
           })}
         ></input>
-        {errors.password && "password required"}
-      </div>
-      <Button
-        style={{ width: "200px" }}
-        type="submit"
-        isPrimary={true}
-        onClick={handleSubmit(props.onSubmit)}
-      >
-        Login
-      </Button>
-    </form>
+        <span>{errors.password && "password required"}</span>
+        <div className="login-form-button">
+          <Button
+            style={{ width: "65px", height: "35px" }}
+            type="submit"
+            isPrimary={true}
+            onClick={handleSubmit(props.onSubmit)}
+          >
+            Login
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 }
 

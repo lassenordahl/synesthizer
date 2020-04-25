@@ -71,7 +71,7 @@ function App() {
             <PrivateRoute
               exact
               path="/app/user/account/update"
-              component={({ props, match }) => <UserView match={match} />}
+              component={React.Fragment}
             ></PrivateRoute>
             <Route
               exact

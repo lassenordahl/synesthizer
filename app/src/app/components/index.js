@@ -9,5 +9,5 @@ export { default as AlbumSelection } from "./album-selection/AlbumSelection";
 export { default as ExpandableCart } from "./expandable-cart/ExpandableCart";
 export { default as SessionButton } from "./session-button/SessionButton";
 export { default as LoginForm } from "./login-form/LoginForm";
-export { default as CreateUserForm } from "./create-user-form/CreateUserForm";
+export { default as UserForm } from "./user-form/UserForm";
 export { default as PrivateRoute } from "./private-route/PrivateRoute";

@@ -21,7 +21,7 @@ function Sidebar(props) {
         console.log(response);
         if (response.status === 200) {
           setLoggedIn(false);
-          setCookie("logged_in", false);
+          setCookie("logged_in", false, { path: "/unnamed", expires: 0 });
         }
       })
       .catch(function (error) {

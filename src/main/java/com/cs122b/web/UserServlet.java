@@ -6,9 +6,7 @@ import com.cs122b.utils.JsonParse;
 
 import com.google.gson.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.sql.SQLException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,6 +28,12 @@ public class UserServlet extends HttpServlet {
             user = UserService.createUser(jsonRequestBody);
         } catch (SQLException e) {
             e.printStackTrace();
+            response.setStatus(400);
+            out.write("{ \"message\": \"resource not created\"}");
+            return;
+        }
+
+        if (user == null) {
             response.setStatus(400);
             out.write("{ \"message\": \"resource not created\"}");
             return;
