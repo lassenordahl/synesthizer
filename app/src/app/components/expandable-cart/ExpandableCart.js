@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Button, DeleteSessionButton } from "../../components";
+import { truncateTitle } from "../../../global/helper";
 import api from "../../../api";
 
 function ExpandableCart(props) {
@@ -101,7 +102,7 @@ function ExpandableCart(props) {
                           <div className="card-content-song-row-wrapper">
                             <div>
                               <Link to={"/app/explore/songs/" + track.id}>
-                                <p>{track.name}</p>
+                                <p>{truncateTitle(track.name, 37)}</p>
                               </Link>
                               <Link to={"/app/explore/artists/" + track.artists[0].id}>
                                 <span style={{ fontSize: "0.5em" }}>
