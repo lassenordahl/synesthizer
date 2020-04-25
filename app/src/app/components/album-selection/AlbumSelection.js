@@ -3,6 +3,7 @@ import "./AlbumSelection.css";
 
 import { Link } from "react-router-dom";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
+import { convertToSeconds } from "../../../global/helper";
 
 function AlbumSelection(props) {
   return (
@@ -43,7 +44,7 @@ function AlbumSelection(props) {
               <Link to={"/app/explore/songs/" + track.id} key={index}>
                 <div className="selected-view-song-row" key={index}>
                   <p>{track.name}</p>
-                  <p>{Math.floor(track.duration_ms / 60000)}:{Math.floor(track.duration_ms % 60000 / 1000)}</p>
+                  <p>{convertToSeconds(track.duration_ms)}</p>
                 </div>
               </Link>
             );

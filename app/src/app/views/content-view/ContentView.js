@@ -13,7 +13,7 @@ import {
   Paginate,
 } from "../../components";
 import { Card } from "../../containers";
-import { QueryParams } from "../../../hooks";
+import { QueryParams, useToast } from "../../../hooks";
 
 import api from "../../../utils/api.js";
 
@@ -43,8 +43,9 @@ function ContentView(props) {
   // Session Tracks
   const [sessionTracks, setSessionTracks] = useState([]);
 
+  const [showSuccess, showError, renderToast] = useToast();
+
   useEffect(() => {
-    console.log(queryParams);
     getPlaylistSession();
 
     if (match.params.contentType === "albums") {
@@ -57,7 +58,7 @@ function ContentView(props) {
       setSongs([]);
       getSongs();
     }
-  }, [match.params.contentType, params]);
+  }, [match.params.contentType]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -92,10 +93,10 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         setAlbums(response.data.albums);
-        // setTimeout(() => setAlbums(response.data), 1000);
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving albums")
       });
   }
 
@@ -105,10 +106,10 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         setArtists(response.data.artists);
-        // setTimeout(() => setArtists(response.data.artists), 1000);
       })
       .catch(function (error) {
         console.log(error);
+        showError("Error retrieving artists")
       });
   }
 
@@ -121,6 +122,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving songs")
       });
   }
 
@@ -138,6 +140,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving playlist")
       });
   }
 
@@ -152,6 +155,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error adding to playlist")
       });
   }
 
@@ -166,6 +170,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error removing from playlist");
       });
   }
 
@@ -241,6 +246,7 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
+      {renderToast()}
       <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false} removeFromSession={removeFromSession}/>
       {willRedirectAlbum ? (
         <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
