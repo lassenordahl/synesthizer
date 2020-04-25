@@ -24,7 +24,7 @@ function UserView({ props, match }) {
     axios
       .get(api.user)
       .then(function (response) {
-        setUser(response);
+        setUser(response.data);
         console.log(response);
       })
       .catch(function (error) {
@@ -95,7 +95,7 @@ function UserView({ props, match }) {
       return <LoginForm onSubmit={login} />;
     } else if (match.params.mode === "create") {
       return <UserForm onSubmit={createUser} action="Sign Up" />;
-    } else if (match.params.mode === "update") {
+    } else if (match.params.mode) {
       return <UserForm onSubmit={updateUser} action="Update" defaults={user} />;
     }
   }

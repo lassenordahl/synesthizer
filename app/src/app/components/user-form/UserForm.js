@@ -8,6 +8,10 @@ import { Button } from "../../components";
 function UserForm(props) {
   const { handleSubmit, register, errors } = useForm();
 
+  console.log("user form rendered");
+  console.log(props.action);
+  console.log(props.defaults);
+
   return (
     <div className="user-form">
       <form>
@@ -53,11 +57,17 @@ function UserForm(props) {
         <input
           type="password"
           name="password"
-          placeholder="password"
-          ref={register({
-            required: true,
-            validate: (value) => value && value.length > 0,
-          })}
+          placeholder={props.action == "Update" ? "new password" : "password"}
+          ref={
+            props.action == "Update"
+              ? register({
+                  required: false,
+                })
+              : register({
+                  required: true,
+                  validate: (value) => value && value.length > 0,
+                })
+          }
         ></input>
         <span>{errors.password && "password required"}</span>
         <div className="user-form-button">
