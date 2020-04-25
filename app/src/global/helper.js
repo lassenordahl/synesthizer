@@ -13,3 +13,15 @@ export function truncateTitle(str, count) {
     return str;
   }
 }
+
+function addZeroIfSingleDigit(number) {
+  if (number < 10) {
+    return "0" + number;
+  }
+  return number;
+}
+
+export function convertToSeconds(durationMs) {
+  return Math.floor(durationMs / 60000) + ":" + addZeroIfSingleDigit(Math.floor(durationMs % 60000 / 1000));
+}
+

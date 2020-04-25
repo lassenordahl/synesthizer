@@ -5,7 +5,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Card } from "./../../containers";
-import { Button, SkeletonPulse, useToast, DeleteSessionButton } from "./../../components";
+import { Button, SkeletonPulse, DeleteSessionButton } from "./../../components";
+import { useToast } from "./../../../hooks";
 import api from "../../../api";
 
 function CreatePlaylist() {
@@ -16,6 +17,7 @@ function CreatePlaylist() {
   // Create a seperate playlist variable for efficiency when updating (don't need to update entire session object anytime a character changes in the name)
   const [playlistName, setPlaylistName] = useState("");
 
+  // Toaster for error and success handling
   const [showSuccess, showError, renderToast] = useToast();
 
   useEffect(() => {

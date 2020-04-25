@@ -8,6 +8,7 @@
   flex-direction: row;
   background-color: #323A49;
   box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  z-index: 1005;
 }
 
 .toaster-label {

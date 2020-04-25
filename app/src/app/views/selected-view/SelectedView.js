@@ -10,13 +10,18 @@ import {
   ArtistSelection,
   AlbumSelection,
 } from "../../components";
+import { useToast } from "../../../hooks";
 
 function SelectedView({ props, match }) {
+  // Data variables
   const [song, setSong] = useState(null);
   const [songMeta, setSongMeta] = useState(null);
   const [artist, setArtist] = useState(null);
   const [album, setAlbum] = useState(null);
   const [tracksForAlbum, setTracksForAlbum] = useState([]);
+
+  // Toaster
+  const [showSuccess, showError, renderToast] = useToast();
 
   useEffect(() => {
     if (match.params.contentType === "songs") {
@@ -41,6 +46,7 @@ function SelectedView({ props, match }) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving song");
       });
   }
 
@@ -56,6 +62,7 @@ function SelectedView({ props, match }) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving song metadata");
       });
   }
 
@@ -71,6 +78,7 @@ function SelectedView({ props, match }) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving artist");
       });
   }
 
@@ -87,6 +95,7 @@ function SelectedView({ props, match }) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving album");
       });
   }
 
@@ -103,6 +112,7 @@ function SelectedView({ props, match }) {
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving album tracks");
       });
   }
 
@@ -116,7 +126,12 @@ function SelectedView({ props, match }) {
     }
   }
 
-  return <Selection>{renderSelection()}</Selection>;
+  return (
+    <React.Fragment>
+      {renderToast()}
+      <Selection>{renderSelection()}</Selection>
+    </React.Fragment>
+  );
 }
 
 export default SelectedView;
