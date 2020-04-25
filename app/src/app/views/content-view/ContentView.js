@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ContentView.css";
 
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-import { Button, SongCard, AlbumCard, ArtistCard } from "../../components";
+import {
+  Button,
+  SongCard,
+  AlbumCard,
+  ArtistCard,
+  ExpandableCart,
+  Paginate,
+} from "../../components";
 import { Card } from "../../containers";
 import { QueryParams } from "../../../hooks";
-import { ExpandableCart } from "../../components";
 
 import api from "../../../utils/api.js";
 
@@ -29,6 +35,7 @@ function ContentView(props) {
 
   // Query Parameters
   let queryParams = QueryParams();
+  const [params, setParams] = useState({ offset: 0, limit: 20 });
 
   // Match is passed in under props now because the <Route> component needed props and I had issues passing match normally
   let match = props.match;
@@ -41,13 +48,16 @@ function ContentView(props) {
     getPlaylistSession();
 
     if (match.params.contentType === "albums") {
+      setAlbums([]);
       getAlbums();
     } else if (match.params.contentType === "artists") {
+      setArtists([]);
       getArtists();
     } else if (match.params.contentType === "songs") {
+      setSongs([]);
       getSongs();
     }
-  }, [match.params.contentType]);
+  }, [match.params.contentType, params]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -77,9 +87,8 @@ function ContentView(props) {
   }, [selectedCardId]);
 
   function getAlbums() {
-    // axios
     axios
-      .get(api.albums)
+      .get(api.albums, { params: params })
       .then(function (response) {
         console.log(response);
         setAlbums(response.data.albums);
@@ -92,7 +101,7 @@ function ContentView(props) {
 
   function getArtists() {
     axios
-      .get(api.artists)
+      .get(api.artists, { params: params })
       .then(function (response) {
         console.log(response);
         setArtists(response.data.artists);
@@ -105,11 +114,10 @@ function ContentView(props) {
 
   function getSongs() {
     axios
-      .get(api.songs)
+      .get(api.songs, { params: params })
       .then(function (response) {
         console.log(response);
         setSongs(response.data.songs);
-        // setTimeout(() => setSongs(response.data.songs), 1000);
       })
       .catch(function (error) {
         console.error(error);
@@ -269,16 +277,7 @@ function ContentView(props) {
           className="content-view-filter-wrapper"
           style={{ marginTop: "64px", marginBottom: "0px" }}
         >
-          <Card
-            className="content-view-filter"
-            innerStyle={{
-              display: "flex",
-              flexDirection: "row",
-              margin: "8px 24px 8px 24px",
-            }}
-          >
-            <p>1</p>
-          </Card>
+          <Paginate params={params} setParams={setParams} />
         </div>
       </div>
     </div>

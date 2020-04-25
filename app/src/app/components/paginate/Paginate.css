@@ -1,0 +1,15 @@
+.paginate-filter-controls {
+    display: flex;
+    flex-direction: row;
+}
+
+.paginate-filter-controls p {
+    font-weight: bold;
+    font-size: large;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.paginate-filter-controls p:last-child {
+    margin-right: 0px;
+}

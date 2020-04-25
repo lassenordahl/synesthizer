@@ -11,3 +11,4 @@ export { default as SessionButton } from "./session-button/SessionButton";
 export { default as LoginForm } from "./login-form/LoginForm";
 export { default as UserForm } from "./user-form/UserForm";
 export { default as PrivateRoute } from "./private-route/PrivateRoute";
+export { default as Paginate } from "./paginate/Paginate";
