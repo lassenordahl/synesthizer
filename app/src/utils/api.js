@@ -32,7 +32,7 @@ export const postRoute = async (path, data) => {
   return result;
 };
 
-export default {
+export const api = {
   login: baseUrl + "/login",
   logout: baseUrl + "/logout",
   user: baseUrl + "/user",
@@ -44,6 +44,7 @@ export default {
   songs: baseUrl + "/tracks",
   song: baseUrl + "/track",
   songMeta: baseUrl + "/track/meta",
+  playlists: baseUrl + "/playlists",
   playlistSession: baseUrl + "/playlist/session",
   playlistSessionTrack: baseUrl + "/playlist/session/track"
 }

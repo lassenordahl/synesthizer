@@ -16,7 +16,7 @@ public class TrackService implements Config {
 
     private static SQLClient db;
 
-    private static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
+    static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));

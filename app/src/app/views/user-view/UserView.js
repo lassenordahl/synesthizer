@@ -11,7 +11,7 @@ import { UserForm, LoginForm } from "../../components";
 
 import axios from "axios";
 
-import api from "../../../utils/api";
+import { api } from "../../../utils/api";
 
 function UserView({ props, match }) {
   let history = useHistory();

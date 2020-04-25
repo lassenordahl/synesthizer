@@ -43,7 +43,7 @@ public class LoginFilter implements Filter {
     private boolean isUrlAllowedWithoutLogin(String requestURI) {
         // DEV
 //        return true;
-         return allowedURIs.stream().anyMatch(requestURI.toLowerCase()::endsWith);
+        return allowedURIs.stream().anyMatch(requestURI.toLowerCase()::endsWith);
     }
 
     public void init(FilterConfig fConfig) {
@@ -63,6 +63,7 @@ public class LoginFilter implements Filter {
         allowedURIs.add("api/track/meta");
 
         // Playlist
+        allowedURIs.add("api/playlists");
         allowedURIs.add("api/playlist/session");
         allowedURIs.add("api/playlist/session/track");
 

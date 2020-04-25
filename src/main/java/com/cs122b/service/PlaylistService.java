@@ -1,5 +1,6 @@
 package com.cs122b.service;
 
+import com.cs122b.service.TrackService;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Playlist;
@@ -15,11 +16,76 @@ public class PlaylistService {
 
     private static SQLClient db;
 
+    static void setPlaylistTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
+        track.setId(query.getString("id"));
+        track.setName(query.getString("name"));
+        track.setTrack_number(query.getInt("track_number"));
+
+        if (addPopularity) {
+            track.setPopularity(query.getInt("popularity"));
+        }
+
+        Query queryArtist = db
+                .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
+                        + track.getId() + "\";");
+        ResultSet artistsResult = queryArtist.getResult();
+
+
+        while (artistsResult.next()) {
+            if (artistsResult == null) {
+                break;
+            }
+            com.cs122b.model.Artist artist = new com.cs122b.model.Artist();
+            artist.setId(artistsResult.getString("id"));
+            artist.setName(artistsResult.getString("name"));
+            artist.setImage(artistsResult.getString("image"));
+
+            track.addArtists(artist);
+        }
+
+        queryArtist.closeQuery();
+
+        Query queryAlbum = db
+                .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \""
+                        + track.getId() + "\";");
+
+        ResultSet albumResult = queryAlbum.getResult();
+        albumResult.next();
+
+        com.cs122b.model.Album album = new com.cs122b.model.Album();
+        album.setId(albumResult.getString("id"));
+        album.setName(albumResult.getString("name"));
+        album.setAlbum_type(albumResult.getString("album_type"));
+        album.setImage(albumResult.getString("image"));
+        album.setRelease_date(albumResult.getString("release_date"));
+
+        track.setAlbum(album);
+
+        queryAlbum.closeQuery();
+    }
+
     private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
         playlist.setImage(result.getString("image"));
         playlist.setCreation_date(result.getString("creation_date"));
+
+        // Get tje tracks
+        Query query = db.query(String.format(
+                "SELECT * FROM track_in_playlist\n" +
+                        "LEFT JOIN track ON track.id = track_in_playlist.track_id\n" +
+                        "LEFT JOIN track_meta ON track_meta.id = track.id\n" +
+                        "WHERE track_in_playlist.playlist_id = %d;",
+                playlist.getId()));
+
+        ResultSet resultTracks = query.getResult();
+        while (resultTracks.next()) {
+            Track track = new Track();
+            setPlaylistTrackAttrs(track, resultTracks, false);
+            playlist.addTrack(track);
+        }
+
+        query.closeQuery();
     }
 
     private static void insertPlaylist(Playlist playlist, int userId) throws SQLException {

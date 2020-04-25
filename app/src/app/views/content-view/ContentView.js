@@ -15,7 +15,7 @@ import {
 import { Card } from "../../containers";
 import { QueryParams, useToast } from "../../../hooks";
 
-import api from "../../../utils/api.js";
+import { api }      from "../../../utils/api.js";
 
 import { getRoute } from "../../../utils/api";
 
