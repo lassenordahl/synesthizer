@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +23,7 @@ public class PlaylistServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         // DEV
-//        int userId = (Integer) request.getSession().getAttribute("user_id");
+        //        int userId = (Integer) request.getSession().getAttribute("user_id");
 
         JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());
 
@@ -32,8 +33,10 @@ public class PlaylistServlet extends HttpServlet {
         try {
             //            DEV
             playlist = PlaylistService.createPlaylist(jsonRequestBody, 1);
+            //            playlist = PlaylistService.createPlaylist(jsonRequestBody, userId);
 
-//            playlist = PlaylistService.createPlaylist(jsonRequestBody, userId);
+            HttpSession session = request.getSession();
+            session.setAttribute("sessionPlaylist", new Playlist());
         } catch (SQLException e) {
             e.printStackTrace();
             response.setStatus(400);

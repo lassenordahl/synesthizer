@@ -5,12 +5,18 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Card } from "./../../containers";
-import { Button, SkeletonPulse } from "./../../components";
+import { Button, SkeletonPulse, useToast } from "./../../components";
 import api from "../../../api";
 
 function CreatePlaylist() {
+
+  // Session state variable
   const [playlistSession, setPlaylistSession] = useState(null);
+
+  // Create a seperate playlist variable for efficiency when updating (don't need to update entire session object anytime a character changes in the name)
   const [playlistName, setPlaylistName] = useState("");
+
+  const [showSuccess, showError, renderToast] = useToast();
 
   useEffect(() => {
     getSessionPlaylist();
@@ -21,46 +27,14 @@ function CreatePlaylist() {
       .get(api.playlistSession)
       .then(function (response) {
         console.log(response);
-        // setPlaylistSession(response.data);
-        
         setPlaylistName(response.data.name);
-        setPlaylistSession({
-          id: 0,
-          name: "test name",
-          image: "",
-          tracks: [
-            {
-              id: "0IkKz2J93C94Ei4BvDop7P",
-              name: "Party Rock Anthem",
-              track_number: 3,
-              duration_ms: 0,
-              popularity: 7,
-              artists: [
-                {
-                  id: "3sgFRtyBnxXD5ESfmbK4dl",
-                  name: "LMFAO",
-                  image:
-                    "https://i.scdn.co/image/2d75f5222d8a92d5e12419ae3e5238261f943df6",
-                },
-                {
-                  id: "3sgFRtyBnxXD5ESfmbK4dl",
-                  name: "LMFAO",
-                  image:
-                    "https://i.scdn.co/image/2d75f5222d8a92d5e12419ae3e5238261f943df6",
-                },
-              ],
-              album: {
-                id: "1MbBSfcqLg2OjkeZ1RMSIq",
-                name: "Sorry For Party Rocking",
-                album_type: "album",
-                image:
-                  "https://i.scdn.co/image/ab67616d0000b273d77a9a738c99b8c4f7a7c3ee",
-                release_date: "2011-01-01",
-                popularity: 0,
-              },
-            },
-          ],
-        });
+        if (response.data.name === undefined) {
+          response.data.name = "";
+        }
+        if (response.data.image === undefined) {
+          response.data.image = "";
+        }
+        setPlaylistSession(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -93,14 +67,18 @@ function CreatePlaylist() {
       .put(api.playlistSession, putPlaylist)
       .then(function(response) {
         console.log(response);
+        getSessionPlaylist();
+        showSuccess("Your playlist saved successfully");
       })
       .catch(function(error) {
         console.error(error);
+        showError("Error saving playlist");
       });
   }
 
   return (
     <div className="create-playlist">
+      {renderToast()}
       <Card className="create-playlist-card">
         <div className="create-playlist-header">
           <div className="create-playlist-header-picture">
@@ -169,7 +147,7 @@ function CreatePlaylist() {
         </div>
       </Card>
       <div className="create-playlist-button-wrapper">
-        <Button isGreen={true} onClick={() => savePlaylist()}>
+        <Button isGreen={true} onClick={() => showError("request submitted successfully")}>
           Save Playlist
         </Button>
         <div style={{ width: "48px"}}/>
@@ -177,7 +155,6 @@ function CreatePlaylist() {
           Create Playlist
         </Button>
       </div>
-      
     </div>
   );
 }

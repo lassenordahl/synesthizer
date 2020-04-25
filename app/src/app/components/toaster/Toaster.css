@@ -1,0 +1,37 @@
+.toaster {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 240px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  background-color: #323A49;
+  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+}
+
+.toaster-label {
+  height: 100%;
+  width: 8px;
+  background-color: white;
+}
+
+.toaster-label-green {
+  background-color: #8bf797;
+}
+
+.toaster-label-red {
+  background-color: #ff7668;
+}
+
+.toast-text {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-text p {
+  font-size: 0.9em;
+  margin-left: 12px;
+}
