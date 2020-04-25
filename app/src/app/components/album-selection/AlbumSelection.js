@@ -22,7 +22,9 @@ function AlbumSelection(props) {
             <SkeletonPulse style={{ width: "160px", height: "24px", marginBottom: "8px" }} />
           )}
           {props.album !== null ? (
-            <p>{props.album.artist_name}</p>
+            <Link to={"/app/explore/artists/" + props.album.artist_id}>
+              <p>{props.album.artist_name}</p>
+            </Link>
           ) : (
             <SkeletonPulse style={{ width: "256px", height: "24px", marginBottom: "8px" }} />
           )}

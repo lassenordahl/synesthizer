@@ -10,6 +10,8 @@ target/
 aws/
 out/
 web/static
+web/static/js
+web/static/css
 web/service-worker.js
 web/asset-manifest.json
 web/index.html

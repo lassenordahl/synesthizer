@@ -142,13 +142,13 @@ function CreatePlaylist() {
                       key={index}
                       className="format-column-grid formatted-song-row"
                     >
-                      <Link to="">
+                      <Link to={"/app/explore/songs/" + song.id}>
                         <div>{song.name}</div>
                       </Link>
-                      <Link to="">
+                      <Link to={"/app/explore/artists/" + song.artists[0].id}>
                         <div>{song.artists[0].name}</div>
                       </Link>
-                      <Link to="">
+                      <Link to={"/app/explore/albums/" + song.album.id}>
                         <div>{song.album.name}</div>
                       </Link>
                       <div className="flex-center">

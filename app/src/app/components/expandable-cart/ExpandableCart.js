@@ -100,10 +100,14 @@ function ExpandableCart(props) {
                           <img src={track.album.image} alt="album-art"></img>
                           <div className="card-content-song-row-wrapper">
                             <div>
-                              <p>{track.name}</p>
-                              <span style={{ fontSize: "0.5em" }}>
-                                {track.artists[0].name}
-                              </span>
+                              <Link to={"/app/explore/songs/" + track.id}>
+                                <p>{track.name}</p>
+                              </Link>
+                              <Link to={"/app/explore/artists/" + track.artists[0].id}>
+                                <span style={{ fontSize: "0.5em" }}>
+                                  {track.artists[0].name}
+                                </span>
+                              </Link>
                             </div>
                           </div>
                           <DeleteSessionButton

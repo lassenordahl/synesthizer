@@ -25,7 +25,6 @@ function SelectedView({ props, match }) {
       getArtist();
     } else if (match.params.contentType === "albums") {
       getAlbum();
-      getTracksForAlbum();
     }
   }, [match.params.contentType]);
 
@@ -84,6 +83,7 @@ function SelectedView({ props, match }) {
       })
       .then(function (response) {
         setAlbum(response.data);
+        getTracksForAlbum();
       })
       .catch(function (error) {
         console.error(error);
@@ -100,7 +100,6 @@ function SelectedView({ props, match }) {
       .then(function (response) {
         console.log(response);
         setTracksForAlbum(response.data);
-        // setAlbum(response.data);
       })
       .catch(function (error) {
         console.error(error);
