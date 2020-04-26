@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.content-view-content { 
+.content-view-content {
   width: 80%;
   height: 100%;
   display: flex;
@@ -34,18 +34,4 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 32px;
-}
-
-.content-view-filter {
-  display: flex;
-  flex-direction: row;
-}
-
-.content-view-filter p {
-  margin-right: 24px;
-  cursor: pointer;
-}
-
-.content-view-filter p:last-child {
-  margin-right: 0px;
 }

@@ -11,6 +11,7 @@ import {
   ArtistCard,
   ExpandableCart,
   Paginate,
+  SortBy,
 } from "../../components";
 import { Card } from "../../containers";
 import { QueryParams, useToast } from "../../../hooks";
@@ -96,7 +97,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
-        showError("Error retrieving albums")
+        showError("Error retrieving albums");
       });
   }
 
@@ -109,11 +110,12 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.log(error);
-        showError("Error retrieving artists")
+        showError("Error retrieving artists");
       });
   }
 
   function getSongs() {
+    console.log(params);
     axios
       .get(api.songs, { params: params })
       .then(function (response) {
@@ -122,7 +124,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
-        showError("Error retrieving songs")
+        showError("Error retrieving songs");
       });
   }
 
@@ -140,7 +142,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
-        showError("Error retrieving playlist")
+        showError("Error retrieving playlist");
       });
   }
 
@@ -155,7 +157,7 @@ function ContentView(props) {
       })
       .catch(function (error) {
         console.error(error);
-        showError("Error adding to playlist")
+        showError("Error adding to playlist");
       });
   }
 
@@ -246,8 +248,11 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
-      {renderToast()}
-      <ExpandableCart sessionTracks={sessionTracks} getsOwnData={false} removeFromSession={removeFromSession}/>
+      <ExpandableCart
+        sessionTracks={sessionTracks}
+        getsOwnData={false}
+        removeFromSession={removeFromSession}
+      />
       {willRedirectAlbum ? (
         <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}
@@ -264,19 +269,11 @@ function ContentView(props) {
           <Button isPrimary={true}>Search</Button>
         </div>
         <div className="content-view-filter-wrapper">
-          <Card
-            className="content-view-filter"
-            innerStyle={{
-              display: "flex",
-              flexDirection: "row",
-              margin: "8px 24px 8px 24px",
-            }}
-          >
-            <p>Song</p>
-            <p>Album</p>
-            <p>Artist</p>
-            <p>Popularity</p>
-          </Card>
+          <SortBy
+            sortOptions={["song", "album", "artist", "popularity"]}
+            params={params}
+            setParams={setParams}
+          />
         </div>
         <div className="content-view-cards">{renderContentCards()}</div>
         <div

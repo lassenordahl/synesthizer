@@ -1,4 +1,3 @@
-
 export function isOverCardLimit(str) {
   if (str === undefined) {
     return false;
@@ -25,3 +24,6 @@ export function convertToSeconds(durationMs) {
   return Math.floor(durationMs / 60000) + ":" + addZeroIfSingleDigit(Math.floor(durationMs % 60000 / 1000));
 }
 
+export function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

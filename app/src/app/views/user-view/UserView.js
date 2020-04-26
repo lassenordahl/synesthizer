@@ -53,7 +53,7 @@ function UserView({ props, match }) {
       .post(api.user, form)
       .then(function (response) {
         console.log(response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           history.push("/app/user/account/login");
         } else {
         }
@@ -75,7 +75,7 @@ function UserView({ props, match }) {
   }
 
   useEffect(() => {
-    if (match.params.mode == "update") {
+    if (match.params.mode === "update") {
       getUser();
     }
   }, [match.params.mode]);

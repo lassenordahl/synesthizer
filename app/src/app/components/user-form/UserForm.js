@@ -57,9 +57,9 @@ function UserForm(props) {
         <input
           type="password"
           name="password"
-          placeholder={props.action == "Update" ? "new password" : "password"}
+          placeholder={props.action === "Update" ? "new password" : "password"}
           ref={
-            props.action == "Update"
+            props.action === "Update"
               ? register({
                   required: false,
                 })
