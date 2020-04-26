@@ -47,6 +47,12 @@ function ContentView(props) {
   const [showSuccess, showError, renderToast] = useToast();
 
   useEffect(() => {
+    console.log("resetting the params");
+    setParams({ offset: 0, limit: 20 });
+    console.log(params);
+  }, [match.params.contentType]);
+
+  useEffect(() => {
     getPlaylistSession();
 
     if (match.params.contentType === "albums") {
@@ -59,7 +65,7 @@ function ContentView(props) {
       setSongs([]);
       getSongs();
     }
-  }, [match.params.contentType]);
+  }, [match.params.contentType, params]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -188,15 +194,20 @@ function ContentView(props) {
   function renderSortBy() {
     let sortOptions;
     if (match.params.contentType === "albums") {
-      sortOptions = ["popularity", "name", "release_date"];
+      sortOptions = ["popularity", "name", "release_date", "artist_name"];
     } else if (match.params.contentType === "artists") {
       sortOptions = ["popularity", "name"];
     } else if (match.params.contentType === "songs") {
-      sortOptions = ["popularity", "name", "album"];
+      sortOptions = ["popularity", "name"];
     }
 
     return (
-      <SortBy sortOptions={sortOptions} params={params} setParams={setParams} />
+      <SortBy
+        key={match.params.contentType}
+        sortOptions={sortOptions}
+        params={params}
+        setParams={setParams}
+      />
     );
   }
 
@@ -283,13 +294,7 @@ function ContentView(props) {
           <div style={{ width: "48px" }}></div>
           <Button isPrimary={true}>Search</Button>
         </div>
-        <div className="content-view-filter-wrapper">
-          <SortBy
-            sortOptions={["song", "album", "artist", "popularity"]}
-            params={params}
-            setParams={setParams}
-          />
-        </div>
+        <div className="content-view-filter-wrapper">{renderSortBy()}</div>
         <div className="content-view-cards">{renderContentCards()}</div>
         <div
           className="content-view-filter-wrapper"

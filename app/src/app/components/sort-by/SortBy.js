@@ -13,13 +13,15 @@ function SortBy(props) {
     )
   );
 
-  const [priority, setPriority] = useState(
-    props.sortOptions.map(function (option) {
-      return option;
-    })
-  );
+  const [priority, setPriority] = useState(Object.keys(orders));
+
+  //   props.sortOptions.map(function (option) {
+  //     return option;
+  //   })
 
   function toggleOrder(option) {
+    console.log("toggled" + option);
+    console.log(props.sortOptions);
     let prevChange = 0;
     for (let i = 0; i < priority.length; i++) {
       if (priority[i] === option) {
@@ -29,12 +31,12 @@ function SortBy(props) {
     }
 
     let order;
-    if (orders[option] === "dec") {
+    if (orders[option] === "desc") {
       order = "asc";
     } else if (orders[option] === "asc") {
       order = undefined;
     } else {
-      order = "dec";
+      order = "desc";
     }
 
     setOrders({
@@ -42,11 +44,15 @@ function SortBy(props) {
       [option]: order,
     });
 
+    console.log(orders);
+
     setPriority([
       ...priority.slice(0, prevChange),
       ...priority.slice(prevChange + 1, props.sortOptions.length),
       priority[prevChange],
     ]);
+
+    console.log(priority);
   }
 
   useEffect(() => {
@@ -65,12 +71,12 @@ function SortBy(props) {
         })
         .join(","),
     });
-  }, [priority]);
+  }, [priority, orders]);
 
   function renderOption(option, id) {
     let orderSymbol = "";
 
-    if (orders[option] === "dec") {
+    if (orders[option] === "desc") {
       orderSymbol = "↡";
     } else if (orders[option] === "asc") {
       orderSymbol = "↟";
@@ -108,7 +114,7 @@ function SortBy(props) {
         margin: "8px 24px 8px 24px",
       }}
     >
-      {props.sortOptions.map(function (option, id) {
+      {Object.keys(orders).map(function (option, id) {
         return renderOption(option, id);
       })}
     </Card>
