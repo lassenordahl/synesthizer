@@ -27,3 +27,21 @@ export function convertToSeconds(durationMs) {
 export function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+export function beautifyString(str) {
+  let newStr = ""
+  let spaceFlag = true;
+  for (let i = 0; i < str.length; i++) {
+    if (spaceFlag === true) {
+      newStr += str.charAt(i).toUpperCase();
+      spaceFlag = false;
+    } else if (str.charAt(i) === '_') {
+      newStr += ' '
+      spaceFlag = true;
+    } else {
+      newStr += str.charAt(i);
+    }
+  }
+
+  return newStr
+}

@@ -3,7 +3,7 @@ import "./SortBy.css";
 
 import { Card } from "../../containers";
 import { useEffect } from "react";
-import { capitalizeFirstLetter } from "../../../global/helper";
+import { beautifyString } from "../../../global/helper";
 
 function SortBy(props) {
   const [orders, setOrders] = useState(
@@ -100,7 +100,7 @@ function SortBy(props) {
         style={marginRight}
         onClick={() => toggleOrder(option)}
       >
-        {capitalizeFirstLetter(option) + orderSymbol}
+        {beautifyString(option) + orderSymbol}
       </p>
     );
   }

@@ -198,7 +198,7 @@ function ContentView(props) {
     } else if (match.params.contentType === "artists") {
       sortOptions = ["popularity", "name"];
     } else if (match.params.contentType === "songs") {
-      sortOptions = ["popularity", "name"];
+      sortOptions = ["popularity", "name", "release_date", "album_name"];
     }
 
     return (
