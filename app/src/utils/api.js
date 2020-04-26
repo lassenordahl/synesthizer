@@ -46,5 +46,8 @@ export const api = {
   songMeta: baseUrl + "/track/meta",
   playlists: baseUrl + "/playlists",
   playlistSession: baseUrl + "/playlist/session",
-  playlistSessionTrack: baseUrl + "/playlist/session/track"
+  playlistSessionTrack: baseUrl + "/playlist/session/track",
+  spotifyUser: "https://api.spotify.com/v1/me",
+  spotifyPlaylist: "https://api.spotify.com/v1/users/{}/playlists",
+  spotifyPlaylistTracks: "https://api.spotify.com/v1/playlists/{playlist_id}/tracks"
 }
