@@ -185,6 +185,21 @@ function ContentView(props) {
     return false;
   }
 
+  function renderSortBy() {
+    let sortOptions;
+    if (match.params.contentType === "albums") {
+      sortOptions = ["popularity", "name", "release_date"];
+    } else if (match.params.contentType === "artists") {
+      sortOptions = ["popularity", "name"];
+    } else if (match.params.contentType === "songs") {
+      sortOptions = ["popularity", "name", "album"];
+    }
+
+    return (
+      <SortBy sortOptions={sortOptions} params={params} setParams={setParams} />
+    );
+  }
+
   function renderContentCards() {
     if (match.params.contentType === "songs") {
       return (songs.length > 0
