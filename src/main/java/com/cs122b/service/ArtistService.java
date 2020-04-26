@@ -28,7 +28,7 @@ public class ArtistService {
 
         Query queryAlbums = db
                 .query("SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = \""
-                        + artist.getId() + "\"");
+                        + artist.getId() + "\" ORDER BY name asc");
         ResultSet albumResult = queryAlbums.getResult();
         while (albumResult.next()) {
             Album album = new Album();

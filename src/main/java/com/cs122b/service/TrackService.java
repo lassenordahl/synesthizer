@@ -30,7 +30,6 @@ public class TrackService implements Config {
                         + track.getId() + "\";");
         ResultSet artistsResult = queryArtist.getResult();
 
-
         while (artistsResult.next()) {
             if (artistsResult == null) {
                 break;
@@ -88,11 +87,34 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query("SELECT *, \n" + "IFNULL((\n"
-                + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE tip.track_id = track.id\n"
-                + "GROUP BY tip.track_id\n" + "), 0) as popularity FROM track\n"
-                + "LEFT JOIN track_meta ON track.id = track_meta.id\n" + "ORDER BY popularity DESC\n" + "LIMIT "
-                + Integer.toString(offset) + "," + Integer.toString(limit));
+        // Query query = db.query("SELECT *, \n" + "IFNULL((\n"
+        // + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE
+        // tip.track_id = track.id\n"
+        // + "GROUP BY tip.track_id\n" + "), 0) as popularity FROM track\n"
+        // + "LEFT JOIN track_meta ON track.id = track_meta.id\n" + "ORDER BY popularity
+        // DESC\n" + "LIMIT "
+        // + Integer.toString(offset) + "," + Integer.toString(limit));
+
+        StringBuilder queryString = new StringBuilder();
+
+        // SELECT
+        queryString.append(
+                "SELECT *, IFNULL((SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip WHERE tip.track_id = track.id GROUP BY tip.track_id), 0) as popularity ");
+
+        // FROM
+        queryString.append("FROM track LEFT JOIN track_meta ON track.id = track_meta.id ");
+
+        // WHERE
+
+        // ORDER BY
+        queryString.append("ORDER BY " + sortBy + " ");
+
+        // LIMIT/OFFSET
+        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+
+        System.out.println(queryString.toString());
+
+        Query query = db.query(queryString.toString());
 
         List<Track> tracks = new ArrayList<Track>();
         ResultSet result = query.getResult();
