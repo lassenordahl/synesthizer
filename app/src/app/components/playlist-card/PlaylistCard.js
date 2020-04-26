@@ -17,12 +17,26 @@ function PlaylistCard(props) {
 
   function checkAddToSpotify() {
     let spotifyAuth = JSON.parse(localStorage.getItem("spotifyAuth"));
+    
+    // If we don't have a stored authentication code
     if (spotifyAuth === null) {
-      console.log("redirecting spotify");
       window.location.href = buildSpotifyRedirectString();
     } else {
-      props.addToSpotify(spotifyAuth.state);
+      // Get time difference
+      let previousTime = Date.parse(localStorage.getItem("lastSpotify"));
+      let currentTime = Date.parse(new Date());
+      
+      // If our access token is donezo
+      if (getMinuteDifference(currentTime - previousTime) >= 59) {
+        window.location.href = buildSpotifyRedirectString();
+      } else {
+        props.addToSpotify(spotifyAuth.state);
+      }
     }
+  }
+
+  function getMinuteDifference(diffMs) {
+    return Math.round(((diffMs % 86400000) % 3600000) / 60000);
   }
 
   function buildSpotifyRedirectString() {

@@ -23,8 +23,7 @@ function Playlists() {
     if (spotifyParams.fromSpotifyRedirect) {
       addToSpotify(spotifyParams.state);
       localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
-    } else { // If we 're not coming from a redirect 
-
+      localStorage.setItem("lastSpotify", new Date());
     }
   }
 
@@ -44,6 +43,7 @@ function Playlists() {
         showError("Unable to retrieve playlists");
       });
   }
+
 
   function renderCards() {
     if (playlists.length === 0) {
