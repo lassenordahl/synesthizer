@@ -23,19 +23,17 @@ function PlaylistCard(props) {
 
   function checkAddToSpotify() {
     let spotifyAuth = JSON.parse(localStorage.getItem("spotifyAuth"));
-    console.log("SPOTIFY AUTH", spotifyAuth);
     // If we don't have a stored authentication code
-    if (spotifyAuth === null || parseInt(spotifyAuth.state) !== props.playlist.id) {
+    if (spotifyAuth === null) {
       window.location.href = buildSpotifyRedirectString();
     } else {
       // Get time difference
-      let previousTime = Date.parse(localStorage.getItem("lastSpotify"));
-      let currentTime = (new Date()).getTime()
-
-      console.log(previousTime);
+      let previousTime = new Date(
+        parseInt(localStorage.getItem("lastSpotify"))
+      );
+      let currentTime = new Date().getTime();
 
       // If our access token is out of the time range, we need to get a new one
-      console.log(getMinuteDifference(currentTime - previousTime));
       if (getMinuteDifference(currentTime - previousTime) >= 59) {
         window.location.href = buildSpotifyRedirectString();
       } else {
