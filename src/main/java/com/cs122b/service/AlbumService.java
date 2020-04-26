@@ -65,7 +65,7 @@ public class AlbumService {
         // LIMIT/OFFSET
         queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
 
-        System.out.println(queryString.toString())
+        System.out.println(queryString.toString());
 
         Query query = db.query(queryString.toString());
 
@@ -111,7 +111,8 @@ public class AlbumService {
         Query query = db.query("SELECT track.id, track.name, track_meta.duration_ms, track.track_number FROM album\n"
                 + "LEFT JOIN track_in_album ON track_in_album.album_id = album.id\n"
                 + "LEFT JOIN track ON track.id = track_in_album.track_id\n"
-                + "LEFT JOIN track_meta ON track_meta.id = track.id WHERE album.id = \"" + id + "\";");
+                + "LEFT JOIN track_meta ON track_meta.id = track.id WHERE album.id = \"" + id
+                + "\" ORDER BY track.track_number;");
 
         List<Track> tracksForAlbum = new ArrayList<Track>();
         ResultSet result = query.getResult();

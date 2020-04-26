@@ -18,8 +18,10 @@ public class ArtistService {
         artist.setId(query.getString("id"));
         artist.setName(query.getString("name"));
         artist.setImage(query.getString("image"));
+        artist.setPopularity(query.getInt("popularity"));
 
-        Query queryGenres = db.query("SELECT * FROM artist_in_genre WHERE artist_id = \"" + artist.getId() + "\"");
+        Query queryGenres = db
+                .query("SELECT * FROM artist_in_genre WHERE artist_id = \"" + artist.getId() + "\" ORDER BY genre");
         ResultSet genreResult = queryGenres.getResult();
         while (genreResult.next()) {
             artist.addGenre(genreResult.getString("genre"));
@@ -49,8 +51,31 @@ public class ArtistService {
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy) throws SQLException {
         db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT " + Integer.toString(offset) + ","
-                + Integer.toString(limit));
+        // Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT "
+        // + Integer.toString(offset) + ","
+        // + Integer.toString(limit));
+
+        StringBuilder queryString = new StringBuilder();
+
+        // SELECT
+        queryString.append("SELECT artist.id, artist.name, artist.image, ");
+        queryString.append(
+                "IFNULL((SELECT COUNT(track_in_playlist.playlist_id) FROM artist_in_track LEFT JOIN track_in_playlist ON track_in_playlist.track_id = artist_in_track.track_id ");
+        queryString.append(
+                "WHERE artist_in_track.artist_id = artist.id GROUP BY artist_in_track.artist_id), 0) as popularity ");
+
+        // WHERE
+
+        // FROM
+        queryString.append("FROM  artist ");
+
+        // ORDER BY
+        queryString.append("ORDER BY " + sortBy + " ");
+
+        // LIMIT/OFFSET
+        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+
+        Query query = db.query(queryString.toString());
 
         List<Artist> artists = new ArrayList<Artist>();
         ResultSet result = query.getResult();

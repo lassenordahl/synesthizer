@@ -7,6 +7,7 @@ public class Artist {
     private String id;
     private String name;
     private String image;
+    private int popularity;
     private ArrayList<String> genres;
 
     // Artist in album
@@ -67,5 +68,13 @@ public class Artist {
             this.albums = new ArrayList<Album>();
         }
         this.albums.add(album);
+    }
+
+    public int getPopularity() {
+        return this.popularity;
+    }
+
+    public void setPopularity(int popularity) {
+        this.popularity = popularity;
     }
 }
