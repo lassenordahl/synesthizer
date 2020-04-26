@@ -18,7 +18,6 @@ function Paginate(props) {
       ...props.params,
       offset: props.params.offset + props.params.limit,
     });
-    props.onClick();
   }
 
   return (
