@@ -3,7 +3,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import "./Sidebar.css";
 
-import api from "../../../utils/api";
+import { api } from "../../../utils/api";
 
 import { Link } from "react-router-dom";
 import { LoggedInContext } from "../../context/LoggedInContext";

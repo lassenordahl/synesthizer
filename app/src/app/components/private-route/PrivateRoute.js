@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 
 import { LoggedInContext } from "../../context/LoggedInContext";

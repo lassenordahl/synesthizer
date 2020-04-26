@@ -6,4 +6,7 @@
 
 .playlists-content {
   width: 80% !important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

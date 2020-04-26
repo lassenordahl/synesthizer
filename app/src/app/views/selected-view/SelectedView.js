@@ -3,7 +3,7 @@ import "./SelectedView.css";
 
 import axios from "axios";
 
-import api from "../../../utils/api";
+import { api } from "../../../utils/api";
 import { Selection } from "../../containers";
 import {
   SongSelection,
