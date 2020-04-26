@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SongSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
+import { capitalizeFirstLetter } from "../../../global/helper";
 
 function SongSelection(props) {
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   const [showContent, setShowContent] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -92,7 +89,9 @@ function SongSelection(props) {
             ? mapping
                 .map(function (attr, index) {
                   if (props.songMeta[attr]) {
-                    return capitalize(attr) + ": " + props.songMeta[attr];
+                    return (
+                      capitalizeFirstLetter(attr) + ": " + props.songMeta[attr]
+                    );
                   }
                 })
                 .filter((song) => song)

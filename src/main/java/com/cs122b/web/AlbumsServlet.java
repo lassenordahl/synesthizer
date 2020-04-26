@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "AlbumsServlet", urlPatterns = {"/albums"})
+@WebServlet(name = "AlbumsServlet", urlPatterns = { "/albums" })
 public class AlbumsServlet extends HttpServlet {
     private Gson gson = new Gson();
 
@@ -25,9 +25,15 @@ public class AlbumsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
+        String offset = request.getParameter("offset");
+        String limit = request.getParameter("limit");
+        String sortBy = request.getParameter("sortBy");
+
         List<Album> albums = null;
         try {
-            albums = AlbumService.fetchAlbums(0, 30);
+            albums = AlbumService.fetchAlbums(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+                    limit != null && limit != "" ? Integer.parseInt(limit) : 20,
+                    sortBy != null && sortBy != "" ? sortBy : "popularity desc");
         } catch (SQLException e) {
             e.printStackTrace();
         }

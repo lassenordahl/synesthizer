@@ -27,9 +27,8 @@ public class TrackService implements Config {
 
         Query queryArtist = db
                 .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
-                        + track.getId() + "\";");
+                        + track.getId() + "\" ORDER BY name;");
         ResultSet artistsResult = queryArtist.getResult();
-
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -45,23 +44,22 @@ public class TrackService implements Config {
 
         queryArtist.closeQuery();
 
-        Query queryAlbum = db
-                .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = \""
-                        + track.getId() + "\";");
+        // Query queryAlbum = db
+        // .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id
+        // AND track_id = \""
+        // + track.getId() + "\";");
 
-        ResultSet albumResult = queryAlbum.getResult();
-        albumResult.next();
+        // ResultSet albumResult = queryAlbum.getResult();
+        // albumResult.next();
 
         Album album = new Album();
-        album.setId(albumResult.getString("id"));
-        album.setName(albumResult.getString("name"));
-        album.setAlbum_type(albumResult.getString("album_type"));
-        album.setImage(albumResult.getString("image"));
-        album.setRelease_date(albumResult.getString("release_date"));
+        album.setId(query.getString("album_id"));
+        album.setName(query.getString("album_name"));
+        album.setAlbum_type(query.getString("album_type"));
+        album.setImage(query.getString("album_image"));
+        album.setRelease_date(query.getString("release_date"));
 
         track.setAlbum(album);
-
-        queryAlbum.closeQuery();
     }
 
     private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException {
@@ -88,11 +86,40 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query("SELECT *, \n" + "IFNULL((\n"
-                + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE tip.track_id = track.id\n"
-                + "GROUP BY tip.track_id\n" + "), 0) as popularity FROM track\n"
-                + "LEFT JOIN track_meta ON track.id = track_meta.id\n" + "ORDER BY popularity DESC\n" + "LIMIT "
-                + Integer.toString(offset) + "," + Integer.toString(limit));
+        // Query query = db.query("SELECT *, \n" + "IFNULL((\n"
+        // + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE
+        // tip.track_id = track.id\n"
+        // + "GROUP BY tip.track_id\n" + "), 0) as popularity FROM track\n"
+        // + "LEFT JOIN track_meta ON track.id = track_meta.id\n" + "ORDER BY popularity
+        // DESC\n" + "LIMIT "
+        // + Integer.toString(offset) + "," + Integer.toString(limit));
+
+        StringBuilder queryString = new StringBuilder();
+
+        // SELECT
+        queryString.append(
+                "SELECT track.id as id, track.name as name, track.track_number as track_number, track_meta.*, ");
+        queryString.append(
+                "album.id as album_id, album.name as album_name, album.album_type as album_type, album.image as album_image, album.release_date as release_date, ");
+        queryString.append(
+                "IFNULL((SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip WHERE tip.track_id = track.id GROUP BY tip.track_id), 0) as popularity ");
+
+        // FROM
+        queryString.append("FROM track LEFT JOIN track_meta ON track.id = track_meta.id ");
+        queryString.append("LEFT JOIN track_in_album ON track.id = track_in_album.track_id ");
+        queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
+
+        // WHERE
+
+        // ORDER BY
+        queryString.append("ORDER BY " + sortBy + " ");
+
+        // LIMIT/OFFSET
+        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+
+        System.out.println(queryString.toString());
+
+        Query query = db.query(queryString.toString());
 
         List<Track> tracks = new ArrayList<Track>();
         ResultSet result = query.getResult();
@@ -112,7 +139,26 @@ public class TrackService implements Config {
 
         db = new SQLClient();
 
-        Query query = db.query(String.format("SELECT * FROM track WHERE track.id = '%s'", id));
+        StringBuilder queryString = new StringBuilder();
+
+        // SELECT
+        queryString.append("SELECT track.*, ");
+        queryString.append(
+                "album.id as album_id, album.name as album_name, album.album_type as album_type, album.image as album_image, album.release_date as release_date ");
+
+        // FROM
+        queryString.append("FROM track LEFT JOIN track_in_album ON track.id = track_in_album.track_id ");
+        queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
+
+        // WHERE
+        queryString.append("WHERE track.id = '" + id + "'");
+
+        // Query query = db.query(String.format("SELECT track.* FROM track WHERE
+        // track.id = '%s'", id));
+
+        System.out.println(queryString.toString());
+
+        Query query = db.query(queryString.toString());
 
         ResultSet result = query.getResult();
         result.next();

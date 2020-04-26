@@ -1,4 +1,3 @@
-
 export function isOverCardLimit(str) {
   if (str === undefined) {
     return false;
@@ -25,3 +24,24 @@ export function convertToSeconds(durationMs) {
   return Math.floor(durationMs / 60000) + ":" + addZeroIfSingleDigit(Math.floor(durationMs % 60000 / 1000));
 }
 
+export function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function beautifyString(str) {
+  let newStr = ""
+  let spaceFlag = true;
+  for (let i = 0; i < str.length; i++) {
+    if (spaceFlag === true) {
+      newStr += str.charAt(i).toUpperCase();
+      spaceFlag = false;
+    } else if (str.charAt(i) === '_') {
+      newStr += ' '
+      spaceFlag = true;
+    } else {
+      newStr += str.charAt(i);
+    }
+  }
+
+  return newStr
+}

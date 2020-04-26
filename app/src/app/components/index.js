@@ -14,3 +14,4 @@ export { default as UserForm } from "./user-form/UserForm";
 export { default as PrivateRoute } from "./private-route/PrivateRoute";
 export { default as Paginate } from "./paginate/Paginate";
 export { default as PlaylistCard } from "./playlist-card/PlaylistCard";
+export { default as SortBy } from "./sort-by/SortBy";

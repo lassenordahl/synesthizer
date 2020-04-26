@@ -31,12 +31,10 @@ public class TracksServlet extends HttpServlet {
         String limit = request.getParameter("limit");
         String sortBy = request.getParameter("sortBy");
 
-
         List<Track> tracks = null;
         try {
-            tracks = fetchTracks(offset != null ? Integer.parseInt(offset):  0,
-                                        limit != null ? Integer.parseInt(limit) : 30,
-                                        sortBy != null ? sortBy : "name");
+            tracks = fetchTracks(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+                    limit != null && limit != "" ? Integer.parseInt(limit) : 20, sortBy != null && sortBy != "" ? sortBy : "popularity desc");
         } catch (SQLException e) {
             e.printStackTrace();
         }
