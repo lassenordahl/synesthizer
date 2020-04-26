@@ -4,16 +4,33 @@ import "./Playlists.css";
 import { Button, PlaylistCard } from "./../../components";
 import { useToast } from "../../../hooks";
 import { getRoute, api } from "../../../utils/api";
-import { useRouteMatch } from "react-router-dom";
+import { SpotifyQueryParams } from "../../../hooks";
 
 function Playlists() {
-  const [playlists, setPlaylists] = useState([]);
 
+  const [playlists, setPlaylists] = useState([]);
   const [showSuccess, showError, renderToast] = useToast();
+
+  let spotifyParams = SpotifyQueryParams();
 
   useEffect(() => {
     getPlaylists();
+    checkAddSpotify();
   }, []);
+
+  function checkAddSpotify() {
+    // If we're coming from a spotify redirect, we need to add the playlist given in the state
+    if (spotifyParams.fromSpotifyRedirect) {
+      addToSpotify(spotifyParams.state);
+      localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
+    } else { // If we 're not coming from a redirect 
+
+    }
+  }
+
+  function addToSpotify(playlistId) {
+    console.log(playlistId);
+  }
 
   function getPlaylists() {
     console.log(playlists);
@@ -38,7 +55,7 @@ function Playlists() {
     } else {
       return (
         playlists.map(function (playlist, index) {
-          return <PlaylistCard playlist={playlist} key={index}/>;
+          return <PlaylistCard playlist={playlist} addToSpotify={addToSpotify} key={index}/>;
         })
       );
     }

@@ -12,6 +12,7 @@ import {
   Playlists,
   CreatePlaylist,
   UserView,
+  SpotifyPlaylist,
 } from "./app/views";
 
 import { PrivateRoute } from "./app/components";
@@ -19,6 +20,8 @@ import { PrivateRoute } from "./app/components";
 function App() {
   // Visual Variables
   const [showSidebar, setShowSidebar] = useState(true);
+
+  
 
   return (
     <div className="App">
@@ -82,6 +85,11 @@ function App() {
               exact
               path="/app/user/playlists"
               component={Playlists}
+            ></PrivateRoute>
+            <PrivateRoute
+              exact
+              path="/app/user/playlists/:playlistId/spotify"
+              component={SpotifyPlaylist}
             ></PrivateRoute>
             <PrivateRoute
               exact
