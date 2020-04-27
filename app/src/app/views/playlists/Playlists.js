@@ -52,7 +52,6 @@ function Playlists() {
   function getPlaylists() {
     getRoute(api.playlists)
       .then(function (response) {
-        showSuccess("funky and fresh");
         console.log(response);
         setPlaylists(response.data.playlists);
       })
@@ -167,11 +166,6 @@ function Playlists() {
       {renderToast()}
       {willRedirectBase ? <Redirect to="/app/user/playlists/" /> : null}
       <div className="playlists-content">
-        <div className="content-view-search">
-          <input></input>
-          <div style={{ width: "48px" }}></div>
-          <Button isPrimary={true}>Search</Button>
-        </div>
         {renderCards()}
       </div>
     </div>

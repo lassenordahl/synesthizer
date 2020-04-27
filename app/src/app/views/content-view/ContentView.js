@@ -50,6 +50,7 @@ function ContentView(props) {
 
   // Session Tracks
   const [sessionTracks, setSessionTracks] = useState([]);
+  const [sessionAlbums, setSessionAlbums] = useState([]);
 
   const [showSuccess, showError, renderToast] = useToast();
 
@@ -137,7 +138,11 @@ function ContentView(props) {
       .then(function (response) {
         console.log("got genres");
         console.log(response);
-        setAlbums(response.data.albums);
+        if (response.data.albums !== null) {
+          setAlbums(response.data.albums);
+        } else {
+          showError("Error retrieving albums");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -150,7 +155,11 @@ function ContentView(props) {
       .get(api.artists, { params: params })
       .then(function (response) {
         console.log(response);
-        setArtists(response.data.artists);
+        if (response.data.artists !== null) {
+          setArtists(response.data.artists);
+        } else {
+          showError("Error retrieving artists");
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -164,7 +173,11 @@ function ContentView(props) {
       .get(api.songs, { params: params })
       .then(function (response) {
         console.log(response);
-        setSongs(response.data.songs);
+        if (response.data.songs !== null) {
+          setSongs(response.data.songs);
+        } else {
+          showError("Error retrieving songs");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -183,6 +196,7 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         setSessionTracks(response.data.tracks);
+        setSessionAlbums(response.data.albums);
       })
       .catch(function (error) {
         console.error(error);
@@ -190,15 +204,15 @@ function ContentView(props) {
       });
   }
 
-  function addToSession(songId) {
+  function addToSession(id, itemType) {
     axios
-      .post(api.playlistSessionTrack, {
-        id: songId,
+      .post(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
+        id: id,
       })
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
-        showSuccess("Added to playlist");
+        // showSuccess("Added to playlist");
       })
       .catch(function (error) {
         console.error(error);
@@ -206,10 +220,10 @@ function ContentView(props) {
       });
   }
 
-  function removeFromSession(songId) {
+  function removeFromSession(id, itemType) {
     axios
-      .delete(api.playlistSessionTrack, {
-        params: { id: songId },
+      .delete(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
+        params: { id: id },
       })
       .then(function (response) {
         console.log(response);
@@ -221,9 +235,18 @@ function ContentView(props) {
       });
   }
 
-  function isInSession(songId) {
+  function isInTrackSession(songId) {
     for (let i = 0; i < sessionTracks.length; i++) {
       if (songId === sessionTracks[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function isInAlbumSession(albumId) {
+    for (let i = 0; i < sessionAlbums.length; i++) {
+      if (albumId === sessionAlbums[i].id) {
         return true;
       }
     }
@@ -314,7 +337,7 @@ function ContentView(props) {
             skeletonPulse={songs != null && songs.length > 0 ? undefined : true}
             addToSession={addToSession}
             removeFromSession={removeFromSession}
-            isInSession={isInSession(song.id)}
+            isInSession={isInTrackSession(song.id)}
           ></SongCard>
         );
       });
@@ -336,6 +359,7 @@ function ContentView(props) {
             }
             addToSession={addToSession}
             removeFromSession={removeFromSession}
+            isInSession={isInAlbumSession(album.id)}
           ></AlbumCard>
         );
       });
@@ -367,6 +391,7 @@ function ContentView(props) {
     <div className="content-view">
       <ExpandableCart
         sessionTracks={sessionTracks}
+        sessionAlbums={sessionAlbums}
         getsOwnData={false}
         removeFromSession={removeFromSession}
       />

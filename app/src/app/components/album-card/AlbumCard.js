@@ -3,8 +3,9 @@ import "./AlbumCard.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 import moment from "moment";
-
 import { Link } from "react-router-dom";
+
+import { SessionButton } from "../../components";
 import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 
 function AlbumCard(props) {
@@ -15,6 +16,18 @@ function AlbumCard(props) {
       onClick={() => props.onClick()}
     >
       <div className="album-card-margin">
+        {props.skeletonPulse === undefined ? (
+          <SessionButton
+            isSelected={props.isInSession}
+            onClick={() => {
+              if (props.isInSession) {
+                props.removeFromSession(props.album.id, "album");
+              } else {
+                props.addToSession(props.album.id, "album");
+              }
+            }}
+          />
+        ) : null}
         <div className="album-card-album-art">
           {props.skeletonPulse === undefined ? (
             <img alt="album art" src={props.album.image}></img>
@@ -68,11 +81,9 @@ function AlbumCard(props) {
               >
                 <p className="subtitle">
                   Release Date:{" "}
-                  {moment(props.album.release_date).format(
-                    "MMM Do YYYY, hh:mm a"
-                  )}
+                  {props.album.release_date}
                 </p>
-                <p className="subtitle" style={{ marginLeft: "20px" }}>
+                <p className="subtitle" style={{ position: "absolute", right: "24px" }}>
                   Popularity: {props.album.popularity}
                 </p>
               </div>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 // Even though these aren't "required", I'm getting weird errors trying to call the add_track function elsewhere
 import com.cs122b.model.Track;
+import com.cs122b.model.Album;
 
 public class Playlist {
 
@@ -14,9 +15,11 @@ public class Playlist {
     private String image;
     private String creation_date;
     private ArrayList<Track> tracks;
+    private ArrayList<Album> albums;
 
     public Playlist() {
         tracks = new ArrayList<Track>();
+        albums = new ArrayList<Album>();
     }
 
     public void setName(String name) {
@@ -67,6 +70,19 @@ public class Playlist {
         for (int i = 0; i < tracks.size(); i++) {
             if (tracks.get(i).getId().equals(id)) {
                 tracks.remove(i);
+                break;
+            }
+        }
+    }
+
+    public void addAlbum(Album album) {
+        this.albums.add(album);
+    }
+
+    public void removeAlbum(String id) {
+        for (int i = 0; i < albums.size(); i++) {
+            if (albums.get(i).getId().equals(id)) {
+                albums.remove(i);
                 break;
             }
         }

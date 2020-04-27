@@ -5,6 +5,7 @@ import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Playlist;
 import com.cs122b.model.Track;
+import com.cs122b.model.Album;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -64,13 +65,23 @@ public class PlaylistService {
         queryAlbum.closeQuery();
     }
 
+    public static void setPlaylistAlbumAttrs(Album album, ResultSet result) throws SQLException {
+        album.setId(result.getString("id"));
+        album.setName(result.getString("name"));
+        album.setAlbum_type(result.getString("album_type"));
+        album.setImage(result.getString("image"));
+        album.setRelease_date(result.getString("release_date"));
+        album.setArtist_name(result.getString("artist_name"));
+        album.setArtist_id(result.getString("artist_id"));
+    }
+
     private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
         playlist.setImage(result.getString("image"));
         playlist.setCreation_date(result.getString("creation_date"));
 
-        // Get tje tracks
+        // Get the tracks
         Query query = db.query(String.format(
                 "SELECT * FROM track_in_playlist\n" +
                         "LEFT JOIN track ON track.id = track_in_playlist.track_id\n" +
@@ -84,6 +95,19 @@ public class PlaylistService {
             setPlaylistTrackAttrs(track, resultTracks, false);
             playlist.addTrack(track);
         }
+
+//        Query albumQuery = db.query(String.format(
+//                "SELECT * FROM album_in_playlist\n" +
+//                        "LEFT JOIN album ON album.id = album_in_playlist.track_id\n" +
+//                        "WHERE album_in_playlist.playlist_id = %d;",
+//                playlist.getId()));
+//
+//        ResultSet resultAlbums = albumQuery.getResult();
+//        while (resultAlbums.next()) {
+//            Album album = new Album();
+//            setPlaylistAlbumAttrs(album, resultAlbums);
+//            playlist.addAlbum(album);
+//        }
 
         query.closeQuery();
     }
@@ -184,7 +208,7 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d'",
+                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();

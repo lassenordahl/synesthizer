@@ -14,6 +14,7 @@ function ExpandableCart(props) {
 
   // Session Tracks
   const [sessionTracks, setSessionTracks] = useState([]);
+  const [sessionAlbums, setSessionAlbums] = useState([]);
 
   useEffect(() => {
     if (isExpanded) {
@@ -37,12 +38,19 @@ function ExpandableCart(props) {
     }
   }, [props.sessionTracks]);
 
+  useEffect(() => {
+    if (!props.getsOwnData) {
+      setSessionAlbums(props.sessionAlbums);
+    }
+  }, [props.sessionAlbums]);
+
   function getPlaylistSession() {
     axios
       .get(api.playlistSession)
       .then(function (response) {
         console.log(response);
         setSessionTracks(response.data.tracks);
+        setSessionAlbums(response.data.albums);
       })
       .catch(function (error) {
         console.error(error);
@@ -78,7 +86,8 @@ function ExpandableCart(props) {
               style={{ animationDelay: "0.25s" }}
             >
               <h3>playlist</h3>
-              <p className="fade-in">{sessionTracks.length} songs</p>
+              {/* <p className="fade-in">{sessionTracks.length} songs</p>
+              <p className="fade-in" style={{marginLeft: "16px"}}>{sessionAlbums.length} albums</p> */}
               <div
                 className="X"
                 onClick={() => {
@@ -90,6 +99,7 @@ function ExpandableCart(props) {
               </div>
             </div>
             <div className="cart-content-songs">
+              <h4 className="fade-in">{sessionTracks.length} song{sessionTracks.length > 1 ? "s":""}</h4>
               {showTrackContent
                 ? sessionTracks.map(function (track, index) {
                     return (
@@ -114,7 +124,40 @@ function ExpandableCart(props) {
                           <DeleteSessionButton
                             style={{ position: "absolute", right: "24px" }}
                             onClick={() => {
-                              props.removeFromSession(track.id);
+                              props.removeFromSession(track.id, "track");
+                            }}
+                          />
+                        </div>
+                      </React.Fragment>
+                    );
+                  })
+                : null}
+                <h4 className="fade-in">{sessionAlbums.length} album{sessionAlbums.length > 1 ? "s":""}</h4>
+                {showTrackContent
+                ? sessionAlbums.map(function (album, index) {
+                    return (
+                      <React.Fragment key={index}>
+                        <div
+                          className="cart-content-song-row fade-in"
+                          style={{ animationDelay: 0.1 * index + "s" }}
+                        >
+                          <img src={album.image} alt="album-art"></img>
+                          <div className="card-content-song-row-wrapper">
+                            <div>
+                              <Link to={"/app/explore/albums/" + album.id}>
+                                <p>{truncateTitle(album.name, 37)}</p>
+                              </Link>
+                              <Link to={"/app/explore/artists/" + album.artist_id}>
+                                <span style={{ fontSize: "0.5em" }}>
+                                  {album.artist_name}
+                                </span>
+                              </Link>
+                            </div>
+                          </div>
+                          <DeleteSessionButton
+                            style={{ position: "absolute", right: "24px" }}
+                            onClick={() => {
+                              props.removeFromSession(album.id, "album");
                             }}
                           />
                         </div>
@@ -133,8 +176,8 @@ function ExpandableCart(props) {
               </Button>
             </Link>
           </div>
-        ) : sessionTracks.length > 0 ? (
-          sessionTracks.length
+        ) : sessionTracks.length > 0 || sessionAlbums.length > 0 ? (
+          sessionTracks.length + "-" + sessionAlbums.length
         ) : (
           "cart"
         )}

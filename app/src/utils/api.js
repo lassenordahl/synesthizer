@@ -6,8 +6,10 @@ import {
 let baseUrl = "http://127.0.0.1:8080/unnamed/api"
 
 axios.interceptors.response.use(undefined, error => {
-  if (error.response.status === 401) {
-    history.push("/app/user/account/login")
+  if (error.response !== undefined) {
+    if (error.response.status === 401) {
+      history.push("/app/user/account/login")
+    }
   }
 });
 
@@ -46,8 +48,10 @@ export const api = {
   songMeta: baseUrl + "/track/meta",
   genres: baseUrl + "/genres",
   playlists: baseUrl + "/playlists",
+  playlist: baseUrl + "/playlist",
   playlistSession: baseUrl + "/playlist/session",
   playlistSessionTrack: baseUrl + "/playlist/session/track",
+  playlistSessionAlbum: baseUrl + "/playlist/session/album",
   spotifyUser: "https://api.spotify.com/v1/me",
   spotifyPlaylist: "https://api.spotify.com/v1/users/{}/playlists",
   spotifyPlaylistTracks: "https://api.spotify.com/v1/playlists/{}/tracks"

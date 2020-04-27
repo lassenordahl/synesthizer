@@ -9,6 +9,7 @@ import {
   SongSelection,
   ArtistSelection,
   AlbumSelection,
+  ExpandableCart,
 } from "../../components";
 import { useToast } from "../../../hooks";
 
@@ -21,6 +22,10 @@ function SelectedView({ props, match }) {
   const [album, setAlbum] = useState(null);
   const [tracksForAlbum, setTracksForAlbum] = useState([]);
 
+  // Session Tracks
+  const [sessionTracks, setSessionTracks] = useState([]);
+  const [sessionAlbums, setSessionAlbums] = useState([]);
+
   // Toaster
   const [showSuccess, showError, renderToast] = useToast();
 
@@ -32,6 +37,7 @@ function SelectedView({ props, match }) {
     } else if (match.params.contentType === "albums") {
       getAlbum();
     }
+    getPlaylistSession();
   }, [match.params.contentType]);
 
   function getSong() {
@@ -135,19 +141,115 @@ function SelectedView({ props, match }) {
       });
   }
 
+  // Get what songs are in the playlist once in the parent so each card can know if it's selected or not
+  function getPlaylistSession() {
+    axios
+      .get(api.playlistSession)
+      .then(function (response) {
+        console.log(response);
+        setSessionTracks(response.data.tracks);
+        setSessionAlbums(response.data.albums);
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error retrieving playlist");
+      });
+  }
+
+  function addToSession(id, itemType) {
+    axios
+      .post(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          id: id,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+        // showSuccess("Added to playlist");
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error adding to playlist");
+      });
+  }
+
+  function removeFromSession(id, itemType) {
+    axios
+      .delete(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          params: { id: id },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error removing from playlist");
+      });
+  }
+
+  function isInTrackSession(songId) {
+    for (let i = 0; i < sessionTracks.length; i++) {
+      if (songId === sessionTracks[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function isInAlbumSession(albumId) {
+    for (let i = 0; i < sessionAlbums.length; i++) {
+      if (albumId === sessionAlbums[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function renderSelection() {
     if (match.params.contentType === "songs") {
-      return <SongSelection song={song} songMeta={songMeta} />;
+      return (
+        <SongSelection
+          song={song}
+          songMeta={songMeta}
+          isInSession={song !== null ? isInTrackSession(song.id) : false}
+          addToSession={addToSession}
+          removeFromSession={removeFromSession}
+        />
+      );
     } else if (match.params.contentType === "artists") {
       return <ArtistSelection artist={artist} artistAlbums={artistAlbums} />;
     } else if (match.params.contentType === "albums") {
-      return <AlbumSelection album={album} tracksForAlbum={tracksForAlbum} />;
+      return (
+        <AlbumSelection
+          album={album}
+          tracksForAlbum={tracksForAlbum}
+          isInSession={album !== null ? isInAlbumSession(album.id) : false}
+          addToSession={addToSession}
+          removeFromSession={removeFromSession}
+        />
+      );
     }
   }
 
   return (
     <React.Fragment>
       {renderToast()}
+      <ExpandableCart
+        sessionTracks={sessionTracks}
+        sessionAlbums={sessionAlbums}
+        getsOwnData={false}
+        removeFromSession={removeFromSession}
+      />
       <Selection>{renderSelection()}</Selection>
     </React.Fragment>
   );

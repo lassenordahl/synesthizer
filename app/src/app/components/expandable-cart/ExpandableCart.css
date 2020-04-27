@@ -73,6 +73,10 @@
   height: 352px;
 }
 
+.cart-content-songs h4 {
+  margin-left: 16px;
+}
+
 .cart-content-song-row {
   position: relative;
   width: 100%;
