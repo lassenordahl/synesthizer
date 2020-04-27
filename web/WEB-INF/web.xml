@@ -163,4 +163,13 @@
         <servlet-name>PlaylistsServlet</servlet-name>
         <url-pattern>/api/playlists</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GenresServlet</servlet-name>
+        <servlet-class>com.cs122b.web.GenresServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GenresServlet</servlet-name>
+        <url-pattern>/api/genres</url-pattern>
+    </servlet-mapping>
 </web-app>

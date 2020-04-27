@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 import {
-  Button,
   SongCard,
   AlbumCard,
   ArtistCard,
@@ -13,15 +12,19 @@ import {
   Paginate,
   SortBy,
   Search,
+  OptionToggle,
+  Browse,
 } from "../../components";
 import { Card } from "../../containers";
 import { QueryParams, useToast } from "../../../hooks";
 
 import { api } from "../../../utils/api.js";
 
-import { getRoute } from "../../../utils/api";
+import { alphaNumArray } from "../../../global/helper";
 
 function ContentView(props) {
+  const [genres, setGenres] = useState([]);
+
   // Selection Variables
   const [selectedCardId, setSelectedCardId] = useState(null);
 
@@ -29,6 +32,9 @@ function ContentView(props) {
   const [willRedirectSong, redirectSong] = useState(false);
   const [willRedirectArtist, redirectArtist] = useState(false);
   const [willRedirectAlbum, redirectAlbum] = useState(false);
+
+  // Browse Mode
+  const [browseMode, setBrowseMode] = useState("Search Mode");
 
   // Data Array
   const [albums, setAlbums] = useState(null);
@@ -61,12 +67,29 @@ function ContentView(props) {
       getAlbums();
     } else if (match.params.contentType === "artists") {
       setArtists(null);
+      getGenres();
       getArtists();
     } else if (match.params.contentType === "songs") {
       setSongs(null);
       getSongs();
     }
   }, [params]);
+
+  useEffect(() => {
+    if (browseMode === "Search Mode") {
+      setParams({
+        ...params,
+        name: undefined,
+        genre: undefined,
+      });
+    } else if (browseMode === "Browse Mode") {
+      setParams({
+        ...params,
+        searchMode: undefined,
+        search: undefined,
+      });
+    }
+  }, [browseMode]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -95,10 +118,24 @@ function ContentView(props) {
     }
   }, [selectedCardId]);
 
+  function getGenres() {
+    axios
+      .get(api.genres)
+      .then(function (response) {
+        console.log(response.genres);
+        setGenres(response.data.genres);
+      })
+      .catch(function (error) {
+        console.log(error);
+        showError("Error retrieving genres");
+      });
+  }
+
   function getAlbums() {
     axios
       .get(api.albums, { params: params })
       .then(function (response) {
+        console.log("got genres");
         console.log(response);
         setAlbums(response.data.albums);
       })
@@ -213,6 +250,33 @@ function ContentView(props) {
     );
   }
 
+  function renderBrowse() {
+    let browseOptions;
+    if (match.params.contentType === "albums") {
+      browseOptions = {
+        name: alphaNumArray(),
+      };
+    } else if (match.params.contentType === "artists") {
+      browseOptions = {
+        name: alphaNumArray(),
+        genre: genres === undefined ? [] : genres,
+      };
+    } else if (match.params.contentType === "songs") {
+      browseOptions = {
+        name: alphaNumArray(),
+      };
+    }
+
+    return (
+      <Browse
+        key={match.params.contentType}
+        browseOptions={browseOptions}
+        params={params}
+        setParams={setParams}
+      />
+    );
+  }
+
   function renderSortBy() {
     let sortOptions;
     if (match.params.contentType === "albums") {
@@ -316,7 +380,17 @@ function ContentView(props) {
         <Redirect push to={"/app/explore/songs/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
-        <div className="content-view-search">{renderSearch()}</div>
+        <div className="content-view-options">
+          <OptionToggle
+            key="option-toggle"
+            options={["Search Mode", "Browse Mode"]}
+            selectedOption={browseMode}
+            selectOption={setBrowseMode}
+          />
+        </div>
+        <div className="content-view-browse">
+          {browseMode === "Search Mode" ? renderSearch() : renderBrowse()}
+        </div>
         <div className="content-view-filter-wrapper">{renderSortBy()}</div>
         <div className="content-view-cards">{renderContentCards()}</div>
         <div

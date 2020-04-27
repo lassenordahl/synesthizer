@@ -51,8 +51,8 @@ public class ArtistService {
         queryAlbums.closeQuery();
     }
 
-    public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search)
-            throws SQLException {
+    public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search,
+            String name, String genre) throws SQLException {
         db = new SQLClient();
 
         // Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT "
@@ -62,14 +62,14 @@ public class ArtistService {
         StringBuilder queryString = new StringBuilder();
 
         // SELECT
-        queryString.append("SELECT artist.id, artist.name, artist.image, ");
+        queryString.append("SELECT DISTINCT artist.id, artist.name, artist.image, ");
         queryString.append(
                 "IFNULL((SELECT COUNT(track_in_playlist.playlist_id) FROM artist_in_track LEFT JOIN track_in_playlist ON track_in_playlist.track_id = artist_in_track.track_id ");
         queryString.append(
                 "WHERE artist_in_track.artist_id = artist.id GROUP BY artist_in_track.artist_id), 0) as popularity ");
 
         // FROM
-        queryString.append("FROM  artist ");
+        queryString.append("FROM artist LEFT JOIN artist_in_genre ON artist.id = artist_in_genre.artist_id ");
 
         // WHERE
         if (searchMode != null && search != null) {
@@ -78,6 +78,18 @@ public class ArtistService {
             }
 
             queryString.append("WHERE " + searchMode + " LIKE \"%" + search + "%\" ");
+        } else if (name != null && name != "" || genre != null && genre != "") {
+            queryString.append("WHERE ");
+            if (name != null && name != "") {
+                queryString.append("artist.name LIKE \"" + name + "%\" ");
+
+                if (genre != null && genre != "") {
+                    queryString.append("AND ");
+                }
+            }
+            if (genre != null && genre != "") {
+                queryString.append("artist_in_genre.genre LIKE \"" + genre + "\" ");
+            }
         }
 
         // ORDER BY

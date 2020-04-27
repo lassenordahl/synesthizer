@@ -6,11 +6,21 @@
 
 .search select {
     -webkit-appearance: none;
+    /* border-radius: 50px; */
     border-radius: 50px 0px 0px 50px;
-    box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1)
+    box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1);
+    background-color: #8bf797 !important;
+    color: black !important;
+    min-width: 140px;
+    /* margin-right: -25px; */
+    z-index: 1;
+}
+
+.search select:hover {
+    background-color: #adf5b5 !important;
 }
 
 .search input {
     border-radius: 0px 50px 50px 0px;
-    margin-left: 0px;
+    /* text-indent: 35px; */
 }

@@ -15,7 +15,7 @@
 
 .button:hover {
   background-color: #252B38;
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 .button-primary {

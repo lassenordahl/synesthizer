@@ -31,6 +31,8 @@ public class ArtistsServlet extends HttpServlet {
         String sortBy = request.getParameter("sortBy");
         String searchMode = request.getParameter("searchMode");
         String search = request.getParameter("search");
+        String name = request.getParameter("name");
+        String genre = request.getParameter("genre");
 
         List<Artist> artists = null;
         try {
@@ -38,7 +40,8 @@ public class ArtistsServlet extends HttpServlet {
                     limit != null && limit != "" ? Integer.parseInt(limit) : 20,
                     sortBy != null && sortBy != "" ? sortBy : "popularity desc",
                     searchMode != null && searchMode != "" ? searchMode : null,
-                    search != null && search != "" ? search : null);
+                    search != null && search != "" ? search : null, name != null && name != "" ? name : null,
+                    genre != null && genre != "" ? genre : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -27,8 +27,8 @@ public class AlbumService {
         }
     }
 
-    public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search)
-            throws SQLException {
+    public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
+            String name) throws SQLException {
         db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -59,7 +59,9 @@ public class AlbumService {
                 + "LEFT JOIN artist ON artist.id = artist_in_album.artist_id ");
 
         // WHERE
-        if (searchMode != null && search != null) {
+        if (name != null && name != "") {
+            queryString.append("WHERE album.name LIKE \"" + name + "%\" ");
+        } else if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {
                 searchMode = "album.name";
             } else if (searchMode.equals("release_date")) {
