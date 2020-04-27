@@ -65,16 +65,6 @@ public class PlaylistService {
         queryAlbum.closeQuery();
     }
 
-    public static void setPlaylistAlbumAttrs(Album album, ResultSet result) throws SQLException {
-        album.setId(result.getString("id"));
-        album.setName(result.getString("name"));
-        album.setAlbum_type(result.getString("album_type"));
-        album.setImage(result.getString("image"));
-        album.setRelease_date(result.getString("release_date"));
-        album.setArtist_name(result.getString("artist_name"));
-        album.setArtist_id(result.getString("artist_id"));
-    }
-
     private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
