@@ -53,7 +53,10 @@ function AlbumCard(props) {
           >
             {props.skeletonPulse === undefined ? (
               <div style={{ display: "flex", width: "100%" }}>
-                {props.album.artists.map(function (artist, index) {
+                {(props.album.artists === undefined
+                  ? []
+                  : props.album.artists
+                ).map(function (artist, index) {
                   return (
                     <Link to={"/app/explore/artists/" + artist.id} key={index}>
                       <p>

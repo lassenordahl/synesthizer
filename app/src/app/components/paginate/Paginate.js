@@ -4,12 +4,16 @@ import "./Paginate.css";
 import { Card } from "../../containers";
 
 function Paginate(props) {
-  const [limit, setLimit] = useState(props.params.limit);
+  const [limit, setLimit] = useState(parseInt(props.params.limit));
+
+  useEffect(() => {
+    setLimit(parseInt(props.params.limit));
+  }, [props.params]);
 
   useEffect(() => {
     props.setParams({
       ...props.params,
-      offset: props.params.offset,
+      offset: parseInt(props.params.offset),
       limit: limit,
     });
   }, [limit]);
@@ -18,7 +22,7 @@ function Paginate(props) {
     if (props.params.offset / limit + 1 > 1) {
       props.setParams({
         ...props.params,
-        offset: props.params.offset - limit,
+        offset: parseInt(props.params.offset) - limit,
         limit: limit,
       });
     }
@@ -27,7 +31,7 @@ function Paginate(props) {
   function rightClick() {
     props.setParams({
       ...props.params,
-      offset: props.params.offset + limit,
+      offset: parseInt(props.params.offset) + limit,
       limit: limit,
     });
   }
@@ -65,7 +69,7 @@ function Paginate(props) {
             <option key={20} value={20}>
               20
             </option>
-            <option key={60} value={60}>
+            <option key={40} value={40}>
               40
             </option>
             <option key={80} value={80}>

@@ -3,10 +3,26 @@ import "./Search.css";
 
 import { beautifyString } from "../../../global/helper";
 import { Button } from "../index";
+import { useEffect } from "react";
 
 function Search(props) {
-  const [searchMode, setSearchMode] = useState(props.searchModes[0]);
-  const [search, setSearch] = useState("");
+  const [searchMode, setSearchMode] = useState(
+    props.params.searchMode !== undefined
+      ? props.params.searchMode
+      : props.searchModes[0]
+  );
+  const [search, setSearch] = useState(
+    props.params.search !== undefined ? props.params.search : ""
+  );
+
+  useEffect(() => {
+    setSearchMode(
+      props.params.searchMode !== undefined
+        ? props.params.searchMode
+        : props.searchModes[0]
+    );
+    setSearch(props.params.search !== undefined ? props.params.search : "");
+  }, [props.params]);
 
   function sendSearch() {
     console.log("sending search");

@@ -55,7 +55,10 @@ function SongCard(props) {
           >
             {props.skeletonPulse === undefined ? (
               <div style={{ display: "flex", width: "100%" }}>
-                {props.song.artists.map(function (artist, index) {
+                {(props.song.artists === undefined
+                  ? []
+                  : props.song.artists
+                ).map(function (artist, index) {
                   return (
                     <Link to={"/app/explore/artists/" + artist.id} key={index}>
                       <p>

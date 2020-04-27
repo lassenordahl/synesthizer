@@ -6,21 +6,66 @@ import { useEffect } from "react";
 import { beautifyString } from "../../../global/helper";
 
 function SortBy(props) {
-  function getInitialPriorities(params) {}
-  function getInitialOrders(params) {}
+  function getInitialOrders(params) {
+    let initialOrders = {};
+    if (params.sortBy === undefined || params.sortBy === "") {
+      return initialOrders;
+    }
+
+    params.sortBy.split(",").forEach((order) => {
+      const [property, value] = order.split(" ");
+      initialOrders = { ...initialOrders, [property]: value };
+    });
+
+    return initialOrders;
+  }
+
+  function getInitialPriorities(params, defaults) {
+    let priorities = [];
+    if (params.sortBy === undefined || params.sortBy === "") {
+      return defaults;
+    }
+
+    // Iterate over params and add to priority
+    params.sortBy.split(",").forEach((pair) => {
+      const [property, value] = pair.split(" ");
+      priorities.push(property);
+    });
+
+    // Filter defaults that are not in priority
+    // Add filtered to the front
+    priorities = [
+      ...defaults.filter((property) => !priorities.includes(property)),
+      ...priorities,
+    ];
+
+    return priorities;
+  }
 
   const [orders, setOrders] = useState(
     Object.assign(
       {},
-      ...props.sortOptions.map((option) => ({ [option]: undefined }))
+      ...props.sortOptions.map((option) => ({
+        [option]: getInitialOrders(props.params)[option],
+      }))
     )
   );
 
-  const [priority, setPriority] = useState(Object.keys(orders));
+  const [priority, setPriority] = useState(
+    getInitialPriorities(props.params, Object.keys(orders))
+  );
 
-  //   props.sortOptions.map(function (option) {
-  //     return option;
-  //   })
+  useEffect(() => {
+    setOrders(
+      Object.assign(
+        {},
+        ...props.sortOptions.map((option) => ({
+          [option]: getInitialOrders(props.params)[option],
+        }))
+      )
+    );
+    setPriority(getInitialPriorities(props.params, Object.keys(orders)));
+  }, [props.params]);
 
   function toggleOrder(option) {
     console.log("toggled" + option);
@@ -42,29 +87,26 @@ function SortBy(props) {
       order = "desc";
     }
 
-    setOrders({
+    const newOrders = {
       ...orders,
       [option]: order,
-    });
+    };
 
-    console.log(orders);
-
-    setPriority([
+    const newPriority = [
       ...priority.slice(0, prevChange),
       ...priority.slice(prevChange + 1, props.sortOptions.length),
       priority[prevChange],
-    ]);
+    ];
 
-    console.log(priority);
-  }
+    setOrders(newOrders);
+    setPriority(newPriority);
 
-  useEffect(() => {
     props.setParams({
       ...props.params,
-      sortBy: priority
+      sortBy: newPriority
         .map(function (option, id) {
-          if (orders[option] !== undefined) {
-            return `${option} ${orders[option]}`;
+          if (newOrders[option] !== undefined) {
+            return `${option} ${newOrders[option]}`;
           }
         })
         .filter(function (value) {
@@ -74,7 +116,7 @@ function SortBy(props) {
         })
         .join(","),
     });
-  }, [priority, orders]);
+  }
 
   function renderOption(option, id) {
     let orderSymbol = "";

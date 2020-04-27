@@ -3,6 +3,7 @@ import "./ContentView.css";
 
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import queryString from "query-string";
 
 import {
   SongCard,
@@ -16,13 +17,22 @@ import {
   Browse,
 } from "../../components";
 import { Card } from "../../containers";
-import { QueryParams, useToast } from "../../../hooks";
+import { useRouter, useToast } from "../../../hooks";
 
 import { api } from "../../../utils/api.js";
 
 import { alphaNumArray } from "../../../global/helper";
 
 function ContentView(props) {
+  // Query Parameters
+  let router = useRouter();
+  const [params, setParams] = useState({
+    offset: 0,
+    limit: 20,
+    ...router.query,
+  });
+
+  // Genres for dropdown
   const [genres, setGenres] = useState([]);
 
   // Selection Variables
@@ -34,16 +44,16 @@ function ContentView(props) {
   const [willRedirectAlbum, redirectAlbum] = useState(false);
 
   // Browse Mode
-  const [browseMode, setBrowseMode] = useState("Search Mode");
+  const [browseMode, setBrowseMode] = useState(
+    params.browseMode !== undefined && params.browseMode !== ""
+      ? params.browseMode
+      : "Search Mode"
+  );
 
   // Data Array
   const [albums, setAlbums] = useState(null);
   const [artists, setArtists] = useState(null);
   const [songs, setSongs] = useState(null);
-
-  // Query Parameters
-  let queryParams = QueryParams();
-  const [params, setParams] = useState({ offset: 0, limit: 20 });
 
   // Match is passed in under props now because the <Route> component needed props and I had issues passing match normally
   let match = props.match;
@@ -56,11 +66,16 @@ function ContentView(props) {
 
   useEffect(() => {
     console.log("resetting the params");
-    setParams({ offset: 0, limit: 20 });
+    setParams({
+      offset: 0,
+      limit: 20,
+      ...router.query,
+    });
     console.log(params);
   }, [match.params.contentType]);
 
   useEffect(() => {
+    console.log("params changed");
     getPlaylistSession();
 
     if (match.params.contentType === "albums") {
@@ -74,6 +89,8 @@ function ContentView(props) {
       setSongs(null);
       getSongs();
     }
+
+    router.push("?".concat(queryString.stringify(params)));
   }, [params]);
 
   useEffect(() => {
@@ -82,12 +99,14 @@ function ContentView(props) {
         ...params,
         name: undefined,
         genre: undefined,
+        browseMode: browseMode,
       });
     } else if (browseMode === "Browse Mode") {
       setParams({
         ...params,
         searchMode: undefined,
         search: undefined,
+        browseMode: browseMode,
       });
     }
   }, [browseMode]);
@@ -136,7 +155,6 @@ function ContentView(props) {
     axios
       .get(api.albums, { params: params })
       .then(function (response) {
-        console.log("got genres");
         console.log(response);
         if (response.data.albums !== null) {
           setAlbums(response.data.albums);
@@ -168,7 +186,10 @@ function ContentView(props) {
   }
 
   function getSongs() {
+    console.log("songs params");
     console.log(params);
+    console.log("router params");
+    console.log(router.query);
     axios
       .get(api.songs, { params: params })
       .then(function (response) {
@@ -265,7 +286,7 @@ function ContentView(props) {
 
     return (
       <Search
-        key={match.params.contentType}
+        key={match.params.contentType + "search-by"}
         searchModes={searchModes}
         params={params}
         setParams={setParams}
@@ -292,7 +313,7 @@ function ContentView(props) {
 
     return (
       <Browse
-        key={match.params.contentType}
+        key={match.params.contentType + "browse-by"}
         browseOptions={browseOptions}
         params={params}
         setParams={setParams}
@@ -312,7 +333,7 @@ function ContentView(props) {
 
     return (
       <SortBy
-        key={match.params.contentType}
+        key={match.params.contentType + "sort-by"}
         sortOptions={sortOptions}
         params={params}
         setParams={setParams}
