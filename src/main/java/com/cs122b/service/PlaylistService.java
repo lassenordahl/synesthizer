@@ -70,6 +70,7 @@ public class PlaylistService {
         playlist.setName(result.getString("name"));
         playlist.setImage(result.getString("image"));
         playlist.setCreation_date(result.getString("creation_date"));
+        playlist.setPlaylistsCreated(result.getInt("playlistCreated"));
 
         // Get the tracks
         Query query = db.query(String.format(
@@ -189,7 +190,9 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id='%d' AND id = playlist_id AND user_id='%d'",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user" +
+                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
+                "WHERE id='%d' AND id = playlists_to_user.playlist_id AND user_id='%d'",
                 id, userId));
 
         Playlist playlist = new Playlist();
@@ -210,7 +213,9 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d' ORDER BY creation_date DESC",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user " +
+                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
+                "WHERE id = playlist_to_user.playlist_id AND user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();
