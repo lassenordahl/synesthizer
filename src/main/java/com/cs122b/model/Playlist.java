@@ -16,6 +16,7 @@ public class Playlist {
     private String creation_date;
     private ArrayList<Track> tracks;
     private ArrayList<Album> albums;
+    private int playlistsCreated;
 
     public Playlist() {
         tracks = new ArrayList<Track>();
@@ -86,6 +87,14 @@ public class Playlist {
                 break;
             }
         }
+    }
+
+    public void setPlaylistsCreated(int playlistsCreated) {
+        this.playlistsCreated = playlistsCreated;
+    }
+
+    public int getPlaylistsCreated() {
+        return playlistsCreated;
     }
 
     public int getUser_id() {

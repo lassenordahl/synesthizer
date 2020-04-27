@@ -65,21 +65,12 @@ public class PlaylistService {
         queryAlbum.closeQuery();
     }
 
-    public static void setPlaylistAlbumAttrs(Album album, ResultSet result) throws SQLException {
-        album.setId(result.getString("id"));
-        album.setName(result.getString("name"));
-        album.setAlbum_type(result.getString("album_type"));
-        album.setImage(result.getString("image"));
-        album.setRelease_date(result.getString("release_date"));
-        album.setArtist_name(result.getString("artist_name"));
-        album.setArtist_id(result.getString("artist_id"));
-    }
-
     private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
         playlist.setImage(result.getString("image"));
         playlist.setCreation_date(result.getString("creation_date"));
+        playlist.setPlaylistsCreated(result.getInt("playlistCreated"));
 
         // Get the tracks
         Query query = db.query(String.format(
@@ -148,6 +139,18 @@ public class PlaylistService {
         relationPstmt.close();
     }
 
+    public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException {
+        db = new SQLClient();
+
+        String insertQuery = "INSERT INTO playlist_spotify_snapshot(playlist_id, snapshot_id) VALUES (?, ?);";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, playlist_id);
+        pstmt.setString(2, snapshot_id);
+        pstmt.executeUpdate();
+
+        db.closeConnection();
+    }
+
     public static Playlist createPlaylist(JsonObject playlistJson, int userId) throws SQLException {
         db = new SQLClient();
 
@@ -187,7 +190,9 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id='%d' AND id = playlist_id AND user_id='%d'",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user" +
+                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
+                "WHERE id='%d' AND id = playlists_to_user.playlist_id AND user_id='%d'",
                 id, userId));
 
         Playlist playlist = new Playlist();
@@ -208,7 +213,9 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d' ORDER BY creation_date DESC",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user " +
+                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
+                "WHERE id = playlist_to_user.playlist_id AND user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();

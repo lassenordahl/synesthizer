@@ -164,6 +164,14 @@
         <url-pattern>/api/playlist</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>PlaylistSnapshotServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSnapshotServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSnapshotServlet</servlet-name>
+        <url-pattern>/api/playlist/snapshot</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>PlaylistsServlet</servlet-name>
         <servlet-class>com.cs122b.web.PlaylistsServlet</servlet-class>
     </servlet>

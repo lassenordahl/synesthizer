@@ -57,7 +57,7 @@ function SongCard(props) {
               <div style={{ display: "flex", width: "100%" }}>
                 {props.song.artists.map(function (artist, index) {
                   return (
-                    <Link to={"/app/explore/artists/" + artist.id}>
+                    <Link to={"/app/explore/artists/" + artist.id} key={index}>
                       <p>
                         {index < props.song.artists.length - 1
                           ? artist.name + ",  "

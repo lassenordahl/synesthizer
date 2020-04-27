@@ -137,12 +137,32 @@ function Playlists() {
       )
       .then(function (response) {
         console.log(response);
-        showSuccess("Successfully created playlist");
+        if (response.status === 201) {
+          showSuccess("Successfully created playlist");
+          saveSnapshotId(playlist.id, response.data.snapshot_id);
+        }
       })
       .catch(function (error) {
         console.log(error);
         showError("Error adding tracks to playlist");
       });
+  }
+
+  function saveSnapshotId(playlistId, snapshotId) {
+    axios
+      .post(
+        api.playlistSnapshot, {
+          playlistId: playlistId,
+          snapshotId: snapshotId
+        }
+      )
+      .then(function(response) {
+        console.log("Successfully saved snapshot ID", response);
+        getPlaylists();
+      })
+      .catch(function(error) {
+        showError("Error saving playlist snapshot");
+      })
   }
 
   function getPlaylist(id) {
@@ -153,12 +173,6 @@ function Playlists() {
       }
     }
     return "";
-  }
-
-  function formatSpotifyPlaylist(playlistId) {
-    if (playlists.length === 0) {
-      return null;
-    }
   }
 
   return (
