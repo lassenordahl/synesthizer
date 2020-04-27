@@ -12,11 +12,12 @@ import {
   ExpandableCart,
   Paginate,
   SortBy,
+  Search,
 } from "../../components";
 import { Card } from "../../containers";
 import { QueryParams, useToast } from "../../../hooks";
 
-import { api }      from "../../../utils/api.js";
+import { api } from "../../../utils/api.js";
 
 import { getRoute } from "../../../utils/api";
 
@@ -30,9 +31,9 @@ function ContentView(props) {
   const [willRedirectAlbum, redirectAlbum] = useState(false);
 
   // Data Array
-  const [albums, setAlbums] = useState([]);
-  const [artists, setArtists] = useState([]);
-  const [songs, setSongs] = useState([]);
+  const [albums, setAlbums] = useState(null);
+  const [artists, setArtists] = useState(null);
+  const [songs, setSongs] = useState(null);
 
   // Query Parameters
   let queryParams = QueryParams();
@@ -56,16 +57,16 @@ function ContentView(props) {
     getPlaylistSession();
 
     if (match.params.contentType === "albums") {
-      setAlbums([]);
+      setAlbums(null);
       getAlbums();
     } else if (match.params.contentType === "artists") {
-      setArtists([]);
+      setArtists(null);
       getArtists();
     } else if (match.params.contentType === "songs") {
-      setSongs([]);
+      setSongs(null);
       getSongs();
     }
-  }, [match.params.contentType, params]);
+  }, [params]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -191,6 +192,26 @@ function ContentView(props) {
     return false;
   }
 
+  function renderSearch() {
+    let searchModes;
+    if (match.params.contentType === "albums") {
+      searchModes = ["name", "release_date", "artist_name"];
+    } else if (match.params.contentType === "artists") {
+      searchModes = ["name"];
+    } else if (match.params.contentType === "songs") {
+      searchModes = ["name", "album_name", "artist_name", "release_date"];
+    }
+
+    return (
+      <Search
+        key={match.params.contentType}
+        searchModes={searchModes}
+        params={params}
+        setParams={setParams}
+      />
+    );
+  }
+
   function renderSortBy() {
     let sortOptions;
     if (match.params.contentType === "albums") {
@@ -213,7 +234,7 @@ function ContentView(props) {
 
   function renderContentCards() {
     if (match.params.contentType === "songs") {
-      return (songs.length > 0
+      return (songs != null
         ? songs
         : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
       ).map(function (song, index) {
@@ -223,9 +244,9 @@ function ContentView(props) {
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (songs.length > 0) selectCard(song.id);
+              if (songs != null && songs.length > 0) selectCard(song.id);
             }}
-            skeletonPulse={songs.length > 0 ? undefined : true}
+            skeletonPulse={songs != null && songs.length > 0 ? undefined : true}
             addToSession={addToSession}
             removeFromSession={removeFromSession}
             isInSession={isInSession(song.id)}
@@ -233,7 +254,7 @@ function ContentView(props) {
         );
       });
     } else if (match.params.contentType === "albums") {
-      return (albums.length > 0
+      return (albums != null
         ? albums
         : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
       ).map(function (album, index) {
@@ -243,16 +264,18 @@ function ContentView(props) {
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (albums.length > 0) selectCard(album.id);
+              if (albums != null && albums.length > 0) selectCard(album.id);
             }}
-            skeletonPulse={albums.length > 0 ? undefined : true}
+            skeletonPulse={
+              albums != null && albums.length > 0 ? undefined : true
+            }
             addToSession={addToSession}
             removeFromSession={removeFromSession}
           ></AlbumCard>
         );
       });
     } else if (match.params.contentType === "artists") {
-      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(
+      return (artists != null ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(
         function (artist, index) {
           return (
             <ArtistCard
@@ -260,9 +283,12 @@ function ContentView(props) {
               key={index}
               style={{ margin: "32px" }}
               onClick={() => {
-                if (artists.length > 0) selectCard(artist.id);
+                if (artists != null && artists.length > 0)
+                  selectCard(artist.id);
               }}
-              skeletonPulse={artists.length > 0 ? undefined : true}
+              skeletonPulse={
+                artists != null && artists.length > 0 ? undefined : true
+              }
             ></ArtistCard>
           );
         }
@@ -289,11 +315,7 @@ function ContentView(props) {
         <Redirect push to={"/app/explore/songs/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
-        <div className="content-view-search">
-          <input></input>
-          <div style={{ width: "48px" }}></div>
-          <Button isPrimary={true}>Search</Button>
-        </div>
+        <div className="content-view-search">{renderSearch()}</div>
         <div className="content-view-filter-wrapper">{renderSortBy()}</div>
         <div className="content-view-cards">{renderContentCards()}</div>
         <div

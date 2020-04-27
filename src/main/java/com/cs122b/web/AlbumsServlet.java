@@ -28,24 +28,23 @@ public class AlbumsServlet extends HttpServlet {
         String offset = request.getParameter("offset");
         String limit = request.getParameter("limit");
         String sortBy = request.getParameter("sortBy");
+        String searchMode = request.getParameter("searchMode");
+        String search = request.getParameter("search");
 
         List<Album> albums = null;
         try {
             albums = AlbumService.fetchAlbums(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
                     limit != null && limit != "" ? Integer.parseInt(limit) : 20,
-                    sortBy != null && sortBy != "" ? sortBy : "popularity desc");
+                    sortBy != null && sortBy != "" ? sortBy : "popularity desc",
+                    searchMode != null && searchMode != "" ? searchMode : null,
+                    search != null && search != "" ? search : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         PrintWriter out = response.getWriter();
 
-        if (albums.size() > 0) {
-            String albumsResponse = this.gson.toJson(albums);
-            out.print("{ \"albums\": " + albumsResponse + " }");
-        } else {
-            response.setStatus(404);
-            out.print("{ \"message\": \"resource not found\"}");
-        }
+        String albumsResponse = this.gson.toJson(albums);
+        out.print("{ \"albums\": " + albumsResponse + " }");
     }
 }

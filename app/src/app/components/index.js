@@ -15,3 +15,4 @@ export { default as PrivateRoute } from "./private-route/PrivateRoute";
 export { default as Paginate } from "./paginate/Paginate";
 export { default as PlaylistCard } from "./playlist-card/PlaylistCard";
 export { default as SortBy } from "./sort-by/SortBy";
+export { default as Search } from "./search/Search";
