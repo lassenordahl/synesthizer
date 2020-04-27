@@ -52,7 +52,6 @@ function Playlists() {
   function getPlaylists() {
     getRoute(api.playlists)
       .then(function (response) {
-        showSuccess("funky and fresh");
         console.log(response);
         setPlaylists(response.data.playlists);
       })

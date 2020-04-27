@@ -117,7 +117,7 @@ function CreatePlaylist() {
           </div>
           <div className="create-playlist-header-info">
             {playlistSession !== null ? (
-              <input value={playlistName} onChange={handleChange}></input>
+              <input value={playlistName} onChange={handleChange} placeholder="Playlist Name"></input>
             ) : (
               <SkeletonPulse style={{width: "400px", height: "56px", borderRadius: "30px"}}></SkeletonPulse>
             )}
@@ -128,13 +128,19 @@ function CreatePlaylist() {
           </div>
         </div>
         <div className="create-playlist-songs">
-          <div className="create-playlist-song-labels format-column-grid">
-            <div>Song</div>
-            <div>Artist</div>
-            <div>Album</div>
-            <div className="flex-center">Length</div>
-            <div></div>
-          </div>
+          <h3>songs</h3>
+          { playlistSession !== null && playlistSession.tracks.length > 0 
+            ? (
+              <div className="create-playlist-song-labels format-column-grid">
+                <div>name</div>
+                <div>artist</div>
+                <div>album</div>
+                <div className="flex-center">length</div>
+                <div></div>
+              </div>
+              )
+            : null
+          }
           {playlistSession !== null ? (
             playlistSession.tracks.length > 0 ? (
               <div>
@@ -165,10 +171,48 @@ function CreatePlaylist() {
               </div>
             ) : (
               <div className="create-playlist-no-songs">
-                <p>No songs added to playlist</p>
+                <p>no songs added to playlist</p>
               </div>
             )
           ) : null}
+        </div>
+        <div className="create-playlist-songs">
+          <h3>albums</h3>
+          { playlistSession !== null && playlistSession.albums.length > 0 
+            ? (
+              <React.Fragment>
+                <div className="create-playlist-song-labels format-column-grid-album">
+                <div>name</div>
+                <div>artist</div>
+                <div></div>
+              </div>
+              <div>
+              {playlistSession.albums.map(function (album, index) {
+                return (
+                  <div
+                    key={index}
+                    className="format-column-grid formatted-song-row"
+                  >
+                    <Link to={"/app/explore/albums/" + album.id}>
+                      <div>{album.name}</div>
+                    </Link>
+                    <Link to={"/app/explore/artists/" + album.artist_id}>
+                      <div>{album.artist_name}</div>
+                    </Link>
+                    <div className="flex-center">
+                      <DeleteSessionButton onClick={() => removeFromSession(album.id)}/>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+              </React.Fragment>
+            )
+            : <div className="create-playlist-no-songs">
+                <p>no albums added to playlist</p>
+              </div>
+          }
+          
         </div>
       </Card>
       <div className="create-playlist-button-wrapper">
