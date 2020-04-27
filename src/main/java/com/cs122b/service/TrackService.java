@@ -147,7 +147,6 @@ public class TrackService implements Config {
         }
         query.closeQuery();
 
-        db.closeConnection();
         return tracks;
     }
 
