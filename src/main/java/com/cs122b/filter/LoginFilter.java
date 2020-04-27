@@ -64,8 +64,10 @@ public class LoginFilter implements Filter {
 
         // Playlist
         allowedURIs.add("api/playlists");
+        allowedURIs.add("api/playlist");
         allowedURIs.add("api/playlist/session");
         allowedURIs.add("api/playlist/session/track");
+        allowedURIs.add("api/playlist/session/album");
 
         // Genres
         allowedURIs.add("api/genres");

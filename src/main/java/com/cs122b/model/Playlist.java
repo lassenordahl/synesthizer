@@ -64,7 +64,19 @@ public class Playlist {
     }
 
     public void addTrack(Track track) {
-        this.tracks.add(track);
+        // Only add track if it's not already in the session (prevents duplicates)
+        if (notInTracks(track)) {
+            this.tracks.add(track);
+        }
+    }
+
+    public boolean notInTracks(Track track) {
+        for (int i = 0; i < tracks.size(); i++) {
+            if (tracks.get(i).getId() == track.getId()) {
+                return true;
+            }
+        }
+        return true;
     }
 
     public void removeTrack(String id) {
