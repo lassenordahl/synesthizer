@@ -20,19 +20,33 @@ function AlbumSelection(props) {
           {props.album !== null ? (
             <h2>{props.album.name}</h2>
           ) : (
-            <SkeletonPulse style={{ width: "160px", height: "24px", marginBottom: "8px" }} />
+            <SkeletonPulse
+              style={{ width: "160px", height: "24px", marginBottom: "8px" }}
+            />
           )}
           {props.album !== null ? (
-            <Link to={"/app/explore/artists/" + props.album.artist_id}>
-              <p>{props.album.artist_name}</p>
-            </Link>
+            props.album.artists.map(function (artist, index) {
+              return index < props.album.artists.length - 1 ? (
+                <Link to={`/app/explore/artists/${artist.id}`} key={index}>
+                  <p>{`${artist.name}, `}</p>
+                </Link>
+              ) : (
+                <Link to={`/app/explore/artists/${artist.id}`} key={index}>
+                  <p>{artist.name}</p>
+                </Link>
+              );
+            })
           ) : (
-            <SkeletonPulse style={{ width: "256px", height: "24px", marginBottom: "8px" }} />
+            <SkeletonPulse
+              style={{ width: "256px", height: "24px", marginBottom: "8px" }}
+            />
           )}
           {props.album !== null ? (
             <p className="subtitle">Release Date: {props.album.release_date}</p>
           ) : (
-            <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
+            <SkeletonPulse
+              style={{ width: "128px", height: "24px", marginBottom: "8px" }}
+            />
           )}
         </div>
       </div>

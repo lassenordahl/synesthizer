@@ -57,7 +57,7 @@ function SongSelection(props) {
       </div>
       {showDetails ? (
         <div className="selected-artist-extra-info">
-          {props.artist.albums.map(function (album, index) {
+          {props.artistAlbums.map(function (album, index) {
             return (
               <AlbumCard
                 album={album}
