@@ -3,6 +3,7 @@ import "./SongCard.css";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { isOverCardLimit, truncateTitle } from "../../../global/helper";
@@ -38,7 +39,7 @@ function SongCard(props) {
         </div>
         <div className="song-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{truncateTitle(props.song.name, 52)}</h2>
+            <h2>{truncateTitle(props.song.name, 22)}</h2>
           ) : (
             <SkeletonPulse
               style={{ width: "128px", height: "24px", marginBottom: "8px" }}
@@ -46,30 +47,49 @@ function SongCard(props) {
           )}
           <div
             className={
-              isOverCardLimit(props.song.name)
-                ? "shift-card-content"
-                : "no-shift-content"
+              "no-shift-content"
+              // isOverCardLimit(props.song.name)
+              //   ? "shift-card-content"
+              //   : "no-shift-content"
             }
           >
             {props.skeletonPulse === undefined ? (
-              <Link to={"/app/explore/artists/" + props.song.artists[0].id}>
-                <p>
-                  {props.song.artists.map(function (artist, index) {
-                    return index < props.song.artists.length - 1
-                      ? artist.name + ", "
-                      : artist.name;
-                  })}
-                </p>
-              </Link>
+              <div style={{ display: "flex", width: "100%" }}>
+                {props.song.artists.map(function (artist, index) {
+                  return (
+                    <Link to={"/app/explore/artists/" + artist.id}>
+                      <p>
+                        {index < props.song.artists.length - 1
+                          ? artist.name + ",  "
+                          : artist.name}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
             ) : (
               <SkeletonPulse
                 style={{ width: "200px", height: "20px", marginBottom: "8px" }}
               />
             )}
             {props.skeletonPulse === undefined ? (
-              <p className="subtitle">
-                Playlist Count: {props.song.popularity}
-              </p>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <p className="subtitle">
+                  Release Date:{" "}
+                  {moment(props.song.album.release_date).format(
+                    "MMM Do YYYY, hh:mm a"
+                  )}
+                </p>
+                <p className="subtitle" style={{ marginLeft: "24px" }}>
+                  Popularity: {props.song.popularity}
+                </p>
+              </div>
             ) : (
               <SkeletonPulse
                 style={{ width: "81px", height: "12px", marginBottom: "8px" }}

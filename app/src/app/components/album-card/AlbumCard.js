@@ -2,6 +2,8 @@ import React from "react";
 import "./AlbumCard.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
+import moment from "moment";
+
 import { Link } from "react-router-dom";
 import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 
@@ -22,29 +24,54 @@ function AlbumCard(props) {
         </div>
         <div className="album-card-info">
           {props.skeletonPulse === undefined ? (
-            <h2>{truncateTitle(props.album.name, 52)}</h2>
+            <h2>{truncateTitle(props.album.name, 22)}</h2>
           ) : (
-            <SkeletonPulse style={{ width: "128px", height: "24px", marginBottom: "8px" }} />
+            <SkeletonPulse
+              style={{ width: "128px", height: "24px", marginBottom: "8px" }}
+            />
           )}
-          <div className={isOverCardLimit(props.album.name) ? "shift-card-content": "no-shift-content"}>
+          <div
+            className={
+              "no-shift-content"
+              // isOverCardLimit(props.album.name)
+              //   ? "shift-card-content"
+              //   : "no-shift-content"
+            }
+          >
             {props.skeletonPulse === undefined ? (
-              <Link to={"/app/explore/artists/" + props.album.artist_id} >
-                <p>
-                  {props.album.artist_name}
-                </p>
+              <Link to={"/app/explore/artists/" + props.album.artist_id}>
+                <p>{props.album.artist_name}</p>
               </Link>
             ) : (
-              <SkeletonPulse style={{ width: "200px", height: "20px", marginBottom: "8px" }} />
+              <SkeletonPulse
+                style={{ width: "200px", height: "20px", marginBottom: "8px" }}
+              />
             )}
+
             {props.skeletonPulse === undefined ? (
-              <p className="subtitle">
-                Release Date: {props.album.release_date}
-              </p>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <p className="subtitle">
+                  Release Date:{" "}
+                  {moment(props.album.release_date).format(
+                    "MMM Do YYYY, hh:mm a"
+                  )}
+                </p>
+                <p className="subtitle" style={{ marginLeft: "20px" }}>
+                  Popularity: {props.album.popularity}
+                </p>
+              </div>
             ) : (
-              <SkeletonPulse style={{ width: "81px", height: "12px", marginBottom: "8px" }} />
+              <SkeletonPulse
+                style={{ width: "81px", height: "12px", marginBottom: "8px" }}
+              />
             )}
           </div>
-          
         </div>
       </div>
     </div>
