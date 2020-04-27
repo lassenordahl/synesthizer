@@ -145,7 +145,7 @@ function ExpandableCart(props) {
                           <div className="card-content-song-row-wrapper">
                             <div>
                               <Link to={"/app/explore/albums/" + album.id}>
-                                <p>{truncateTitle(album.name, 37)}</p>
+                                 <p>{truncateTitle(album.name, 37)}</p>
                               </Link>
                               <Link to={"/app/explore/artists/" + album.artist_id}>
                                 <span style={{ fontSize: "0.5em" }}>
