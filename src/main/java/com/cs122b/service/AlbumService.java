@@ -3,6 +3,7 @@ package com.cs122b.service;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
+import com.cs122b.model.Artist;
 import com.cs122b.model.Track;
 
 import java.sql.*;
@@ -19,8 +20,26 @@ public class AlbumService {
         album.setAlbum_type(result.getString("album_type"));
         album.setImage(result.getString("image"));
         album.setRelease_date(result.getString("release_date"));
-        album.setArtist_name(result.getString("artist_name"));
-        album.setArtist_id(result.getString("artist_id"));
+
+        // Add Artists to Album
+        Query queryArtist = db
+                .query("SELECT * FROM artist_in_album NATURAL JOIN artist WHERE artist_id = id AND album_id = \""
+                        + album.getId() + "\" ORDER BY name;");
+        ResultSet artistsResult = queryArtist.getResult();
+
+        while (artistsResult.next()) {
+            if (artistsResult == null) {
+                break;
+            }
+            Artist artist = new Artist();
+            artist.setId(artistsResult.getString("id"));
+            artist.setName(artistsResult.getString("name"));
+            artist.setImage(artistsResult.getString("image"));
+
+            album.addArtists(artist);
+        }
+
+        queryArtist.closeQuery();
 
         if (addPopularity) {
             album.setPopularity(result.getInt("popularity"));
@@ -28,7 +47,7 @@ public class AlbumService {
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
-            String name) throws SQLException {
+            String name, String artist_id) throws SQLException {
         db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -48,11 +67,11 @@ public class AlbumService {
         // + "LIMIT 0," + Integer.toString(limit) + ";");
 
         // SELECT
-        queryString.append("SELECT album.id, album.name, album.album_type, album.image, album.release_date,  ");
+        queryString
+                .append("SELECT DISTINCT album.id, album.name, album.album_type, album.image, album.release_date,  ");
         queryString.append("(SELECT COUNT(track_in_playlist.playlist_id) FROM track_in_album "
                 + "LEFT JOIN track_in_playlist ON track_in_playlist.track_id = track_in_album.track_id "
-                + "WHERE track_in_album.album_id = album.id GROUP BY track_in_album.album_id) as popularity, ");
-        queryString.append("artist.name as artist_name, artist.id as artist_id ");
+                + "WHERE track_in_album.album_id = album.id GROUP BY track_in_album.album_id) as popularity ");
 
         // FROM
         queryString.append("FROM album LEFT JOIN artist_in_album ON artist_in_album.album_id = album.id "
@@ -61,6 +80,8 @@ public class AlbumService {
         // WHERE
         if (name != null && name != "") {
             queryString.append("WHERE album.name LIKE \"" + name + "%\" ");
+        } else if (artist_id != null && artist_id != "") {
+            queryString.append("WHERE artist.id LIKE \"" + artist_id + "\" ");
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {
                 searchMode = "album.name";

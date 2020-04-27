@@ -39,9 +39,19 @@ function AlbumCard(props) {
             }
           >
             {props.skeletonPulse === undefined ? (
-              <Link to={"/app/explore/artists/" + props.album.artist_id}>
-                <p>{props.album.artist_name}</p>
-              </Link>
+              <div style={{ display: "flex", width: "100%" }}>
+                {props.album.artists.map(function (artist, index) {
+                  return (
+                    <Link to={"/app/explore/artists/" + artist.id}>
+                      <p>
+                        {index < props.album.artists.length - 1
+                          ? artist.name + ",  "
+                          : artist.name}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
             ) : (
               <SkeletonPulse
                 style={{ width: "200px", height: "20px", marginBottom: "8px" }}

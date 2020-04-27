@@ -17,6 +17,7 @@ function SelectedView({ props, match }) {
   const [song, setSong] = useState(null);
   const [songMeta, setSongMeta] = useState(null);
   const [artist, setArtist] = useState(null);
+  const [artistAlbums, setArtistAlbums] = useState([]);
   const [album, setAlbum] = useState(null);
   const [tracksForAlbum, setTracksForAlbum] = useState([]);
 
@@ -75,10 +76,28 @@ function SelectedView({ props, match }) {
       })
       .then(function (response) {
         setArtist(response.data.artist);
+        getArtistAlbums();
       })
       .catch(function (error) {
         console.error(error);
         showError("Error retrieving artist");
+      });
+  }
+
+  function getArtistAlbums() {
+    axios
+      .get(api.albums, {
+        params: {
+          artist_id: match.params.itemId,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        setArtistAlbums(response.data.albums);
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error retrieving artist's albums");
       });
   }
 
@@ -120,7 +139,7 @@ function SelectedView({ props, match }) {
     if (match.params.contentType === "songs") {
       return <SongSelection song={song} songMeta={songMeta} />;
     } else if (match.params.contentType === "artists") {
-      return <ArtistSelection artist={artist} />;
+      return <ArtistSelection artist={artist} artistAlbums={artistAlbums} />;
     } else if (match.params.contentType === "albums") {
       return <AlbumSelection album={album} tracksForAlbum={tracksForAlbum} />;
     }

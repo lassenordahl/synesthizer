@@ -35,6 +35,7 @@ public class ArtistService {
                 .query("SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = \""
                         + artist.getId() + "\" ORDER BY name asc");
         ResultSet albumResult = queryAlbums.getResult();
+
         while (albumResult.next()) {
             Album album = new Album();
 
@@ -43,8 +44,27 @@ public class ArtistService {
             album.setAlbum_type(albumResult.getString("album_type"));
             album.setImage(albumResult.getString("image"));
             album.setRelease_date(albumResult.getString("release_date"));
-            album.setArtist_name(artist.getName());
-            album.setArtist_id(artist.getId());
+
+            // // Add Artists to Album
+            // Query queryArtist = db
+            // .query("SELECT * FROM artist_in_album NATURAL JOIN artist WHERE artist_id =
+            // id AND album_id = \""
+            // + album.getId() + "\" ORDER BY name;");
+            // ResultSet artistsResult = queryArtist.getResult();
+
+            // while (artistsResult.next()) {
+            // if (artistsResult == null) {
+            // break;
+            // }
+            // Artist otherArtist = new Artist();
+            // otherArtist.setId(artistsResult.getString("id"));
+            // otherArtist.setName(artistsResult.getString("name"));
+            // otherArtist.setImage(artistsResult.getString("image"));
+
+            // album.addArtists(otherArtist);
+            // }
+
+            // queryArtist.closeQuery();
 
             artist.addAlbum(album);
         }
