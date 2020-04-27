@@ -208,7 +208,7 @@ public class PlaylistService {
         db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d'",
+                "SELECT *  FROM playlist NATURAL JOIN playlist_to_user WHERE id = playlist_id AND user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();

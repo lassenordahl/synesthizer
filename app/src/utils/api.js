@@ -6,8 +6,10 @@ import {
 let baseUrl = "http://127.0.0.1:8080/unnamed/api"
 
 axios.interceptors.response.use(undefined, error => {
-  if (error.response.status === 401) {
-    history.push("/app/user/account/login")
+  if (error.response !== undefined) {
+    if (error.response.status === 401) {
+      history.push("/app/user/account/login")
+    }
   }
 });
 
@@ -45,6 +47,7 @@ export const api = {
   song: baseUrl + "/track",
   songMeta: baseUrl + "/track/meta",
   playlists: baseUrl + "/playlists",
+  playlist: baseUrl + "/playlist",
   playlistSession: baseUrl + "/playlist/session",
   playlistSessionTrack: baseUrl + "/playlist/session/track",
   playlistSessionAlbum: baseUrl + "/playlist/session/album",
