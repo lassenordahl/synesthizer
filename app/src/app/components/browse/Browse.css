@@ -1,0 +1,30 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.options-option {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
+}
+
+.options-option:last-child {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+}
+
+.options-option p {
+    margin-top: 4px;
+    margin-right: 10px;
+    margin-bottom: 0px
+}
+
+.options-option select {
+    text-indent: 14px;
+    min-width: 40px;
+    margin-top: 0px;
+    height: 25px;
+}

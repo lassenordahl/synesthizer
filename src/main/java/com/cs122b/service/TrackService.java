@@ -112,7 +112,7 @@ public class TrackService implements Config {
         queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
 
         // WHERE
-        if (name != null) {
+        if (name != null && name != "") {
             queryString.append("WHERE track.name LIKE \"" + name + "%\" ");
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {

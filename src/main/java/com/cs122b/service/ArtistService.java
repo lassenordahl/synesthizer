@@ -82,6 +82,10 @@ public class ArtistService {
             queryString.append("WHERE ");
             if (name != null && name != "") {
                 queryString.append("artist.name LIKE \"" + name + "%\" ");
+
+                if (genre != null && genre != "") {
+                    queryString.append("AND ");
+                }
             }
             if (genre != null && genre != "") {
                 queryString.append("artist_in_genre.genre LIKE \"" + genre + "\" ");

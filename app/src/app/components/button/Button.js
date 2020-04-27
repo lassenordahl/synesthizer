@@ -26,11 +26,10 @@ function Button(props) {
         getButtonColor()
       }
       onClick={() => {
-        if (props.onClick !== undefined)
-          props.onClick();
+        if (props.onClick !== undefined) props.onClick();
       }}
     >
-      <span style={{marginLeft: "12px", marginRight: "12px"}}>
+      <span style={{ marginLeft: "12px", marginRight: "12px" }}>
         {props.children}
       </span>
     </div>
