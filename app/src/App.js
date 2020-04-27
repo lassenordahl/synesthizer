@@ -41,7 +41,7 @@ function App() {
               </span>
             </div>
             <div className="app-content-sidebar-route">
-              <Route
+              <PrivateRoute
                 exact
                 path={[
                   "/app/explore/:route",
@@ -58,19 +58,19 @@ function App() {
                     </div>
                   ) : null;
                 }}
-              </Route>
+              </PrivateRoute>
             </div>
             <div className="app-header"></div>
-            <Route
+            <PrivateRoute
               exact
               path="/app/explore/:contentType"
               component={({ props, match }) => <ContentView match={match} />}
-            ></Route>
-            <Route
+            ></PrivateRoute>
+            <PrivateRoute
               exact
               path="/app/explore/:contentType/:itemId"
               component={SelectedView}
-            ></Route>
+            ></PrivateRoute>
             <PrivateRoute
               exact
               path="/app/user/account/update"

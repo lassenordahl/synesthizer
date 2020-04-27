@@ -87,19 +87,6 @@ public class PlaylistService {
             playlist.addTrack(track);
         }
 
-//        Query albumQuery = db.query(String.format(
-//                "SELECT * FROM album_in_playlist\n" +
-//                        "LEFT JOIN album ON album.id = album_in_playlist.track_id\n" +
-//                        "WHERE album_in_playlist.playlist_id = %d;",
-//                playlist.getId()));
-//
-//        ResultSet resultAlbums = albumQuery.getResult();
-//        while (resultAlbums.next()) {
-//            Album album = new Album();
-//            setPlaylistAlbumAttrs(album, resultAlbums);
-//            playlist.addAlbum(album);
-//        }
-
         query.closeQuery();
     }
 

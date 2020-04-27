@@ -26,7 +26,7 @@ public class PlaylistsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-//        int userId = (Integer) request.getSession().getAttribute("user_id");
+        int userId = (Integer) request.getSession().getAttribute("user_id");
 
         String offset = request.getParameter("offset");
         String limit = request.getParameter("limit");
@@ -34,10 +34,10 @@ public class PlaylistsServlet extends HttpServlet {
         List<Playlist> playlists = null;
         try {
             // DEV
-            playlists = PlaylistService.fetchPlaylists(1, offset != null ? Integer.parseInt(offset) : 0,
-                    limit != null ? Integer.parseInt(limit) : 30);
-//            playlists = PlaylistService.fetchPlaylists(userId, offset != null ? Integer.parseInt(offset) : 0,
+//            playlists = PlaylistService.fetchPlaylists(1, offset != null ? Integer.parseInt(offset) : 0,
 //                    limit != null ? Integer.parseInt(limit) : 30);
+            playlists = PlaylistService.fetchPlaylists(userId, offset != null ? Integer.parseInt(offset) : 0,
+                    limit != null ? Integer.parseInt(limit) : 30);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,11 +45,12 @@ public class PlaylistsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (playlists.size() > 0) {
+            response.setStatus(200);
             String tracksResponse = this.gson.toJson(playlists);
             out.print("{ \"playlists\": " + tracksResponse + " }");
         } else {
-            response.setStatus(404);
-            out.print("{ \"message\": \"resource not found\"}");
+            response.setStatus(200);
+            out.print("{ \"playlists\": []}");
         }
     }
 }
