@@ -14,6 +14,7 @@ function ExpandableCart(props) {
 
   // Session Tracks
   const [sessionTracks, setSessionTracks] = useState([]);
+  const [sessionAlbums, setSessionAlbums] = useState([]);
 
   useEffect(() => {
     if (isExpanded) {
@@ -37,12 +38,19 @@ function ExpandableCart(props) {
     }
   }, [props.sessionTracks]);
 
+  useEffect(() => {
+    if (!props.getsOwnData) {
+      setSessionAlbums(props.sessionAlbums);
+    }
+  }, [props.sessionAlbums]);
+
   function getPlaylistSession() {
     axios
       .get(api.playlistSession)
       .then(function (response) {
         console.log(response);
         setSessionTracks(response.data.tracks);
+        setSessionAlbums(response.data.albums);
       })
       .catch(function (error) {
         console.error(error);
@@ -79,6 +87,7 @@ function ExpandableCart(props) {
             >
               <h3>playlist</h3>
               <p className="fade-in">{sessionTracks.length} songs</p>
+              <p className="fade-in" style={{marginLeft: "16px"}}>{sessionAlbums.length} albums</p>
               <div
                 className="X"
                 onClick={() => {

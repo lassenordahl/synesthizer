@@ -23,9 +23,9 @@ function SongCard(props) {
             isSelected={props.isInSession}
             onClick={() => {
               if (props.isInSession) {
-                props.removeFromSession(props.song.id);
+                props.removeFromSession(props.song.id, "track");
               } else {
-                props.addToSession(props.song.id);
+                props.addToSession(props.song.id, "track");
               }
             }}
           />

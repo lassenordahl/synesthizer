@@ -139,6 +139,14 @@
         <url-pattern>/api/playlist/session/track</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>PlaylistSessionAlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionAlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <url-pattern>/api/playlist/session/album</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>PlaylistSessionNameServlet</servlet-name>
         <servlet-class>com.cs122b.web.PlaylistSessionNameServlet</servlet-class>
     </servlet>

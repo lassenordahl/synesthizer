@@ -3,8 +3,9 @@ import "./AlbumCard.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 
 import moment from "moment";
-
 import { Link } from "react-router-dom";
+
+import { SessionButton } from "../../components";
 import { isOverCardLimit, truncateTitle } from "../../../global/helper";
 
 function AlbumCard(props) {
@@ -15,6 +16,18 @@ function AlbumCard(props) {
       onClick={() => props.onClick()}
     >
       <div className="album-card-margin">
+        {props.skeletonPulse === undefined ? (
+          <SessionButton
+            isSelected={props.isInSession}
+            onClick={() => {
+              if (props.isInSession) {
+                props.removeFromSession(props.album.id, "album");
+              } else {
+                props.addToSession(props.album.id, "album");
+              }
+            }}
+          />
+        ) : null}
         <div className="album-card-album-art">
           {props.skeletonPulse === undefined ? (
             <img alt="album art" src={props.album.image}></img>

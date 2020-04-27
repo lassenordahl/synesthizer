@@ -1,8 +1,8 @@
 package com.cs122b.web;
 
 import com.cs122b.model.Playlist;
-import com.cs122b.model.Track;
-import com.cs122b.service.TrackService;
+import com.cs122b.model.Album;
+import com.cs122b.service.AlbumService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.sql.SQLException;
 
-@WebServlet(name = "PlaylistSessionTrackServlet", urlPatterns = { "/playlist/session/track" })
-public class PlaylistSessionTrackServlet extends HttpServlet {
+@WebServlet(name = "PlaylistSessionAlbumServlet", urlPatterns = { "/playlist/session/album" })
+public class PlaylistSessionAlbumServlet extends HttpServlet {
     private Gson gson = new Gson();
 
     @Override
@@ -27,10 +27,10 @@ public class PlaylistSessionTrackServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         JsonObject jsonRequestBody = com.cs122b.utils.JsonParse.toJson(request.getReader());
 
-        Track track = null;
+        Album album = null;
 
         try {
-            track = TrackService.fetchTrack(jsonRequestBody.get("id").getAsString());
+            album = AlbumService.fetchAlbum(jsonRequestBody.get("id").getAsString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -38,13 +38,11 @@ public class PlaylistSessionTrackServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Playlist sessionPlaylist = (Playlist) session.getAttribute("sessionPlaylist");
 
-        if (track == null || sessionPlaylist == null) {
+        if (album == null || sessionPlaylist == null) {
             response.setStatus(404);
             out.print("{ \"message\": \"Resource could not be added\"}");
         } else {
-
-            sessionPlaylist.addTrack(track);
-
+            sessionPlaylist.addAlbum(album);
             response.setStatus(200);
             out.print("{ \"message\": \"Track added to session\"}");
         }
@@ -64,7 +62,7 @@ public class PlaylistSessionTrackServlet extends HttpServlet {
             response.setStatus(404);
             out.print("{ \"message\": \"Resource could not be removed\"}");
         } else {
-            sessionPlaylist.removeTrack(request.getParameter("id"));
+            sessionPlaylist.removeAlbum(request.getParameter("id"));
             response.setStatus(200);
             out.print("{ \"message\": \"Track removed from session\"}");
         }
