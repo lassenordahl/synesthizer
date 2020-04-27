@@ -81,8 +81,8 @@ public class TrackService implements Config {
         trackMeta.setValence(result.getFloat("valence"));
     }
 
-    public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search)
-            throws SQLException {
+    public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search,
+            String name) throws SQLException {
         // Create an execute an SQL statement to select all of table tracks records
 
         db = new SQLClient();
@@ -112,7 +112,9 @@ public class TrackService implements Config {
         queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
 
         // WHERE
-        if (searchMode != null && search != null) {
+        if (name != null) {
+            queryString.append("WHERE track.name LIKE \"" + name + "%\" ");
+        } else if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {
                 searchMode = "track.name";
             } else if (searchMode.equals("release_date")) {
