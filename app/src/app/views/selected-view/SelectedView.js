@@ -9,7 +9,7 @@ import {
   SongSelection,
   ArtistSelection,
   AlbumSelection,
-  ExpandableCart
+  ExpandableCart,
 } from "../../components";
 import { useToast } from "../../../hooks";
 
@@ -139,9 +139,14 @@ function SelectedView({ props, match }) {
 
   function addToSession(id, itemType) {
     axios
-      .post(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
-        id: id,
-      })
+      .post(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          id: id,
+        }
+      )
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
@@ -155,9 +160,14 @@ function SelectedView({ props, match }) {
 
   function removeFromSession(id, itemType) {
     axios
-      .delete(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
-        params: { id: id },
-      })
+      .delete(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          params: { id: id },
+        }
+      )
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
@@ -188,11 +198,27 @@ function SelectedView({ props, match }) {
 
   function renderSelection() {
     if (match.params.contentType === "songs") {
-      return <SongSelection song={song} songMeta={songMeta} isInSession={isInTrackSession} addToSession={addToSession}/>;
+      return (
+        <SongSelection
+          song={song}
+          songMeta={songMeta}
+          isInSession={song !== null ? isInTrackSession(song.id) : false}
+          addToSession={addToSession}
+          removeFromSession={removeFromSession}
+        />
+      );
     } else if (match.params.contentType === "artists") {
-      return <ArtistSelection artist={artist}/>;
+      return <ArtistSelection artist={artist} />;
     } else if (match.params.contentType === "albums") {
-      return <AlbumSelection album={album} tracksForAlbum={tracksForAlbum} isInSession={isInAlbumSession} addToSession={addToSession}/>;
+      return (
+        <AlbumSelection
+          album={album}
+          tracksForAlbum={tracksForAlbum}
+          isInSession={album !== null ? isInAlbumSession(album.id) : false}
+          addToSession={addToSession}
+          removeFromSession={removeFromSession}
+        />
+      );
     }
   }
 
