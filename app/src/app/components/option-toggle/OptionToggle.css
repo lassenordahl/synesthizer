@@ -1,0 +1,12 @@
+.options-filter {
+    display: flex;
+    flex-direction: row;
+}
+
+.options-filter-button {
+    margin-right: 24px;
+}
+
+.options-filter-button:last-child {
+    margin-right: 0px;
+}

@@ -4,8 +4,6 @@
     justify-content: center;
 }
 
-.page-controls-paginate-filter {}
-
 .page-controls-paginate-filter-controls {
     display: flex;
     flex-direction: row;
