@@ -81,7 +81,8 @@ public class TrackService implements Config {
         trackMeta.setValence(result.getFloat("valence"));
     }
 
-    public static List<Track> fetchTracks(int offset, int limit, String sortBy) throws SQLException {
+    public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search)
+            throws SQLException {
         // Create an execute an SQL statement to select all of table tracks records
 
         db = new SQLClient();
@@ -97,19 +98,33 @@ public class TrackService implements Config {
         StringBuilder queryString = new StringBuilder();
 
         // SELECT
-        queryString.append(
-                "SELECT track.id as id, track.name as name, track.track_number as track_number, track_meta.*, ");
+        queryString.append("SELECT DISTINCT track.*, track_meta.*, ");
         queryString.append(
                 "album.id as album_id, album.name as album_name, album.album_type as album_type, album.image as album_image, album.release_date as release_date, ");
         queryString.append(
                 "IFNULL((SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip WHERE tip.track_id = track.id GROUP BY tip.track_id), 0) as popularity ");
 
         // FROM
-        queryString.append("FROM track LEFT JOIN track_meta ON track.id = track_meta.id ");
+        queryString.append(
+                "FROM track LEFT JOIN artist_in_track ON track.id = artist_in_track.track_id LEFT JOIN artist ON artist_in_track.artist_id = artist.id ");
+        queryString.append("LEFT JOIN track_meta ON track.id = track_meta.id ");
         queryString.append("LEFT JOIN track_in_album ON track.id = track_in_album.track_id ");
         queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
 
         // WHERE
+        if (searchMode != null && search != null) {
+            if (searchMode.equals("name")) {
+                searchMode = "track.name";
+            } else if (searchMode.equals("release_date")) {
+                searchMode = "album.release_date";
+            } else if (searchMode.equals("album_name")) {
+                searchMode = "album.name";
+            } else if (searchMode.equals("artist_name")) {
+                searchMode = "artist.name";
+            }
+
+            queryString.append("WHERE " + searchMode + " LIKE \"%" + search + "%\" ");
+        }
 
         // ORDER BY
         queryString.append("ORDER BY " + sortBy + " ");
