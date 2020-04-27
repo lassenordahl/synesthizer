@@ -61,10 +61,12 @@ function Playlists() {
   }
 
   function renderCards() {
-    if (playlists.length === 0) {
+    if (playlists === null) {
       return [1, 2, 3, 4, 5, 6].map(function (playlist, index) {
         return <PlaylistCard skeletonPulse={true} key={index} />;
       });
+    } if (playlists.length === 0) {
+      return <p>No playlists found for user</p>;
     } else {
       return playlists.map(function (playlist, index) {
         return (
