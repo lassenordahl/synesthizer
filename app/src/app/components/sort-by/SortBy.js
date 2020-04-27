@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import { beautifyString } from "../../../global/helper";
 
 function SortBy(props) {
+  function getInitialPriorities(params) {}
+  function getInitialOrders(params) {}
+
   const [orders, setOrders] = useState(
     Object.assign(
       {},
