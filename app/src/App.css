@@ -79,3 +79,8 @@
   font-size: .7em;
   color: lightGray;
 }
+
+.go-back-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import "./helper.css";
+
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import {
   Landing,
@@ -14,14 +15,14 @@ import {
   UserView,
   SpotifyPlaylist,
 } from "./app/views";
-
-import { PrivateRoute } from "./app/components";
+import { PrivateRoute, GoBackButton } from "./app/components";
+import { useRouter } from "./hooks";
 
 function App() {
   // Visual Variables
   const [showSidebar, setShowSidebar] = useState(true);
-
-  
+  // let router = useRouter();
+  // let history = useHistory();
 
   return (
     <div className="App">
@@ -45,16 +46,23 @@ function App() {
                 exact
                 path={[
                   "/app/explore/:route",
+                  "/app/explore/:route/:secondaryRoute",
                   "/app/user/:route",
                   "/app/user/:route/:secondaryRoute",
                 ]}
               >
                 {({ match }) => {
+                  console.log(match.params);
                   return match !== null ? (
                     <div className="route-title">
                       <h2>{match.params.route}</h2>
                       {/* {match.params.secondaryRoute !== undefined ? ">" : null} */}
-                      <p>{match.params.secondaryRoute}</p>
+                      {match.params.secondaryRoute !== undefined ? (
+                        <div style={{marginTop: "18px"}}>
+                          <p>{match.params.secondaryRoute}</p>
+                          <GoBackButton className="go-back-button" prevRoute={match.params.route}/>
+                        </div>
+                      ) : null}
                     </div>
                   ) : null;
                 }}
