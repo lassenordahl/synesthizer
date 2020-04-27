@@ -18,6 +18,11 @@
   transform: scale(1.05);
 }
 
+.button-disabled {
+  cursor: default !important;
+  transform: scale(1.00) !important;
+}
+
 .button-primary {
   background-color: #ff7668;
 }

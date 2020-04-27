@@ -33,6 +33,8 @@ function PlaylistCard(props) {
       );
       let currentTime = new Date().getTime();
 
+      console.log("Minute difference", getMinuteDifference(currentTime - previousTime));
+
       // If our access token is out of the time range, we need to get a new one
       if (getMinuteDifference(currentTime - previousTime) >= 59) {
         window.location.href = buildSpotifyRedirectString();
@@ -43,8 +45,7 @@ function PlaylistCard(props) {
   }
 
   function getMinuteDifference(diffMs) {
-    console.log(diffMs);
-    return Math.round(((diffMs % 86400000) % 3600000) / 60000);
+    return Math.round(diffMs / 60000);
   }
 
   function buildSpotifyRedirectString() {
@@ -91,8 +92,8 @@ function PlaylistCard(props) {
             />
           )}
           {!props.skeletonPulse ? (
-            <Button isGreen={true} onClick={() => checkAddToSpotify()}>
-              Export to Spotify
+            <Button isGreen={true} isDisabled={props.playlist.playlistsCreated} onClick={() => checkAddToSpotify()}>
+              { props.playlist.playlistsCreated ? "Exported" : "Export to Spotify" }
             </Button>
           ) : null}
         </div>

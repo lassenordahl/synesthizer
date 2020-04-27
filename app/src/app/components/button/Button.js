@@ -3,6 +3,9 @@ import "./Button.css";
 
 function Button(props) {
   function getButtonColor() {
+    if (props.isDisabled) {
+      return "";
+    }
     if (props.isPrimary) {
       return "button-primary";
     }
@@ -22,11 +25,12 @@ function Button(props) {
       className={
         "button " +
         (props.className !== undefined ? props.className : "") +
+        (props.isDisabled ? "button-disabled" : "") +
         " " +
         getButtonColor()
       }
       onClick={() => {
-        if (props.onClick !== undefined) props.onClick();
+        if (props.onClick !== undefined && !props.isDisabled) props.onClick();
       }}
     >
       <span style={{ marginLeft: "12px", marginRight: "12px" }}>

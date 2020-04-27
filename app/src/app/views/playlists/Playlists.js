@@ -158,6 +158,7 @@ function Playlists() {
       )
       .then(function(response) {
         console.log("Successfully saved snapshot ID", response);
+        getPlaylists();
       })
       .catch(function(error) {
         showError("Error saving playlist snapshot");
