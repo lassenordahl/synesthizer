@@ -23,7 +23,7 @@ function UserForm(props) {
             required: true,
           })}
         ></input>
-        <span>{errors.first_name && "first name required"}</span>
+        <span className="user-form-val">{errors.first_name && "first name required"}</span>
         <input
           name="last_name"
           placeholder="last name"
@@ -32,7 +32,7 @@ function UserForm(props) {
             required: true,
           })}
         ></input>
-        <span>{errors.last_name && "last name required"}</span>
+        <span className="user-form-val">{errors.last_name && "last name required"}</span>
         <input
           name="address"
           placeholder="address"
@@ -41,7 +41,7 @@ function UserForm(props) {
             required: true,
           })}
         ></input>
-        <span>{errors.address && "address required"}</span>
+        <span className="user-form-val">{errors.address && "address required"}</span>
         <input
           name="email"
           placeholder="email"
@@ -53,7 +53,7 @@ function UserForm(props) {
             },
           })}
         ></input>
-        <span>{errors.email && "invalid email address"}</span>
+        <span className="user-form-val">{errors.email && "invalid email address"}</span>
         <input
           type="password"
           name="password"
@@ -69,11 +69,11 @@ function UserForm(props) {
                 })
           }
         ></input>
-        <span>{errors.password && "password required"}</span>
+        <span className="user-form-val">{errors.password && "password required"}</span>
         <div className="user-form-button">
           <Button
             type="submit"
-            style={{ width: "65px", height: "35px" }}
+            style={{ width: "65px", height: "40px" }}
             isPrimary={true}
             onClick={handleSubmit(props.onSubmit)}
           >

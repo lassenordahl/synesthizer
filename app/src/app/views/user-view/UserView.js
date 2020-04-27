@@ -82,11 +82,11 @@ function UserView({ props, match }) {
 
   function renderHeader() {
     if (match.params.mode === "login") {
-      return <h3>Member Login</h3>;
+      return <h2>Member Login</h2>;
     } else if (match.params.mode === "create") {
-      return <h3>Sign Up</h3>;
+      return <h2>Sign Up</h2>;
     } else if (match.params.mode === "update") {
-      return <h3>Update Account Info</h3>;
+      return <h2>Update Account Info</h2>;
     }
   }
 

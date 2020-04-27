@@ -20,7 +20,7 @@ function LoginForm(props) {
             },
           })}
         ></input>
-        <span>{errors.email && "invalid email address"}</span>
+        <span className="login-form-val">{errors.email && "invalid email address"}</span>
         <input
           type="password"
           name="password"
@@ -30,10 +30,10 @@ function LoginForm(props) {
             validate: (value) => value && value.length > 0,
           })}
         ></input>
-        <span>{errors.password && "password required"}</span>
+        <span className="login-form-val">{errors.password && "password required"}</span>
         <div className="login-form-button">
           <Button
-            style={{ width: "65px", height: "35px" }}
+            style={{ width: "65px" }}
             type="submit"
             isPrimary={true}
             onClick={handleSubmit(props.onSubmit)}
