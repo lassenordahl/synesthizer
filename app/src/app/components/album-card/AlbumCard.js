@@ -55,7 +55,7 @@ function AlbumCard(props) {
               <div style={{ display: "flex", width: "100%" }}>
                 {props.album.artists.map(function (artist, index) {
                   return (
-                    <Link to={"/app/explore/artists/" + artist.id}>
+                    <Link to={"/app/explore/artists/" + artist.id} key={index}>
                       <p>
                         {index < props.album.artists.length - 1
                           ? artist.name + ",  "
