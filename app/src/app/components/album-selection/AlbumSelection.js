@@ -5,10 +5,25 @@ import { Link } from "react-router-dom";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { convertToSeconds } from "../../../global/helper";
 
+import { SessionButton } from "../../components";
+
 function AlbumSelection(props) {
   return (
     <React.Fragment>
       <div className="fade-in selected-view-main-info">
+        {props.album !== undefined ? (
+          <SessionButton
+            style={{top: "24px"}}
+            isSelected={props.isInSession}
+            onClick={() => {
+              if (props.isInSession) {
+                props.removeFromSession(props.album.id, "album");
+              } else {
+                props.addToSession(props.album.id, "album");
+              }
+            }}
+          />
+        ) : null}
         <div className="selected-view-album-art">
           {props.album !== null ? (
             <img alt="album art" src={props.album.image} />

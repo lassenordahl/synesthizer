@@ -71,11 +71,9 @@ function AlbumCard(props) {
               >
                 <p className="subtitle">
                   Release Date:{" "}
-                  {moment(props.album.release_date).format(
-                    "MMM Do YYYY, hh:mm a"
-                  )}
+                  {props.album.release_date}
                 </p>
-                <p className="subtitle" style={{ marginLeft: "20px" }}>
+                <p className="subtitle" style={{ position: "absolute", right: "24px" }}>
                   Popularity: {props.album.popularity}
                 </p>
               </div>

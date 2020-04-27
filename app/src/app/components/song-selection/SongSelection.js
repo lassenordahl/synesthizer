@@ -4,6 +4,8 @@ import "./SongSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
 import { capitalizeFirstLetter } from "../../../global/helper";
 
+import { SessionButton } from "../../components";
+
 function SongSelection(props) {
   const [showContent, setShowContent] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
@@ -32,6 +34,19 @@ function SongSelection(props) {
   return (
     <React.Fragment>
       <div className="selected-song-main-info">
+        {props.song !== undefined ? (
+          <SessionButton
+            style={{top: "24px"}}
+            isSelected={props.isInSession}
+            onClick={() => {
+              if (props.isInSession) {
+                props.removeFromSession(props.song.id, "track");
+              } else {
+                props.addToSession(props.song.id, "track");
+              }
+            }}
+          />
+        ) : null}
         <div className="selected-song-song-art">
           {showContent ? (
             <img

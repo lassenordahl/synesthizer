@@ -4,6 +4,7 @@ import "./SessionButton.css";
 function SessionButton(props) {
   return (
     <div
+      style={props.style}
       className={
         "song-card-playlist-button " +
         (props.isSelected ? "song-card-playlist-button-selected" : "") +

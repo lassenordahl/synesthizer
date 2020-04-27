@@ -143,7 +143,7 @@
         <servlet-class>com.cs122b.web.PlaylistSessionAlbumServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <servlet-name>PlaylistSessionAlbumServlet</servlet-name>
         <url-pattern>/api/playlist/session/album</url-pattern>
     </servlet-mapping>
     <servlet>

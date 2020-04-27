@@ -175,7 +175,7 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
-        showSuccess("Added to playlist");
+        // showSuccess("Added to playlist");
       })
       .catch(function (error) {
         console.error(error);

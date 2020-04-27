@@ -44,7 +44,7 @@ public class PlaylistSessionAlbumServlet extends HttpServlet {
         } else {
             sessionPlaylist.addAlbum(album);
             response.setStatus(200);
-            out.print("{ \"message\": \"Track added to session\"}");
+            out.print("{ \"message\": \"Album added to session\"}");
         }
     }
 
@@ -64,7 +64,7 @@ public class PlaylistSessionAlbumServlet extends HttpServlet {
         } else {
             sessionPlaylist.removeAlbum(request.getParameter("id"));
             response.setStatus(200);
-            out.print("{ \"message\": \"Track removed from session\"}");
+            out.print("{ \"message\": \"Album removed from session\"}");
         }
     }
 }
