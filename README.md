@@ -55,7 +55,7 @@ We're using a custom domain for our project, which is a playlist generator for S
 
 ### Schema
 
-![Project%202%20README/Screen_Shot_2020-04-27_at_5.50.00_PM.png](Project%202%20README/Screen_Shot_2020-04-27_at_5.50.00_PM.png)
+![Project%202%20README/Screen_Shot_2020-04-27_at_5.50.00_PM.png](https://user-images.githubusercontent.com/13127625/80444804-791c7900-88c7-11ea-9529-0b587d6449a5.png)
 
 Custom domain schema
 
@@ -119,7 +119,7 @@ CREATE TABLE playlist_spotify_snapshot (
 4. Jump functionality
     - For single pages, that are accessed through the browser view, the go back to songs button can be clicked
 
-        ![Project%202%20README/Screen_Shot_2020-04-27_at_7.28.56_PM.png](Project%202%20README/Screen_Shot_2020-04-27_at_7.28.56_PM.png)
+        ![Project%202%20README/Screen_Shot_2020-04-27_at_7.28.56_PM.png](https://user-images.githubusercontent.com/13127625/80444583-e24fbc80-88c6-11ea-9adc-38d51cccb35f.png)
 
     - Pagination information is maintained through using the back button or the "go back to ___" button at the top
 5. Browsing
@@ -127,7 +127,7 @@ CREATE TABLE playlist_spotify_snapshot (
         - Browsing can search by `letter/number` for songs and albums
         - Browsing can search by `letter/number` and `genre` for artists (Genre data is only provided for artists from our scraped Spotify data)
 
-        ![Project%202%20README/Screen_Shot_2020-04-27_at_7.31.53_PM.png](Project%202%20README/Screen_Shot_2020-04-27_at_7.31.53_PM.png)
+        ![Project%202%20README/Screen_Shot_2020-04-27_at_7.31.53_PM.png](https://user-images.githubusercontent.com/13127625/80444605-e8de3400-88c6-11ea-91b3-9cdc7bc877ca.png)
 
 6. Shopping Cart
     - Rather than building a "shopping cart", we opted to build a playlist session that would step by step generate playlists for the user
@@ -138,11 +138,11 @@ CREATE TABLE playlist_spotify_snapshot (
     - Adding to cart:
         - Songs/Albums can be added to cart using the top right icon on the song/album card. When something is added to cart, the cart in the top right will update.
 
-            ![Project%202%20README/Screen_Shot_2020-04-27_at_7.36.58_PM.png](Project%202%20README/Screen_Shot_2020-04-27_at_7.36.58_PM.png)
+            ![Project%202%20README/Screen_Shot_2020-04-27_at_7.36.58_PM.png](https://user-images.githubusercontent.com/13127625/80444615-eed41500-88c6-11ea-8c13-30a5df296d7c.png)
 
             Add to cart in the top right
 
-            ![Project%202%20README/Screen_Shot_2020-04-26_at_10.43.16_PM.png](Project%202%20README/Screen_Shot_2020-04-26_at_10.43.16_PM.png)
+            ![Project%202%20README/Screen_Shot_2020-04-26_at_10.43.16_PM.png](https://user-images.githubusercontent.com/13127625/80444534-cb10cf00-88c6-11ea-8d36-b79c149fd7f7.png)
 
             Cart in top right of browsing pages
 
@@ -170,11 +170,11 @@ CREATE TABLE playlist_spotify_snapshot (
 8. Place Order Action
     - On playlist creation, the session playlist is added to the playlist table.
 
-        ![Project%202%20README/Screen_Shot_2020-04-27_at_8.04.57_PM.png](Project%202%20README/Screen_Shot_2020-04-27_at_8.04.57_PM.png)
+        ![Project%202%20README/Screen_Shot_2020-04-27_at_8.04.57_PM.png](https://user-images.githubusercontent.com/13127625/80444521-c51aee00-88c6-11ea-8e10-9d7976a17b36.png)
 
     - The "confirmation page" is the playlist page that have been generated. These show the image (we haven't implemented this yet, using a default one right now), name of the playlist, time it was generated, and an export to Spotify button.
 
-        ![Project%202%20README/Screen_Shot_2020-04-25_at_8.56.03_PM.png](Project%202%20README/Screen_Shot_2020-04-25_at_8.56.03_PM.png)
+        ![Project%202%20README/Screen_Shot_2020-04-25_at_8.56.03_PM.png](https://user-images.githubusercontent.com/13127625/80444625-f4c9f600-88c6-11ea-8cc0-0aab71fbfb6c.png)
 
 9. Additional Performance Functionality
     - All of the browsing pages for songs, albums, and artists have the cart available. This cart can be dropped down on any of these pages to view the information.
