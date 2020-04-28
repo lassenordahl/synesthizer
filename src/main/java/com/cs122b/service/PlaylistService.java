@@ -157,6 +157,7 @@ public class PlaylistService {
         Playlist playlist = new Playlist();
 
         playlist.setName(name);
+        playlist.setUser_id(userId);
         playlist.setImage(playlistJson.get("image").getAsString());
         JsonArray tracks = playlistJson.getAsJsonArray("tracks");
 
