@@ -69,11 +69,17 @@ function Paginate(props) {
             <option key={20} value={20}>
               20
             </option>
+            <option key={25} value={25}>
+              25
+            </option>
             <option key={40} value={40}>
               40
             </option>
             <option key={80} value={80}>
               80
+            </option>
+            <option key={100} value={100}>
+              100
             </option>
           </select>
         </Card>
