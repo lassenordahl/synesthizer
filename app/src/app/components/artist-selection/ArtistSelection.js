@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./ArtistSelection.css";
 import AlbumCard from "../album-card/AlbumCard";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
@@ -45,9 +45,17 @@ function SongSelection(props) {
                 genre,
                 index
               ) {
-                return index < props.artist.genres.length - 1
-                  ? genre + ", "
-                  : genre;
+                return (
+                  <Link
+                    to={`/app/explore/artists?browseMode=Browse%20Mode&genre=${encodeURI(
+                      genre
+                    )}`}
+                  >
+                    {index < props.artist.genres.length - 1
+                      ? genre + ", "
+                      : genre}
+                  </Link>
+                );
               })
             ) : (
               <SkeletonPulse style={{ width: "160px", height: "24px" }} />
