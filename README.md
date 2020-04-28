@@ -8,9 +8,13 @@ URL: http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/app
 
 ## Video Links
 
-### Project 2
+### Project 1
 
 - https://www.youtube.com/watch?v=t2Wi-SXb-Z4
+
+### Project 2
+
+- https://youtu.be/vKfiHp3Gv6g
 
 ## Deployment Instructions
 
