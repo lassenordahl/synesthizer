@@ -66,13 +66,19 @@ function ContentView(props) {
 
   useEffect(() => {
     console.log("resetting the params");
+    console.log("CONTENT TYPE CHANGED", match.params.contentType);
+    
     setParams({
       offset: 0,
       limit: 20,
       ...router.query,
-      name: undefined,
     });
-    console.log(params);
+
+    if (router.query.browseMode === undefined) {
+      setBrowseMode("Search Mode");
+    } else {
+      setBrowseMode(router.query.browseMode);
+    }
   }, [match.params.contentType]);
 
   useEffect(() => {
@@ -90,6 +96,7 @@ function ContentView(props) {
       setSongs(null);
       getSongs();
     }
+
 
     router.push("?".concat(queryString.stringify(params)));
   }, [params]);

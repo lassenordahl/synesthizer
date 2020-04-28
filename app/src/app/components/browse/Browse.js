@@ -40,8 +40,8 @@ function Browse(props) {
               <select
                 value={selections[option]}
                 onChange={(e) =>
-                  prop.setParams({
-                    ...prop.params,
+                  props.setParams({
+                    ...props.params,
                     [option]: e.currentTarget.value,
                   })
                 }
