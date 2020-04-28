@@ -243,8 +243,8 @@ function CreatePlaylist() {
                       <Link to={"/app/explore/albums/" + album.id}>
                         <div>{album.name}</div>
                       </Link>
-                      <Link to={"/app/explore/artists/" + album.artist_id}>
-                        <div>{album.artist_name}</div>
+                      <Link to={"/app/explore/artists/" + album.artists[0].id}>
+                        <div>{album.artists[0].name}</div>
                       </Link>
                       <div className="flex-center">
                         <DeleteSessionButton
