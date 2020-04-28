@@ -14,8 +14,7 @@ import java.util.List;
 
 public class TrackService implements Config {
 
-    static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
-        SQLClient db = new SQLClient();
+    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException {
 
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
@@ -43,7 +42,6 @@ public class TrackService implements Config {
         }
 
         queryArtist.closeQuery();
-        db.closeConnection();
 
         // Query queryAlbum = db
         // .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id
@@ -143,7 +141,7 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
-            setTrackAttrs(track, result, true);
+            setTrackAttrs(db, track, result, true);
             tracks.add(track);
         }
         query.closeQuery();
@@ -180,7 +178,7 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         result.next();
         Track track = new Track();
-        setTrackAttrs(track, result, false);
+        setTrackAttrs(db, track, result, false);
 
         query.closeQuery();
         db.closeConnection();

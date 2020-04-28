@@ -15,8 +15,8 @@ import java.util.List;
 
 public class PlaylistService {
 
-    static void setPlaylistTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
-        SQLClient db = new SQLClient();
+    static void setPlaylistTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity)
+            throws SQLException {
 
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
@@ -62,11 +62,9 @@ public class PlaylistService {
         track.setAlbum(album);
 
         queryAlbum.closeQuery();
-        db.closeConnection();
     }
 
-    private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
-        SQLClient db = new SQLClient();
+    private static void setPlaylistAttrs(SQLClient db, Playlist playlist, ResultSet result) throws SQLException {
 
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
@@ -83,7 +81,7 @@ public class PlaylistService {
         ResultSet resultTracks = query.getResult();
         while (resultTracks.next()) {
             Track track = new Track();
-            setPlaylistTrackAttrs(track, resultTracks, false);
+            setPlaylistTrackAttrs(db, track, resultTracks, false);
             playlist.addTrack(track);
         }
 
@@ -91,8 +89,7 @@ public class PlaylistService {
         db.closeConnection();
     }
 
-    private static void insertPlaylist(Playlist playlist, int userId) throws SQLException {
-        SQLClient db = new SQLClient();
+    private static void insertPlaylist(SQLClient db, Playlist playlist, int userId) throws SQLException {
 
         String insertQuery = "INSERT INTO playlist(id, name, image, creation_date) " + "VALUES(DEFAULT,?,?,DEFAULT);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -126,7 +123,6 @@ public class PlaylistService {
         insertTracksStatement.executeUpdate();
 
         relationPstmt.close();
-        db.closeConnection();
     }
 
     public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException {
@@ -171,7 +167,7 @@ public class PlaylistService {
             playlist.addTrack(newTrack);
         }
 
-        insertPlaylist(playlist, userId);
+        insertPlaylist(db, playlist, userId);
 
         db.closeConnection();
         return playlist;
@@ -190,10 +186,11 @@ public class PlaylistService {
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
             return null;
         }
 
-        setPlaylistAttrs(playlist, result);
+        setPlaylistAttrs(db, playlist, result);
 
         query.closeQuery();
         db.closeConnection();
@@ -213,7 +210,7 @@ public class PlaylistService {
         ResultSet result = query.getResult();
         while (result.next()) {
             Playlist playlist = new Playlist();
-            setPlaylistAttrs(playlist, result);
+            setPlaylistAttrs(db, playlist, result);
             playlists.add(playlist);
         }
 

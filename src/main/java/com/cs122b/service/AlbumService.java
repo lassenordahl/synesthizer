@@ -12,9 +12,8 @@ import java.util.List;
 
 public class AlbumService {
 
-    public static void setAlbumAttrs(Album album, ResultSet result, boolean addPopularity) throws SQLException {
-        SQLClient db = new SQLClient();
-
+    public static void setAlbumAttrs(SQLClient db, Album album, ResultSet result, boolean addPopularity)
+            throws SQLException {
         album.setId(result.getString("id"));
         album.setName(result.getString("name"));
         album.setAlbum_type(result.getString("album_type"));
@@ -44,8 +43,6 @@ public class AlbumService {
         if (addPopularity) {
             album.setPopularity(result.getInt("popularity"));
         }
-
-        db.closeConnection();
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
@@ -112,7 +109,7 @@ public class AlbumService {
 
         while (result.next()) {
             Album album = new Album();
-            setAlbumAttrs(album, result, true);
+            setAlbumAttrs(db, album, result, true);
             albums.add(album);
         }
 
@@ -134,7 +131,7 @@ public class AlbumService {
         result.next();
 
         Album album = new Album();
-        setAlbumAttrs(album, result, false);
+        setAlbumAttrs(db, album, result, false);
         query.closeQuery();
         db.closeConnection();
         return album;

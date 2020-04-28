@@ -18,8 +18,7 @@ public class UserService {
         user.setPassword(result.getString("password"));
     }
 
-    private static void insertUser(User user) throws SQLException {
-        SQLClient db = new SQLClient();
+    private static void insertUser(SQLClient db, User user) throws SQLException {
         String insertQuery = "INSERT INTO user(id, first_name, last_name, address, email, password) "
                 + "VALUES(DEFAULT,?,?,?,?,?);";
 
@@ -42,7 +41,6 @@ public class UserService {
         }
 
         pstmt.close();
-        db.closeConnection();
     }
 
     public static User createUser(JsonObject userJson) throws SQLException {
@@ -68,7 +66,7 @@ public class UserService {
         user.setEmail(userJson.get("email").getAsString());
         user.setPassword(userJson.get("password").getAsString());
 
-        insertUser(user);
+        insertUser(db, user);
 
         db.closeConnection();
         return user;
@@ -147,6 +145,7 @@ public class UserService {
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
             return null;
         }
 
