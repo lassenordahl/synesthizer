@@ -16,11 +16,15 @@ function Browse(props) {
   );
 
   useEffect(() => {
-    props.setParams({
-      ...props.params,
-      ...selections,
-    });
-  }, [selections]);
+    setSelections(
+      Object.assign(
+        {},
+        ...Object.keys(props.browseOptions).map((option) => ({
+          [option]: props.params[option],
+        }))
+      )
+    );
+  }, [props.params]);
 
   return (
     <Card
@@ -30,25 +34,19 @@ function Browse(props) {
     >
       <div className="options">
         {Object.keys(selections).map(function (option) {
-          console.log(option);
-          console.log(selections);
-          console.log(props.browseOptions);
           return (
             <div key={option} className="options-option">
               <p>{`${beautifyString(option)}: `}</p>
               <select
                 value={selections[option]}
                 onChange={(e) =>
-                  setSelections({
-                    ...selections,
-                    [option]:
-                      e.currentTarget.value === "--"
-                        ? undefined
-                        : e.currentTarget.value,
+                  prop.setParams({
+                    ...prop.params,
+                    [option]: e.currentTarget.value,
                   })
                 }
               >
-                <option value={null}>--</option>
+                <option value={undefined}>--</option>
                 {props.browseOptions[option].map(function (selection, index) {
                   return (
                     <option
