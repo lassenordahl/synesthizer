@@ -203,7 +203,7 @@ public class PlaylistService {
         Query query = db.query(String.format(
                 "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user "
                         + "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  "
-                        + "WHERE playlist_to_user.user_id='%d' ORDER BY creation_date DESC",
+                        + "WHERE playlist_to_user.user_id='%d' ORDER BY creation_date DESC LIMIT 10",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();
