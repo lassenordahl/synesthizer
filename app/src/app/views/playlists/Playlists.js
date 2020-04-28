@@ -50,7 +50,8 @@ function Playlists() {
   }
 
   function getPlaylists() {
-    getRoute(api.playlists)
+    axios
+      .get(api.playlists)
       .then(function (response) {
         console.log(response);
         setPlaylists(response.data.playlists);
@@ -65,7 +66,8 @@ function Playlists() {
       return [1, 2, 3, 4, 5, 6].map(function (playlist, index) {
         return <PlaylistCard skeletonPulse={true} key={index} />;
       });
-    } if (playlists.length === 0) {
+    }
+    if (playlists.length === 0) {
       return <p>No playlists found for user</p>;
     } else {
       return playlists.map(function (playlist, index) {
@@ -152,19 +154,17 @@ function Playlists() {
 
   function saveSnapshotId(playlistId, snapshotId) {
     axios
-      .post(
-        api.playlistSnapshot, {
-          playlistId: playlistId,
-          snapshotId: snapshotId
-        }
-      )
-      .then(function(response) {
+      .post(api.playlistSnapshot, {
+        playlistId: playlistId,
+        snapshotId: snapshotId,
+      })
+      .then(function (response) {
         console.log("Successfully saved snapshot ID", response);
         getPlaylists();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         showError("Error saving playlist snapshot");
-      })
+      });
   }
 
   function getPlaylist(id) {
@@ -181,9 +181,7 @@ function Playlists() {
     <div className="playlists">
       {renderToast()}
       {willRedirectBase ? <Redirect to="/app/user/playlists/" /> : null}
-      <div className="playlists-content">
-        {renderCards()}
-      </div>
+      <div className="playlists-content">{renderCards()}</div>
     </div>
   );
 }

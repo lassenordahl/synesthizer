@@ -169,7 +169,9 @@ function SelectedView({ props, match }) {
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
-        // showSuccess("Added to playlist");
+        if (response.status === 200) {
+          showSuccess("Successfully added to playlist");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -190,6 +192,9 @@ function SelectedView({ props, match }) {
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
+        if (response.status === 200) {
+          showSuccess("Successfully removed from playlist");
+        }
       })
       .catch(function (error) {
         console.error(error);

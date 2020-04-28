@@ -5,12 +5,15 @@ import "./Sidebar.css";
 
 import { api } from "../../../utils/api";
 
+import { useToast } from "../../../hooks";
+
 import { Link } from "react-router-dom";
 import { LoggedInContext } from "../../context/LoggedInContext";
 
 import { Button } from "../../components";
 
 function Sidebar(props) {
+  const [showSuccess, showError, renderToaster] = useToast();
   const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
   const [cookies, setCookie] = useCookies([]);
 
@@ -22,15 +25,18 @@ function Sidebar(props) {
         if (response.status === 200) {
           setLoggedIn(false);
           setCookie("logged_in", false, { path: "/unnamed", expires: 0 });
+          showSuccess("Successfully logged out");
         }
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error logging out");
       });
   }
 
   return (
     <div className={"sidebar" + (props.showSidebar ? " sidebar-expanded" : "")}>
+      {renderToaster()}
       {props.showSidebar ? (
         <React.Fragment>
           <Link to="/app/explore/songs">Songs</Link>
