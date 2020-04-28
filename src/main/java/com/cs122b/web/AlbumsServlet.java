@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "AlbumsServlet", urlPatterns = {"/albums"})
+@WebServlet(name = "AlbumsServlet", urlPatterns = { "/albums" })
 public class AlbumsServlet extends HttpServlet {
     private Gson gson = new Gson();
 
@@ -25,16 +25,29 @@ public class AlbumsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
+        String offset = request.getParameter("offset");
+        String limit = request.getParameter("limit");
+        String sortBy = request.getParameter("sortBy");
+        String searchMode = request.getParameter("searchMode");
+        String search = request.getParameter("search");
+        String name = request.getParameter("name");
+        String artist_id = request.getParameter("artist_id");
+
         List<Album> albums = null;
         try {
-            albums = AlbumService.fetchAlbums(0, 30);
+            albums = AlbumService.fetchAlbums(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+                    limit != null && limit != "" ? Integer.parseInt(limit) : 20,
+                    sortBy != null && sortBy != "" ? sortBy : "popularity desc",
+                    searchMode != null && searchMode != "" ? searchMode : null,
+                    search != null && search != "" ? search : null, name != null && name != "" ? name : null,
+                    artist_id != null && artist_id != "" ? artist_id : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String tracksResponse = this.gson.toJson(albums);
-
         PrintWriter out = response.getWriter();
-        out.print(tracksResponse);
+
+        String albumsResponse = this.gson.toJson(albums);
+        out.print("{ \"albums\": " + albumsResponse + " }");
     }
 }

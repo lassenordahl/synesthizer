@@ -1,0 +1,13 @@
+.sort-by-filter {
+    display: flex;
+    flex-direction: row;
+}
+
+.sort-by-filter p {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.sort-by-filter p:last-child {
+    margin-right: 0px;
+}

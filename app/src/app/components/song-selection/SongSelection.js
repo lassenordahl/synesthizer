@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SongSelection.css";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
+import { capitalizeFirstLetter } from "../../../global/helper";
+
+import { SessionButton } from "../../components";
 
 function SongSelection(props) {
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   const [showContent, setShowContent] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -35,6 +34,19 @@ function SongSelection(props) {
   return (
     <React.Fragment>
       <div className="selected-song-main-info">
+        {props.song !== undefined ? (
+          <SessionButton
+            style={{top: "24px"}}
+            isSelected={props.isInSession}
+            onClick={() => {
+              if (props.isInSession) {
+                props.removeFromSession(props.song.id, "track");
+              } else {
+                props.addToSession(props.song.id, "track");
+              }
+            }}
+          />
+        ) : null}
         <div className="selected-song-song-art">
           {showContent ? (
             <img
@@ -57,7 +69,7 @@ function SongSelection(props) {
           <h3>
             {showContent ? (
               <Link
-                to={`/app/albums/${props.song.album.id}`}
+                to={`/app/explore/albums/${props.song.album.id}`}
                 className="fade-in"
               >{`${props.song.album.name} (${props.song.album.release_date})`}</Link>
             ) : (
@@ -70,10 +82,13 @@ function SongSelection(props) {
                 {props.song.artists.map(function (artist, index) {
                   return index < props.song.artists.length - 1 ? (
                     <Link
-                      to={`/app/artists/${artist.id}`}
+                      to={`/app/explore/artists/${artist.id}`}
+                      key={index}
                     >{`${artist.name}, `}</Link>
                   ) : (
-                    <Link to={`/app/artists/${artist.id}`}>{artist.name}</Link>
+                    <Link to={`/app/explore/artists/${artist.id}`} key={index}>
+                      {artist.name}
+                    </Link>
                   );
                 })}
               </div>
@@ -89,7 +104,9 @@ function SongSelection(props) {
             ? mapping
                 .map(function (attr, index) {
                   if (props.songMeta[attr]) {
-                    return capitalize(attr) + ": " + props.songMeta[attr];
+                    return (
+                      capitalizeFirstLetter(attr) + ": " + props.songMeta[attr]
+                    );
                   }
                 })
                 .filter((song) => song)

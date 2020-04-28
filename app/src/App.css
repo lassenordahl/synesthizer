@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .app-content-sidebar-button:hover {
@@ -45,6 +46,18 @@
   align-items: center;
   flex-direction: row;
 }
+
+.route-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.route-title p {
+  font-size: 1.5em;
+  /* margin-left: 24px !important; */
+}
+
 
 .app-content-sidebar-route h2 {
   margin: 0;
@@ -65,4 +78,9 @@
 .subtitle {
   font-size: .7em;
   color: lightGray;
+}
+
+.go-back-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

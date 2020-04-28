@@ -1,0 +1,25 @@
+.login-form {
+    width: 85%;
+    height: fit-content;
+}
+
+.login-form input {
+    /* height: 25px; */
+    height: 40px;
+    margin-top: 24px;
+}
+
+.login-form-val {
+    color: rgb(205, 142, 142);
+    margin-top: 5px;
+    margin-left: 7px;
+    display: flex;
+    justify-content: left;
+    font-size: 12px;
+}
+
+.login-form-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}

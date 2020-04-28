@@ -1,21 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ContentView.css";
 
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import queryString from "query-string";
 
 import {
-  Button,
-  SkeletonPulse,
   SongCard,
   AlbumCard,
   ArtistCard,
+  ExpandableCart,
+  Paginate,
+  SortBy,
+  Search,
+  OptionToggle,
+  Browse,
 } from "../../components";
 import { Card } from "../../containers";
+import { useRouter, useToast } from "../../../hooks";
 
-import api from "api.js";
+import { api } from "../../../utils/api.js";
 
-function ContentView({ props, match }) {
+import { alphaNumArray } from "../../../global/helper";
+
+function ContentView(props) {
+  // Query Parameters
+  let router = useRouter();
+  const [params, setParams] = useState({
+    offset: 0,
+    limit: 20,
+    ...router.query,
+  });
+
+  // Genres for dropdown
+  const [genres, setGenres] = useState([]);
+
   // Selection Variables
   const [selectedCardId, setSelectedCardId] = useState(null);
 
@@ -24,22 +43,80 @@ function ContentView({ props, match }) {
   const [willRedirectArtist, redirectArtist] = useState(false);
   const [willRedirectAlbum, redirectAlbum] = useState(false);
 
+  // Browse Mode
+  const [browseMode, setBrowseMode] = useState(
+    params.browseMode !== undefined && params.browseMode !== ""
+      ? params.browseMode
+      : "Search Mode"
+  );
+
   // Data Array
-  const [albums, setAlbums] = useState([]);
+  const [albums, setAlbums] = useState(null);
+  const [artists, setArtists] = useState(null);
+  const [songs, setSongs] = useState(null);
 
-  const [artists, setArtists] = useState([]);
+  // Match is passed in under props now because the <Route> component needed props and I had issues passing match normally
+  let match = props.match;
 
-  const [songs, setSongs] = useState([]);
+  // Session Tracks
+  const [sessionTracks, setSessionTracks] = useState([]);
+  const [sessionAlbums, setSessionAlbums] = useState([]);
+
+  const [showSuccess, showError, renderToaster] = useToast();
 
   useEffect(() => {
-    if (match.params.contentType === "albums") {
-      getAlbums();
-    } else if (match.params.contentType === "artists") {
-      getArtists();
-    } else if (match.params.contentType === "songs") {
-      getSongs();
+    console.log("resetting the params");
+    console.log("CONTENT TYPE CHANGED", match.params.contentType);
+
+    setParams({
+      offset: 0,
+      limit: 20,
+      ...router.query,
+    });
+
+    if (router.query.browseMode === undefined) {
+      setBrowseMode("Search Mode");
+    } else {
+      setBrowseMode(router.query.browseMode);
     }
   }, [match.params.contentType]);
+
+  useEffect(() => {
+    console.log("params changed");
+    getPlaylistSession();
+
+    if (match.params.contentType === "albums") {
+      setAlbums(null);
+      getAlbums();
+    } else if (match.params.contentType === "artists") {
+      setArtists(null);
+      getGenres();
+      getArtists();
+    } else if (match.params.contentType === "songs") {
+      setSongs(null);
+      getSongs();
+    }
+
+    router.push("?".concat(queryString.stringify(params)));
+  }, [params]);
+
+  useEffect(() => {
+    if (browseMode === "Search Mode") {
+      setParams({
+        ...params,
+        name: undefined,
+        genre: undefined,
+        browseMode: browseMode,
+      });
+    } else if (browseMode === "Browse Mode") {
+      setParams({
+        ...params,
+        searchMode: undefined,
+        search: undefined,
+        browseMode: browseMode,
+      });
+    }
+  }, [browseMode]);
 
   useEffect(() => {
     // Reset redirect variables where needed
@@ -68,42 +145,71 @@ function ContentView({ props, match }) {
     }
   }, [selectedCardId]);
 
+  function getGenres() {
+    axios
+      .get(api.genres)
+      .then(function (response) {
+        console.log(response.genres);
+        setGenres(response.data.genres);
+      })
+      .catch(function (error) {
+        console.log(error);
+        showError("Error retrieving genres");
+      });
+  }
+
   function getAlbums() {
     axios
-      .get(api.albums)
+      .get(api.albums, { params: params })
       .then(function (response) {
         console.log(response);
-        setAlbums(response.data);
-        // setTimeout(() => setAlbums(response.data), 1000);
+        if (response.data.albums !== null) {
+          setAlbums(response.data.albums);
+        } else {
+          showError("Error retrieving albums");
+        }
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving albums");
       });
   }
 
   function getArtists() {
     axios
-      .get(api.artists)
+      .get(api.artists, { params: params })
       .then(function (response) {
         console.log(response);
-        setArtists(response.data.artists);
-        // setTimeout(() => setArtists(response.data.artists), 1000);
+        if (response.data.artists !== null) {
+          setArtists(response.data.artists);
+        } else {
+          showError("Error retrieving artists");
+        }
       })
       .catch(function (error) {
         console.log(error);
+        showError("Error retrieving artists");
       });
   }
 
   function getSongs() {
+    console.log("songs params");
+    console.log(params);
+    console.log("router params");
+    console.log(router.query);
     axios
-      .get(api.songs)
+      .get(api.songs, { params: params })
       .then(function (response) {
         console.log(response);
-        setSongs(response.data.songs);
-        // setTimeout(() => setSongs(response.data.songs), 1000);
+        if (response.data.songs !== null) {
+          setSongs(response.data.songs);
+        } else {
+          showError("Error retrieving songs");
+        }
       })
       .catch(function (error) {
         console.error(error);
+        showError("Error retrieving songs");
       });
   }
 
@@ -111,61 +217,214 @@ function ContentView({ props, match }) {
     setSelectedCardId(id);
   }
 
+  // Get what songs are in the playlist once in the parent so each card can know if it's selected or not
+  function getPlaylistSession() {
+    axios
+      .get(api.playlistSession)
+      .then(function (response) {
+        console.log(response);
+        setSessionTracks(response.data.tracks);
+        setSessionAlbums(response.data.albums);
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error retrieving playlist");
+      });
+  }
+
+  function addToSession(id, itemType) {
+    axios
+      .post(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          id: id,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+        if (response.status === 200) {
+          showSuccess("Successfully added to playlist");
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error adding to playlist");
+      });
+  }
+
+  function removeFromSession(id, itemType) {
+    axios
+      .delete(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          params: { id: id },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        getPlaylistSession();
+        if (response.status === 200) {
+          showSuccess("Successfully removed from playlist");
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+        showError("Error removing from playlist");
+      });
+  }
+
+  function isInTrackSession(songId) {
+    for (let i = 0; i < sessionTracks.length; i++) {
+      if (songId === sessionTracks[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function isInAlbumSession(albumId) {
+    for (let i = 0; i < sessionAlbums.length; i++) {
+      if (albumId === sessionAlbums[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function renderSearch() {
+    let searchModes;
+    if (match.params.contentType === "albums") {
+      searchModes = ["name", "release_date", "artist_name"];
+    } else if (match.params.contentType === "artists") {
+      searchModes = ["name"];
+    } else if (match.params.contentType === "songs") {
+      searchModes = ["name", "album_name", "artist_name", "release_date"];
+    }
+
+    return (
+      <Search
+        key={match.params.contentType}
+        searchModes={searchModes}
+        params={params}
+        setParams={setParams}
+      />
+    );
+  }
+
+  function renderBrowse() {
+    let browseOptions;
+    if (match.params.contentType === "albums") {
+      browseOptions = {
+        name: alphaNumArray(),
+      };
+    } else if (match.params.contentType === "artists") {
+      browseOptions = {
+        name: alphaNumArray(),
+        genre: genres === undefined ? [] : genres,
+      };
+    } else if (match.params.contentType === "songs") {
+      browseOptions = {
+        name: alphaNumArray(),
+      };
+    }
+
+    return (
+      <Browse
+        key={match.params.contentType + "browse"}
+        browseOptions={browseOptions}
+        params={params}
+        setParams={setParams}
+      />
+    );
+  }
+
+  function renderSortBy() {
+    let sortOptions;
+    if (match.params.contentType === "albums") {
+      sortOptions = ["popularity", "name", "release_date", "artist_name"];
+    } else if (match.params.contentType === "artists") {
+      sortOptions = ["popularity", "name"];
+    } else if (match.params.contentType === "songs") {
+      sortOptions = ["popularity", "name", "release_date", "album_name"];
+    }
+
+    return (
+      <SortBy
+        key={match.params.contentType}
+        sortOptions={sortOptions}
+        params={params}
+        setParams={setParams}
+      />
+    );
+  }
+
   function renderContentCards() {
     if (match.params.contentType === "songs") {
-      return (songs.length > 0 ? songs : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
-        song,
-        index
-      ) {
+      return (songs != null
+        ? songs
+        : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      ).map(function (song, index) {
         return (
           <SongCard
             song={song}
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (songs.length > 0)
-                selectCard(song.id)
+              if (songs != null && songs.length > 0) selectCard(song.id);
             }}
-            skeletonPulse={songs.length > 0 ? undefined : true}
+            skeletonPulse={songs != null && songs.length > 0 ? undefined : true}
+            addToSession={addToSession}
+            removeFromSession={removeFromSession}
+            isInSession={isInTrackSession(song.id)}
           ></SongCard>
         );
       });
     } else if (match.params.contentType === "albums") {
-      return (albums.length > 0 ? albums : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).map(function (
-        album,
-        index
-      ) {
+      return (albums != null
+        ? albums
+        : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      ).map(function (album, index) {
         return (
           <AlbumCard
             album={album}
             key={index}
             style={{ margin: "32px" }}
             onClick={() => {
-              if (albums.length > 0)
-                selectCard(album.id)
+              if (albums != null && albums.length > 0) selectCard(album.id);
             }}
-            skeletonPulse={albums.length > 0 ? undefined : true}
+            skeletonPulse={
+              albums != null && albums.length > 0 ? undefined : true
+            }
+            addToSession={addToSession}
+            removeFromSession={removeFromSession}
+            isInSession={isInAlbumSession(album.id)}
           ></AlbumCard>
         );
       });
     } else if (match.params.contentType === "artists") {
-      return (artists.length > 0 ? artists : [1, 2, 3, 4, 5, 6]).map(function (
-        artist,
-        index
-      ) {
-        return (
-          <ArtistCard
-            artist={artist}
-            key={index}
-            style={{ margin: "32px" }}
-            onClick={() => {
-              if (artists.length > 0)
-                selectCard(artist.id)
-            }}
-            skeletonPulse={artists.length > 0 ? undefined : true}
-          ></ArtistCard>
-        );
-      });
+      return (artists != null ? artists : [1, 2, 3, 4, 5, 6, 7, 8]).map(
+        function (artist, index) {
+          return (
+            <ArtistCard
+              artist={artist}
+              key={index}
+              style={{ margin: "32px" }}
+              onClick={() => {
+                if (artists != null && artists.length > 0)
+                  selectCard(artist.id);
+              }}
+              skeletonPulse={
+                artists != null && artists.length > 0 ? undefined : true
+              }
+            ></ArtistCard>
+          );
+        }
+      );
     }
 
     return null;
@@ -173,51 +432,41 @@ function ContentView({ props, match }) {
 
   return (
     <div className="content-view">
+      {renderToaster()}
+      <ExpandableCart
+        sessionTracks={sessionTracks}
+        sessionAlbums={sessionAlbums}
+        getsOwnData={false}
+        removeFromSession={removeFromSession}
+      />
       {willRedirectAlbum ? (
-        <Redirect push to={"/app/albums/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/albums/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectArtist ? (
-        <Redirect push to={"/app/artists/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/artists/" + selectedCardId}></Redirect>
       ) : null}
       {willRedirectSong ? (
-        <Redirect push to={"/app/songs/" + selectedCardId}></Redirect>
+        <Redirect push to={"/app/explore/songs/" + selectedCardId}></Redirect>
       ) : null}
       <div className="content-view-content">
-        <div className="content-view-search">
-          <input></input>
-          <div style={{ width: "48px" }}></div>
-          <Button isPrimary={true}>Search</Button>
+        <div className="content-view-options">
+          <OptionToggle
+            key="option-toggle"
+            options={["Search Mode", "Browse Mode"]}
+            selectedOption={browseMode}
+            selectOption={setBrowseMode}
+          />
         </div>
-        <div className="content-view-filter-wrapper">
-          <Card
-            className="content-view-filter"
-            innerStyle={{
-              display: "flex",
-              flexDirection: "row",
-              margin: "8px 24px 8px 24px",
-            }}
-          >
-            <p>Song</p>
-            <p>Album</p>
-            <p>Artist</p>
-            <p>Popularity</p>
-          </Card>
+        <div className="content-view-browse">
+          {browseMode === "Search Mode" ? renderSearch() : renderBrowse()}
         </div>
+        <div className="content-view-filter-wrapper">{renderSortBy()}</div>
         <div className="content-view-cards">{renderContentCards()}</div>
         <div
           className="content-view-filter-wrapper"
           style={{ marginTop: "64px", marginBottom: "0px" }}
         >
-          <Card
-            className="content-view-filter"
-            innerStyle={{
-              display: "flex",
-              flexDirection: "row",
-              margin: "8px 24px 8px 24px",
-            }}
-          >
-            <p>1</p>
-          </Card>
+          <Paginate params={params} setParams={setParams} />
         </div>
       </div>
     </div>

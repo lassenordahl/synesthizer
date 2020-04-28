@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./ArtistSelection.css";
 import AlbumCard from "../album-card/AlbumCard";
 import SkeletonPulse from "../skeleton-pulse/SkeletonPulse";
@@ -45,9 +45,17 @@ function SongSelection(props) {
                 genre,
                 index
               ) {
-                return index < props.artist.genres.length - 1
-                  ? genre + ", "
-                  : genre;
+                return (
+                  <Link
+                    to={`/app/explore/artists?browseMode=Browse%20Mode&genre=${encodeURI(
+                      genre
+                    )}`}
+                  >
+                    {index < props.artist.genres.length - 1
+                      ? genre + ", "
+                      : genre}
+                  </Link>
+                );
               })
             ) : (
               <SkeletonPulse style={{ width: "160px", height: "24px" }} />
@@ -57,7 +65,7 @@ function SongSelection(props) {
       </div>
       {showDetails ? (
         <div className="selected-artist-extra-info">
-          {props.artist.albums.map(function (album, index) {
+          {props.artistAlbums.map(function (album, index) {
             return (
               <AlbumCard
                 album={album}
@@ -67,7 +75,7 @@ function SongSelection(props) {
                   "background-color": "#1d222e",
                 }}
                 onClick={() => {
-                  history.push(`/app/albums/${album.id}`);
+                  history.push(`/app/explore/albums/${album.id}`);
                 }}
                 skeletonPulse={showContent ? undefined : true}
               ></AlbumCard>

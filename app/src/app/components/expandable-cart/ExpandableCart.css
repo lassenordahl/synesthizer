@@ -5,18 +5,31 @@
   height: 48px;
   width: 48px;
   border-radius: 24px;
-  background-color: #8bf797;
+  background-color: #7bd385;
   box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  color: #252B38;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.25s ease-in-out, all 0.5s ease-in-out;
+  z-index: 1000;
 }
 /* 
 .expandable-cart-wrapper {
   position: absolute;
   right: 24px;
 } */
+
+.expandable-cart-opaque-cover {
+  width: 100vw;
+  height: 100vw;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #6b6a7791;
+  animation-duration: 0.4s !important;
+}
 
 .expandable-cart:hover {
   background-color: #82df8d;
@@ -28,6 +41,8 @@
   height: 400px;
   background-color: #323A49 !important;
   border-radius: 0;
+  cursor: default !important;
+  color: white;
 }
 
 .cart-content {
@@ -41,4 +56,114 @@
   width: 100%;
   height: 48px;
   color: #1d222e;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-content-header h3 {
+  margin: 0;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.cart-content-songs {
+  flex: 1 1;
+  overflow-y: auto;
+  height: 352px;
+}
+
+.cart-content-songs h4 {
+  margin-left: 16px;
+}
+
+.cart-content-song-row {
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+  height: 48px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.25s all ease-in;
+  flex-direction: row;
+}
+
+.cart-content-song-row:last-child {
+  margin-bottom: 16px;
+}
+
+.light-border {
+  width: 100%;
+  background-color: rgba(211, 211, 211, 0.29);
+  height: 1px;
+  margin: auto;
+}
+
+.cart-content-song-row img {
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+}
+
+.card-content-song-row-wrapper div {
+  display: flex;
+  flex: 1 1;
+  margin-right: 48px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cart-content-song-row p {
+  margin: 0;
+}
+
+.create-playlist-button {
+  /* position: absolute; */
+  /* right: 68px; */
+  margin-top: 24px;
+  margin-left: 68px;
+  animation-duration: 0.5s;
+}
+
+.X {
+  position: absolute;
+  display: inline-block;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+}
+
+.X:hover {
+  cursor: pointer;
+}
+
+.X-left { 
+  position: absolute;
+  width: 3px;
+  height: 13px;
+  background-color: #323A49;
+}
+
+.X-right {
+  position: absolute;
+  width: 3px;
+  height: 13px;
+  background-color: #323A49;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+}
+
+.X:hover div {
+  background-color: #1d222e;
 }

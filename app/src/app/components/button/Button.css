@@ -1,6 +1,7 @@
 .button {
   color: white;
-  width: 160px;
+  min-width: 160px;
+  width: fit-content;
   height: 40px;
   background-color: #1d222e;
   border-radius: 20px;
@@ -9,11 +10,17 @@
   justify-content: center;
   align-items: center;
   box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
+  cursor: pointer;
 }
 
 .button:hover {
   background-color: #252B38;
-  transform: scale(1.05); 
+  transform: scale(1.05);
+}
+
+.button-disabled {
+  cursor: default !important;
+  transform: scale(1.00) !important;
 }
 
 .button-primary {
@@ -22,4 +29,22 @@
 
 .button-primary:hover {
   background-color: #f79489;
+}
+
+.button-blue {
+  background-color: #4CD9FF;
+  color: #252B38;
+}
+
+.button-blue:hover {
+  background-color: rgb(117, 217, 245);
+}
+
+.button-green {
+  background-color: #8bf797;
+  color: #252B38;
+}
+
+.button-green:hover {
+  background-color: #adf5b5;
 }

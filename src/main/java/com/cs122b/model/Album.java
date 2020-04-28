@@ -1,5 +1,7 @@
 package com.cs122b.model;
 
+import java.util.ArrayList;
+
 public class Album {
 
     private String id;
@@ -7,18 +9,12 @@ public class Album {
     private String album_type;
     private String image;
     private String release_date;
-    private String artist_name;
-    private String artist_id;
     private int popularity;
 
-    public Album(String id, String name, String album_type, String image, String release_date, String artist_name, String artist_id) {
-        this.id = id;
-        this.name = name;
-        this.album_type = album_type;
-        this.image = image;
-        this.release_date = release_date;
-        this.artist_name = artist_name;
-        this.artist_id = artist_id;
+    // artists_in_album
+    private ArrayList<Artist> artists;
+
+    public Album() {
     }
 
     public String getId() {
@@ -61,27 +57,26 @@ public class Album {
         this.release_date = release_date;
     }
 
-    public String getArtist_name() {
-        return artist_name;
-    }
-
-    public void setArtist_name(String artist_name) {
-        this.artist_name = artist_name;
-    }
-
-    public String getArtist_id() {
-        return artist_id;
-    }
-
-    public void setArtist_id(String artist_id) {
-        this.artist_id = artist_id;
-    }
-
     public int getPopularity() {
         return popularity;
     }
 
     public void setPopularity(int popularity) {
         this.popularity = popularity;
+    }
+
+    public ArrayList<Artist> getArtists() {
+        return this.artists;
+    }
+
+    public void setArtists(ArrayList<Artist> artists) {
+        this.artists = artists;
+    }
+
+    public void addArtists(Artist artist) {
+        if (this.artists == null) {
+            this.artists = new ArrayList<Artist>();
+        }
+        this.artists.add(artist);
     }
 }

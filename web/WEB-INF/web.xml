@@ -96,4 +96,96 @@
         <url-pattern>/api/albums/tracks</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.cs122b.web.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/api/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.cs122b.web.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.cs122b.web.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/api/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionServlet</servlet-name>
+        <url-pattern>/api/playlist/session</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionTrackServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionTrackServlet</servlet-name>
+        <url-pattern>/api/playlist/session/track</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSessionAlbumServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionAlbumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionAlbumServlet</servlet-name>
+        <url-pattern>/api/playlist/session/album</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSessionNameServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSessionNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSessionNameServlet</servlet-name>
+        <url-pattern>/api/playlist/session/name</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PlaylistServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistServlet</servlet-name>
+        <url-pattern>/api/playlist</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistSnapshotServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistSnapshotServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistSnapshotServlet</servlet-name>
+        <url-pattern>/api/playlist/snapshot</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PlaylistsServlet</servlet-name>
+        <servlet-class>com.cs122b.web.PlaylistsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlaylistsServlet</servlet-name>
+        <url-pattern>/api/playlists</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GenresServlet</servlet-name>
+        <servlet-class>com.cs122b.web.GenresServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GenresServlet</servlet-name>
+        <url-pattern>/api/genres</url-pattern>
+    </servlet-mapping>
 </web-app>

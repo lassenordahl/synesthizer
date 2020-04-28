@@ -29,25 +29,27 @@ public class ArtistsServlet extends HttpServlet {
         String offset = request.getParameter("offset");
         String limit = request.getParameter("limit");
         String sortBy = request.getParameter("sortBy");
-
+        String searchMode = request.getParameter("searchMode");
+        String search = request.getParameter("search");
+        String name = request.getParameter("name");
+        String genre = request.getParameter("genre");
 
         List<Artist> artists = null;
         try {
-            artists = fetchArtists(offset != null ? Integer.parseInt(offset):  0,
-                    limit != null ? Integer.parseInt(limit) : 30,
-                    sortBy != null ? sortBy : "name");
+            artists = fetchArtists(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+                    limit != null && limit != "" ? Integer.parseInt(limit) : 20,
+                    sortBy != null && sortBy != "" ? sortBy : "popularity desc",
+                    searchMode != null && searchMode != "" ? searchMode : null,
+                    search != null && search != "" ? search : null, name != null && name != "" ? name : null,
+                    genre != null && genre != "" ? genre : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         PrintWriter out = response.getWriter();
 
-        if (artists.size() > 0) {
-            String tracksResponse = this.gson.toJson(artists);
-            out.print("{ \"artists\": " + tracksResponse + " }");
-        } else {
-            response.setStatus(404);
-            out.print("{ \"message\": \"resource not found\"}");
-        }
+        String tracksResponse = this.gson.toJson(artists);
+        out.print("{ \"artists\": " + tracksResponse + " }");
+
     }
 }
