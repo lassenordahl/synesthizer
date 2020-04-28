@@ -95,7 +95,7 @@ public class UserService {
 
         query.closeQuery();
 
-        if (userJson.get("password") != null) {
+        if (userJson.get("password").getAsString().length() > 0) {
             user.setPassword(userJson.get("password").getAsString());
         }
 
