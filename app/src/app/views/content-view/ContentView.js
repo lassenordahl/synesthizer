@@ -70,6 +70,7 @@ function ContentView(props) {
       offset: 0,
       limit: 20,
       ...router.query,
+      name: undefined,
     });
     console.log(params);
   }, [match.params.contentType]);
@@ -227,9 +228,14 @@ function ContentView(props) {
 
   function addToSession(id, itemType) {
     axios
-      .post(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
-        id: id,
-      })
+      .post(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          id: id,
+        }
+      )
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
@@ -243,9 +249,14 @@ function ContentView(props) {
 
   function removeFromSession(id, itemType) {
     axios
-      .delete(itemType === "track" ? api.playlistSessionTrack : api.playlistSessionAlbum, {
-        params: { id: id },
-      })
+      .delete(
+        itemType === "track"
+          ? api.playlistSessionTrack
+          : api.playlistSessionAlbum,
+        {
+          params: { id: id },
+        }
+      )
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
@@ -286,7 +297,7 @@ function ContentView(props) {
 
     return (
       <Search
-        key={match.params.contentType + "search-by"}
+        key={match.params.contentType}
         searchModes={searchModes}
         params={params}
         setParams={setParams}
@@ -313,7 +324,7 @@ function ContentView(props) {
 
     return (
       <Browse
-        key={match.params.contentType + "browse-by"}
+        key={match.params.contentType + "browse"}
         browseOptions={browseOptions}
         params={params}
         setParams={setParams}
@@ -333,7 +344,7 @@ function ContentView(props) {
 
     return (
       <SortBy
-        key={match.params.contentType + "sort-by"}
+        key={match.params.contentType}
         sortOptions={sortOptions}
         params={params}
         setParams={setParams}
