@@ -86,7 +86,6 @@ public class PlaylistService {
         }
 
         query.closeQuery();
-        db.closeConnection();
     }
 
     private static void insertPlaylist(SQLClient db, Playlist playlist, int userId) throws SQLException {
@@ -204,7 +203,7 @@ public class PlaylistService {
         Query query = db.query(String.format(
                 "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user "
                         + "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  "
-                        + "WHERE id = playlist_to_user.playlist_id AND user_id='%d' ORDER BY creation_date DESC",
+                        + "WHERE playlist_to_user.user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();
