@@ -12,9 +12,9 @@ import java.util.List;
 
 public class ArtistService {
 
-    private static SQLClient db;
-
     private static void setArtistAttrs(Artist artist, ResultSet query, Boolean setPopularity) throws SQLException {
+        SQLClient db = new SQLClient();
+
         artist.setId(query.getString("id"));
         artist.setName(query.getString("name"));
         artist.setImage(query.getString("image"));
@@ -69,11 +69,12 @@ public class ArtistService {
             artist.addAlbum(album);
         }
         queryAlbums.closeQuery();
+        db.closeConnection();
     }
 
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search,
             String name, String genre) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         // Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT "
         // + Integer.toString(offset) + ","
@@ -136,7 +137,7 @@ public class ArtistService {
     }
 
     public static Artist fetchArtist(String id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT * FROM artist WHERE id = \"" + id + "\"");
 

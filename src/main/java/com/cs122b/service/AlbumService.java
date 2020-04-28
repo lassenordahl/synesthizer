@@ -12,9 +12,9 @@ import java.util.List;
 
 public class AlbumService {
 
-    private static SQLClient db;
-
     public static void setAlbumAttrs(Album album, ResultSet result, boolean addPopularity) throws SQLException {
+        SQLClient db = new SQLClient();
+
         album.setId(result.getString("id"));
         album.setName(result.getString("name"));
         album.setAlbum_type(result.getString("album_type"));
@@ -44,11 +44,13 @@ public class AlbumService {
         if (addPopularity) {
             album.setPopularity(result.getInt("popularity"));
         }
+
+        db.closeConnection();
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
             String name, String artist_id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
 
@@ -116,13 +118,12 @@ public class AlbumService {
 
         query.closeQuery();
         db.closeConnection();
-
         return albums;
     }
 
     public static Album fetchAlbum(String id) throws SQLException {
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT album.id, album.name, album.album_type, album.image, album.release_date, "
                 + "artist.name as artist_name, artist.id as artist_id FROM album\n"
@@ -141,7 +142,7 @@ public class AlbumService {
 
     public static List<Track> fetchTracksForAlbum(String id) throws SQLException {
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT track.id, track.name, track_meta.duration_ms, track.track_number FROM album\n"
                 + "LEFT JOIN track_in_album ON track_in_album.album_id = album.id\n"
