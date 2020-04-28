@@ -204,10 +204,17 @@ WHERE track.name LIKE <name search string>
 
 This adjusts what it is applied to based on what the user is searching for.
 
-## Project 2 Contributions
+## Project Contributions
 
 ### Lasse Nordahl
 
+- Start React App
+- Do main css
+- Design song, artist, album list view
+- Create track_meta, album, track_in_album endpoints
+- Create album selection page
+- Add hyperlinks to single view pages
+- Add popularity sorting to album and song endpoint
 - Application routing for new pages
 - Cart/Playlist generation functionality for Songs and Albums (Front-end and Back-end)
 - Create Playlist Page
