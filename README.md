@@ -30,6 +30,7 @@ source /home/ubuntu/tomcat/bin/startup.sh
 
 # run react app build
 cd cs122b-spring20-team-53/app
+npm install
 REACT_APP_API_URL=http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/api npm run-script build
 
 # copy build to web dir
