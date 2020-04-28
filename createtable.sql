@@ -98,8 +98,6 @@ CREATE TABLE artist_in_genre (
     genre VARCHAR(25) NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artist(id)
 );
-
-
 -- user data
 
 
@@ -132,5 +130,12 @@ CREATE TABLE track_in_playlist (
     playlist_id INTEGER NOT NULL,
     track_id VARCHAR(25) NOT NULL,
     FOREIGN KEY (track_id) REFERENCES track(id),
+    FOREIGN KEY (playlist_id) REFERENCES playlist(id)
+);
+
+
+CREATE TABLE playlist_spotify_snapshot (
+    playlist_id INTEGER NOT NULL,
+    snapshot_id VARCHAR(100) NOT NULL,
     FOREIGN KEY (playlist_id) REFERENCES playlist(id)
 );
