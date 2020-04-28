@@ -151,7 +151,7 @@ CREATE TABLE playlist_spotify_snapshot (
 
         [https://developer.spotify.com/documentation/general/guides/authorization-guide/](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 
-        1. If there is no authentication key in localstorage or the authentication key has expired, the application will redirect to the Spotify Auth page.
+        1. If there is no authentication key in localstorage or the authentication key has expired, the application will redirect to the Spotify Auth page. Functionality for this can be found in the Playlists.js and PlaylistCard.js files in the react application under /app.
         2. After logging into the Spotify Auth page, the Spotify auth page will redirect back to the /playlists URL, where the application will save the authentication key and the time that it was saved. This authentication key has scope for editing/managing playlists for the user.
             1. Test Account for TA's
                 1. **Username:** [`cs122b.test.spotify@gmail.com`](mailto:cs122b.test.spotify@gmail.com)
