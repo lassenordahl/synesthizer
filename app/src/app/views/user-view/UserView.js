@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { LoggedInContext } from "../../context/LoggedInContext";
 
+import { useToast } from "../../../hooks";
+
 import { Card } from "../../containers";
 import { UserForm, LoginForm } from "../../components";
 
@@ -14,6 +16,8 @@ import axios from "axios";
 import { api } from "../../../utils/api";
 
 function UserView({ props, match }) {
+  const [showSuccess, showError, renderToaster] = useToast();
+
   let history = useHistory();
   const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
   const [cookies, setCookie] = useCookies([]);
@@ -25,10 +29,14 @@ function UserView({ props, match }) {
       .get(api.user)
       .then(function (response) {
         setUser(response.data);
-        console.log(response);
+        if (response !== undefined && response.status === 200) {
+          showSuccess("Successfully loaded user");
+        } else {
+          showError("Error loading user");
+        }
       })
       .catch(function (error) {
-        console.error(error);
+        showError("Error loading user");
       });
   }
 
@@ -37,14 +45,17 @@ function UserView({ props, match }) {
       .post(api.login, form)
       .then(function (response) {
         console.log(response);
-        if (response.status === 200) {
+        if (response !== undefined && response.status === 200) {
           setLoggedIn(true);
           setCookie("logged_in", true, { path: "/unnamed", expires: 0 });
+          showSuccess("Successfully logged in");
           history.push("/app/explore/songs");
+        } else {
+          showError("Incorrect email or password");
         }
       })
       .catch(function (error) {
-        console.error(error);
+        showError("Error logging in");
       });
   }
 
@@ -53,13 +64,15 @@ function UserView({ props, match }) {
       .post(api.user, form)
       .then(function (response) {
         console.log(response);
-        if (response.status === 200) {
+        if (response !== undefined && response.status === 200) {
+          showSuccess("Successfully created user");
           history.push("/app/user/account/login");
         } else {
+          showError("Email already in use");
         }
       })
       .catch(function (error) {
-        console.error(error);
+        showError("Error creating account");
       });
   }
 
@@ -68,9 +81,15 @@ function UserView({ props, match }) {
       .put(api.user, form)
       .then(function (response) {
         console.log(response);
+        if (response !== undefined && response.status === 200) {
+          showSuccess("Successfully updated account");
+        } else {
+          showError("Error already in use");
+        }
       })
       .catch(function (error) {
-        console.error(error);
+        console.log(error);
+        showError("Error updating account");
       });
   }
 
@@ -120,6 +139,7 @@ function UserView({ props, match }) {
 
   return (
     <div className="account-view">
+      {renderToaster()}
       <Card className="account-view-card">
         <div className="account-view-header">{renderHeader()}</div>
         <div className="account-view-form">{renderForm()}</div>
