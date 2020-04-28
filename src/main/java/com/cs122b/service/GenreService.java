@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenreService {
-    private static SQLClient db;
 
     public static List<String> fetchGenres() throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT DISTINCT genre FROM artist_in_genre ORDER BY genre");
 

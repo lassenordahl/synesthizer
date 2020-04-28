@@ -15,9 +15,9 @@ import java.util.List;
 
 public class PlaylistService {
 
-    private static SQLClient db;
+    static void setPlaylistTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity)
+            throws SQLException {
 
-    static void setPlaylistTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));
@@ -30,7 +30,6 @@ public class PlaylistService {
                 .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
                         + track.getId() + "\";");
         ResultSet artistsResult = queryArtist.getResult();
-
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -65,7 +64,8 @@ public class PlaylistService {
         queryAlbum.closeQuery();
     }
 
-    private static void setPlaylistAttrs(Playlist playlist, ResultSet result) throws SQLException {
+    private static void setPlaylistAttrs(SQLClient db, Playlist playlist, ResultSet result) throws SQLException {
+
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
         playlist.setImage(result.getString("image"));
@@ -73,25 +73,23 @@ public class PlaylistService {
         playlist.setPlaylistsCreated(result.getInt("playlistCreated"));
 
         // Get the tracks
-        Query query = db.query(String.format(
-                "SELECT * FROM track_in_playlist\n" +
-                        "LEFT JOIN track ON track.id = track_in_playlist.track_id\n" +
-                        "LEFT JOIN track_meta ON track_meta.id = track.id\n" +
-                        "WHERE track_in_playlist.playlist_id = %d;",
+        Query query = db.query(String.format("SELECT * FROM track_in_playlist\n"
+                + "LEFT JOIN track ON track.id = track_in_playlist.track_id\n"
+                + "LEFT JOIN track_meta ON track_meta.id = track.id\n" + "WHERE track_in_playlist.playlist_id = %d;",
                 playlist.getId()));
 
         ResultSet resultTracks = query.getResult();
         while (resultTracks.next()) {
             Track track = new Track();
-            setPlaylistTrackAttrs(track, resultTracks, false);
+            setPlaylistTrackAttrs(db, track, resultTracks, false);
             playlist.addTrack(track);
         }
 
         query.closeQuery();
+        db.closeConnection();
     }
 
-    private static void insertPlaylist(Playlist playlist, int userId) throws SQLException {
-        db = new SQLClient();
+    private static void insertPlaylist(SQLClient db, Playlist playlist, int userId) throws SQLException {
 
         String insertQuery = "INSERT INTO playlist(id, name, image, creation_date) " + "VALUES(DEFAULT,?,?,DEFAULT);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -118,7 +116,8 @@ public class PlaylistService {
 
         String insertTrackPlaylistQuery = "INSERT INTO track_in_playlist(playlist_id, track_id) VALUES ";
         for (int i = 0; i < playlist.getTracks().size(); i++)
-            insertTrackPlaylistQuery += "(" + playlist.getId() + ", \"" + playlist.getTracks().get(i).getId() + "\")" + ((i < playlist.getTracks().size() - 1) ? "," : "");
+            insertTrackPlaylistQuery += "(" + playlist.getId() + ", \"" + playlist.getTracks().get(i).getId() + "\")"
+                    + ((i < playlist.getTracks().size() - 1) ? "," : "");
         PreparedStatement insertTracksStatement = db.getConnection().prepareStatement(insertTrackPlaylistQuery,
                 Statement.RETURN_GENERATED_KEYS);
         insertTracksStatement.executeUpdate();
@@ -127,7 +126,7 @@ public class PlaylistService {
     }
 
     public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         String insertQuery = "INSERT INTO playlist_spotify_snapshot(playlist_id, snapshot_id) VALUES (?, ?);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -139,7 +138,7 @@ public class PlaylistService {
     }
 
     public static Playlist createPlaylist(JsonObject playlistJson, int userId) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         String name = playlistJson.get("name").getAsString();
         // Check if exists (return null if exists)
@@ -148,6 +147,7 @@ public class PlaylistService {
                 name, userId));
         ResultSet result = query.getResult();
         if (result.next() != false) {
+            db.closeConnection();
             return null;
         }
 
@@ -167,29 +167,30 @@ public class PlaylistService {
             playlist.addTrack(newTrack);
         }
 
-        insertPlaylist(playlist, userId);
+        insertPlaylist(db, playlist, userId);
 
         db.closeConnection();
         return playlist;
     }
 
     public static Playlist fetchPlaylist(int id, int userId) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user" +
-                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
-                "WHERE id='%d' AND id = playlists_to_user.playlist_id AND user_id='%d'",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user"
+                        + "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  "
+                        + "WHERE id='%d' AND id = playlists_to_user.playlist_id AND user_id='%d'",
                 id, userId));
 
         Playlist playlist = new Playlist();
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
             return null;
         }
 
-        setPlaylistAttrs(playlist, result);
+        setPlaylistAttrs(db, playlist, result);
 
         query.closeQuery();
         db.closeConnection();
@@ -197,19 +198,19 @@ public class PlaylistService {
     }
 
     public static List<Playlist> fetchPlaylists(int userId, int offset, int limit) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query(String.format(
-                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user " +
-                "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  " +
-                "WHERE id = playlist_to_user.playlist_id AND user_id='%d' ORDER BY creation_date DESC",
+                "SELECT *, 1 - ISNULL(snapshot_id) as playlistCreated FROM playlist NATURAL JOIN playlist_to_user "
+                        + "LEFT JOIN playlist_spotify_snapshot ON playlist_spotify_snapshot.playlist_id = playlist.id  "
+                        + "WHERE id = playlist_to_user.playlist_id AND user_id='%d' ORDER BY creation_date DESC",
                 userId));
 
         List<Playlist> playlists = new ArrayList<Playlist>();
         ResultSet result = query.getResult();
         while (result.next()) {
             Playlist playlist = new Playlist();
-            setPlaylistAttrs(playlist, result);
+            setPlaylistAttrs(db, playlist, result);
             playlists.add(playlist);
         }
 

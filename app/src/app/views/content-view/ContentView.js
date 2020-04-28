@@ -62,12 +62,12 @@ function ContentView(props) {
   const [sessionTracks, setSessionTracks] = useState([]);
   const [sessionAlbums, setSessionAlbums] = useState([]);
 
-  const [showSuccess, showError, renderToast] = useToast();
+  const [showSuccess, showError, renderToaster] = useToast();
 
   useEffect(() => {
     console.log("resetting the params");
     console.log("CONTENT TYPE CHANGED", match.params.contentType);
-    
+
     setParams({
       offset: 0,
       limit: 20,
@@ -96,7 +96,6 @@ function ContentView(props) {
       setSongs(null);
       getSongs();
     }
-
 
     router.push("?".concat(queryString.stringify(params)));
   }, [params]);
@@ -246,7 +245,9 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
-        // showSuccess("Added to playlist");
+        if (response.status === 200) {
+          showSuccess("Successfully added to playlist");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -267,6 +268,9 @@ function ContentView(props) {
       .then(function (response) {
         console.log(response);
         getPlaylistSession();
+        if (response.status === 200) {
+          showSuccess("Successfully removed from playlist");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -428,6 +432,7 @@ function ContentView(props) {
 
   return (
     <div className="content-view">
+      {renderToaster()}
       <ExpandableCart
         sessionTracks={sessionTracks}
         sessionAlbums={sessionAlbums}

@@ -14,9 +14,8 @@ import java.util.List;
 
 public class TrackService implements Config {
 
-    private static SQLClient db;
+    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException {
 
-    static void setTrackAttrs(Track track, ResultSet query, boolean addPopularity) throws SQLException {
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
         track.setTrack_number(query.getInt("track_number"));
@@ -85,7 +84,7 @@ public class TrackService implements Config {
             String name) throws SQLException {
         // Create an execute an SQL statement to select all of table tracks records
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         // Query query = db.query("SELECT *, \n" + "IFNULL((\n"
         // + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE
@@ -142,18 +141,18 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
-            setTrackAttrs(track, result, true);
+            setTrackAttrs(db, track, result, true);
             tracks.add(track);
         }
         query.closeQuery();
-
+        db.closeConnection();
         return tracks;
     }
 
     public static Track fetchTrack(String id) throws SQLException {
         // Create an execute an SQL statement to select all of table tracks records
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
 
@@ -179,7 +178,7 @@ public class TrackService implements Config {
         ResultSet result = query.getResult();
         result.next();
         Track track = new Track();
-        setTrackAttrs(track, result, false);
+        setTrackAttrs(db, track, result, false);
 
         query.closeQuery();
         db.closeConnection();
@@ -187,7 +186,7 @@ public class TrackService implements Config {
     }
 
     public static TrackMeta fetchTrackMeta(String id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT * FROM track_meta\n" + "WHERE track_meta.id = \"" + id + "\"");
 
@@ -200,7 +199,6 @@ public class TrackService implements Config {
 
         query.closeQuery();
         db.closeConnection();
-
         return trackMeta;
     }
 }

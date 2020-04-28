@@ -12,9 +12,8 @@ import java.util.List;
 
 public class AlbumService {
 
-    private static SQLClient db;
-
-    public static void setAlbumAttrs(Album album, ResultSet result, boolean addPopularity) throws SQLException {
+    public static void setAlbumAttrs(SQLClient db, Album album, ResultSet result, boolean addPopularity)
+            throws SQLException {
         album.setId(result.getString("id"));
         album.setName(result.getString("name"));
         album.setAlbum_type(result.getString("album_type"));
@@ -48,7 +47,7 @@ public class AlbumService {
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
             String name, String artist_id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
 
@@ -110,19 +109,18 @@ public class AlbumService {
 
         while (result.next()) {
             Album album = new Album();
-            setAlbumAttrs(album, result, true);
+            setAlbumAttrs(db, album, result, true);
             albums.add(album);
         }
 
         query.closeQuery();
         db.closeConnection();
-
         return albums;
     }
 
     public static Album fetchAlbum(String id) throws SQLException {
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT album.id, album.name, album.album_type, album.image, album.release_date, "
                 + "artist.name as artist_name, artist.id as artist_id FROM album\n"
@@ -133,7 +131,7 @@ public class AlbumService {
         result.next();
 
         Album album = new Album();
-        setAlbumAttrs(album, result, false);
+        setAlbumAttrs(db, album, result, false);
         query.closeQuery();
         db.closeConnection();
         return album;
@@ -141,7 +139,7 @@ public class AlbumService {
 
     public static List<Track> fetchTracksForAlbum(String id) throws SQLException {
 
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query("SELECT track.id, track.name, track_meta.duration_ms, track.track_number FROM album\n"
                 + "LEFT JOIN track_in_album ON track_in_album.album_id = album.id\n"

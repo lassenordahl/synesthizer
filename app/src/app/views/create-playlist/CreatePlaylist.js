@@ -62,18 +62,17 @@ function CreatePlaylist() {
     let albumTracks = await getTracksFromAlbums();
     postPlaylist.tracks = postPlaylist.tracks.concat(albumTracks);
 
-    axios.post(api.playlist, postPlaylist)
-      .then(function(response) {
+    axios
+      .post(api.playlist, postPlaylist)
+      .then(function (response) {
         if (response.status === 200) {
           showSuccess("Successfully created playlist");
           getSessionPlaylist();
-        } else {
-          showError("Error creating playlist");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         showError("Error creating playlist");
-      })
+      });
   }
 
   async function getTracksFromAlbums() {
@@ -110,7 +109,9 @@ function CreatePlaylist() {
       .then(function (response) {
         console.log(response);
         getSessionPlaylist();
-        showSuccess("Your playlist saved successfully");
+        if (response.status === 200) {
+          showSuccess("Your playlist saved successfully");
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -131,6 +132,9 @@ function CreatePlaylist() {
       .then(function (response) {
         console.log(response);
         getSessionPlaylist();
+        if (response.status === 200) {
+          showSuccess("Successfully removed playlist");
+        }
       })
       .catch(function (error) {
         console.error(error);

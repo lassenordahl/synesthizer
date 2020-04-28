@@ -8,7 +8,6 @@ import com.google.gson.JsonObject;
 import java.sql.*;
 
 public class UserService {
-    private static SQLClient db;
 
     private static void setUserAttrs(User user, ResultSet result) throws SQLException {
         user.setId(result.getInt("id"));
@@ -19,8 +18,7 @@ public class UserService {
         user.setPassword(result.getString("password"));
     }
 
-    private static void insertUser(User user) throws SQLException {
-
+    private static void insertUser(SQLClient db, User user) throws SQLException {
         String insertQuery = "INSERT INTO user(id, first_name, last_name, address, email, password) "
                 + "VALUES(DEFAULT,?,?,?,?,?);";
 
@@ -46,13 +44,14 @@ public class UserService {
     }
 
     public static User createUser(JsonObject userJson) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         String email = userJson.get("email").getAsString();
         // Check if exists (return null if exists)
         Query query = db.query(String.format("SELECT *  FROM user WHERE email='%s'", email));
         ResultSet result = query.getResult();
         if (result.next() != false) {
+            db.closeConnection();
             return null;
         }
 
@@ -67,14 +66,14 @@ public class UserService {
         user.setEmail(userJson.get("email").getAsString());
         user.setPassword(userJson.get("password").getAsString());
 
-        insertUser(user);
+        insertUser(db, user);
 
         db.closeConnection();
         return user;
     }
 
     public static User updateUser(JsonObject userJson) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         // Create user object
         User user = new User();
@@ -90,12 +89,13 @@ public class UserService {
         Query query = db.query(String.format("SELECT * FROM user WHERE email='%s' AND id <> %d", email, user.getId()));
         ResultSet result = query.getResult();
         if (result.next() != false) {
+            db.closeConnection();
             return null;
         }
 
         query.closeQuery();
 
-        if (userJson.get("password") != null) {
+        if (userJson.get("password").getAsString().length() > 0) {
             user.setPassword(userJson.get("password").getAsString());
         }
 
@@ -131,12 +131,12 @@ public class UserService {
         }
 
         pstmt.close();
-
+        db.closeConnection();
         return user;
     }
 
     public static User authenticateUser(String email, String password) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db
                 .query(String.format("SELECT *  FROM user WHERE email='%s' AND password='%s'", email, password));
@@ -145,6 +145,7 @@ public class UserService {
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
             return null;
         }
 
@@ -156,7 +157,7 @@ public class UserService {
     }
 
     public static User fetchUser(int id) throws SQLException {
-        db = new SQLClient();
+        SQLClient db = new SQLClient();
 
         Query query = db.query(String.format("SELECT * FROM user WHERE id='%d'", id));
 
@@ -164,6 +165,7 @@ public class UserService {
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
             return null;
         }
 
