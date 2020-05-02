@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./UserForm.css";
 
 import { useForm } from "react-hook-form";
+import Recaptcha from "react-recaptcha";
 
-import { Button, Recaptcha } from "../../components";
+import { Button } from "../../components";
+import { useToast } from "../../../hooks";
 
 function UserForm(props) {
   const { handleSubmit, register, errors } = useForm();
+  const [captcha, setCaptcha] = useState(null);
 
-  console.log("user form rendered");
-  console.log(props.action);
-  console.log(props.defaults);
+  function onVerify(recaptchaResponse) {
+    console.log(recaptchaResponse);
+    setCaptcha(recaptchaResponse);
+  }
+
+  function onLoadCallback() {
+    console.log("recaptcha loaded");
+  }
 
   return (
     <div className="user-form">
@@ -71,15 +79,34 @@ function UserForm(props) {
         ></input>
         <span className="user-form-val">{errors.password && "password required"}</span>
         <div className="user-form-button">
+          {/* <Recaptcha handleSubmit={handleSubmit} onSubmit={props.onSubmit}/> */}
+          {/* <Reaptcha 
+            siteKey="6LecPfEUAAAAAKjBkF-aqpo56xWnLuQG0pjqK-Uc"
+            onVerify={onVerify}
+          /> */}
+          <Recaptcha
+            sitekey="6LecPfEUAAAAAKjBkF-aqpo56xWnLuQG0pjqK-Uc"
+            render="explicit"
+            // onloadCallback={callback}
+            verifyCallback={onVerify}
+            onloadCallback={onLoadCallback}
+          />
           <Button
             type="submit"
             style={{ width: "65px", height: "40px" }}
             isPrimary={true}
-            onClick={handleSubmit(props.onSubmit)}
+            onClick={() => {
+              console.log(captcha);
+              debugger;
+              if (captcha !== null) {
+                return handleSubmit(props.onSubmit)
+              } else {
+                console.log('not verified');
+              }              
+            }}
           >
             {props.action}
           </Button>
-          <Recaptcha/>
         </div>
       </form>
     </div>
