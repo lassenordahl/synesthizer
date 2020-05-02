@@ -52,7 +52,6 @@ function App() {
                 ]}
               >
                 {({ match }) => {
-                  console.log(match.params);
                   return match !== null ? (
                     <div className="route-title">
                       <h2>{match.params.route}</h2>
