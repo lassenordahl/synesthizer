@@ -3,6 +3,7 @@ package com.cs122b.web;
 import com.cs122b.service.UserService;
 import com.cs122b.model.User;
 import com.cs122b.utils.JsonParse;
+import com.cs122b.utils.RecaptchaVerifyUtils;
 
 import com.google.gson.*;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +23,14 @@ public class UserServlet extends HttpServlet {
         JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());
 
         PrintWriter out = response.getWriter();
+
+        try {
+            RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
+        } catch (Exception e) {
+            response.setStatus(400);
+            out.write("{\"message\": \"No captcha provided or invalid captcha\"}");
+            return;
+        }
 
         User user = null;
         try {
@@ -52,6 +61,13 @@ public class UserServlet extends HttpServlet {
         Object user_id_obj = request.getSession().getAttribute("user_id");
 
         PrintWriter out = response.getWriter();
+
+        try {
+            RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
+        } catch (Exception e) {
+            response.setStatus(400);
+            out.write("{\"message\": \"No captcha provided or invalid captcha\"}");
+        }
 
         if (user_id_obj == null) {
             response.setStatus(401);

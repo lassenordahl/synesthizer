@@ -1,3 +1,4 @@
+package com.cs122b.utils;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -7,6 +8,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.cs122b.constants.RecaptchaConstants;
 
 public class RecaptchaVerifyUtils {
 

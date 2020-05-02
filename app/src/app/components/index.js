@@ -19,4 +19,3 @@ export { default as Search } from "./search/Search";
 export { default as OptionToggle } from "./option-toggle/OptionToggle";
 export { default as Browse } from "./browse/Browse";
 export { default as GoBackButton } from "./go-back-button/GoBackButton";
-export { default as Recaptcha } from "./recaptcha/RecaptchaWrapper";
