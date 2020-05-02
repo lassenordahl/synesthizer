@@ -60,6 +60,7 @@ function UserView({ props, match }) {
   }
 
   function createUser(form) {
+    console.log(form);
     axios
       .post(api.user, form)
       .then(function (response) {

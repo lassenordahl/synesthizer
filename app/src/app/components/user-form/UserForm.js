@@ -3,7 +3,7 @@ import "./UserForm.css";
 
 import { useForm } from "react-hook-form";
 
-import { Button } from "../../components";
+import { Button, Recaptcha } from "../../components";
 
 function UserForm(props) {
   const { handleSubmit, register, errors } = useForm();
@@ -79,6 +79,7 @@ function UserForm(props) {
           >
             {props.action}
           </Button>
+          <Recaptcha/>
         </div>
       </form>
     </div>
