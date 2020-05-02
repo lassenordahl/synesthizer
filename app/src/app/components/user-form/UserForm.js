@@ -2,18 +2,29 @@ import React, { useState, useEffect } from "react";
 import "./UserForm.css";
 
 import { useForm } from "react-hook-form";
+import Recaptcha from "react-recaptcha";
 
 import { Button } from "../../components";
+import { useToast } from "../../../hooks";
 
 function UserForm(props) {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register, errors, setValue } = useForm();
+  const [showSuccess, showError, renderToast] = useToast();
 
-  console.log("user form rendered");
-  console.log(props.action);
-  console.log(props.defaults);
+  const [captcha, setCaptcha] = useState(null);
+
+  function onVerify(recaptchaResponse) {
+    setCaptcha(recaptchaResponse);
+    setValue("captcha", recaptchaResponse);
+  }
+
+  function onLoadCallback() {
+    register({ name: "captcha", }, { required: true})
+  }
 
   return (
     <div className="user-form">
+      {renderToast()}
       <form>
         <input
           name="first_name"
@@ -71,11 +82,23 @@ function UserForm(props) {
         ></input>
         <span className="user-form-val">{errors.password && "password required"}</span>
         <div className="user-form-button">
+          <Recaptcha
+            sitekey="6LecPfEUAAAAAKjBkF-aqpo56xWnLuQG0pjqK-Uc"
+            render="explicit"
+            verifyCallback={onVerify}
+            onloadCallback={onLoadCallback}
+          />
+          <div style={{height: "24px"}}/>
           <Button
             type="submit"
             style={{ width: "65px", height: "40px" }}
             isPrimary={true}
-            onClick={handleSubmit(props.onSubmit)}
+            onClick={captcha !== null 
+              ? handleSubmit(props.onSubmit) 
+              : () => {
+                  showError("Captcha not completed")
+                }
+            }
           >
             {props.action}
           </Button>
