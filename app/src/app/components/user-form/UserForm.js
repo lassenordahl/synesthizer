@@ -8,20 +8,23 @@ import { Button } from "../../components";
 import { useToast } from "../../../hooks";
 
 function UserForm(props) {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register, errors, setValue } = useForm();
+  const [showSuccess, showError, renderToast] = useToast();
+
   const [captcha, setCaptcha] = useState(null);
 
   function onVerify(recaptchaResponse) {
-    console.log(recaptchaResponse);
     setCaptcha(recaptchaResponse);
+    setValue("captcha", recaptchaResponse);
   }
 
   function onLoadCallback() {
-    console.log("recaptcha loaded");
+    register({ name: "captcha", }, { required: true})
   }
 
   return (
     <div className="user-form">
+      {renderToast()}
       <form>
         <input
           name="first_name"
@@ -79,31 +82,23 @@ function UserForm(props) {
         ></input>
         <span className="user-form-val">{errors.password && "password required"}</span>
         <div className="user-form-button">
-          {/* <Recaptcha handleSubmit={handleSubmit} onSubmit={props.onSubmit}/> */}
-          {/* <Reaptcha 
-            siteKey="6LecPfEUAAAAAKjBkF-aqpo56xWnLuQG0pjqK-Uc"
-            onVerify={onVerify}
-          /> */}
           <Recaptcha
             sitekey="6LecPfEUAAAAAKjBkF-aqpo56xWnLuQG0pjqK-Uc"
             render="explicit"
-            // onloadCallback={callback}
             verifyCallback={onVerify}
             onloadCallback={onLoadCallback}
           />
+          <div style={{height: "24px"}}/>
           <Button
             type="submit"
             style={{ width: "65px", height: "40px" }}
             isPrimary={true}
-            onClick={() => {
-              console.log(captcha);
-              debugger;
-              if (captcha !== null) {
-                return handleSubmit(props.onSubmit)
-              } else {
-                console.log('not verified');
-              }              
-            }}
+            onClick={captcha !== null 
+              ? handleSubmit(props.onSubmit) 
+              : () => {
+                  showError("Captcha not completed")
+                }
+            }
           >
             {props.action}
           </Button>
