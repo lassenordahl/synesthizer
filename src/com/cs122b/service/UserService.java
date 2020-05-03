@@ -70,7 +70,7 @@ public class UserService {
         // Need to encrypt the password
         PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
         String encryptedPassword = passwordEncryptor.encryptPassword(userJson.get("password").getAsString());
-        user.setPassword(userJson.get("password").getAsString());
+        user.setPassword(encryptedPassword);
 
         insertUser(db, user);
 
@@ -102,7 +102,10 @@ public class UserService {
         query.closeQuery();
 
         if (userJson.get("password").getAsString().length() > 0) {
-            user.setPassword(userJson.get("password").getAsString());
+            // Encrypt password
+            PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+            String encryptedPassword = passwordEncryptor.encryptPassword(userJson.get("password").getAsString());
+            user.setPassword(encryptedPassword);
         }
 
         StringBuilder updateQuery = new StringBuilder();
@@ -146,15 +149,20 @@ public class UserService {
 
         // Need to authenticate for encrypted passwords now, (no previous passwords will work until we encrypt them)
         PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
-        String encryptedPassword = passwordEncryptor.encryptPassword(password);
 
         Query query = db
-                .query(String.format("SELECT *  FROM user WHERE email='%s' AND password='%s'", email, encryptedPassword));
+                .query(String.format("SELECT *  FROM user WHERE email='%s'", email));
 
         User user = new User();
         ResultSet result = query.getResult();
 
         if (result.next() == false) {
+            db.closeConnection();
+            return null;
+        }
+
+        String encryptedPassword = result.getString("password");
+        if (!passwordEncryptor.checkPassword(password, encryptedPassword)) {
             db.closeConnection();
             return null;
         }
