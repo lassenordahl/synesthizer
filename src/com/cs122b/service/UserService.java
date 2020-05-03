@@ -4,6 +4,8 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.client.Query;
 import com.cs122b.model.User;
 import com.google.gson.JsonObject;
+import org.jasypt.util.password.PasswordEncryptor;
+import org.jasypt.util.password.StrongPasswordEncryptor;
 
 import java.sql.*;
 
@@ -64,6 +66,10 @@ public class UserService {
         user.setLast_name(userJson.get("last_name").getAsString());
         user.setAddress(userJson.get("address").getAsString());
         user.setEmail(userJson.get("email").getAsString());
+
+        // Need to encrypt the password
+        PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+        String encryptedPassword = passwordEncryptor.encryptPassword(userJson.get("password").getAsString());
         user.setPassword(userJson.get("password").getAsString());
 
         insertUser(db, user);
@@ -138,8 +144,12 @@ public class UserService {
     public static User authenticateUser(String email, String password) throws SQLException {
         SQLClient db = new SQLClient();
 
+        // Need to authenticate for encrypted passwords now, (no previous passwords will work until we encrypt them)
+        PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+        String encryptedPassword = passwordEncryptor.encryptPassword(password);
+
         Query query = db
-                .query(String.format("SELECT *  FROM user WHERE email='%s' AND password='%s'", email, password));
+                .query(String.format("SELECT *  FROM user WHERE email='%s' AND password='%s'", email, encryptedPassword));
 
         User user = new User();
         ResultSet result = query.getResult();
