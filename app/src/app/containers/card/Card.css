@@ -7,7 +7,6 @@
 }
 
 .card-hover:hover {
-  box-shadow: 3px 10px 18px rgba(0, 0, 0, 0.1) !important;
   transform: scale(1.05);
   cursor: pointer;
 }
