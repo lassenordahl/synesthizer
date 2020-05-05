@@ -41,7 +41,7 @@ public class AlbumService {
 
             album.addArtists(artist);
         }
-        
+
         if (addPopularity) {
             album.setPopularity(result.getInt("popularity"));
         }
