@@ -26,18 +26,17 @@ public class PlaylistsServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        int userId = (Integer) request.getSession().getAttribute("user_id");
+//        int userId = (Integer) request.getSession().getAttribute("user_id");
 
         String offset = request.getParameter("offset");
         String limit = request.getParameter("limit");
 
         List<Playlist> playlists = null;
         try {
-            // DEV
-//            playlists = PlaylistService.fetchPlaylists(1, offset != null ? Integer.parseInt(offset) : 0,
-//                    limit != null ? Integer.parseInt(limit) : 30);
-            playlists = PlaylistService.fetchPlaylists(userId, offset != null ? Integer.parseInt(offset) : 0,
+            playlists = PlaylistService.fetchPlaylists(100, offset != null ? Integer.parseInt(offset) : 0,
                     limit != null ? Integer.parseInt(limit) : 30);
+//            playlists = PlaylistService.fetchPlaylists(userId, offset != null ? Integer.parseInt(offset) : 0,
+//                    limit != null ? Integer.parseInt(limit) : 30);
         } catch (SQLException e) {
             e.printStackTrace();
         }

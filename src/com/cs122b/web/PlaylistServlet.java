@@ -58,6 +58,7 @@ public class PlaylistServlet extends HttpServlet {
 
         Playlist user = null;
         try {
+//            user = PlaylistService.fetchPlaylist(playlistId, 100);
             user = PlaylistService.fetchPlaylist(playlistId, userId);
         } catch (SQLException e) {
             e.printStackTrace();
