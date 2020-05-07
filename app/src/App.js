@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "./helper.css";
 
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import {
   Landing,
@@ -14,9 +14,9 @@ import {
   CreatePlaylist,
   UserView,
   SpotifyPlaylist,
+  Dashboard,
 } from "./app/views";
 import { PrivateRoute, GoBackButton } from "./app/components";
-import { useRouter } from "./hooks";
 
 function App() {
   // Visual Variables
@@ -57,15 +57,23 @@ function App() {
                       <h2>{match.params.route}</h2>
                       {/* {match.params.secondaryRoute !== undefined ? ">" : null} */}
                       {match.params.secondaryRoute !== undefined ? (
-                        <div style={{marginTop: "18px"}}>
+                        <div style={{ marginTop: "18px" }}>
                           <p>{match.params.secondaryRoute}</p>
-                          <GoBackButton className="go-back-button" prevRoute={match.params.route}/>
+                          <GoBackButton
+                            className="go-back-button"
+                            prevRoute={match.params.route}
+                          />
                         </div>
                       ) : null}
                     </div>
                   ) : null;
                 }}
               </PrivateRoute>
+              <Route exact path="/app/_dashboard">
+                <div className="route-title">
+                  <h2>Dashboard</h2>
+                </div>
+              </Route>
             </div>
             <div className="app-header"></div>
             <PrivateRoute
@@ -103,6 +111,7 @@ function App() {
               path="/app/user/playlists/create"
               component={CreatePlaylist}
             ></PrivateRoute>
+            <Route exact path="/app/_dashboard" component={Dashboard}></Route>
             <Footer />
           </Route>
           <Redirect exact from="/" to="/landing" />

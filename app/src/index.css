@@ -168,8 +168,13 @@ img {
 
 /**
  * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
+ * 2. Remove 
+ the margin in Firefox and Safari.
  */
+
+input {
+  height: 40px;
+}
 
 button,
 input,
