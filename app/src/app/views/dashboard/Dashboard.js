@@ -64,7 +64,6 @@ function Dashboard() {
             <input placeholder="Song ID"></input>
             <input placeholder="Song Name"></input>
             <input placeholder="Artist ID"></input>
-            <input placeholder="Artist Name"></input>
           </div>
         </div>
       </div>
