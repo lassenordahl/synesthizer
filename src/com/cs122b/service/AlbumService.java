@@ -20,11 +20,15 @@ public class AlbumService {
         album.setImage(result.getString("image"));
         album.setRelease_date(result.getString("release_date"));
 
+
         // Add Artists to Album
-        Query queryArtist = db
-                .query("SELECT * FROM artist_in_album NATURAL JOIN artist WHERE artist_id = id AND album_id = \""
-                        + album.getId() + "\" ORDER BY name;");
-        ResultSet artistsResult = queryArtist.getResult();
+        String query = "SELECT * FROM artist_in_album " +
+                "NATURAL JOIN artist \n" +
+                "WHERE artist_id = id AND album_id = ?\n" +
+                "ORDER BY name;";
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, album.getId());
+        ResultSet artistsResult = statement.executeQuery();
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -38,8 +42,6 @@ public class AlbumService {
             album.addArtists(artist);
         }
 
-        queryArtist.closeQuery();
-
         if (addPopularity) {
             album.setPopularity(result.getInt("popularity"));
         }
@@ -50,20 +52,6 @@ public class AlbumService {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
-
-        // Query query = db.query("SELECT album.id, album.name, album.album_type,
-        // album.image, album.release_date, (\n"
-        // + "\tSELECT COUNT(track_in_playlist.playlist_id) FROM track_in_album\n"
-        // + "\tLEFT JOIN track_in_playlist ON track_in_playlist.track_id =
-        // track_in_album.track_id\n"
-        // + "\tWHERE track_in_album.album_id = album.id\n" + " GROUP BY
-        // track_in_album.album_id\n"
-        // + ")as popularity, artist.name as artist_name, artist.id as artist_id FROM
-        // album\n"
-        // + "LEFT JOIN artist_in_album ON artist_in_album.album_id = album.id\n"
-        // + "LEFT JOIN artist ON artist.id = artist_in_album.artist_id\n" + "ORDER BY
-        // popularity DESC\n"
-        // + "LIMIT 0," + Integer.toString(limit) + ";");
 
         // SELECT
         queryString
@@ -122,17 +110,20 @@ public class AlbumService {
 
         SQLClient db = new SQLClient();
 
-        Query query = db.query("SELECT album.id, album.name, album.album_type, album.image, album.release_date, "
+        String query = "SELECT album.id, album.name, album.album_type, album.image, album.release_date, "
                 + "artist.name as artist_name, artist.id as artist_id FROM album\n"
                 + "LEFT JOIN artist_in_album as a_to_a ON a_to_a.album_id = album.id\n"
-                + "LEFT JOIN artist ON a_to_a.artist_id = artist.id \n" + "WHERE album.id = \"" + id + "\"");
+                + "LEFT JOIN artist ON a_to_a.artist_id = artist.id \n" + "WHERE album.id = ?";
 
-        ResultSet result = query.getResult();
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, id);
+        ResultSet result = statement.executeQuery();
+
         result.next();
 
         Album album = new Album();
         setAlbumAttrs(db, album, result, false);
-        query.closeQuery();
+
         db.closeConnection();
         return album;
     }
@@ -140,15 +131,17 @@ public class AlbumService {
     public static List<Track> fetchTracksForAlbum(String id) throws SQLException {
 
         SQLClient db = new SQLClient();
+        List<Track> tracksForAlbum = new ArrayList<Track>();
 
-        Query query = db.query("SELECT track.id, track.name, track_meta.duration_ms, track.track_number FROM album\n"
+        String query = "SELECT track.id, track.name, track_meta.duration_ms, track.track_number FROM album\n"
                 + "LEFT JOIN track_in_album ON track_in_album.album_id = album.id\n"
                 + "LEFT JOIN track ON track.id = track_in_album.track_id\n"
-                + "LEFT JOIN track_meta ON track_meta.id = track.id WHERE album.id = \"" + id
-                + "\" ORDER BY track.track_number;");
+                + "LEFT JOIN track_meta ON track_meta.id = track.id WHERE album.id = ?\n"
+                + "ORDER BY track.track_number;";
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, id);
+        ResultSet result = statement.executeQuery();
 
-        List<Track> tracksForAlbum = new ArrayList<Track>();
-        ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
 
@@ -159,7 +152,6 @@ public class AlbumService {
 
             tracksForAlbum.add(track);
         }
-        query.closeQuery();
 
         db.closeConnection();
         return tracksForAlbum;
