@@ -1,10 +1,15 @@
 package com.cs122b.parser;
 
+import com.cs122b.client.SQLClient;
 import com.cs122b.model.Artist;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLClientInfoException;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 
 class ArtistParser extends BaseParser {
@@ -59,7 +64,32 @@ class ArtistParser extends BaseParser {
         return;
     }
 
-    void commitArtists() {
-        return;
+    void commitArtists() throws SQLException {
+        SQLClient db = new SQLClient();
+
+        db.getConnection().setAutoCommit(false);
+
+        String insertQuery = "INSERT INTO artist(id, name, image) " + "VALUES(?,?,?);";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+
+        for (Artist artist : artists) {
+            pstmt.setString(1, artist.getId());
+            pstmt.setString(2, artist.getName());
+            pstmt.setString(3, artist.getImage());
+            pstmt.addBatch();
+        }
+
+        try {
+            // Batch is ready, execute it to insert the data
+            pstmt.executeBatch();
+        } catch (SQLException e) {
+            System.out.println("Error message: " + e.getMessage());
+        }
+
+        db.getConnection().commit();
+        System.out.println("we have committed the artists");
+
+        pstmt.close();
+        db.closeConnection();
     }
 }
