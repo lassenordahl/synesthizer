@@ -113,9 +113,8 @@ public class MainParser {
     }
 
     public static void main(String[] args) {
-        System.out.println("We are starting");
-        MainParser dpe = new MainParser(
-                "/Users/zacharypinto/Documents/UCI_Classes/cs122b/cs122b-spring20-team-53/data_collection_creation/xml_creation/track_metas.xml");
+        System.out.println("Starting Parser");
+        MainParser dpe = new MainParser(args[0]);
         dpe.run();
     }
 }

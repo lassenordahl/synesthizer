@@ -29,10 +29,13 @@ class ArtistParser extends BaseParser {
         artist.setName(getTextValue(artistElem, "name"));
 
         // May need to verify this works
-        NodeList images = artistElem.getElementsByTagName("images");
-        if (images != null && images.getLength() > 0) {
-            Element image = (Element) images.item(0);
-            artist.setImage(this.getTextValue(image, "url"));
+        NodeList imagesTag = artistElem.getElementsByTagName("images");
+        if (imagesTag != null && imagesTag.getLength() > 0) {
+            NodeList images = ((Element) imagesTag.item(0)).getElementsByTagName("item");
+            if (images != null && images.getLength() > 0) {
+                Element imageElem = (Element) images.item(0);
+                artist.setImage(this.getTextValue(imageElem, "url"));
+            }
         } else {
             artist.setImage(getTextValue(artistElem, "https://picsum.photos/200"));
         }
@@ -88,7 +91,6 @@ class ArtistParser extends BaseParser {
             // Artist in genre
             if (artist.getGenres() != null) {
                 for (String genre : artist.getGenres()) {
-                    System.out.println(genre);
                     pstmt2.setString(1, artist.getId());
                     pstmt2.setString(2, genre);
                     pstmt2.addBatch();
