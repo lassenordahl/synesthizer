@@ -7,3 +7,4 @@ export { default as Playlists } from "./playlists/Playlists";
 export { default as CreatePlaylist } from "./create-playlist/CreatePlaylist";
 export { default as UserView } from "./user-view/UserView";
 export { default as SpotifyPlaylist } from "./spotify-playlist/SpotifyPlaylist";
+export { default as Dashboard } from "./dashboard/Dashboard";

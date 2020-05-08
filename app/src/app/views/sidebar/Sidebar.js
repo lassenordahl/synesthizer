@@ -62,6 +62,9 @@ function Sidebar(props) {
             </Route>
             Artists
           </Link>
+          <Link to="/app/_dashboard">
+            Dashboard
+          </Link>
           {loggedIn ? (
             <React.Fragment>
               <Link to="/app/user/playlists">
@@ -97,7 +100,7 @@ function Sidebar(props) {
                   <div className="link-active" />
                 </Route>
                 Sign Up
-              </Link>
+              </Link>    
             </React.Fragment>
           )}
         </React.Fragment>
