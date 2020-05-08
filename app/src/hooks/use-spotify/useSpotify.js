@@ -1,8 +1,8 @@
-import React, { useEffect } from "react;";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import axios from "axios";
-import { api } from "./../../utils";
+import { api } from "./../../utils/api";
 
 function useSpotify() {
   function getMinuteDifference(diffMs) {
