@@ -18,12 +18,14 @@ public class MainParser {
     ArtistParser artistParser;
     AlbumParser albumParser;
     TrackParser trackParser;
+    TrackMetaParser trackMetaParser;
 
     public MainParser(String file) {
         fileName = file;
         artistParser = new ArtistParser();
         albumParser = new AlbumParser();
         trackParser = new TrackParser();
+        trackMetaParser = new TrackMetaParser();
     }
 
     public void run() {
@@ -79,13 +81,14 @@ public class MainParser {
         if (tracks_meta != null && tracks_meta.getLength() > 0) {
             // get artists element
             Element tracksMetaElem = (Element) tracks_meta.item(0);
+            trackMetaParser.parseTrackMetas(tracksMetaElem);
         }
     }
 
     public static void main(String[] args) {
         System.out.println("We are starting");
         MainParser dpe = new MainParser(
-                "/Users/zacharypinto/Documents/UCI_Classes/cs122b/cs122b-spring20-team-53/data_collection_creation/xml_creation/albums.xml");
+                "/Users/zacharypinto/Documents/UCI_Classes/cs122b/cs122b-spring20-team-53/data_collection_creation/xml_creation/track_metas.xml");
         dpe.run();
     }
 }

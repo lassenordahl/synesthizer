@@ -23,6 +23,14 @@ public class TrackMeta {
     public TrackMeta() {
     }
 
+    public String getId(String id) {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public float getAcousticness() {
         return acousticness;
     }

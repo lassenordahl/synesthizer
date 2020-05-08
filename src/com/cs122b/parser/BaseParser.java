@@ -24,4 +24,8 @@ class BaseParser {
         return Integer.parseInt(getTextValue(ele, tagName));
     }
 
+    float getFloatValue(Element ele, String tagName) {
+        return Float.parseFloat(getTextValue(ele, tagName));
+    }
+
 }
