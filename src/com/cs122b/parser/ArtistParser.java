@@ -36,12 +36,14 @@ class ArtistParser extends BaseParser {
             artist.setImage(getTextValue(artistElem, "https://picsum.photos/200"));
         }
 
-        NodeList genres = artistElem.getElementsByTagName("genres");
-        if (genres != null && genres.getLength() > 0) {
-            for (int i = 0; i < genres.getLength(); i++) {
-                Element genreElem = (Element) genres.item(i);
-                artist.addGenre(this.getTextValue(genreElem, "item"));
-            }
+        NodeList genreTags = artistElem.getElementsByTagName("genres");
+        if (genreTags != null && genreTags.getLength() > 0) {
+            NodeList genres = ((Element) genreTags.item(0)).getElementsByTagName("item");
+            if (genres != null && genres.getLength() > 0)
+                for (int i = 0; i < genres.getLength(); i++) {
+                    Element genreElem = (Element) genres.item(i);
+                    artist.addGenre(genreElem.getFirstChild().getNodeValue());
+                }
         }
 
         return artist;
@@ -72,24 +74,47 @@ class ArtistParser extends BaseParser {
         String insertQuery = "INSERT INTO artist(id, name, image) " + "VALUES(?,?,?);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
 
+        String insertQuery2 = "INSERT INTO artist_in_genre(artist_id, genre) " + "VALUES(?,?);";
+        PreparedStatement pstmt2 = db.getConnection().prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
+
         for (Artist artist : artists) {
             pstmt.setString(1, artist.getId());
             pstmt.setString(2, artist.getName());
             pstmt.setString(3, artist.getImage());
+
+            // Artist in genre
+            if (artist.getGenres() != null) {
+                for (String genre : artist.getGenres()) {
+                    System.out.println(genre);
+                    pstmt2.setString(1, artist.getId());
+                    pstmt2.setString(2, genre);
+                    pstmt2.addBatch();
+                }
+            }
+
             pstmt.addBatch();
         }
 
         try {
-            // Batch is ready, execute it to insert the data
             pstmt.executeBatch();
         } catch (SQLException e) {
             System.out.println("Error message: " + e.getMessage());
         }
 
+        System.out.println("committed to artist table");
+
+        try {
+            pstmt2.executeBatch();
+        } catch (SQLException e) {
+            System.out.println("Error message: " + e.getMessage());
+        }
+
         db.getConnection().commit();
-        System.out.println("we have committed the artists");
+
+        System.out.println("committed to artist_in_genre table");
 
         pstmt.close();
+        pstmt2.close();
         db.closeConnection();
     }
 }
