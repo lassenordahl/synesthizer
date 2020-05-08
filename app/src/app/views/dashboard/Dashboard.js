@@ -33,7 +33,6 @@ function DashboardInfo(props) {
 }
 
 function SpotifyCards(props) {
-
   const { spotifyAuth } = useSpotify();
   const [searchedTracks, setSearchedTracks] = useState([]);
   const [searchField, setSearchField] = useState("");
@@ -63,41 +62,40 @@ function SpotifyCards(props) {
   }
 
   function fillInTrack(selectedTrack) {
-      console.log(selectedTrack);
-      props.setSong({
-        id: selectedTrack.id,
-        name: selectedTrack.name,
-        track_number: selectedTrack.track_number
-      });
-      props.setAlbum({
-        id: selectedTrack.album.id,
-        name: selectedTrack.album.name,
-        image: selectedTrack.album.image,
-        album_type: selectedTrack.album.album_type,
-        release_date: selectedTrack.album.release_date,
-      });
-      props.setArtist({
-        id: selectedTrack.artists[0].id,
-        name: selectedTrack.artists[0].name,
-        image: selectedTrack.artists[0].image,
-      })
+    props.setSong({
+      id: selectedTrack.id,
+      name: selectedTrack.name,
+      track_number: selectedTrack.track_number,
+    });
+    props.setAlbum({
+      id: selectedTrack.album.id,
+      name: selectedTrack.album.name,
+      image: selectedTrack.album.images[0].url,
+      album_type: selectedTrack.album.album_type,
+      release_date: selectedTrack.album.release_date,
+    });
+    props.setArtist({
+      id: selectedTrack.artists[0].id,
+      name: selectedTrack.artists[0].name,
+      image: selectedTrack.artists[0].image,
+    });
   }
 
   return (
     <div className="search-songs">
       {renderToast()}
-      <h2 style={{ marginBottom: "36px" }}>Spotify Songs</h2>
+      <h2 style={{ marginBottom: "36px", marginTop: "16px" }}>Spotify Songs</h2>
       <input
         placeholder="Search Songs"
         style={{ marginBottom: "36px" }}
         value={searchField}
         onChange={handleChange}
       ></input>
-      <Button 
-        isGreen={true} 
+      <Button
+        isGreen={true}
         style={{
           marginBottom: "36px",
-          marginLeft: "calc(50% - 80px)"
+          marginLeft: "calc(50% - 80px)",
         }}
         onClick={() => searchItems()}
       >
@@ -105,9 +103,13 @@ function SpotifyCards(props) {
       </Button>
       {searchedTracks.map(function (track, index) {
         return (
-          <div className="database-song-card" key={index} onClick={() => {
-            fillInTrack(track);
-          }}>
+          <div
+            className="database-song-card"
+            key={index}
+            onClick={() => {
+              fillInTrack(track);
+            }}
+          >
             <img src={track.album.images[0].url} alt="album-art"></img>
             <div>
               <h3>{truncateTitle(track.name, 24)}</h3>
@@ -122,13 +124,12 @@ function SpotifyCards(props) {
 }
 
 function Dashboard() {
-
   const [showSuccess, showError, renderToast] = useToast();
 
   const [song, setSong] = useState({
     id: "",
     name: "",
-    track_number: ""
+    track_number: "",
   });
   const [album, setAlbum] = useState({
     id: "",
@@ -140,7 +141,7 @@ function Dashboard() {
   const [artist, setArtist] = useState({
     id: "",
     name: "",
-    image: ""
+    image: "",
   });
 
   return (
@@ -159,11 +160,23 @@ function Dashboard() {
           </div>
         </div>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
-          <div>
-            <h2>Add Album</h2>
-            <input value={album.id} placeholder="ID"></input>
-            <input value={album.name} placeholder="Name"></input>
-            <input value={album.release_date} placeholder="Release Date"></input>
+          <div className="album-wrapper">
+            <div>
+              <h2>Add Album</h2>
+              <input value={album.id} placeholder="ID"></input>
+              <input value={album.name} placeholder="Name"></input>
+              <input
+                value={album.release_date}
+                placeholder="Release Date"
+              ></input>
+            </div>
+            <div className="album-wrapper-art-wrapper">
+              {album.image !== "" ? (
+                <img src={album.image} style={{marginTop: "38px"}} alt="album-art"></img>
+              ) : (
+                <p>Please select an image</p>
+              )}
+            </div>
           </div>
         </div>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
@@ -173,13 +186,20 @@ function Dashboard() {
             <input value={artist.name} placeholder="Name"></input>
           </div>
         </div>
-        <Button isPrimary={true} style={{ marginLeft: "auto", marginTop: "36px" }}>
+        <Button
+          isPrimary={true}
+          style={{ marginLeft: "auto", marginTop: "36px" }}
+        >
           Add Song Information
         </Button>
       </div>
       <div className="div2">
         <div className="dashboard-card" style={{ height: "100%" }}>
-          <SpotifyCards setSong={setSong} setAlbum={setAlbum} setArtist={setArtist}/>
+          <SpotifyCards
+            setSong={setSong}
+            setAlbum={setAlbum}
+            setArtist={setArtist}
+          />
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@
 
 .dashboard h2 {
   margin-bottom: 36px;
+  margin-top: 36px;
 }
 
 .div1 {
@@ -107,4 +108,23 @@
 .database-song-card > div > p {
   margin: 0;
   margin-top: 8px;
+}
+
+.album-wrapper { 
+  display: flex;
+  flex-direction: row;
+}
+
+.album-wrapper-art-wrapper {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 72px;
+}
+
+.album-wrapper-art-wrapper img {
+  height: 168px;
+  width: 168px;
+  border-radius: 10px;
 }
