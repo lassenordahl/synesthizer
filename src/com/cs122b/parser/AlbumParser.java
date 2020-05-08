@@ -30,14 +30,18 @@ class AlbumParser extends BaseParser {
         album.setAlbum_type(this.getTextValue(albumElem, "album_type"));
         album.setRelease_date(this.getTextValue(albumElem, "release_date"));
 
-        // May need to verify this works
-        NodeList images = albumElem.getElementsByTagName("images");
-        if (images != null && images.getLength() > 0) {
-            Element image = (Element) images.item(0);
-            album.setImage(this.getTextValue(image, "url"));
+        NodeList imagesTag = albumElem.getElementsByTagName("images");
+        if (imagesTag != null && imagesTag.getLength() > 0) {
+            NodeList images = ((Element) imagesTag.item(0)).getElementsByTagName("item");
+            if (images != null && images.getLength() > 0) {
+                Element imageElem = (Element) images.item(0);
+                album.setImage(this.getTextValue(imageElem, "url"));
+            }
         } else {
-            album.setImage(getTextValue(albumElem, "https://picsum.photos/200"));
+            album.setImage("https://picsum.photos/200");
         }
+
+        System.out.println(album.getImage());
 
         // Handle Artists and Album
         NodeList artistTags = albumElem.getElementsByTagName("artists");

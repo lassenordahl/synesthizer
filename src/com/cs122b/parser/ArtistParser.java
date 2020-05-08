@@ -37,7 +37,7 @@ class ArtistParser extends BaseParser {
                 artist.setImage(this.getTextValue(imageElem, "url"));
             }
         } else {
-            artist.setImage(getTextValue(artistElem, "https://picsum.photos/200"));
+            artist.setImage("https://picsum.photos/200");
         }
 
         NodeList genreTags = artistElem.getElementsByTagName("genres");
