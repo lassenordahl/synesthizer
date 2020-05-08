@@ -6,10 +6,7 @@ import com.cs122b.model.Artist;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLClientInfoException;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.LinkedList;
 
 class ArtistParser extends BaseParser {
@@ -83,6 +80,7 @@ class ArtistParser extends BaseParser {
         String insertQuery2 = "INSERT INTO artist_in_genre(artist_id, genre) " + "VALUES(?,?);";
         PreparedStatement pstmt2 = db.getConnection().prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
 
+        int artists_in_genre = 0;
         for (Artist artist : artists) {
             pstmt.setString(1, artist.getId());
             pstmt.setString(2, artist.getName());
@@ -94,6 +92,7 @@ class ArtistParser extends BaseParser {
                     pstmt2.setString(1, artist.getId());
                     pstmt2.setString(2, genre);
                     pstmt2.addBatch();
+                    artists_in_genre++;
                 }
             }
 
@@ -102,18 +101,19 @@ class ArtistParser extends BaseParser {
 
         try {
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d artists.",
+                    this.getSuccessCount(e.getUpdateCounts()), artists.size()));
         }
 
         System.out.println("committed to artist table");
 
         try {
             pstmt2.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_genre.",
+                    this.getSuccessCount(e.getUpdateCounts()), artists_in_genre));
         }
-
         db.getConnection().commit();
 
         System.out.println("committed to artist_in_genre table");

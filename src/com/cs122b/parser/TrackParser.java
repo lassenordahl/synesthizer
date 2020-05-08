@@ -4,6 +4,8 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
 import com.cs122b.model.Track;
+
+import java.sql.BatchUpdateException;
 import java.sql.PreparedStatement;
 
 import com.mysql.jdbc.Statement;
@@ -29,10 +31,8 @@ class TrackParser extends BaseParser {
         track.setId(this.getTextValue(trackElem, "id"));
         track.setName(this.getTextValue(trackElem, "name"));
         track.setTrack_number(this.getIntValue(trackElem, "track_number"));
-        System.out.println("Track number :" + track.getId() + " : " + Integer.toString(track.getTrack_number()));
 
         // Handle Artists in track
-        System.out.println("artists in " + track.getId());
         NodeList artistTags = trackElem.getElementsByTagName("artists");
         if (artistTags != null && artistTags.getLength() > 0) {
             NodeList artists = ((Element) artistTags.item(0)).getElementsByTagName("item");
@@ -47,16 +47,6 @@ class TrackParser extends BaseParser {
             }
         }
 
-        // NodeList artists = trackElem.getElementsByTagName("artists");
-        // if (artists != null && artists.getLength() > 0) {
-        // for (int i = 0; i < artists.getLength(); i++) {
-        // Element artistElem = (Element) artists.item(i);
-        // Artist artist = new Artist();
-        // artist.setId(this.getTextValue(artistElem, "id"));
-        // track.addArtists(artist);
-        // }
-        // }
-
         System.out.println("album in " + track.getId());
         NodeList albumsTags = trackElem.getElementsByTagName("album");
         if (albumsTags != null && albumsTags.getLength() > 0) {
@@ -66,16 +56,6 @@ class TrackParser extends BaseParser {
             System.out.println(this.getTextValue(albumElem, "id"));
             track.setAlbum(album);
         }
-
-        // NodeList albums = ((Element)
-        // albumsTags.item(0)).getElementsByTagName("item");
-        // if (albums != null && albums.getLength() > 0) {
-        // Element albumElem = (Element) albums.item(0);
-        // Album album = new Album();
-        // album.setId(this.getTextValue(albumElem, "id"));
-        // System.out.println(this.getTextValue(albumElem, "id"));
-        // track.setAlbum(album);
-        // }
 
         return track;
     }
@@ -114,6 +94,7 @@ class TrackParser extends BaseParser {
         String insertQuery3 = "INSERT INTO track_in_album(track_id, album_id) " + "VALUES(?,?);";
         PreparedStatement pstmt3 = db.getConnection().prepareStatement(insertQuery3, Statement.RETURN_GENERATED_KEYS);
 
+        int artists_in_track = 0;
         for (Track track : tracks) {
             pstmt.setString(1, track.getId());
             pstmt.setString(2, track.getName());
@@ -125,6 +106,7 @@ class TrackParser extends BaseParser {
                     pstmt2.setString(1, artist.getId());
                     pstmt2.setString(2, track.getId());
                     pstmt2.addBatch();
+                    artists_in_track++;
                 }
             }
 
@@ -139,8 +121,9 @@ class TrackParser extends BaseParser {
         try {
             // Batch is ready, execute it to insert the data
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d tracks.",
+                    this.getSuccessCount(e.getUpdateCounts()), tracks.size()));
         }
 
         System.out.println("committed the track");
@@ -148,8 +131,9 @@ class TrackParser extends BaseParser {
         try {
             // Batch is ready, execute it to insert the data
             pstmt2.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_track.",
+                    this.getSuccessCount(e.getUpdateCounts()), artists_in_track));
         }
 
         System.out.println("committed the artist_in_track");
@@ -157,8 +141,9 @@ class TrackParser extends BaseParser {
         try {
             // Batch is ready, execute it to insert the data
             pstmt3.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d tracks_in_album.",
+                    this.getSuccessCount(e.getUpdateCounts()), tracks.size()));
         }
 
         db.getConnection().commit();

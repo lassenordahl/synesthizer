@@ -1,5 +1,7 @@
 package com.cs122b.parser;
 
+import com.mysql.jdbc.Statement;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
@@ -37,6 +39,24 @@ class BaseParser {
             return 0;
         }
         return Float.parseFloat(getTextValue(ele, tagName));
+    }
+
+    int getFailCount(int[] rows) {
+        int failure = 0;
+        for (int row : rows) {
+            if (row == Statement.EXECUTE_FAILED)
+                failure++;
+        }
+        return failure;
+    }
+
+    int getSuccessCount(int[] rows) {
+        int success = 0;
+        for (int row : rows) {
+            if (row == Statement.SUCCESS_NO_INFO)
+                success++;
+        }
+        return success;
     }
 
 }

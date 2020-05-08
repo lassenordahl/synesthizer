@@ -7,6 +7,7 @@ import com.cs122b.model.Artist;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.sql.BatchUpdateException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,8 +41,6 @@ class AlbumParser extends BaseParser {
         } else {
             album.setImage("https://picsum.photos/200");
         }
-
-        System.out.println(album.getImage());
 
         // Handle Artists and Album
         NodeList artistTags = albumElem.getElementsByTagName("artists");
@@ -99,6 +98,7 @@ class AlbumParser extends BaseParser {
 
         String insertQuery2 = "INSERT INTO artist_in_album(artist_id, album_id) " + "VALUES(?,?);";
         PreparedStatement pstmt2 = db.getConnection().prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
+        int artists_in_albums = 0;
 
         for (Album album : albums) {
             pstmt.setString(1, album.getId());
@@ -113,6 +113,7 @@ class AlbumParser extends BaseParser {
                     pstmt2.setString(1, artist.getId());
                     pstmt2.setString(2, album.getId());
                     pstmt2.addBatch();
+                    artists_in_albums++;
                 }
             }
 
@@ -122,8 +123,9 @@ class AlbumParser extends BaseParser {
         try {
             // Batch is ready, execute it to insert the data
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d albums.",
+                    this.getSuccessCount(e.getUpdateCounts()), albums.size()));
         }
 
         System.out.println("committed the artist");
@@ -131,8 +133,9 @@ class AlbumParser extends BaseParser {
         try {
             // Batch is ready, execute it to insert the data
             pstmt2.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_albums.",
+                    this.getSuccessCount(e.getUpdateCounts()), artists_in_albums));
         }
 
         db.getConnection().commit();

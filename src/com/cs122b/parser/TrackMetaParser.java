@@ -6,6 +6,7 @@ import com.cs122b.model.TrackMeta;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.sql.BatchUpdateException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -98,8 +99,9 @@ class TrackMetaParser extends BaseParser {
 
         try {
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            System.out.println("Error message: " + e.getMessage());
+        } catch (BatchUpdateException e) {
+            System.out.println(String.format("Batch was able to insert %d out of %d track_metas.",
+                    this.getSuccessCount(e.getUpdateCounts()), trackMetas.size()));
         }
 
         db.getConnection().commit();
