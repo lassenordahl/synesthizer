@@ -10,6 +10,21 @@ import { useSpotify, useToast } from "../../../hooks";
 import { truncateTitle } from "../../../global/helper";
 
 function DashboardInfo(props) {
+
+  const [databaseMeta, setDatabaseMeta] = useState(null);
+
+  useEffect(() => {
+    axios.get(api.databaseMeta)
+      .then(function(response) {
+        if (response.status === 200) {
+          setDatabaseMeta(response.data.meta);
+        }
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information")
+      })
+  }, []);
+
   return (
     <div className="dashboard-info">
       <h2>Database Information</h2>
@@ -17,15 +32,15 @@ function DashboardInfo(props) {
       <div className="dashboard-database-info">
         <div className="dashboard-info-div1">
           <h3>Artists</h3>
-          <p>Artist Count: </p>
+          <p>Artist Count: {databaseMeta ? databaseMeta.artist_count : 0}</p>
         </div>
         <div className="dashboard-info-div2">
           <h3>Albums</h3>
-          <p>Album Count: </p>
+          <p>Album Count: {databaseMeta ? databaseMeta.album_count : 0}</p>
         </div>
         <div className="dashboard-info-div3">
           <h3>Songs</h3>
-          <p>Song Count: </p>
+          <p>Song Count: {databaseMeta ? databaseMeta.track_count : 0}</p>
         </div>
       </div>
     </div>

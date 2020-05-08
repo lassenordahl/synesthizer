@@ -78,6 +78,9 @@ public class LoginFilter implements Filter {
         // Auth
         allowedURIs.add("api/login");
         allowedURIs.add("api/logout");
+
+        // Database
+        allowedURIs.add("api/database/meta");
     }
 
     public void destroy() {

@@ -188,4 +188,13 @@
         <servlet-name>GenresServlet</servlet-name>
         <url-pattern>/api/genres</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DatabaseMetaServlet</servlet-name>
+        <servlet-class>com.cs122b.web.DatabaseMetaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DatabaseMetaServlet</servlet-name>
+        <url-pattern>/api/database/meta</url-pattern>
+    </servlet-mapping>
 </web-app>
