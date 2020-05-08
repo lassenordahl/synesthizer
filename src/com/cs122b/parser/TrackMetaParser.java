@@ -1,10 +1,14 @@
 package com.cs122b.parser;
 
+import com.cs122b.client.SQLClient;
 import com.cs122b.model.TrackMeta;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 
 class TrackMetaParser extends BaseParser {
@@ -45,20 +49,63 @@ class TrackMetaParser extends BaseParser {
         NodeList nl = trackMetasElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
             for (int i = 0; i < nl.getLength(); i++) {
-                // get the trackMeta element
-                Element el = (Element) nl.item(i);
+                if (nl.item(i).getParentNode().getNodeName().equals("track_metas")) {
+                    // get the trackMeta element
+                    Element el = (Element) nl.item(i);
 
-                // get the TrackMeta object
-                TrackMeta trackMeta = getTrackMeta(el);
+                    // get the TrackMeta object
+                    TrackMeta trackMeta = getTrackMeta(el);
 
-                // add it to list
-                trackMetas.add(trackMeta);
+                    // add it to list
+                    trackMetas.add(trackMeta);
+                }
             }
         }
         return;
     }
 
-    void commitTrackMetas() {
-        return;
+    void commitTrackMetas() throws SQLException {
+        SQLClient db = new SQLClient();
+
+        db.getConnection().setAutoCommit(false);
+
+        String insertQuery = "INSERT INTO track_meta(id,acousticness,analysis_url,danceability,duration_ms,energy,instrumentalness,note,liveness,loudness,mode,speechiness,tempo,time_signature,track_href,type,uri,valence) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+
+        for (TrackMeta trackMeta : trackMetas) {
+            pstmt.setString(1, trackMeta.getId());
+            pstmt.setFloat(2, trackMeta.getAcousticness());
+            pstmt.setString(3, trackMeta.getAnalysis_url());
+            pstmt.setFloat(4, trackMeta.getDanceability());
+            pstmt.setInt(5, trackMeta.getDuration_ms());
+            pstmt.setFloat(6, trackMeta.getEnergy());
+            pstmt.setFloat(7, trackMeta.getInstrumentalness());
+            pstmt.setInt(8, trackMeta.getNote());
+            pstmt.setFloat(9, trackMeta.getLiveness());
+            pstmt.setFloat(10, trackMeta.getLoudness());
+            pstmt.setInt(11, trackMeta.getMode());
+            pstmt.setFloat(12, trackMeta.getSpeechiness());
+            pstmt.setFloat(13, trackMeta.getTempo());
+            pstmt.setInt(14, trackMeta.getTime_signature());
+            pstmt.setString(15, trackMeta.getTrack_href());
+            pstmt.setString(16, trackMeta.getType());
+            pstmt.setString(17, trackMeta.getUri());
+            pstmt.setFloat(18, trackMeta.getValence());
+
+            pstmt.addBatch();
+        }
+
+        try {
+            pstmt.executeBatch();
+        } catch (SQLException e) {
+            System.out.println("Error message: " + e.getMessage());
+        }
+
+        db.getConnection().commit();
+        System.out.println("committed to track_meta table");
+
+        pstmt.close();
+        db.closeConnection();
     }
 }

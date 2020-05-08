@@ -78,6 +78,11 @@ public class MainParser {
             // get artists element
             Element albumsElem = (Element) albums.item(0);
             albumParser.parseAlbums(albumsElem);
+            try {
+                albumParser.commitAlbums();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         NodeList tracks = docEle.getElementsByTagName("tracks");
@@ -86,21 +91,31 @@ public class MainParser {
             // get artists element
             Element tracksElem = (Element) tracks.item(0);
             trackParser.parseTracks(tracksElem);
+            try {
+                trackParser.commitTracks();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
-        NodeList tracks_meta = docEle.getElementsByTagName("tracks_meta");
+        NodeList tracks_meta = docEle.getElementsByTagName("track_metas");
         if (tracks_meta != null && tracks_meta.getLength() > 0) {
             System.out.println("Found track_meta");
             // get artists element
             Element tracksMetaElem = (Element) tracks_meta.item(0);
             trackMetaParser.parseTrackMetas(tracksMetaElem);
+            try {
+                trackMetaParser.commitTrackMetas();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public static void main(String[] args) {
         System.out.println("We are starting");
         MainParser dpe = new MainParser(
-                "/Users/zacharypinto/Documents/UCI_Classes/cs122b/cs122b-spring20-team-53/data_collection_creation/xml_creation/artists.xml");
+                "/Users/zacharypinto/Documents/UCI_Classes/cs122b/cs122b-spring20-team-53/data_collection_creation/xml_creation/track_metas.xml");
         dpe.run();
     }
 }

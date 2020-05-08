@@ -12,8 +12,13 @@ class BaseParser {
         String textVal = null;
         NodeList nl = ele.getElementsByTagName(tagName);
         if (nl != null && nl.getLength() > 0) {
-            Element el = (Element) nl.item(0);
-            textVal = el.getFirstChild().getNodeValue();
+            for (int i = 0; i < nl.getLength(); i++) {
+                Element el = (Element) nl.item(i);
+                if (((Element) el.getParentNode()).equals(ele)) {
+                    textVal = el.getFirstChild().getNodeValue();
+                    break;
+                }
+            }
         }
 
         return textVal;
@@ -21,10 +26,16 @@ class BaseParser {
 
     int getIntValue(Element ele, String tagName) {
         // in production application you would catch the exception
+        if (getTextValue(ele, tagName) == null) {
+            return 0;
+        }
         return Integer.parseInt(getTextValue(ele, tagName));
     }
 
     float getFloatValue(Element ele, String tagName) {
+        if (getTextValue(ele, tagName) == null) {
+            return 0;
+        }
         return Float.parseFloat(getTextValue(ele, tagName));
     }
 

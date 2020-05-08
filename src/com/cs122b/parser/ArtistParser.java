@@ -28,6 +28,7 @@ class ArtistParser extends BaseParser {
         artist.setId(getTextValue(artistElem, "id"));
         artist.setName(getTextValue(artistElem, "name"));
 
+        // May need to verify this works
         NodeList images = artistElem.getElementsByTagName("images");
         if (images != null && images.getLength() > 0) {
             Element image = (Element) images.item(0);
@@ -54,13 +55,15 @@ class ArtistParser extends BaseParser {
         if (nl != null && nl.getLength() > 0) {
             for (int i = 0; i < nl.getLength(); i++) {
                 // get the artist element
-                Element el = (Element) nl.item(i);
+                if (nl.item(i).getParentNode().getNodeName().equals("artists")) {
+                    Element el = (Element) nl.item(i);
 
-                // get the Artist object
-                Artist artist = getArtist(el);
+                    // get the Artist object
+                    Artist artist = getArtist(el);
 
-                // add it to list
-                artists.add(artist);
+                    // add it to list
+                    artists.add(artist);
+                }
             }
         }
         return;

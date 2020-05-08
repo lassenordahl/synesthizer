@@ -30,6 +30,7 @@ class AlbumParser extends BaseParser {
         album.setAlbum_type(this.getTextValue(albumElem, "album_type"));
         album.setRelease_date(this.getTextValue(albumElem, "release_date"));
 
+        // May need to verify this works
         NodeList images = albumElem.getElementsByTagName("images");
         if (images != null && images.getLength() > 0) {
             Element image = (Element) images.item(0);
@@ -69,14 +70,16 @@ class AlbumParser extends BaseParser {
         NodeList nl = albumsElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
             for (int i = 0; i < nl.getLength(); i++) {
-                // get the album element
-                Element el = (Element) nl.item(i);
+                if (nl.item(i).getParentNode().getNodeName().equals("albums")) {
+                    // get the album element
+                    Element el = (Element) nl.item(i);
 
-                // get the Album object
-                Album album = getAlbum(el);
+                    // get the Album object
+                    Album album = getAlbum(el);
 
-                // add it to list
-                albums.add(album);
+                    // add it to list
+                    albums.add(album);
+                }
             }
         }
         return;
