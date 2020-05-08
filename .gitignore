@@ -19,6 +19,8 @@ web/index.html
 web/precache-manifest*.js
 sql_creation/
 collected_data/
+xml_creation/
+__pycache__
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

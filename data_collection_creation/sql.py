@@ -3,6 +3,7 @@ import json
 import random
 import ssl
 import shutil
+import dicttoxml
 from randomuser import RandomUser
 from randomwordgenerator import randomwordgenerator
 
@@ -299,5 +300,5 @@ if __name__ == '__main__':
         create_table_many_many(*table)
 
     # create fake users
-    create_fake_user_data('user_data', USER_COUNT,
-                          PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
+    # create_fake_user_data('user_data', USER_COUNT,
+    #                       PLAYLIST_COUNT, SONGS_IN_PLAYLIST)
