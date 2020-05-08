@@ -48,6 +48,7 @@ export const api = {
   song: baseUrl + "/track",
   songMeta: baseUrl + "/track/meta",
   genres: baseUrl + "/genres",
+  databaseMeta: baseUrl + "/database/meta",
   playlists: baseUrl + "/playlists",
   playlist: baseUrl + "/playlist",
   playlistSnapshot: baseUrl + "/playlist/snapshot",
