@@ -1,9 +1,11 @@
 .toaster {
   position: fixed;
-  top: 24px;
+  /* top: 24px; */
+  top: calc(24px + 1 * 72px);
   right: 24px;
   width: 240px;
-  height: 48px;
+  min-height: 48px;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   background-color: #323A49;

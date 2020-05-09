@@ -68,7 +68,7 @@ public class ArtistServlet extends HttpServlet {
         }
 
         if (insertionResponse.equalsIgnoreCase("duplicate id")) {
-            response.setStatus(400);
+            response.setStatus(403);
             out.print("{ \"message\": \"Inserted artist already exists\"}");
         } else {
             out.print("{ \"id\": \"" + insertionResponse + "\" }");
