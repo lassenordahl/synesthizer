@@ -89,7 +89,7 @@ CREATE TABLE user (
     last_name VARCHAR(50) NOT NULL,
     address VARCHAR(200) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -120,4 +120,13 @@ CREATE TABLE playlist_spotify_snapshot (
     playlist_id INTEGER NOT NULL,
     snapshot_id VARCHAR(100) NOT NULL,
     FOREIGN KEY (playlist_id) REFERENCES playlist(id)
+);
+
+CREATE TABLE employee (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
 );

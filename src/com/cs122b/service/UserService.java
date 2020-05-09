@@ -49,15 +49,20 @@ public class UserService {
         SQLClient db = new SQLClient();
 
         String email = userJson.get("email").getAsString();
-        // Check if exists (return null if exists)
-        Query query = db.query(String.format("SELECT *  FROM user WHERE email='%s'", email));
-        ResultSet result = query.getResult();
-        if (result.next() != false) {
+
+        String query = "SELECT * FROM user, user WHERE user.email=? OR user.email=?";
+
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, email);
+        pstmt.setString(2, email);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next() != false) {
             db.closeConnection();
+            pstmt.close();
             return null;
         }
-
-        query.closeQuery();
 
         // Create user
         User user = new User();
@@ -74,6 +79,7 @@ public class UserService {
 
         insertUser(db, user);
 
+        pstmt.close();
         db.closeConnection();
         return user;
     }
@@ -92,14 +98,19 @@ public class UserService {
 
         String email = user.getEmail();
         // Check if exists (return null if exists)
-        Query query = db.query(String.format("SELECT * FROM user WHERE email='%s' AND id <> %d", email, user.getId()));
-        ResultSet result = query.getResult();
-        if (result.next() != false) {
+        String query = "SELECT * FROM user, employee WHERE (user.email=? AND user.id <> ?) OR employee.email=?";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, email);
+        pstmt.setInt(2, user.getId());
+        pstmt.setString(3, email);
+
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next() != false) {
+            pstmt.close();
             db.closeConnection();
             return null;
         }
-
-        query.closeQuery();
 
         if (userJson.get("password").getAsString().length() > 0) {
             // Encrypt password
@@ -115,31 +126,32 @@ public class UserService {
             updateQuery.append(", password = ? ");
         }
 
-        updateQuery.append("WHERE id = " + user.getId() + ";");
+        updateQuery.append("WHERE id = ?;");
 
-        PreparedStatement pstmt = db.getConnection().prepareStatement(updateQuery.toString(),
+        PreparedStatement pstmt2 = db.getConnection().prepareStatement(updateQuery.toString(),
                 Statement.RETURN_GENERATED_KEYS);
-
-        pstmt.setString(1, user.getFirst_name());
-        pstmt.setString(2, user.getLast_name());
-        pstmt.setString(3, user.getAddress());
-        pstmt.setString(4, user.getEmail());
+        pstmt2.setInt(1, user.getId());
+        pstmt2.setString(2, user.getFirst_name());
+        pstmt2.setString(3, user.getLast_name());
+        pstmt2.setString(4, user.getAddress());
+        pstmt2.setString(5, user.getEmail());
 
         if (user.getPassword() != null) {
-            pstmt.setString(5, user.getPassword());
+            pstmt2.setString(6, user.getPassword());
         }
 
-        int affectedRows = pstmt.executeUpdate();
+        int affectedRows = pstmt2.executeUpdate();
 
         if (affectedRows > 0) {
             // get the ID back
-            ResultSet rs = pstmt.getGeneratedKeys();
-            if (rs.next()) {
-                user.setId(rs.getInt(1));
+            ResultSet rs2 = pstmt.getGeneratedKeys();
+            if (rs2.next()) {
+                user.setId(rs2.getInt(1));
             }
         }
 
         pstmt.close();
+        pstmt2.close();
         db.closeConnection();
         return user;
     }
@@ -147,19 +159,22 @@ public class UserService {
     public static User authenticateUser(String email, String password) throws SQLException {
         SQLClient db = new SQLClient();
 
-        // Need to authenticate for encrypted passwords now, (no previous passwords will work until we encrypt them)
+        // Need to authenticate for encrypted passwords now, (no previous passwords will
+        // work until we encrypt them)
         PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
 
-        Query query = db
-                .query(String.format("SELECT *  FROM user WHERE email='%s'", email));
+        String authQuery = "SELECT * FROM user WHERE email=?";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(authQuery, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, email);
 
-        User user = new User();
-        ResultSet result = query.getResult();
-
+        ResultSet result = pstmt.executeQuery();
         if (result.next() == false) {
+            pstmt.close();
             db.closeConnection();
             return null;
         }
+
+        User user = new User();
 
         String encryptedPassword = result.getString("password");
         if (!passwordEncryptor.checkPassword(password, encryptedPassword)) {
@@ -169,7 +184,7 @@ public class UserService {
 
         setUserAttrs(user, result);
 
-        query.closeQuery();
+        pstmt.close();
         db.closeConnection();
         return user;
     }
@@ -177,19 +192,23 @@ public class UserService {
     public static User fetchUser(int id) throws SQLException {
         SQLClient db = new SQLClient();
 
-        Query query = db.query(String.format("SELECT * FROM user WHERE id='%d'", id));
+        String query = "SELECT * FROM user WHERE id=?";
 
-        User user = new User();
-        ResultSet result = query.getResult();
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setInt(1, id);
 
+        ResultSet result = pstmt.executeQuery();
         if (result.next() == false) {
+            pstmt.close();
             db.closeConnection();
             return null;
         }
 
+        User user = new User();
+
         setUserAttrs(user, result);
 
-        query.closeQuery();
+        pstmt.close();
         db.closeConnection();
         return user;
     }
