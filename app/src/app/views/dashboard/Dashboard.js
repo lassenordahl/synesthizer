@@ -216,7 +216,7 @@ function Dashboard() {
             name: "",
             image: "",
           });
-          showSuccess("Artists has been added to database");
+          showSuccess("Artist has been added to database");
         } else {
           showError("Artist already exists in the database");
         }
