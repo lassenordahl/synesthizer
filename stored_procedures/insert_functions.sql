@@ -2,7 +2,7 @@ DROP FUNCTION IF EXISTS insert_track;
 
 DELIMITER $$
 
-CREATE FUNCTION insert_album(track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id VARCHAR(25))
+CREATE FUNCTION insert_track(track_id VARCHAR(25), name VARCHAR(100), track_number INT, duration_ms INT, album_id VARCHAR(25), artist_id VARCHAR(25))
     RETURNS VARCHAR(25)
     DETERMINISTIC
 BEGIN
@@ -12,9 +12,10 @@ BEGIN
 
     -- If a track is not in the table we can insert it
     IF (track_in_table = 0) THEN
-        INSERT INTO track_meta(id) VALUES (track_id);
+        INSERT INTO track_meta(id, duration_ms) VALUES (track_id, duration_ms);
         INSERT INTO track (id, name, track_number) VALUES (track_id, name, track_number);
         INSERT INTO track_in_album (track_id, album_id) VALUES (track_id, album_id);
+        INSERT INtO artist_in_track(track_id, artist_id) VALUES (track_id, artist_id);
         RETURN track_id;
     ELSE
         RETURN "duplicate id";

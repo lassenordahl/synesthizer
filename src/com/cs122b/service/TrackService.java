@@ -62,16 +62,17 @@ public class TrackService implements Config {
     }
 
 //    track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id VARCHAR(25), artist_id VARCHAR(25)
-    public static String insertTrack(String id, String name, int track_number, String album_id, String artist_id) throws SQLException {
+    public static String insertTrack(String id, String name, int track_number, int duration_ms, String album_id, String artist_id) throws SQLException {
         SQLClient db = new SQLClient();
 
-        String query = "SELECT insert_track(?, ?, ?, ?, ?) as result";
+        String query = "SELECT insert_track(?, ?, ?, ?, ?, ?) as result";
         PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         pstmt.setString(1, id);
         pstmt.setString(2, name);
         pstmt.setInt(3, track_number);
-        pstmt.setString(4, album_id);
-        pstmt.setString(5, artist_id);
+        pstmt.setInt(4, duration_ms);
+        pstmt.setString(5, album_id);
+        pstmt.setString(6, artist_id);
         ResultSet result = pstmt.executeQuery();
 
         result.next();

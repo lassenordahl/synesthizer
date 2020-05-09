@@ -62,6 +62,7 @@ public class TrackServlet extends HttpServlet {
                     jsonRequestBody.get("id").getAsString(),
                     jsonRequestBody.get("name").getAsString(),
                     jsonRequestBody.get("track_number").getAsInt(),
+                    jsonRequestBody.get("duration_ms").getAsInt(),
                     jsonRequestBody.get("album_id").getAsString(),
                     jsonRequestBody.get("artist_id").getAsString()
             );

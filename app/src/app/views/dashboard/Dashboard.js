@@ -52,7 +52,7 @@ function DatabaseTables(props) {
             return (
               <div className="table-card" key={index}>
                 <div>
-                  <p style={{marginBottom: "24px"}}>{table.name}</p>
+                  <p style={{ marginBottom: "24px" }}>{table.name}</p>
                   {table.attributes.map(function (attribute, indexTwo) {
                     return <p key={indexTwo}>{attribute}</p>;
                   })}
@@ -104,6 +104,7 @@ function SpotifyCards(props) {
       track_number: selectedTrack.track_number,
       album_id: selectedTrack.album.id,
       artist_id: selectedTrack.artists[0].id,
+      duration_ms: selectedTrack.duration_ms
     });
     props.setAlbum({
       id: selectedTrack.album.id,
@@ -172,6 +173,7 @@ function Dashboard() {
     track_number: "",
     artist_id: "",
     album_id: "",
+    duration_ms: "",
   });
   const [album, setAlbum] = useState({
     id: "",
@@ -260,6 +262,7 @@ function Dashboard() {
             track_number: "",
             artist_id: "",
             album_id: "",
+            duration_ms: "",
           });
           showSuccess("Song submitted to database");
         } else {
@@ -339,11 +342,20 @@ function Dashboard() {
               placeholder="Track Number"
               readonly
             ></input>
+            <input
+              value={song.duration_ms}
+              placeholder="Duration in MS"
+              readonly
+            ></input>
           </div>
         </div>
         <Button
           isPrimary={true}
-          style={{ marginLeft: "auto", marginTop: "36px", marginBottom: "36px" }}
+          style={{
+            marginLeft: "auto",
+            marginTop: "36px",
+            marginBottom: "36px",
+          }}
           onClick={() => {
             addTrack();
           }}
