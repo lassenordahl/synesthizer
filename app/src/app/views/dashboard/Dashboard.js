@@ -177,61 +177,64 @@ function Dashboard() {
       });
   }
 
-  function submitTrackInfo() {
-    addArtist();
-  }
-
   function addArtist() {
     axios.post(api.artist, artist)
       .then(function(response) {
-        addAlbum(response === undefined ? "Artist already exists in database. ": "Added artist. ");
+        if (response) {
+          setArtist({
+            id: "",
+            name: "",
+            image: "",
+          });
+          showSuccess("Artists has been added to database");
+        } else {
+          showError("Artist already exists in the database");
+        }
+        getDatabaseMeta();
       })
       .catch(function(error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
-  function addAlbum(text) {
+  function addAlbum() {
     axios.post(api.album, album)
       .then(function(response) {
-        addTrack(text + (response === undefined ? "Album already exists in database. ": "Added album. "));
+        if (response) {
+          setAlbum({
+            id: "",
+            name: "",
+            image: "",
+            album_type: "",
+            release_date: "",
+            artist_id: ""
+          });
+          showSuccess("Album submitted to database");
+        } else {
+          showError("Album already exists in database");
+        }
+        getDatabaseMeta();
       })
       .catch(function(error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
-  function addTrack(text) {
+  function addTrack() {
     axios.post(api.song, song)
       .then(function(response) {
-        console.log(response);
-        if (response === undefined) {
-          showErrorWrapper(text + "Track already exists in database.");
-        } else if (response.status === 200) {
-          showSuccess(text + "Successfully posted information to database.");
+        if (response) {
+          setSong({
+            id: "",
+            name: "",
+            track_number: "",
+            artist_id: "",
+            album_id: "",
+          });
+          showSuccess("Song submitted to database")
+        } else {
+          showError("Song already exists in database");
         }
-
-        setSong({
-          id: "",
-          name: "",
-          track_number: "",
-          artist_id: "",
-          album_id: "",
-        });
-        setAlbum({
-          id: "",
-          name: "",
-          image: "",
-          album_type: "",
-          release_date: "",
-          artist_id: ""
-        });
-        setArtist({
-          id: "",
-          name: "",
-          image: "",
-        });
-
         getDatabaseMeta();
       })
       .catch(function(error) {
@@ -258,6 +261,15 @@ function Dashboard() {
             <input value={song.track_number} placeholder="Track Number"></input>
           </div>
         </div>
+        <Button
+          isPrimary={true}
+          style={{ marginLeft: "auto", marginTop: "36px" }}
+          onClick={() => {
+            addTrack();
+          }}
+        >
+          Add Song
+        </Button>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div className="album-wrapper">
             <div>
@@ -282,6 +294,15 @@ function Dashboard() {
             </div>
           </div>
         </div>
+        <Button
+          isPrimary={true}
+          style={{ marginLeft: "auto", marginTop: "36px" }}
+          onClick={() => {
+            addAlbum();
+          }}
+        >
+          Add Album
+        </Button>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div>
             <h2>Add Artist</h2>
@@ -293,10 +314,10 @@ function Dashboard() {
           isPrimary={true}
           style={{ marginLeft: "auto", marginTop: "36px" }}
           onClick={() => {
-            submitTrackInfo();
+            addArtist();
           }}
         >
-          Add Song Information
+          Add Artist
         </Button>
       </div>
       <div className="div2">
