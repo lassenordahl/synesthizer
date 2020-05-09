@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from "react";
-import './Toaster.css';
+import "./Toaster.css";
+
+import useInterval from "@use-it/interval";
 
 function useToast() {
+  const [toastStack, setToastStack] = useState([]);
+  const [delay, setDelay] = useState(5000);
 
-  const [show, setShow] = useState(false);
-  const [type, setType] = useState("");
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    if (show === true) {
-      // After 5 seconds hide the toast
-      setTimeout(() => {
-        setShow(false);
-      }, 5000);
-    }
-  }, [show]); 
+  useInterval(() => {
+    console.log('slicing');
+    setToastStack(toastStack.slice(1));
+  }, delay);
 
   function showSuccess(text) {
-    setType("success");
-    setShow(true);
-    setText(text);
+    setToastStack([
+      ...toastStack,
+      {
+        text: text,
+        type: "success",
+      },
+    ]);
+    setDelay(5000);
   }
 
   function showError(text) {
-    setType("error");
-    setShow(true);
-    setText(text);
+    setToastStack([
+      ...toastStack,
+      {
+        text: text,
+        type: "error",
+      },
+    ]);
+    setDelay(5000);
   }
 
-  function getLabelColor() {
+  function getLabelColor(type) {
     if (type === "success") {
       return "toaster-label-green";
     } else if (type === "error") {
@@ -38,21 +44,30 @@ function useToast() {
   }
 
   function renderToast() {
-    return show 
-    ?  (
-        <div className="toaster fade-in" style={{ animationDuration: "0.5s"}}>
-          <div className={"toaster-label " + getLabelColor()}/>
-          <div className="toast-text">
-            <p>
-              {text}
-            </p>
-          </div>
-        </div>
-      )
-    : null
+    return (
+      <React.Fragment>
+        {toastStack.map(function (toast, index) {
+          return (
+            <div
+              key={index}
+              className="toaster fade-in"
+              style={{
+                animationDuration: "0.5s",
+                top: `calc(24px + ${index} * 72px)`,
+              }}
+            >
+              <div className={"toaster-label " + getLabelColor(toast.type)} />
+              <div className="toast-text">
+                <p>{toast.text}</p>
+              </div>
+            </div>
+          );
+        })}
+      </React.Fragment>
+    );
   }
 
-  return [showSuccess, showError, renderToast]
+  return [showSuccess, showError, renderToast];
 }
 
 export default useToast;

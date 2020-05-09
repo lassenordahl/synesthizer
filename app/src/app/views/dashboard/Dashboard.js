@@ -45,7 +45,6 @@ function SpotifyCards(props) {
   const { spotifyAuth } = useSpotify();
   const [searchedTracks, setSearchedTracks] = useState([]);
   const [searchField, setSearchField] = useState("");
-  const [showSuccess, showError, renderToast] = useToast();
 
   function handleChange(e) {
     setSearchField(e.target.value);
@@ -58,15 +57,15 @@ function SpotifyCards(props) {
       })
       .then(function (response) {
         if (response === undefined) {
-          showError("Invalid search params");
+          props.showError("Invalid search params");
         } else if (response.status === 200) {
           setSearchedTracks(response.data.tracks.items);
-          showSuccess("Pulled Spotify tracks");
+          props.showSuccess("Pulled Spotify tracks");
         }
       })
       .catch(function (error) {
         console.log("An error has occured", error);
-        showError("Error searching spotify tracks");
+        props.showError("Error searching spotify tracks");
       });
   }
 
@@ -96,7 +95,6 @@ function SpotifyCards(props) {
 
   return (
     <div className="search-songs">
-      {renderToast()}
       <h2 style={{ marginBottom: "36px", marginTop: "16px" }}>Spotify Songs</h2>
       <input
         placeholder="Search Songs"
@@ -186,39 +184,31 @@ function Dashboard() {
   function addArtist() {
     axios.post(api.artist, artist)
       .then(function(response) {
-        console.log(response);
-        if (response === undefined) {
-          showError("Artist already exists in Database");
-        }
-        addAlbum();
+        addAlbum(response === undefined ? "Artist already exists in database. ": "Added artist. ");
       })
       .catch(function(error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
-  function addAlbum() {
+  function addAlbum(text) {
     axios.post(api.album, album)
       .then(function(response) {
-        console.log(response);
-        if (response === undefined) {
-          showError("Album already exists in Database");
-        }
-        addTrack();
+        addTrack(text + (response === undefined ? "Album already exists in database. ": "Added album. "));
       })
       .catch(function(error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
-  function addTrack() {
+  function addTrack(text) {
     axios.post(api.song, song)
       .then(function(response) {
         console.log(response);
         if (response === undefined) {
-          showError("Track already exists in Database");
+          showErrorWrapper(text + "Track already exists in database.");
         } else if (response.status === 200) {
-          showSuccess("Successfully posted information to datbase");
+          showSuccess(text + "Successfully posted information to database.");
         }
 
         setSong({
@@ -247,6 +237,10 @@ function Dashboard() {
       .catch(function(error) {
         console.log("Error retrieving dashboard information", error);
       });
+  }
+
+  async function showErrorWrapper(text) {
+    showError(text)
   }
 
   return (
@@ -311,6 +305,8 @@ function Dashboard() {
             setSong={setSong}
             setAlbum={setAlbum}
             setArtist={setArtist}
+            showError={showError}
+            showSuccess={showSuccess}
           />
         </div>
       </div>
