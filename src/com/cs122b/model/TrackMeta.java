@@ -18,9 +18,18 @@ public class TrackMeta {
     private int time_signature;
     private String track_href;
     private String type;
+    private String Uri;
     private float valence;
 
     public TrackMeta() {
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public float getAcousticness() {
@@ -141,6 +150,14 @@ public class TrackMeta {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getUri() {
+        return this.Uri;
+    }
+
+    public void setUri(String uri) {
+        this.Uri = uri;
     }
 
     public float getValence() {

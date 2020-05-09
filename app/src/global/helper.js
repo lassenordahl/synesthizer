@@ -84,5 +84,6 @@ export function alphaNumArray() {
     "7",
     "8",
     "9",
+    "*"
   ];
 }

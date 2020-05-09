@@ -47,15 +47,8 @@ CREATE TABLE track_in_album (
     track_id VARCHAR(25) NOT NULL,
     album_id VARCHAR(25) NOT NULL,
     FOREIGN KEY (track_id) REFERENCES track(id),
-    FOREIGN KEY (album_id) REFERENCES album(id)
-);
-
-
--- Need to fix
-CREATE TABLE album_in_genre (
-    genre VARCHAR(25) NOT NULL,
-    album_id VARCHAR(25) NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES album(id)
+    FOREIGN KEY (album_id) REFERENCES album(id),
+    CONSTRAINT Unique_Pair UNIQUE (track_id, album_id)
 );
 
 CREATE TABLE artist (
@@ -69,20 +62,23 @@ CREATE TABLE artist_in_track (
     artist_id VARCHAR(25) NOT NULL,
     track_id VARCHAR(25) NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artist(id),
-    FOREIGN KEY (track_id) REFERENCES track(id)
+    FOREIGN KEY (track_id) REFERENCES track(id),
+    CONSTRAINT Unique_Pair UNIQUE (artist_id , track_id)
 );
 
 CREATE TABLE artist_in_album (
     artist_id VARCHAR(25) NOT NULL,
     album_id VARCHAR(25) NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artist(id),
-    FOREIGN KEY (album_id) REFERENCES album(id)
+    FOREIGN KEY (album_id) REFERENCES album(id),
+    CONSTRAINT Unique_Pair UNIQUE (artist_id , album_id)
 );
 
 CREATE TABLE artist_in_genre (
     artist_id VARCHAR(25) NOT NULL,
     genre VARCHAR(25) NOT NULL,
-    FOREIGN KEY (artist_id) REFERENCES artist(id)
+    FOREIGN KEY (artist_id) REFERENCES artist(id),
+    CONSTRAINT Unique_Pair UNIQUE (artist_id , genre)
 );
 -- user data
 
