@@ -1,5 +1,7 @@
 package com.cs122b.web;
 
+import com.cs122b.model.Employee;
+import com.cs122b.service.EmployeeService;
 import com.cs122b.service.UserService;
 import com.cs122b.model.User;
 import com.cs122b.utils.JsonParse;
@@ -30,12 +32,28 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        Employee employee = null;
+        if (user == null) {
+            try {
+                employee = EmployeeService.authenticateEmployee(email, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
         if (user != null) {
             request.getSession().setAttribute("user_id", user.getId());
 
             responseJsonObject.addProperty("status", "success");
             responseJsonObject.addProperty("message", "success");
 
+        } else if (employee != null) {
+            request.getSession().setAttribute("employee_id", employee.getId());
+
+            responseJsonObject.addProperty("isEmployee", "true");
+            responseJsonObject.addProperty("status", "success");
+            responseJsonObject.addProperty("message", "success");
         } else {
             response.setStatus(401);
             responseJsonObject.addProperty("status", "incorrect username or password");
