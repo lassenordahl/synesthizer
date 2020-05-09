@@ -41,6 +41,33 @@ function DashboardInfo(props) {
   );
 }
 
+function DatabaseTables(props) {
+  return (
+    <div className="dashboard-card">
+      <div className="database-tables">
+        <h2>Database Tables</h2>
+
+        {props.databaseMeta ? (
+          props.databaseMeta.tables.map(function (table, index) {
+            return (
+              <div className="table-card" key={index}>
+                <div>
+                  <p style={{marginBottom: "24px"}}>{table.name}</p>
+                  {table.attributes.map(function (attribute, indexTwo) {
+                    return <p key={indexTwo}>{attribute}</p>;
+                  })}
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <p> No tables available</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function SpotifyCards(props) {
   const { spotifyAuth } = useSpotify();
   const [searchedTracks, setSearchedTracks] = useState([]);
@@ -76,7 +103,7 @@ function SpotifyCards(props) {
       name: selectedTrack.name,
       track_number: selectedTrack.track_number,
       album_id: selectedTrack.album.id,
-      artist_id: selectedTrack.artists[0].id
+      artist_id: selectedTrack.artists[0].id,
     });
     props.setAlbum({
       id: selectedTrack.album.id,
@@ -84,12 +111,12 @@ function SpotifyCards(props) {
       image: selectedTrack.album.images[0].url,
       album_type: selectedTrack.album.album_type,
       release_date: selectedTrack.album.release_date,
-      artist_id: selectedTrack.artists[0].id
+      artist_id: selectedTrack.artists[0].id,
     });
     props.setArtist({
       id: selectedTrack.artists[0].id,
       name: selectedTrack.artists[0].name,
-      image: "https://picsum.photos/200" // Need to use default value for now
+      image: "https://picsum.photos/200", // Need to use default value for now
     });
   }
 
@@ -152,7 +179,7 @@ function Dashboard() {
     image: "",
     album_type: "",
     release_date: "",
-    artist_id: ""
+    artist_id: "",
   });
   const [artist, setArtist] = useState({
     id: "",
@@ -178,8 +205,9 @@ function Dashboard() {
   }
 
   function addArtist() {
-    axios.post(api.artist, artist)
-      .then(function(response) {
+    axios
+      .post(api.artist, artist)
+      .then(function (response) {
         if (response) {
           setArtist({
             id: "",
@@ -192,14 +220,15 @@ function Dashboard() {
         }
         getDatabaseMeta();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
   function addAlbum() {
-    axios.post(api.album, album)
-      .then(function(response) {
+    axios
+      .post(api.album, album)
+      .then(function (response) {
         if (response) {
           setAlbum({
             id: "",
@@ -207,7 +236,7 @@ function Dashboard() {
             image: "",
             album_type: "",
             release_date: "",
-            artist_id: ""
+            artist_id: "",
           });
           showSuccess("Album submitted to database");
         } else {
@@ -215,14 +244,15 @@ function Dashboard() {
         }
         getDatabaseMeta();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("Error retrieving dashboard information", error);
       });
   }
 
   function addTrack() {
-    axios.post(api.song, song)
-      .then(function(response) {
+    axios
+      .post(api.song, song)
+      .then(function (response) {
         if (response) {
           setSong({
             id: "",
@@ -231,19 +261,15 @@ function Dashboard() {
             artist_id: "",
             album_id: "",
           });
-          showSuccess("Song submitted to database")
+          showSuccess("Song submitted to database");
         } else {
           showError("Song already exists in database");
         }
         getDatabaseMeta();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("Error retrieving dashboard information", error);
       });
-  }
-
-  async function showErrorWrapper(text) {
-    showError(text)
   }
 
   return (
@@ -251,34 +277,34 @@ function Dashboard() {
       {renderToast()}
       <div className="div1">
         <div className="dashboard-card">
-          <DashboardInfo databaseMeta={databaseMeta}/>
+          <DashboardInfo databaseMeta={databaseMeta} />
         </div>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div>
-            <h2>Add Song</h2>
-            <input value={song.id} placeholder="ID"></input>
-            <input value={song.name} placeholder="Name"></input>
-            <input value={song.track_number} placeholder="Track Number"></input>
+            <h2>Add Artist</h2>
+            <input value={artist.id} placeholder="ID" readonly></input>
+            <input value={artist.name} placeholder="Name" readonly></input>
           </div>
         </div>
         <Button
           isPrimary={true}
           style={{ marginLeft: "auto", marginTop: "36px" }}
           onClick={() => {
-            addTrack();
+            addArtist();
           }}
         >
-          Add Song
+          Add Artist
         </Button>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div className="album-wrapper">
             <div>
               <h2>Add Album</h2>
-              <input value={album.id} placeholder="ID"></input>
-              <input value={album.name} placeholder="Name"></input>
+              <input value={album.id} placeholder="ID" readonly></input>
+              <input value={album.name} placeholder="Name" readonly></input>
               <input
                 value={album.release_date}
                 placeholder="Release Date"
+                readonly
               ></input>
             </div>
             <div className="album-wrapper-art-wrapper">
@@ -305,20 +331,26 @@ function Dashboard() {
         </Button>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div>
-            <h2>Add Artist</h2>
-            <input value={artist.id} placeholder="ID"></input>
-            <input value={artist.name} placeholder="Name"></input>
+            <h2>Add Song</h2>
+            <input value={song.id} placeholder="ID" readonly></input>
+            <input value={song.name} placeholder="Name" readonly></input>
+            <input
+              value={song.track_number}
+              placeholder="Track Number"
+              readonly
+            ></input>
           </div>
         </div>
         <Button
           isPrimary={true}
-          style={{ marginLeft: "auto", marginTop: "36px" }}
+          style={{ marginLeft: "auto", marginTop: "36px", marginBottom: "36px" }}
           onClick={() => {
-            addArtist();
+            addTrack();
           }}
         >
-          Add Artist
+          Add Song
         </Button>
+        <DatabaseTables databaseMeta={databaseMeta} />
       </div>
       <div className="div2">
         <div className="dashboard-card" style={{ height: "100%" }}>

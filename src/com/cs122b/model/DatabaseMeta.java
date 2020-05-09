@@ -1,10 +1,14 @@
 package com.cs122b.model;
 
+import java.util.ArrayList;
+import com.cs122b.model.DatabaseTable;
+
 public class DatabaseMeta {
 
     private int track_count;
     private int album_count;
     private int artist_count;
+    ArrayList<DatabaseTable> tables = new ArrayList<DatabaseTable>();
 
     public DatabaseMeta() {
 
@@ -32,5 +36,13 @@ public class DatabaseMeta {
 
     public void setArtist_count(int artist_count) {
         this.artist_count = artist_count;
+    }
+
+    public void setTables(ArrayList<DatabaseTable> tables) {
+        this.tables = tables;
+    }
+
+    public ArrayList<DatabaseTable> getTables() {
+        return tables;
     }
 }
