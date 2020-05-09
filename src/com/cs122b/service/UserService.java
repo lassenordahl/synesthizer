@@ -50,7 +50,7 @@ public class UserService {
 
         String email = userJson.get("email").getAsString();
 
-        String query = "SELECT * FROM user, employee WHERE employee.email=? OR user.email=?";
+        String query = "SELECT * FROM user, user WHERE user.email=? OR user.email=?";
 
         PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         pstmt.setString(1, email);
@@ -163,7 +163,7 @@ public class UserService {
         // work until we encrypt them)
         PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
 
-        String authQuery = "SELECT * FROM employee WHERE email=?";
+        String authQuery = "SELECT * FROM user WHERE email=?";
         PreparedStatement pstmt = db.getConnection().prepareStatement(authQuery, Statement.RETURN_GENERATED_KEYS);
         pstmt.setString(1, email);
 
