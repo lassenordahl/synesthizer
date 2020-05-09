@@ -83,6 +83,7 @@
 
 .database-song-card:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 
@@ -127,10 +128,6 @@
   height: 168px;
   width: 168px;
   border-radius: 10px;
-}
-
-.database-tables {
-
 }
 
 .table-card {
