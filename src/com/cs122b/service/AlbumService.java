@@ -118,6 +118,29 @@ public class AlbumService {
         return albums;
     }
 
+    public static String insertAlbum(String id, String name, String image, String album_type, String release_date, String artist_id) throws SQLException {
+        SQLClient db = new SQLClient();
+
+        String query = "SELECT insert_album(?, ?, ?, ?, ?, ?) as result";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, id);
+        pstmt.setString(2, name);
+        pstmt.setString(3, album_type);
+        pstmt.setString(4, image);
+        pstmt.setString(5, release_date);
+        pstmt.setString(6, artist_id);
+        ResultSet result = pstmt.executeQuery();
+
+        result.next();
+
+        String response = result.getString("result");
+
+        pstmt.close();
+        db.closeConnection();
+        return response;
+    }
+
+
     public static Album fetchAlbum(String id) throws SQLException {
 
         SQLClient db = new SQLClient();

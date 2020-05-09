@@ -1,7 +1,10 @@
 package com.cs122b.web;
 
 import com.cs122b.model.Artist;
+import com.cs122b.service.ArtistService;
+import com.cs122b.utils.JsonParse;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,22 +50,28 @@ public class ArtistServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+
+        JsonObject jsonRequestBody = JsonParse.toJson(request.getReader());
 
         String insertionResponse = "";
         try {
-            insertionResponse = insertArtist(request.getParameter("id"));
+            insertionResponse = ArtistService.insertArtist(
+                jsonRequestBody.get("id").getAsString(),
+                jsonRequestBody.get("name").getAsString(),
+                jsonRequestBody.get("image").getAsString()
+            );
         } catch (SQLException e) {
             e.printStackTrace();
+            response.setStatus(404);
+            out.print("{ \"message\": \"A SQL Error has occured\"}");
         }
 
-        PrintWriter out = response.getWriter();
-
-        if (artist == null) {
-            response.setStatus(404);
-            out.print("{ \"message\": \"resource not found\"}");
+        if (insertionResponse.equalsIgnoreCase("duplicate id")) {
+            response.setStatus(400);
+            out.print("{ \"message\": \"Inserted artist already exists\"}");
         } else {
-            String artistResponse = this.gson.toJson(artist);
-            out.print("{ \"artist\": " + artistResponse + " }");
+            out.print("{ \"id\": \"" + insertionResponse + "\" }");
         }
     }
 }

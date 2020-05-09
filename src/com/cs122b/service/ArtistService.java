@@ -5,8 +5,10 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,6 +70,25 @@ public class ArtistService {
             artist.addAlbum(album);
         }
         queryAlbums.closeQuery();
+    }
+
+    public static String insertArtist(String id, String name, String image) throws SQLException {
+        SQLClient db = new SQLClient();
+
+        String query = "SELECT insert_artist(?, ?, ?) as result";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, id);
+        pstmt.setString(2, name);
+        pstmt.setString(3, image);
+        ResultSet result = pstmt.executeQuery();
+
+        result.next();
+
+        String response = result.getString("result");
+
+        pstmt.close();
+        db.closeConnection();
+        return response;
     }
 
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search,

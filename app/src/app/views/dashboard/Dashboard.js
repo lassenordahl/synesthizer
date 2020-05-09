@@ -71,10 +71,13 @@ function SpotifyCards(props) {
   }
 
   function fillInTrack(selectedTrack) {
+    console.log(selectedTrack);
     props.setSong({
       id: selectedTrack.id,
       name: selectedTrack.name,
       track_number: selectedTrack.track_number,
+      album_id: selectedTrack.album.id,
+      artist_id: selectedTrack.artists[0].id
     });
     props.setAlbum({
       id: selectedTrack.album.id,
@@ -82,11 +85,12 @@ function SpotifyCards(props) {
       image: selectedTrack.album.images[0].url,
       album_type: selectedTrack.album.album_type,
       release_date: selectedTrack.album.release_date,
+      artist_id: selectedTrack.artists[0].id
     });
     props.setArtist({
       id: selectedTrack.artists[0].id,
       name: selectedTrack.artists[0].name,
-      image: selectedTrack.artists[0].image,
+      image: "https://picsum.photos/200" // Need to use default value for now
     });
   }
 
@@ -141,6 +145,8 @@ function Dashboard() {
     id: "",
     name: "",
     track_number: "",
+    artist_id: "",
+    album_id: "",
   });
   const [album, setAlbum] = useState({
     id: "",
@@ -148,6 +154,7 @@ function Dashboard() {
     image: "",
     album_type: "",
     release_date: "",
+    artist_id: ""
   });
   const [artist, setArtist] = useState({
     id: "",
@@ -169,6 +176,76 @@ function Dashboard() {
       })
       .catch(function (error) {
         console.log("Error retrieving dashboard information");
+      });
+  }
+
+  function submitTrackInfo() {
+    addArtist();
+  }
+
+  function addArtist() {
+    axios.post(api.artist, artist)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Artist already exists in Database");
+        }
+        addAlbum();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
+      });
+  }
+
+  function addAlbum() {
+    axios.post(api.album, album)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Album already exists in Database");
+        }
+        addTrack();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
+      });
+  }
+
+  function addTrack() {
+    axios.post(api.song, song)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Track already exists in Database");
+        } else if (response.status === 200) {
+          showSuccess("Successfully posted information to datbase");
+        }
+
+        setSong({
+          id: "",
+          name: "",
+          track_number: "",
+          artist_id: "",
+          album_id: "",
+        });
+        setAlbum({
+          id: "",
+          name: "",
+          image: "",
+          album_type: "",
+          release_date: "",
+          artist_id: ""
+        });
+        setArtist({
+          id: "",
+          name: "",
+          image: "",
+        });
+
+        getDatabaseMeta();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
       });
   }
 
@@ -221,6 +298,9 @@ function Dashboard() {
         <Button
           isPrimary={true}
           style={{ marginLeft: "auto", marginTop: "36px" }}
+          onClick={() => {
+            submitTrackInfo();
+          }}
         >
           Add Song Information
         </Button>
