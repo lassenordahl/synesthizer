@@ -42,4 +42,27 @@ public class TrackServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        Track track = null;
+        try {
+            track = fetchTrack(request.getParameter("id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        PrintWriter out = response.getWriter();
+
+        if (track == null) {
+            response.setStatus(404);
+            out.print("{ \"message\": \"resource not found\"}");
+        } else {
+            String trackResponse = this.gson.toJson(track);
+            out.print("{ \"song\": " + trackResponse + " }");
+        }
+    }
 }

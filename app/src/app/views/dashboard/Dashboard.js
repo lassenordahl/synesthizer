@@ -10,21 +10,6 @@ import { useSpotify, useToast } from "../../../hooks";
 import { truncateTitle } from "../../../global/helper";
 
 function DashboardInfo(props) {
-
-  const [databaseMeta, setDatabaseMeta] = useState(null);
-
-  useEffect(() => {
-    axios.get(api.databaseMeta)
-      .then(function(response) {
-        if (response.status === 200) {
-          setDatabaseMeta(response.data.meta);
-        }
-      })
-      .catch(function(error) {
-        console.log("Error retrieving dashboard information")
-      })
-  }, []);
-
   return (
     <div className="dashboard-info">
       <h2>Database Information</h2>
@@ -32,15 +17,24 @@ function DashboardInfo(props) {
       <div className="dashboard-database-info">
         <div className="dashboard-info-div1">
           <h3>Artists</h3>
-          <p>Artist Count: {databaseMeta ? databaseMeta.artist_count : 0}</p>
+          <p>
+            Artist Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.artist_count : 0}
+          </p>
         </div>
         <div className="dashboard-info-div2">
           <h3>Albums</h3>
-          <p>Album Count: {databaseMeta ? databaseMeta.album_count : 0}</p>
+          <p>
+            Album Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.album_count : 0}
+          </p>
         </div>
         <div className="dashboard-info-div3">
           <h3>Songs</h3>
-          <p>Song Count: {databaseMeta ? databaseMeta.track_count : 0}</p>
+          <p>
+            Song Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.track_count : 0}
+          </p>
         </div>
       </div>
     </div>
@@ -141,6 +135,8 @@ function SpotifyCards(props) {
 function Dashboard() {
   const [showSuccess, showError, renderToast] = useToast();
 
+  const [databaseMeta, setDatabaseMeta] = useState(null);
+
   const [song, setSong] = useState({
     id: "",
     name: "",
@@ -159,12 +155,29 @@ function Dashboard() {
     image: "",
   });
 
+  useEffect(() => {
+    getDatabaseMeta();
+  }, []);
+
+  function getDatabaseMeta() {
+    axios
+      .get(api.databaseMeta)
+      .then(function (response) {
+        if (response.status === 200) {
+          setDatabaseMeta(response.data.meta);
+        }
+      })
+      .catch(function (error) {
+        console.log("Error retrieving dashboard information");
+      });
+  }
+
   return (
     <div className="dashboard">
       {renderToast()}
       <div className="div1">
         <div className="dashboard-card">
-          <DashboardInfo />
+          <DashboardInfo databaseMeta={databaseMeta}/>
         </div>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div>
@@ -187,7 +200,11 @@ function Dashboard() {
             </div>
             <div className="album-wrapper-art-wrapper">
               {album.image !== "" ? (
-                <img src={album.image} style={{marginTop: "38px"}} alt="album-art"></img>
+                <img
+                  src={album.image}
+                  style={{ marginTop: "38px" }}
+                  alt="album-art"
+                ></img>
               ) : (
                 <p>Please select an image</p>
               )}

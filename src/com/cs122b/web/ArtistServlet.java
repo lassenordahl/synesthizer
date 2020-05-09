@@ -42,4 +42,27 @@ public class ArtistServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        String insertionResponse = "";
+        try {
+            insertionResponse = insertArtist(request.getParameter("id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        PrintWriter out = response.getWriter();
+
+        if (artist == null) {
+            response.setStatus(404);
+            out.print("{ \"message\": \"resource not found\"}");
+        } else {
+            String artistResponse = this.gson.toJson(artist);
+            out.print("{ \"artist\": " + artistResponse + " }");
+        }
+    }
 }
