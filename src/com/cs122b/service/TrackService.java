@@ -61,6 +61,28 @@ public class TrackService implements Config {
         track.setAlbum(album);
     }
 
+//    track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id VARCHAR(25), artist_id VARCHAR(25)
+    public static String insertTrack(String id, String name, int track_number, String album_id, String artist_id) throws SQLException {
+        SQLClient db = new SQLClient();
+
+        String query = "SELECT insert_track(?, ?, ?, ?, ?) as result";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt.setString(1, id);
+        pstmt.setString(2, name);
+        pstmt.setInt(3, track_number);
+        pstmt.setString(4, album_id);
+        pstmt.setString(5, artist_id);
+        ResultSet result = pstmt.executeQuery();
+
+        result.next();
+
+        String response = result.getString("result");
+
+        pstmt.close();
+        db.closeConnection();
+        return response;
+    }
+
     private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException {
         trackMeta.setAcousticness(result.getFloat("acousticness"));
         trackMeta.setAnalysis_url(result.getString("analysis_url"));

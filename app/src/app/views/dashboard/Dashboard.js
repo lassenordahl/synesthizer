@@ -10,21 +10,6 @@ import { useSpotify, useToast } from "../../../hooks";
 import { truncateTitle } from "../../../global/helper";
 
 function DashboardInfo(props) {
-
-  const [databaseMeta, setDatabaseMeta] = useState(null);
-
-  useEffect(() => {
-    axios.get(api.databaseMeta)
-      .then(function(response) {
-        if (response.status === 200) {
-          setDatabaseMeta(response.data.meta);
-        }
-      })
-      .catch(function(error) {
-        console.log("Error retrieving dashboard information")
-      })
-  }, []);
-
   return (
     <div className="dashboard-info">
       <h2>Database Information</h2>
@@ -32,15 +17,24 @@ function DashboardInfo(props) {
       <div className="dashboard-database-info">
         <div className="dashboard-info-div1">
           <h3>Artists</h3>
-          <p>Artist Count: {databaseMeta ? databaseMeta.artist_count : 0}</p>
+          <p>
+            Artist Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.artist_count : 0}
+          </p>
         </div>
         <div className="dashboard-info-div2">
           <h3>Albums</h3>
-          <p>Album Count: {databaseMeta ? databaseMeta.album_count : 0}</p>
+          <p>
+            Album Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.album_count : 0}
+          </p>
         </div>
         <div className="dashboard-info-div3">
           <h3>Songs</h3>
-          <p>Song Count: {databaseMeta ? databaseMeta.track_count : 0}</p>
+          <p>
+            Song Count:{" "}
+            {props.databaseMeta ? props.databaseMeta.track_count : 0}
+          </p>
         </div>
       </div>
     </div>
@@ -77,10 +71,13 @@ function SpotifyCards(props) {
   }
 
   function fillInTrack(selectedTrack) {
+    console.log(selectedTrack);
     props.setSong({
       id: selectedTrack.id,
       name: selectedTrack.name,
       track_number: selectedTrack.track_number,
+      album_id: selectedTrack.album.id,
+      artist_id: selectedTrack.artists[0].id
     });
     props.setAlbum({
       id: selectedTrack.album.id,
@@ -88,11 +85,12 @@ function SpotifyCards(props) {
       image: selectedTrack.album.images[0].url,
       album_type: selectedTrack.album.album_type,
       release_date: selectedTrack.album.release_date,
+      artist_id: selectedTrack.artists[0].id
     });
     props.setArtist({
       id: selectedTrack.artists[0].id,
       name: selectedTrack.artists[0].name,
-      image: selectedTrack.artists[0].image,
+      image: "https://picsum.photos/200" // Need to use default value for now
     });
   }
 
@@ -141,10 +139,14 @@ function SpotifyCards(props) {
 function Dashboard() {
   const [showSuccess, showError, renderToast] = useToast();
 
+  const [databaseMeta, setDatabaseMeta] = useState(null);
+
   const [song, setSong] = useState({
     id: "",
     name: "",
     track_number: "",
+    artist_id: "",
+    album_id: "",
   });
   const [album, setAlbum] = useState({
     id: "",
@@ -152,6 +154,7 @@ function Dashboard() {
     image: "",
     album_type: "",
     release_date: "",
+    artist_id: ""
   });
   const [artist, setArtist] = useState({
     id: "",
@@ -159,12 +162,99 @@ function Dashboard() {
     image: "",
   });
 
+  useEffect(() => {
+    getDatabaseMeta();
+  }, []);
+
+  function getDatabaseMeta() {
+    axios
+      .get(api.databaseMeta)
+      .then(function (response) {
+        if (response.status === 200) {
+          setDatabaseMeta(response.data.meta);
+        }
+      })
+      .catch(function (error) {
+        console.log("Error retrieving dashboard information");
+      });
+  }
+
+  function submitTrackInfo() {
+    addArtist();
+  }
+
+  function addArtist() {
+    axios.post(api.artist, artist)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Artist already exists in Database");
+        }
+        addAlbum();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
+      });
+  }
+
+  function addAlbum() {
+    axios.post(api.album, album)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Album already exists in Database");
+        }
+        addTrack();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
+      });
+  }
+
+  function addTrack() {
+    axios.post(api.song, song)
+      .then(function(response) {
+        console.log(response);
+        if (response === undefined) {
+          showError("Track already exists in Database");
+        } else if (response.status === 200) {
+          showSuccess("Successfully posted information to datbase");
+        }
+
+        setSong({
+          id: "",
+          name: "",
+          track_number: "",
+          artist_id: "",
+          album_id: "",
+        });
+        setAlbum({
+          id: "",
+          name: "",
+          image: "",
+          album_type: "",
+          release_date: "",
+          artist_id: ""
+        });
+        setArtist({
+          id: "",
+          name: "",
+          image: "",
+        });
+
+        getDatabaseMeta();
+      })
+      .catch(function(error) {
+        console.log("Error retrieving dashboard information", error);
+      });
+  }
+
   return (
     <div className="dashboard">
       {renderToast()}
       <div className="div1">
         <div className="dashboard-card">
-          <DashboardInfo />
+          <DashboardInfo databaseMeta={databaseMeta}/>
         </div>
         <div className="dashboard-card" style={{ marginTop: "36px" }}>
           <div>
@@ -187,7 +277,11 @@ function Dashboard() {
             </div>
             <div className="album-wrapper-art-wrapper">
               {album.image !== "" ? (
-                <img src={album.image} style={{marginTop: "38px"}} alt="album-art"></img>
+                <img
+                  src={album.image}
+                  style={{ marginTop: "38px" }}
+                  alt="album-art"
+                ></img>
               ) : (
                 <p>Please select an image</p>
               )}
@@ -204,6 +298,9 @@ function Dashboard() {
         <Button
           isPrimary={true}
           style={{ marginLeft: "auto", marginTop: "36px" }}
+          onClick={() => {
+            submitTrackInfo();
+          }}
         >
           Add Song Information
         </Button>
