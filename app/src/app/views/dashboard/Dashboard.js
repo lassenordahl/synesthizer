@@ -13,7 +13,7 @@ function DashboardInfo(props) {
   return (
     <div className="dashboard-info">
       <h2>Database Information</h2>
-      <p>Welcome Admin! Take a look at your database statistics. Quick note about the dashboard, to maintain Spotify data validity, we only permit adding data directly from the Spotify API within our app. Please search for songs to add using the search bar on the right. Thanks!</p>
+      <p style={{lineHeight: "20px"}}>Welcome Admin! Take a look at your database statistics. Quick note about the dashboard, to maintain Spotify data validity, we only permit adding data directly from the Spotify API within our app. Please search for songs to add using the search bar on the right. Thanks!</p>
       <div className="dashboard-database-info">
         <div className="dashboard-info-div1">
           <h3>Artists</h3>
@@ -314,7 +314,6 @@ function Dashboard() {
               {album.image !== "" ? (
                 <img
                   src={album.image}
-                  style={{ marginTop: "38px" }}
                   alt="album-art"
                 ></img>
               ) : (
