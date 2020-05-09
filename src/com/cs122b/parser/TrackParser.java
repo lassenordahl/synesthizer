@@ -41,19 +41,16 @@ class TrackParser extends BaseParser {
                     Element artistElem = (Element) artists.item(i);
                     Artist artist = new Artist();
                     artist.setId(this.getTextValue(artistElem, "id"));
-                    System.out.println(this.getTextValue(artistElem, "id"));
                     track.addArtists(artist);
                 }
             }
         }
 
-        System.out.println("album in " + track.getId());
         NodeList albumsTags = trackElem.getElementsByTagName("album");
         if (albumsTags != null && albumsTags.getLength() > 0) {
             Element albumElem = (Element) albumsTags.item(0);
             Album album = new Album();
             album.setId(this.getTextValue(albumElem, "id"));
-            System.out.println(this.getTextValue(albumElem, "id"));
             track.setAlbum(album);
         }
 
