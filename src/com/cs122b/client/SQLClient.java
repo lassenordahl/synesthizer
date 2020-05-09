@@ -1,6 +1,7 @@
 package com.cs122b.client;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SQLClient implements Config {
     private Connection connection;
@@ -37,5 +38,25 @@ public class SQLClient implements Config {
 
     public void closeConnection() throws SQLException {
         connection.close();
+    }
+
+    public ArrayList<String> getTables() throws SQLException {
+        ArrayList<String> tableNames = new ArrayList<String>();
+        DatabaseMetaData md = connection.getMetaData();
+        ResultSet result = md.getTables(null, null, "%", null);
+        while (result.next()) {
+            tableNames.add(result.getString("TABLE_NAME"));
+        }
+        return tableNames;
+    }
+
+    public ArrayList<String> getColumns(String tableName) throws SQLException {
+        ArrayList<String> attributes = new ArrayList<String>();
+        DatabaseMetaData md = connection.getMetaData();
+        ResultSet result = md.getColumns(null, null, tableName, null);
+        while (result.next()) {
+            attributes.add(result.getString("COLUMN_NAME") + " " + result.getString("TYPE_NAME"));
+        }
+        return attributes;
     }
 }
