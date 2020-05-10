@@ -24,10 +24,10 @@ public class TrackService implements Config {
             track.setPopularity(query.getInt("popularity"));
         }
 
-        Query queryArtist = db
-                .query("SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = \""
-                        + track.getId() + "\" ORDER BY name;");
-        ResultSet artistsResult = queryArtist.getResult();
+        String queryArtist = "SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = ? ORDER BY name;";
+        PreparedStatement statement = db.getConnection().prepareStatement(queryArtist, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, track.getId());
+        ResultSet artistsResult = statement.executeQuery();
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -40,16 +40,6 @@ public class TrackService implements Config {
 
             track.addArtists(artist);
         }
-
-        queryArtist.closeQuery();
-
-        // Query queryAlbum = db
-        // .query("SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id
-        // AND track_id = \""
-        // + track.getId() + "\";");
-
-        // ResultSet albumResult = queryAlbum.getResult();
-        // albumResult.next();
 
         Album album = new Album();
         album.setId(query.getString("album_id"));
@@ -108,15 +98,6 @@ public class TrackService implements Config {
         // Create an execute an SQL statement to select all of table tracks records
 
         SQLClient db = new SQLClient();
-
-        // Query query = db.query("SELECT *, \n" + "IFNULL((\n"
-        // + "SELECT COUNT(tip.playlist_id) FROM track_in_playlist as tip\n" + "WHERE
-        // tip.track_id = track.id\n"
-        // + "GROUP BY tip.track_id\n" + "), 0) as popularity FROM track\n"
-        // + "LEFT JOIN track_meta ON track.id = track_meta.id\n" + "ORDER BY popularity
-        // DESC\n" + "LIMIT "
-        // + Integer.toString(offset) + "," + Integer.toString(limit));
-
         StringBuilder queryString = new StringBuilder();
 
         // SELECT
@@ -210,17 +191,16 @@ public class TrackService implements Config {
 
     public static TrackMeta fetchTrackMeta(String id) throws SQLException {
         SQLClient db = new SQLClient();
-
-        Query query = db.query("SELECT * FROM track_meta\n" + "WHERE track_meta.id = \"" + id + "\"");
-
         TrackMeta trackMeta = new TrackMeta();
-        ResultSet result = query.getResult();
+
+        String query = "SELECT * FROM track_meta WHERE track_meta.id = ?;";
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, id);
+        ResultSet result = statement.executeQuery();
 
         result.next();
-
         setTrackMeta(trackMeta, result);
 
-        query.closeQuery();
         db.closeConnection();
         return trackMeta;
     }

@@ -78,6 +78,7 @@ function SongSelection(props) {
                   history.push(`/app/explore/albums/${album.id}`);
                 }}
                 skeletonPulse={showContent ? undefined : true}
+                hideSessionButton={true}
               ></AlbumCard>
             );
           })}

@@ -54,7 +54,7 @@ public class EmployeeService {
         pstmt.setString(1, email);
 
         String query2 = "SELECT * FROM employee WHERE email=?";
-        PreparedStatement pstmt2 = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement pstmt2 = db.getConnection().prepareStatement(query2, Statement.RETURN_GENERATED_KEYS);
         pstmt2.setString(1, email);
 
         ResultSet result = pstmt.executeQuery();

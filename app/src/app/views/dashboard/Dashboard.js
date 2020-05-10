@@ -120,7 +120,7 @@ function SpotifyCards(props) {
     props.setArtist({
       id: selectedTrack.artists[0].id,
       name: selectedTrack.artists[0].name,
-      image: "https://picsum.photos/200", // Need to use default value for now
+      image: selectedTrack.album.images[0].url, // Need to use default value for now
     });
   }
 

@@ -24,52 +24,32 @@ public class ArtistService {
             artist.setPopularity(query.getInt("popularity"));
         }
 
-        Query queryGenres = db
-                .query("SELECT * FROM artist_in_genre WHERE artist_id = \"" + artist.getId() + "\" ORDER BY genre");
-        ResultSet genreResult = queryGenres.getResult();
+        String artistGenreQuery = "SELECT * FROM artist_in_genre WHERE artist_id = ? ORDER BY genre";
+        PreparedStatement statement = db.getConnection().prepareStatement(artistGenreQuery, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, artist.getId());
+        ResultSet genreResult = statement.executeQuery();
+
         while (genreResult.next()) {
             artist.addGenre(genreResult.getString("genre"));
         }
-        queryGenres.closeQuery();
 
-        Query queryAlbums = db
-                .query("SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = \""
-                        + artist.getId() + "\" ORDER BY name asc");
-        ResultSet albumResult = queryAlbums.getResult();
+        String artistAlbumQuery = "SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = ? ORDER BY name asc";
+        PreparedStatement albumsStatement = db.getConnection().prepareStatement(artistAlbumQuery, Statement.RETURN_GENERATED_KEYS);
+        albumsStatement.setString(1, artist.getId());
+        ResultSet albumResult = albumsStatement.executeQuery();
 
         while (albumResult.next()) {
             Album album = new Album();
-
             album.setId(albumResult.getString("id"));
             album.setName(albumResult.getString("name"));
             album.setAlbum_type(albumResult.getString("album_type"));
             album.setImage(albumResult.getString("image"));
             album.setRelease_date(albumResult.getString("release_date"));
-
-            // // Add Artists to Album
-            // Query queryArtist = db
-            // .query("SELECT * FROM artist_in_album NATURAL JOIN artist WHERE artist_id =
-            // id AND album_id = \""
-            // + album.getId() + "\" ORDER BY name;");
-            // ResultSet artistsResult = queryArtist.getResult();
-
-            // while (artistsResult.next()) {
-            // if (artistsResult == null) {
-            // break;
-            // }
-            // Artist otherArtist = new Artist();
-            // otherArtist.setId(artistsResult.getString("id"));
-            // otherArtist.setName(artistsResult.getString("name"));
-            // otherArtist.setImage(artistsResult.getString("image"));
-
-            // album.addArtists(otherArtist);
-            // }
-
-            // queryArtist.closeQuery();
-
             artist.addAlbum(album);
         }
-        queryAlbums.closeQuery();
+
+        statement.close();
+        albumsStatement.close();
     }
 
     public static String insertArtist(String id, String name, String image) throws SQLException {
@@ -158,14 +138,16 @@ public class ArtistService {
     public static Artist fetchArtist(String id) throws SQLException {
         SQLClient db = new SQLClient();
 
-        Query query = db.query("SELECT * FROM artist WHERE id = \"" + id + "\"");
+        String query = "SELECT * FROM artist WHERE id = ?";
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, id);
+        ResultSet result = statement.executeQuery();
 
-        ResultSet result = query.getResult();
         result.next();
         Artist artist = new Artist();
         setArtistAttrs(db, artist, result, false);
 
-        query.closeQuery();
+        statement.close();
         db.closeConnection();
         return artist;
     }
