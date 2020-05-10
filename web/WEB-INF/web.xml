@@ -134,6 +134,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>com.cs122b.web.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/api/employee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>PlaylistSessionServlet</servlet-name>
         <servlet-class>com.cs122b.web.PlaylistSessionServlet</servlet-class>
     </servlet>

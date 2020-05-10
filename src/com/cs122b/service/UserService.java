@@ -50,17 +50,20 @@ public class UserService {
 
         String email = userJson.get("email").getAsString();
 
-        String query = "SELECT * FROM user, user WHERE user.email=? OR user.email=?";
-
+        String query = "SELECT * FROM user WHERE email=?";
         PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         pstmt.setString(1, email);
-        pstmt.setString(2, email);
+
+        String query2 = "SELECT * FROM employee WHERE email=?";
+        PreparedStatement pstmt2 = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt2.setString(1, email);
 
         ResultSet rs = pstmt.executeQuery();
-
-        if (rs.next() != false) {
+        ResultSet rs2 = pstmt2.executeQuery();
+        if (rs.next() != false || rs2.next() != false) {
             db.closeConnection();
             pstmt.close();
+            pstmt2.close();
             return null;
         }
 
@@ -80,6 +83,7 @@ public class UserService {
         insertUser(db, user);
 
         pstmt.close();
+        pstmt2.close();
         db.closeConnection();
         return user;
     }
