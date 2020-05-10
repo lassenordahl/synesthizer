@@ -19,10 +19,54 @@ function UserView({ props, match }) {
   const [showSuccess, showError, renderToaster] = useToast();
 
   let history = useHistory();
-  const [loggedIn, setLoggedIn, isEmployee, setIsEmployee] = useContext(LoggedInContext);
+  const [loggedIn, setLoggedIn, isEmployee, setIsEmployee] = useContext(
+    LoggedInContext
+  );
   const [cookies, setCookie] = useCookies([]);
 
   const [user, setUser] = useState({});
+
+  function checkAddToSpotify() {
+    let spotifyAuth = JSON.parse(localStorage.getItem("spotifyAuth"));
+    // If we don't have a stored authentication code
+    if (spotifyAuth === null) {
+      console.log("entered the if");
+      window.location.href = buildSpotifyRedirectString();
+    } else {
+      console.log("entered the else");
+      // Get time difference
+      let previousTime = new Date(
+        parseInt(localStorage.getItem("lastSpotify"))
+      );
+      let currentTime = new Date().getTime();
+
+      console.log(
+        "Minute difference",
+        getMinuteDifference(currentTime - previousTime)
+      );
+
+      // If our access token is out of the time range, we need to get a new one
+      if (getMinuteDifference(currentTime - previousTime) >= 59) {
+        window.location.href = buildSpotifyRedirectString();
+      }
+    }
+  }
+
+  function getMinuteDifference(diffMs) {
+    return Math.round(diffMs / 60000);
+  }
+
+  function buildSpotifyRedirectString() {
+    let redirect = "https://accounts.spotify.com/authorize";
+    redirect += "?client_id=75c3c1ce9f164f319b0e8d827b6e1282";
+    redirect += "&response_type=token";
+    redirect +=
+      // "&redirect_uri=http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/app/user/playlists";
+      "&redirect_uri=http://localhost:3000/unnamed/app/_dashboard";
+    redirect += "&scope=playlist-modify-public";
+
+    return redirect;
+  }
 
   function getUser() {
     axios
@@ -48,10 +92,14 @@ function UserView({ props, match }) {
         if (response !== undefined && response.status === 200) {
           setLoggedIn(true);
           setCookie("logged_in", true, { path: "/unnamed", expires: 0 });
-          
+
           if (response.data.isEmployee) {
             setIsEmployee(true);
             setCookie("isEmployee", true, { path: "/unnamed", expires: 0 });
+            checkAddToSpotify();
+            showSuccess("Successfully logged in");
+            history.push("/app/_dashboard");
+            return;
           }
 
           showSuccess("Successfully logged in");

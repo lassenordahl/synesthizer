@@ -14,9 +14,7 @@ function PrivateRoute({
   );
 
   function evalCondition() {
-    console.log("running eval");
     if (employeeOnly) {
-      console.log("isEmployee");
       return loggedIn && isEmployee;
     } else if (employeeNotAllowed) {
       return loggedIn && !isEmployee;

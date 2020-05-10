@@ -7,33 +7,36 @@ import { Card } from "./../../containers";
 import { Button } from "../../components";
 import { api } from "../../../utils/api";
 import { useSpotify, useToast } from "../../../hooks";
+import { SpotifyQueryParams } from "../../../hooks";
 import { truncateTitle } from "../../../global/helper";
 
 function DashboardInfo(props) {
   return (
     <div className="dashboard-info">
       <h2>Database Information</h2>
-      <p style={{lineHeight: "20px"}}>Welcome Admin! Take a look at your database statistics. Quick note about the dashboard, to maintain Spotify data validity, we only permit adding data directly from the Spotify API within our app. Please search for songs to add using the search bar on the right. Thanks!</p>
+      <p style={{ lineHeight: "20px" }}>
+        Welcome Admin! Take a look at your database statistics. Quick note about
+        the dashboard, to maintain Spotify data validity, we only permit adding
+        data directly from the Spotify API within our app. Please search for
+        songs to add using the search bar on the right. Thanks!
+      </p>
       <div className="dashboard-database-info">
         <div className="dashboard-info-div1">
           <h3>Artists</h3>
           <p>
-            Count:{" "}
-            {props.databaseMeta ? props.databaseMeta.artist_count : 0}
+            Count: {props.databaseMeta ? props.databaseMeta.artist_count : 0}
           </p>
         </div>
         <div className="dashboard-info-div2">
           <h3>Albums</h3>
           <p>
-            Count:{" "}
-            {props.databaseMeta ? props.databaseMeta.album_count : 0}
+            Count: {props.databaseMeta ? props.databaseMeta.album_count : 0}
           </p>
         </div>
         <div className="dashboard-info-div3">
           <h3>Songs</h3>
           <p>
-            Count:{" "}
-            {props.databaseMeta ? props.databaseMeta.track_count : 0}
+            Count: {props.databaseMeta ? props.databaseMeta.track_count : 0}
           </p>
         </div>
       </div>
@@ -104,7 +107,7 @@ function SpotifyCards(props) {
       track_number: selectedTrack.track_number,
       album_id: selectedTrack.album.id,
       artist_id: selectedTrack.artists[0].id,
-      duration_ms: selectedTrack.duration_ms
+      duration_ms: selectedTrack.duration_ms,
     });
     props.setAlbum({
       id: selectedTrack.album.id,
@@ -189,8 +192,19 @@ function Dashboard() {
     image: "",
   });
 
+  let spotifyParams = SpotifyQueryParams();
+
+  function checkAddSpotify() {
+    // If we're coming from a spotify redirect, we need to add the playlist given in the state
+    if (spotifyParams.fromSpotifyRedirect) {
+      localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
+      localStorage.setItem("lastSpotify", new Date().getTime());
+    }
+  }
+
   useEffect(() => {
     getDatabaseMeta();
+    checkAddSpotify();
   }, []);
 
   function getDatabaseMeta() {
@@ -312,10 +326,7 @@ function Dashboard() {
             </div>
             <div className="album-wrapper-art-wrapper">
               {album.image !== "" ? (
-                <img
-                  src={album.image}
-                  alt="album-art"
-                ></img>
+                <img src={album.image} alt="album-art"></img>
               ) : (
                 <p>Please select an image</p>
               )}

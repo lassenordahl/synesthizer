@@ -28,6 +28,7 @@ function Sidebar(props) {
           setCookie("logged_in", false, { path: "/unnamed", expires: 0 });
 
           if (cookies.isEmployee) {
+            setIsEmployee(false);
             setCookie("isEmployee", false, { path: "/unnamed", expires: 0 });
           }
 
@@ -97,7 +98,6 @@ function Sidebar(props) {
                 </Route>
                 Account
               </Link>
-              <Button onClick={logout}>Log Out</Button>
             </React.Fragment>
           ) : null}
           {loggedIn === false ? (
@@ -115,7 +115,11 @@ function Sidebar(props) {
                 Sign Up
               </Link>
             </React.Fragment>
-          ) : null}
+          ) : (
+            <React.Fragment>
+              <Button onClick={logout}>Log Out</Button>
+            </React.Fragment>
+          )}
         </React.Fragment>
       ) : null}
     </div>
