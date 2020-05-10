@@ -19,7 +19,7 @@ function UserView({ props, match }) {
   const [showSuccess, showError, renderToaster] = useToast();
 
   let history = useHistory();
-  const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+  const [loggedIn, setLoggedIn, isEmployee, setIsEmployee] = useContext(LoggedInContext);
   const [cookies, setCookie] = useCookies([]);
 
   const [user, setUser] = useState({});
@@ -48,6 +48,12 @@ function UserView({ props, match }) {
         if (response !== undefined && response.status === 200) {
           setLoggedIn(true);
           setCookie("logged_in", true, { path: "/unnamed", expires: 0 });
+          
+          if (response.data.isEmployee) {
+            setIsEmployee(true);
+            setCookie("isEmployee", true, { path: "/unnamed", expires: 0 });
+          }
+
           showSuccess("Successfully logged in");
           history.push("/app/explore/songs");
         } else {

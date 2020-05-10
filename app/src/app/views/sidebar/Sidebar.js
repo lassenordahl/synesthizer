@@ -13,7 +13,9 @@ import logo from "../../assets/cs122b-logo.png";
 
 function Sidebar(props) {
   const [showSuccess, showError, renderToaster] = useToast();
-  const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+  const [loggedIn, setLoggedIn, isEmployee, setIsEmployee] = useContext(
+    LoggedInContext
+  );
   const [cookies, setCookie] = useCookies([]);
 
   function logout(form) {
@@ -24,6 +26,11 @@ function Sidebar(props) {
         if (response.status === 200) {
           setLoggedIn(false);
           setCookie("logged_in", false, { path: "/unnamed", expires: 0 });
+
+          if (cookies.isEmployee) {
+            setCookie("isEmployee", false, { path: "/unnamed", expires: 0 });
+          }
+
           showSuccess("Successfully logged out");
         }
       })
@@ -43,7 +50,7 @@ function Sidebar(props) {
             <h2>Synesthizer</h2>
             <p>Intelligent Playlist Creation</p>
           </div>
-          <div style={{height: "160px"}}/>
+          <div style={{ height: "160px" }} />
           <Link to="/app/explore/songs">
             <Route path="/app/explore/songs">
               <div className="link-active" />
@@ -62,10 +69,15 @@ function Sidebar(props) {
             </Route>
             Artists
           </Link>
-          <Link to="/app/_dashboard">
-            Dashboard
-          </Link>
-          {loggedIn ? (
+          {loggedIn && isEmployee ? (
+            <Link to="/app/_dashboard">
+              <Route path="/app/_dashboard">
+                <div className="link-active" />
+              </Route>
+              Dashboard
+            </Link>
+          ) : null}
+          {loggedIn && isEmployee === false ? (
             <React.Fragment>
               <Link to="/app/user/playlists">
                 <Route exact path="/app/user/playlists">
@@ -87,7 +99,8 @@ function Sidebar(props) {
               </Link>
               <Button onClick={logout}>Log Out</Button>
             </React.Fragment>
-          ) : (
+          ) : null}
+          {loggedIn === false ? (
             <React.Fragment>
               <Link to="/app/user/account/login">
                 <Route path="/app/user/account/login">
@@ -100,9 +113,9 @@ function Sidebar(props) {
                   <div className="link-active" />
                 </Route>
                 Sign Up
-              </Link>    
+              </Link>
             </React.Fragment>
-          )}
+          ) : null}
         </React.Fragment>
       ) : null}
     </div>

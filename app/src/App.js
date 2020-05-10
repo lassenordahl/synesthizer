@@ -18,9 +18,14 @@ import {
 } from "./app/views";
 import { PrivateRoute, GoBackButton } from "./app/components";
 
+import { LoggedInContext } from "app/context/LoggedInContext";
+
 function App() {
   // Visual Variables
   const [showSidebar, setShowSidebar] = useState(true);
+  const [isLoggedIn, setIsLoggedIn, isEmployee, setIsEmployee] = useState(
+    LoggedInContext
+  );
   // let router = useRouter();
   // let history = useHistory();
 
@@ -69,11 +74,11 @@ function App() {
                   ) : null;
                 }}
               </PrivateRoute>
-              <Route exact path="/app/_dashboard">
+              <PrivateRoute exact employeeOnly={true} path="/app/_dashboard">
                 <div className="route-title">
                   <h2>Dashboard</h2>
                 </div>
-              </Route>
+              </PrivateRoute>
             </div>
             <div className="app-header"></div>
             <PrivateRoute
@@ -88,6 +93,7 @@ function App() {
             ></PrivateRoute>
             <PrivateRoute
               exact
+              employeeNotAllowed={true}
               path="/app/user/account/update"
               component={React.Fragment}
             ></PrivateRoute>
@@ -98,20 +104,28 @@ function App() {
             ></Route>
             <PrivateRoute
               exact
+              employeeNotAllowed={true}
               path="/app/user/playlists"
               component={Playlists}
             ></PrivateRoute>
             <PrivateRoute
               exact
+              employeeNotAllowed={true}
               path="/app/user/playlists/:playlistId/spotify"
               component={SpotifyPlaylist}
             ></PrivateRoute>
             <PrivateRoute
               exact
+              employeeNotAllowed={true}
               path="/app/user/playlists/create"
               component={CreatePlaylist}
             ></PrivateRoute>
-            <Route exact path="/app/_dashboard" component={Dashboard}></Route>
+            <PrivateRoute
+              exact
+              employeeOnly={true}
+              component={Dashboard}
+              path="/app/_dashboard"
+            />
             <Footer />
           </Route>
           <Redirect exact from="/" to="/landing" />
