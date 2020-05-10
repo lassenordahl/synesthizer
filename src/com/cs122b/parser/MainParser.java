@@ -23,8 +23,8 @@ public class MainParser {
 
     public MainParser(String file) {
         fileName = file;
-        artistParser = new ArtistParser();
-        albumParser = new AlbumParser();
+        artistParser = new ArtistParser(1);
+        albumParser = new AlbumParser(1);
         trackParser = new TrackParser();
         trackMetaParser = new TrackMetaParser();
     }

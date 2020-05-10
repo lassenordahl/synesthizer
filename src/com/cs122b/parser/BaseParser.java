@@ -1,6 +1,7 @@
 package com.cs122b.parser;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import com.mysql.jdbc.Statement;
 
@@ -20,7 +21,7 @@ class BaseParser {
         this.dupSet = new HashSet<String>();
     }
 
-    void addDupSet(String identifier) {
+    void addToDupSet(String identifier) {
         this.dupSet.add(identifier);
     }
 
@@ -29,7 +30,15 @@ class BaseParser {
             this.dupCount++;
             this.report.append("[Duplicate] ");
             this.report.append(toString + "\n");
+            return true;
         }
+        return false;
+    }
+
+    void addMissingData(String toString) {
+        this.report.append("[Missing Data] ");
+        this.report.append(toString + "\n");
+        this.missingDataCount++;
     }
 
     int getFailCount(int[] rows) {
@@ -48,17 +57,6 @@ class BaseParser {
                 success++;
         }
         return success;
-    }
-
-    String generateReport(String type, int[] rows) {
-        this.report.append("----------------------------------");
-        this.report.append("------------Statistics------------");
-        this.report.append("----------------------------------");
-        this.report.append(String.format("%ss Parsed: %d", type, rows.length));
-        this.report.append(String.format("%ss Inserted: %d", type, this.getSuccessCount(rows)));
-        this.report.append(String.format("%ss Duplicates: %d", type, this.dupCount));
-        this.report.append(String.format("%ss Missing Data: %d", type, this.missingDataCount));
-        return this.report.toString();
     }
 
     String getTextValue(Element ele, String tagName) {
@@ -90,6 +88,18 @@ class BaseParser {
             return 0;
         }
         return Float.parseFloat(getTextValue(ele, tagName));
+    }
+
+    public String generateReport(String type, int inserts, int totalParsed) {
+        this.report.append("--------------------------------------------\n");
+        this.report.append("-----------------Statistics-----------------\n");
+        this.report.append("--------------------------------------------\n");
+        this.report.append(String.format("%ss Parsed: %d\n", type, totalParsed));
+        this.report.append(String.format("%ss Inserted: %d\n", type, inserts));
+        this.report.append(String.format("%ss Duplicates: %d\n", type, this.dupCount));
+        this.report.append(String.format("%ss Missing Data: %d\n", type, this.missingDataCount));
+        this.report.append("--------------------------------------------\n");
+        return this.report.toString();
     }
 
 }
