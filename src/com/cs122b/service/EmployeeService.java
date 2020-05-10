@@ -49,17 +49,20 @@ public class EmployeeService {
         String email = employeeJson.get("email").getAsString();
         // Check if exists (return null if exists)
 
-        String query = "SELECT * FROM user, employee WHERE employee.email=? OR user.email=?";
-
+        String query = "SELECT * FROM user WHERE email=?";
         PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         pstmt.setString(1, email);
-        pstmt.setString(2, email);
+
+        String query2 = "SELECT * FROM employee WHERE email=?";
+        PreparedStatement pstmt2 = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        pstmt2.setString(1, email);
 
         ResultSet result = pstmt.executeQuery();
-
-        if (result.next() != false) {
+        ResultSet result2 = pstmt2.executeQuery();
+        if (result.next() != false || result2.next() != false) {
             db.closeConnection();
             pstmt.close();
+            pstmt2.close();
             return null;
         }
 
@@ -77,6 +80,7 @@ public class EmployeeService {
 
         insertEmployee(db, employee);
         pstmt.close();
+        pstmt2.close();
         db.closeConnection();
         return employee;
     }

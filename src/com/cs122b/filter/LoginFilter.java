@@ -75,6 +75,9 @@ public class LoginFilter implements Filter {
         // User
         allowedURIs.add("api/user");
 
+        // Employee
+        allowedURIs.add("api/employee");
+
         // Auth
         allowedURIs.add("api/login");
         allowedURIs.add("api/logout");
