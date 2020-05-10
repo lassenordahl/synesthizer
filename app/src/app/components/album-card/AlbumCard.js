@@ -16,7 +16,7 @@ function AlbumCard(props) {
       onClick={() => props.onClick()}
     >
       <div className="album-card-margin">
-        {props.skeletonPulse === undefined ? (
+        {props.skeletonPulse === undefined && props.hideSessionButton === undefined ? (
           <SessionButton
             isSelected={props.isInSession}
             onClick={() => {

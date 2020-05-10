@@ -14,6 +14,7 @@ public class GenreService {
     public static List<String> fetchGenres() throws SQLException {
         SQLClient db = new SQLClient();
 
+        // Don't need to
         Query query = db.query("SELECT DISTINCT genre FROM artist_in_genre ORDER BY genre");
 
         List<String> genres = new ArrayList<String>();
