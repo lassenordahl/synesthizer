@@ -6,6 +6,7 @@ import com.cs122b.service.UserService;
 import com.cs122b.model.User;
 import com.cs122b.utils.JsonParse;
 
+import com.cs122b.utils.RecaptchaVerifyUtils;
 import com.google.gson.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -26,39 +27,48 @@ public class LoginServlet extends HttpServlet {
         JsonObject responseJsonObject = new JsonObject();
 
         User user = null;
-        try {
-            user = UserService.authenticateUser(email, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        Employee employee = null;
-        if (user == null) {
+        try {
+            RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
+
             try {
-                employee = EmployeeService.authenticateEmployee(email, password);
+                user = UserService.authenticateUser(email, password);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
+
+            Employee employee = null;
+            if (user == null) {
+                try {
+                    employee = EmployeeService.authenticateEmployee(email, password);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
 
 
-        if (user != null) {
-            request.getSession().setAttribute("user_id", user.getId());
+            if (user != null) {
+                request.getSession().setAttribute("user_id", user.getId());
 
-            responseJsonObject.addProperty("status", "success");
-            responseJsonObject.addProperty("message", "success");
+                responseJsonObject.addProperty("status", "success");
+                responseJsonObject.addProperty("message", "success");
 
-        } else if (employee != null) {
-            request.getSession().setAttribute("employee_id", employee.getId());
+            } else if (employee != null) {
+                request.getSession().setAttribute("employee_id", employee.getId());
 
-            responseJsonObject.addProperty("isEmployee", "true");
-            responseJsonObject.addProperty("status", "success");
-            responseJsonObject.addProperty("message", "success");
-        } else {
-            response.setStatus(401);
-            responseJsonObject.addProperty("status", "incorrect username or password");
+                responseJsonObject.addProperty("isEmployee", "true");
+                responseJsonObject.addProperty("status", "success");
+                responseJsonObject.addProperty("message", "success");
+            } else {
+                response.setStatus(401);
+                responseJsonObject.addProperty("status", "incorrect username or password");
+            }
+        } catch (Exception e) {
+            response.setStatus(400);
+            responseJsonObject.addProperty("message", "No captcha provided or invalid captcha");
         }
 
         response.getWriter().write(responseJsonObject.toString());
+
     }
 }
