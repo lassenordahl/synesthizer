@@ -1,4 +1,4 @@
-# Project 2 README
+# Project 3 README
 
 # CS122B Songs Project
 
@@ -184,7 +184,13 @@ POST employee
 ## Project Contributions
 
 ### Lasse Nordahl
-
+- Start React App
+- Do main css
+- Design song, artist, album list view
+- Create track_meta, album, track_in_album endpoints
+- Create album selection page
+- Add hyperlinks to single view pages
+- Add popularity sorting to album and song endpoint
 - Application routing for new pages
 - Cart/Playlist generation functionality for Songs and Albums (Front-end and Back-end)
 - Create Playlist Page
@@ -193,7 +199,7 @@ POST employee
 - Playlist Session Endpoints
 - Spotify Integration
   - Implicit Grant Flow on Front-End
-  - Create playlist functionality on playlist page
+  - Create spotify playlist functionality on playlist page
 - Spotify Snapshot SQL and Endpoints
 - ReCaptcha integration
 - Password Encryption
