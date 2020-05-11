@@ -77,4 +77,8 @@ public class Artist {
     public void setPopularity(int popularity) {
         this.popularity = popularity;
     }
+
+    public String toString() {
+        return String.format("-Artist- id: %s name: %s image: %s", getId(), getName(), getImage());
+    }
 }

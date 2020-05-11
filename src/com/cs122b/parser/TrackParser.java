@@ -12,14 +12,19 @@ import com.mysql.jdbc.Statement;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
 class TrackParser extends BaseParser {
+    int efficientFlag;
+    int unfilteredCount;
     LinkedList<Track> tracks;
 
-    TrackParser() {
+    TrackParser(int efficientFlag) {
         super();
+        this.efficientFlag = efficientFlag;
+        this.unfilteredCount = 0;
         this.tracks = new LinkedList<Track>();
     }
 
@@ -57,6 +62,50 @@ class TrackParser extends BaseParser {
         return track;
     }
 
+    private Boolean hasAllData(Track track) {
+        if (track.getId() != null && track.getName() != null && track.getTrack_number() != null) {
+            return true;
+        }
+        this.addMissingData(track.toString());
+        return false;
+    }
+
+    private Boolean isValid(Track track) {
+
+        return !this.isDuplicate(track.getId(), track.toString()) && hasAllData(track);
+    }
+
+    private void validationFilter() throws SQLException {
+        SQLClient db = new SQLClient();
+        // get all ids in db and add to dupSet
+
+        String query = "SELECT id FROM track;";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+        ResultSet result = pstmt.executeQuery();
+        while (result.next()) {
+            this.addToDupSet(result.getString("id"));
+        }
+
+        // copy all old tracks into new array
+        LinkedList<Track> oldTracks = this.tracks;
+        this.tracks = new LinkedList<Track>();
+
+        // iterate over old tracks and add good
+        for (Track track : oldTracks) {
+            if (isValid(track)) {
+                this.tracks.add(track);
+            }
+        }
+
+        if (efficientFlag != 1) {
+            this.tracks = oldTracks;
+        }
+
+        pstmt.close();
+        db.closeConnection();
+    }
+
     void parseTracks(Element tracksElement) {
         NodeList nl = tracksElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
@@ -74,7 +123,8 @@ class TrackParser extends BaseParser {
                 }
             }
         }
-        return;
+
+        unfilteredCount = tracks.size();
     }
 
     void commitTracks() throws SQLException {
@@ -91,11 +141,13 @@ class TrackParser extends BaseParser {
         String insertQuery3 = "INSERT INTO track_in_album(track_id, album_id) " + "VALUES(?,?);";
         PreparedStatement pstmt3 = db.getConnection().prepareStatement(insertQuery3, Statement.RETURN_GENERATED_KEYS);
 
+        validationFilter();
+
         int artists_in_track = 0;
         for (Track track : tracks) {
             pstmt.setString(1, track.getId());
             pstmt.setString(2, track.getName());
-            pstmt.setInt(3, track.getTrack_number());
+            pstmt.setInt(3, (int) track.getTrack_number());
 
             // artist_in_track
             if (track.getArtists() != null) {
@@ -115,36 +167,35 @@ class TrackParser extends BaseParser {
             pstmt.addBatch();
         }
 
+        Integer inserts = null;
         try {
             // Batch is ready, execute it to insert the data
             pstmt.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d tracks.",
-                    this.getSuccessCount(e.getUpdateCounts()), tracks.size()));
+            inserts = this.getSuccessCount(e.getUpdateCounts());
+            System.out.println(this.getFailCount(e.getUpdateCounts()));
         }
-
-        System.out.println("committed the track");
 
         try {
             // Batch is ready, execute it to insert the data
             pstmt2.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_track.",
-                    this.getSuccessCount(e.getUpdateCounts()), artists_in_track));
         }
-
-        System.out.println("committed the artist_in_track");
 
         try {
             // Batch is ready, execute it to insert the data
             pstmt3.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d tracks_in_album.",
-                    this.getSuccessCount(e.getUpdateCounts()), tracks.size()));
         }
 
         db.getConnection().commit();
-        System.out.println("committed the track_in_album");
+
+        if (inserts == null) {
+            inserts = tracks.size();
+        }
+
+        // Print Report
+        System.out.println(this.generateReport("Track", inserts, unfilteredCount));
 
         pstmt.close();
         pstmt2.close();

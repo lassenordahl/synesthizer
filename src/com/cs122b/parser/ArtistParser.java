@@ -10,10 +10,14 @@ import java.sql.*;
 import java.util.LinkedList;
 
 class ArtistParser extends BaseParser {
+    int efficientFlag;
+    int unfilteredCount;
     LinkedList<Artist> artists;
 
-    ArtistParser() {
+    ArtistParser(int efficientFlag) {
         super();
+        this.efficientFlag = efficientFlag;
+        this.unfilteredCount = 0;
         this.artists = new LinkedList<Artist>();
     }
 
@@ -50,6 +54,50 @@ class ArtistParser extends BaseParser {
         return artist;
     }
 
+    private Boolean hasAllData(Artist artist) {
+        if (artist.getId() != null && artist.getName() != null && artist.getImage() != null) {
+            return true;
+        }
+        this.addMissingData(artist.toString());
+        return false;
+    }
+
+    private Boolean isValid(Artist artist) {
+
+        return !this.isDuplicate(artist.getId(), artist.toString()) && hasAllData(artist);
+    }
+
+    private void validationFilter() throws SQLException {
+        SQLClient db = new SQLClient();
+        // get all ids in db and add to dupSet
+
+        String query = "SELECT id FROM artist;";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+        ResultSet result = pstmt.executeQuery();
+        while (result.next()) {
+            this.addToDupSet(result.getString("id"));
+        }
+
+        // copy all old artists into new array
+        LinkedList<Artist> oldArtists = this.artists;
+        this.artists = new LinkedList<Artist>();
+
+        // iterate over old artists and add good
+        for (Artist artist : oldArtists) {
+            if (isValid(artist)) {
+                this.artists.add(artist);
+            }
+        }
+
+        if (efficientFlag != 1) {
+            this.artists = oldArtists;
+        }
+
+        pstmt.close();
+        db.closeConnection();
+    }
+
     void parseArtists(Element artistsElement) {
         NodeList nl = artistsElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
@@ -66,7 +114,8 @@ class ArtistParser extends BaseParser {
                 }
             }
         }
-        return;
+
+        unfilteredCount = artists.size();
     }
 
     void commitArtists() throws SQLException {
@@ -79,6 +128,8 @@ class ArtistParser extends BaseParser {
 
         String insertQuery2 = "INSERT INTO artist_in_genre(artist_id, genre) " + "VALUES(?,?);";
         PreparedStatement pstmt2 = db.getConnection().prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
+
+        validationFilter();
 
         int artists_in_genre = 0;
         for (Artist artist : artists) {
@@ -99,24 +150,25 @@ class ArtistParser extends BaseParser {
             pstmt.addBatch();
         }
 
+        Integer inserts = null;
         try {
             pstmt.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d artists.",
-                    this.getSuccessCount(e.getUpdateCounts()), artists.size()));
+            inserts = this.getSuccessCount(e.getUpdateCounts());
         }
-
-        System.out.println("committed to artist table");
 
         try {
             pstmt2.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_genre.",
-                    this.getSuccessCount(e.getUpdateCounts()), artists_in_genre));
         }
         db.getConnection().commit();
 
-        System.out.println("committed to artist_in_genre table");
+        if (inserts == null) {
+            inserts = artists.size();
+        }
+
+        // Print Report
+        System.out.println(this.generateReport("Artist", inserts, unfilteredCount));
 
         pstmt.close();
         pstmt2.close();

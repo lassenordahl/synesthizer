@@ -6,17 +6,18 @@ import com.cs122b.model.TrackMeta;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import java.sql.BatchUpdateException;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.LinkedList;
 
 class TrackMetaParser extends BaseParser {
+    int efficientFlag;
+    int unfilteredCount;
     LinkedList<TrackMeta> trackMetas;
 
-    TrackMetaParser() {
+    TrackMetaParser(int efficientFlag) {
         super();
+        this.efficientFlag = efficientFlag;
+        this.unfilteredCount = 0;
         this.trackMetas = new LinkedList<TrackMeta>();
     }
 
@@ -46,6 +47,50 @@ class TrackMetaParser extends BaseParser {
         return trackMeta;
     }
 
+    private Boolean hasAllData(TrackMeta trackMeta) {
+        if (trackMeta.getId() != null && trackMeta.getDuration_ms() != null) {
+            return true;
+        }
+        this.addMissingData(trackMeta.toString());
+        return false;
+    }
+
+    private Boolean isValid(TrackMeta trackMeta) {
+
+        return !this.isDuplicate(trackMeta.getId(), trackMeta.toString()) && hasAllData(trackMeta);
+    }
+
+    private void validationFilter() throws SQLException {
+        SQLClient db = new SQLClient();
+        // get all ids in db and add to dupSet
+
+        String query = "SELECT id FROM track_meta;";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+        ResultSet result = pstmt.executeQuery();
+        while (result.next()) {
+            this.addToDupSet(result.getString("id"));
+        }
+
+        // copy all old trackMetas into new array
+        LinkedList<TrackMeta> oldTrackMetas = this.trackMetas;
+        this.trackMetas = new LinkedList<TrackMeta>();
+
+        // iterate over old trackMetas and add good
+        for (TrackMeta trackMeta : oldTrackMetas) {
+            if (isValid(trackMeta)) {
+                this.trackMetas.add(trackMeta);
+            }
+        }
+
+        if (efficientFlag != 1) {
+            this.trackMetas = oldTrackMetas;
+        }
+
+        pstmt.close();
+        db.closeConnection();
+    }
+
     void parseTrackMetas(Element trackMetasElement) {
         NodeList nl = trackMetasElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
@@ -62,7 +107,8 @@ class TrackMetaParser extends BaseParser {
                 }
             }
         }
-        return;
+
+        unfilteredCount = trackMetas.size();
     }
 
     void commitTrackMetas() throws SQLException {
@@ -73,6 +119,8 @@ class TrackMetaParser extends BaseParser {
         String insertQuery = "INSERT INTO track_meta(id,acousticness,analysis_url,danceability,duration_ms,energy,instrumentalness,note,liveness,loudness,mode,speechiness,tempo,time_signature,track_href,type,uri,valence) "
                 + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+
+        validationFilter();
 
         for (TrackMeta trackMeta : trackMetas) {
             pstmt.setString(1, trackMeta.getId());
@@ -97,15 +145,21 @@ class TrackMetaParser extends BaseParser {
             pstmt.addBatch();
         }
 
+        Integer inserts = null;
         try {
             pstmt.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d track_metas.",
-                    this.getSuccessCount(e.getUpdateCounts()), trackMetas.size()));
+            inserts = this.getSuccessCount(e.getUpdateCounts());
         }
 
         db.getConnection().commit();
-        System.out.println("committed to track_meta table");
+
+        if (inserts == null) {
+            inserts = trackMetas.size();
+        }
+
+        // Print Report
+        System.out.println(this.generateReport("TrackMeta", inserts, unfilteredCount));
 
         pstmt.close();
         db.closeConnection();

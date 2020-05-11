@@ -6,7 +6,7 @@ public class TrackMeta {
     private float acousticness;
     private String analysis_url;
     private float danceability;
-    private int duration_ms;
+    private Integer duration_ms;
     private float energy;
     private float instrumentalness;
     private int note;
@@ -56,7 +56,7 @@ public class TrackMeta {
         this.danceability = danceability;
     }
 
-    public int getDuration_ms() {
+    public Integer getDuration_ms() {
         return duration_ms;
     }
 
@@ -166,5 +166,9 @@ public class TrackMeta {
 
     public void setValence(float valence) {
         this.valence = valence;
+    }
+
+    public String toString() {
+        return String.format("-TrackMeta- id: %s duration: %d ...", getId(), getDuration_ms());
     }
 }

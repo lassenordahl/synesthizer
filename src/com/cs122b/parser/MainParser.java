@@ -22,11 +22,12 @@ public class MainParser {
     TrackMetaParser trackMetaParser;
 
     public MainParser(String file) {
+        int optimizedFlag = 0;
         fileName = file;
-        artistParser = new ArtistParser();
-        albumParser = new AlbumParser();
-        trackParser = new TrackParser();
-        trackMetaParser = new TrackMetaParser();
+        artistParser = new ArtistParser(optimizedFlag);
+        albumParser = new AlbumParser(optimizedFlag);
+        trackParser = new TrackParser(optimizedFlag);
+        trackMetaParser = new TrackMetaParser(optimizedFlag);
     }
 
     public void run() {
@@ -113,7 +114,11 @@ public class MainParser {
     }
 
     public static void main(String[] args) {
-        System.out.println("Starting Parser");
+        StringBuilder initLogging = new StringBuilder();
+        initLogging.append("--------------------------------------------\n");
+        initLogging.append("-------------------Parsing------------------\n");
+        initLogging.append("--------------------------------------------\n");
+
         MainParser dpe = new MainParser(args[0]);
         dpe.run();
     }

@@ -9,15 +9,20 @@ import org.w3c.dom.NodeList;
 
 import java.sql.BatchUpdateException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
 class AlbumParser extends BaseParser {
+    int efficientFlag;
+    int unfilteredCount;
     LinkedList<Album> albums;
 
-    AlbumParser() {
+    AlbumParser(int efficientFlag) {
         super();
+        this.efficientFlag = efficientFlag;
+        this.unfilteredCount = 0;
         this.albums = new LinkedList<Album>();
     }
 
@@ -69,6 +74,51 @@ class AlbumParser extends BaseParser {
         return album;
     }
 
+    private Boolean hasAllData(Album album) {
+        if (album.getId() != null && album.getName() != null && album.getAlbum_type() != null
+                && album.getImage() != null && album.getRelease_date() != null) {
+            return true;
+        }
+        this.addMissingData(album.toString());
+        return false;
+    }
+
+    private Boolean isValid(Album album) {
+
+        return !this.isDuplicate(album.getId(), album.toString()) && hasAllData(album);
+    }
+
+    private void validationFilter() throws SQLException {
+        SQLClient db = new SQLClient();
+        // get all ids in db and add to dupSet
+
+        String query = "SELECT id FROM album;";
+        PreparedStatement pstmt = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+        ResultSet result = pstmt.executeQuery();
+        while (result.next()) {
+            this.addToDupSet(result.getString("id"));
+        }
+
+        // copy all old albums into new array
+        LinkedList<Album> oldAlbums = this.albums;
+        this.albums = new LinkedList<Album>();
+
+        // iterate over old albums and add good
+        for (Album album : oldAlbums) {
+            if (isValid(album)) {
+                this.albums.add(album);
+            }
+        }
+
+        if (efficientFlag != 1) {
+            this.albums = oldAlbums;
+        }
+
+        pstmt.close();
+        db.closeConnection();
+    }
+
     void parseAlbums(Element albumsElement) {
         NodeList nl = albumsElement.getElementsByTagName("item");
         if (nl != null && nl.getLength() > 0) {
@@ -85,7 +135,8 @@ class AlbumParser extends BaseParser {
                 }
             }
         }
-        return;
+
+        unfilteredCount = albums.size();
     }
 
     void commitAlbums() throws SQLException {
@@ -99,6 +150,8 @@ class AlbumParser extends BaseParser {
         String insertQuery2 = "INSERT INTO artist_in_album(artist_id, album_id) " + "VALUES(?,?);";
         PreparedStatement pstmt2 = db.getConnection().prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
         int artists_in_albums = 0;
+
+        validationFilter();
 
         for (Album album : albums) {
             pstmt.setString(1, album.getId());
@@ -120,26 +173,28 @@ class AlbumParser extends BaseParser {
             pstmt.addBatch();
         }
 
+        Integer inserts = null;
         try {
             // Batch is ready, execute it to insert the data
             pstmt.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d albums.",
-                    this.getSuccessCount(e.getUpdateCounts()), albums.size()));
+            inserts = this.getSuccessCount(e.getUpdateCounts());
         }
-
-        System.out.println("committed the artist");
 
         try {
             // Batch is ready, execute it to insert the data
             pstmt2.executeBatch();
         } catch (BatchUpdateException e) {
-            System.out.println(String.format("Batch was able to insert %d out of %d artists_in_albums.",
-                    this.getSuccessCount(e.getUpdateCounts()), artists_in_albums));
         }
 
         db.getConnection().commit();
-        System.out.println("committed the artist_in_album");
+
+        if (inserts == null) {
+            inserts = albums.size();
+        }
+
+        // Print Report
+        System.out.println(this.generateReport("Album", inserts, unfilteredCount));
 
         pstmt.close();
         pstmt2.close();

@@ -79,4 +79,9 @@ public class Album {
         }
         this.artists.add(artist);
     }
+
+    public String toString() {
+        return String.format("-Album- id: %s name: %s album_type: %s image: %s release_date: %s", getId(), getName(),
+                getAlbum_type(), getImage(), getRelease_date());
+    }
 }
