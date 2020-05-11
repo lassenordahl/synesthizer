@@ -1,0 +1,896 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.cs122b.team53:songs >-----------------------
+[INFO] Building songs 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ songs ---
+--------------------------------------------
+-------------------Parsing------------------
+--------------------------------------------
+
+[Duplicate] -Artist- id: 5cj0lLjcoR7YOSnhnX0Po5 name: Doja Cat image: https://picsum.photos/200
+[Duplicate] -Artist- id: 0hCNtLu0JehylgoiP8L4Gh name: Nicki Minaj image: https://picsum.photos/200
+--------------------------------------------
+-----------------Statistics-----------------
+--------------------------------------------
+Artists Parsed: 2
+Artists Inserted: 0
+Artists Duplicates: 2
+Artists Missing Data: 0
+--------------------------------------------
+
+[Duplicate] -Album- id: 0uLz2ygHQAtLknyGasJOr5 name: Know Your Worth album_type: single image: https://i.scdn.co/image/ab67616d0000b273b9cff3f017498dd08950775c release_date: 2020-02-04
+[Duplicate] -Album- id: 50ZTMRi6Biq1i1pWbcaKaJ name: The Other Side (from Trolls World Tour) album_type: single image: https://i.scdn.co/image/ab67616d0000b273c0679b8777e40a4538bab8cc release_date: 2020-02-26
+[Duplicate] -Album- id: 7rU4vsRIhRRfMt3qy6ADND name: Drown (feat. Clinton Kane) album_type: single image: https://i.scdn.co/image/ab67616d0000b273b154bc645350b122934566e4 release_date: 2020-02-27
+[Duplicate] -Album- id: 7BrlhEO8dHiNmU8A1Ep9RZ name: If the World Was Ending (feat. Julia Michaels) album_type: single image: https://i.scdn.co/image/ab67616d0000b273dedbec8cca43642f06533476 release_date: 2019-10-17
+[Duplicate] -Album- id: 7xV2TzoaVc0ycW7fwBwAml name: Fine Line album_type: album image: https://i.scdn.co/image/ab67616d0000b27377fdcfda6535601aff081b6a release_date: 2019-12-13
+[Duplicate] -Album- id: 3Vsbl0diFGw8HNSjG8ue9m name: Romance album_type: album image: https://i.scdn.co/image/ab67616d0000b2735f53c0dbe5190a0af0fa28f3 release_date: 2019-12-06
+[Duplicate] -Album- id: 0ix3XtPV1LwmZADsprKxcp name: Don't Start Now album_type: single image: https://i.scdn.co/image/ab67616d0000b2738583df1a14bea9175f9ac520 release_date: 2019-10-31
+[Duplicate] -Album- id: 1MmVkhiwTH0BkNOU3nw5d3 name: Hot Pink album_type: album image: https://i.scdn.co/image/ab67616d0000b27382b243023b937fd579a35533 release_date: 2019-11-07
+[Duplicate] -Album- id: 0lc1TxAzpSHI7DGhgdWuMI name: After Hours (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2734315171a5b6611daae6b9a24 release_date: 2020-04-03
+[Duplicate] -Album- id: 5QakU0QMcoxjjyCS1YW4G5 name: GIRL album_type: album image: https://i.scdn.co/image/ab67616d0000b273b3bf50004c510109265daf9c release_date: 2019-03-08
+[Duplicate] -Album- id: 6mJZTV8lCqnwftYZa94bXS name: MAP OF THE SOUL : 7 album_type: album image: https://i.scdn.co/image/ab67616d0000b2738afcb7dd182cffe8d53b781e release_date: 2020-02-21
+[Duplicate] -Album- id: 700MviIgFKNTldTXmOAFOr name: Alone, Pt. II album_type: single image: https://i.scdn.co/image/ab67616d0000b273153261ff7373a171c24ab9f9 release_date: 2019-12-27
+[Duplicate] -Album- id: 3fyujnQjkecdRZ3xiKNrzj name: 6 months album_type: single image: https://i.scdn.co/image/ab67616d0000b273901dae349d3d7aad9a9bf1a6 release_date: 2020-02-21
+[Duplicate] -Album- id: 2r6BEK0wzXbL8JHyCkeJkG name: Motivation album_type: single image: https://i.scdn.co/image/ab67616d0000b273b3cccc782ccb68faa42fcc17 release_date: 2019-08-16
+[Duplicate] -Album- id: 0BwWUstDMUbgq2NYONRqlu name: Rumours (Super Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273e52a59a28efa4773dd2bfe1b release_date: 1977-02-04
+[Duplicate] -Album- id: 1d79WI0e5XKTpBymbKADDQ name: Endless Flight album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a36d4a054f611e449eca370 release_date: 1976
+[Duplicate] -Album- id: 4GSidaoqyGNwaG5mNKmuLT name: We Are Family [Expanded] album_type: album image: https://i.scdn.co/image/ab67616d0000b2739c6d5c505e6197defb750428 release_date: 1979-02-15
+[Duplicate] -Album- id: 2EwoYRFQRJqw7BTVG6GlTw name: Move On Up (Single Edit) album_type: single image: https://i.scdn.co/image/ab67616d0000b273b97b45e7885537d42ed46cdf release_date: 1970
+[Duplicate] -Album- id: 2gvwC6eFsQH5rlvrZyhs3s name: Dancing In The Moonlight album_type: single image: https://i.scdn.co/image/ab67616d0000b273cc344f09300a0d20635f96f3 release_date: 1973-01-01
+[Duplicate] -Album- id: 6g9uPPHtnxQLSUd6d9xK8n name: Goodbye Yellow Brick Road (Remastered / Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f5b95dce2bc9db5ed3f8028f release_date: 1973-10-05
+[Duplicate] -Album- id: 0gCDvloPR42pZRZhmbGYVI name: The Essential Daryl Hall & John Oates album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273e49b4b79f376c0bc6e0c079b release_date: 2005-04-25
+[Duplicate] -Album- id: 1vz94WpXDVYIEGja8cjFNa name: Blue album_type: album image: https://i.scdn.co/image/ab67616d0000b273e9f77be85457110ebf304da7 release_date: 1971-06-22
+[Duplicate] -Album- id: 12n11cgnpjXKLeqrnIERoS name: Tapestry album_type: album image: https://i.scdn.co/image/ab67616d0000b27323350feac07f56d8b96f33d5 release_date: 1971
+[Duplicate] -Album- id: 7iJCy3T66FJmXT7LGVd3QA name: Rejoice album_type: album image: https://i.scdn.co/image/ab67616d0000b273c5a010463c2b450902e57599 release_date: 1977-06-10
+[Duplicate] -Album- id: 1mnu4hYvdwQgZXcNvtJ3D3 name: Toto album_type: album image: https://i.scdn.co/image/ab67616d0000b273f903e62767a0e22e33b7af83 release_date: 1978-10-10
+[Duplicate] -Album- id: 7DysI4j6UqK00RTfETKXqs name: Silk Degrees album_type: album image: https://i.scdn.co/image/ab67616d0000b27394676ce6aa5288318b4ca52a release_date: 1976
+[Duplicate] -Album- id: 4RLVTxnuVN5ZWZqBFnaaQt name: I Am album_type: album image: https://i.scdn.co/image/ab67616d0000b2735ccd022a69a4da9551efd988 release_date: 1979-06
+[Duplicate] -Album- id: 5Gf5m9M6RiK2lkjpbP0xRu name: Come and Get Your Love album_type: single image: https://i.scdn.co/image/ab67616d0000b27346814e1b44e54d806753801e release_date: 1973-11-01
+[Duplicate] -Album- id: 3usnShwygMXVZB4IV5dwnU name: Out of the Blue album_type: album image: https://i.scdn.co/image/ab67616d0000b2738c4e95986c803791125e8991 release_date: 1977
+[Duplicate] -Album- id: 5ThwnbpYrk9R1xXkAGCLIs name: Looking Glass album_type: album image: https://i.scdn.co/image/ab67616d0000b2734c95b7cf28c3015c914218e4 release_date: 1972
+[Duplicate] -Album- id: 35yZZTWeSrszSKjRlFETwf name: City To City album_type: album image: https://i.scdn.co/image/ab67616d0000b273dc60cf9a010f86354e6735dd release_date: 1978
+[Duplicate] -Album- id: 1cpPUXM8H8059n6B9Nm46c name: December, 1963 (Oh, What a Night) / Slip Away album_type: single image: https://i.scdn.co/image/ab67616d0000b27325e9f9a004a934f76e46e310 release_date: 1975
+[Duplicate] -Album- id: 4I4xtHaIFOzhZfp1NIHkY6 name: All Things Must Pass (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273acc11d868a59008935e72299 release_date: 1970-11-27
+[Duplicate] -Album- id: 1vsWzNT3lzLt7RNLUdUVZB name: Rocket Man (Deluxe Edition) album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273d7094d37cb88fd125c26e701 release_date: 2007-03-26
+[Duplicate] -Album- id: 257oomaawruFknt5wYCPDh name: Band On The Run (Standard) album_type: album image: https://i.scdn.co/image/ab67616d0000b2733bfeed5916a64f63b4e25ce2 release_date: 1973-12-05
+[Duplicate] -Album- id: 7fbHVufa1ZvEWWpDppEXHU name: Who Loves You album_type: album image: https://i.scdn.co/image/ab67616d0000b273206e2e76c3a706e4734d18ab release_date: 1975
+[Duplicate] -Album- id: 2tzbNCAUTmW4MIM2Ulvrwl name: Commodores album_type: album image: https://i.scdn.co/image/ab67616d0000b27340eea368f4fb5f5ee6dcd9a8 release_date: 1977-01-01
+[Duplicate] -Album- id: 54ootLtDyMZFr9obtWQvvO name: Signed, Sealed And Delivered album_type: album image: https://i.scdn.co/image/ab67616d0000b273c5e9e847ca9c0982b4c91d4b release_date: 1970-08-07
+[Duplicate] -Album- id: 7JOdtLDLyXJIppDRB7kxr9 name: Ladies of the Canyon album_type: album image: https://i.scdn.co/image/ab67616d0000b2730058fcf8f649ae1b05f6c163 release_date: 1970-03-01
+[Duplicate] -Album- id: 52Ho5XgGwrNrPARqqXhJ5P name: Dance Vault Mixes - Copacabana (At The Copa) album_type: single image: https://i.scdn.co/image/ab67616d0000b273668d9bd8f9a446d3d9e5e4a1 release_date: 2006-09-12
+[Duplicate] -Album- id: 6TLTd0P2CUI0Q29AQ1LyFi name: Tom Petty & The Heartbreakers album_type: album image: https://i.scdn.co/image/ab67616d0000b2737e42a53ea7f2ad4f36ab23a5 release_date: 1976-11-09
+[Duplicate] -Album- id: 6EXW6NvOhICAIUPAUmOv1G name: Rhino Hi-Five: Andrew Gold album_type: single image: https://i.scdn.co/image/ab67616d0000b273f2e0095ebf2aaadb55f0342a release_date: 2005-04-19
+[Duplicate] -Album- id: 2widuo17g5CEC66IbzveRu name: Hotel California (2013 Remaster) album_type: album image: https://i.scdn.co/image/ab67616d0000b2734637341b9f507521afa9a778 release_date: 1976-12-08
+[Duplicate] -Album- id: 7diHYi0CglGJekoM3KaWBK name: Moondance (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f22514855a9a8356664340fb release_date: 1970-02
+[Duplicate] -Album- id: 5PyOMtVxqztMvIKsJLV8bW name: The Rubberband Man / Now That We're Together [Digital 45] album_type: single image: https://i.scdn.co/image/ab67616d0000b273d390959718fdaab2d460f705 release_date: 1976
+[Duplicate] -Album- id: 4yP0hdKOZPNshxUOjY0cZj name: After Hours album_type: album image: https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36 release_date: 2020-03-20
+[Duplicate] -Album- id: 1DNx0H5ZX1ax3yyRwtgT4S name: Don't Forget About Me, Demos album_type: single image: https://i.scdn.co/image/ab67616d0000b2734a42166d927b3acce345c5c0 release_date: 2018-10-16
+[Duplicate] -Album- id: 6mm1Skz3JE6AXneya9Nyiv name: Oracular Spectacular album_type: album image: https://i.scdn.co/image/ab67616d0000b2738b32b139981e79f2ebe005eb release_date: 2007-12-14
+[Duplicate] -Album- id: 7fJJK56U9fHixgO0HQkhtI name: Future Nostalgia album_type: album image: https://i.scdn.co/image/ab67616d0000b273c966c2f4e08aee0442b6b8d6 release_date: 2020-03-27
+[Duplicate] -Album- id: 3oylWMc9TTC6Nx4I6U3axc name: Never Trust A Happy Song album_type: album image: https://i.scdn.co/image/ab67616d0000b273d84a9bbcba91cb6a4a212b1b release_date: 2011-09-02
+[Duplicate] -Album- id: 5p0UaZsYWMn4L1dSpc6AhN name: 1950 album_type: single image: https://i.scdn.co/image/ab67616d0000b273580625d3d07c5b16238c2e69 release_date: 2018-02-23
+[Duplicate] -Album- id: 3844bY26oeSkqd06th4EYp name: Yo x Ti, Tu x Mi album_type: single image: https://i.scdn.co/image/ab67616d0000b273694844fd046ab81e5dc9a4cf release_date: 2019-08-15
+[Duplicate] -Album- id: 7baaCf70tVcUBL2bbkuXjo name: How Do You Sleep? album_type: single image: https://i.scdn.co/image/ab67616d0000b27376bc1c851462191faec76bf8 release_date: 2019-07-19
+[Duplicate] -Album- id: 1NAmidJlEaVgA3MpcPFYGq name: Lover album_type: album image: https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647 release_date: 2019-08-23
+[Duplicate] -Album- id: 3myPwaMYjdwhtq0nFgeG6W name: Songs From The Big Chair (Super Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b27322463d6939fec9e17b2a6235 release_date: 1985-02-25
+[Duplicate] -Album- id: 429B3se6xtZuvblNnS2iy7 name: Electricity (with Dua Lipa) album_type: single image: https://i.scdn.co/image/ab67616d0000b2735ea1a511549bc05ff20fdedf release_date: 2018-09-06
+[Duplicate] -Album- id: 4ZIaWbFnkMozASM1CA59K6 name: So Close (feat. Georgia Ku) album_type: single image: https://i.scdn.co/image/ab67616d0000b273e1f3e850068761db3477a24a release_date: 2018-11-02
+[Duplicate] -Album- id: 13yMsBNa2femeWzhcDOqFw name: i'm so tired... album_type: single image: https://i.scdn.co/image/ab67616d0000b273923d879fb957411a7504fa57 release_date: 2019-01-24
+[Duplicate] -Album- id: 684W6NpKllEexqQlGqetCi name: thank u, next album_type: single image: https://i.scdn.co/image/ab67616d0000b273ffa275ba245edba4c1c720af release_date: 2018-11-03
+[Duplicate] -Album- id: 141Mp3P2VKHQMhtkW1DyQg name: Corinne Bailey Rae album_type: album image: https://i.scdn.co/image/ab67616d0000b2731ec9b096319afbcc2dca6879 release_date: 2006-01-01
+[Duplicate] -Album- id: 0S0KGZnfBGSIssfF54WSJh name: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? album_type: album image: https://i.scdn.co/image/ab67616d0000b27350a3147b4edd7701a876c6ce release_date: 2019-03-29
+[Duplicate] -Album- id: 1AvXa8xFEXtR3hb4bgihIK name: MAP OF THE SOUL : PERSONA album_type: album image: https://i.scdn.co/image/ab67616d0000b27329d00196831bec20ebbff5c7 release_date: 2019-04-12
+[Duplicate] -Album- id: 1E7rOrC4uJb0YHyGJ6YOlC name: Loose album_type: album image: https://i.scdn.co/image/ab67616d0000b27395c8b0b2138284842a5eef49 release_date: 2006-01-01
+[Duplicate] -Album- id: 2fYhqwDWXjbpjaIJPEfKFw name: thank u, next album_type: album image: https://i.scdn.co/image/ab67616d0000b27356ac7b86e090f307e218e9c8 release_date: 2019-02-08
+[Duplicate] -Album- id: 0agqVZjOqVtqHkq3pTFPXb name: Piece Of Your Heart album_type: single image: https://i.scdn.co/image/ab67616d0000b2733a03f819723487ee3d5b0c36 release_date: 2019-02-01
+[Duplicate] -Album- id: 1CvjjpvqVMoyprsf74bpYW name: Fanmail album_type: album image: https://i.scdn.co/image/ab67616d0000b27361ffafd5e31a37336531cf95 release_date: 1999-02-23
+[Duplicate] -Album- id: 0QNluXFRHFyRVDiBHXmstK name: Too Rye Ay album_type: album image: https://i.scdn.co/image/ab67616d0000b273d76cc2f77662cac38f84b4c6 release_date: 1982-08
+[Duplicate] -Album- id: 6UixeNUSjrBnxeYV0ZuGHR name: The Eternal Dance album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273af0d466d16c97b6385219d90 release_date: 1992-09-08
+[Duplicate] -Album- id: 1VNBZDM7OxEQPFbEtVqUuf name: Spreading Rumours album_type: album image: https://i.scdn.co/image/ab67616d0000b2734cfe4b79188595b591b1f50a release_date: 2013-09-17
+[Duplicate] -Album- id: 4W0r9HOcuCC6Vh7aze2hwi name: Sucker album_type: single image: https://i.scdn.co/image/ab67616d0000b273c85bf1709e11b6a288925b26 release_date: 2019-03-01
+[Duplicate] -Album- id: 7GEzhoTiqcPYkOprWQu581 name: One Kiss (with Dua Lipa) album_type: single image: https://i.scdn.co/image/ab67616d0000b273d09f96d82310d4d77c14c108 release_date: 2018-04-06
+[Duplicate] -Album- id: 6kf46HbnYCZzP6rjvQHYzg name: American Teen album_type: album image: https://i.scdn.co/image/ab67616d0000b273988ede5e1276e758b5f9e577 release_date: 2017-04-27
+[Duplicate] -Album- id: 78r5vrR1Wf60JPgFQ1drwr name: The Writing's On The Wall album_type: album image: https://i.scdn.co/image/ab67616d0000b273c5b46ee859d728b295062346 release_date: 1999-09-07
+[Duplicate] -Album- id: 7l6fTSFvlumnPFpOSrbnDV name: I Like Me Better album_type: single image: https://i.scdn.co/image/ab67616d0000b273fab48816b625e2a77a732400 release_date: 2017-05-19
+[Duplicate] -Album- id: 4c2p3TdN7NcQfCXyueCNnC name: Jungle Rules album_type: album image: https://i.scdn.co/image/ab67616d0000b2738a31195a371b2233456f6c07 release_date: 2017-07-14
+[Duplicate] -Album- id: 2NG4OLyeNMwcLqirwwwvs2 name: This Is Me...Then album_type: album image: https://i.scdn.co/image/ab67616d0000b273a33bca43fe421d8b34ba73d4 release_date: 2002-11-19
+[Duplicate] -Album- id: 0z7pVBGOD7HCIB7S8eLkLI name: In The Zone album_type: album image: https://i.scdn.co/image/ab67616d0000b273efc6988972cb04105f002cd4 release_date: 2003-11-13
+[Duplicate] -Album- id: 2OZbaW9tgO62ndm375lFZr name: Madman Across The Water album_type: album image: https://i.scdn.co/image/ab67616d0000b273d03ab2da904d8251a87bbc31 release_date: 1971-11-05
+[Duplicate] -Album- id: 1Xsprdt1q9rOzTic7b9zYM name: Continuum album_type: album image: https://i.scdn.co/image/ab67616d0000b2737af5fdc5ef048a68db62b85f release_date: 2006-09-11
+[Duplicate] -Album- id: 4wquJImu8RtyEuDtIAsfcE name: Higher Love album_type: single image: https://i.scdn.co/image/ab67616d0000b2737c8977a0ad3a3a0627be9ed7 release_date: 2019-06-28
+[Duplicate] -Album- id: 54DjkEN3wdCQgfCTZ9WjdB name: Parade - Music from the Motion Picture Under the Cherry Moon album_type: album image: https://i.scdn.co/image/ab67616d0000b27323cc0f0a925845a3de4aca38 release_date: 1986-03-31
+[Duplicate] -Album- id: 4LniALl9S6YedTFdiZWOMS name: Voices album_type: album image: https://i.scdn.co/image/ab67616d0000b273fe1a9aa59e3c6189a09ae37a release_date: 1980
+[Duplicate] -Album- id: 4bLCVUEB9YWKEeaJm8FfqQ name: Close To Me (feat. Swae Lee) album_type: single image: https://i.scdn.co/image/ab67616d0000b273d9935d975f49dd4790e5ae59 release_date: 2018-10-24
+[Duplicate] -Album- id: 2BM5FQCILC33Va2jOZ11Mu name: Ruin My Life album_type: single image: https://i.scdn.co/image/ab67616d0000b273ceedff6a709d5a9f6c86a0bc release_date: 2018-10-18
+[Duplicate] -Album- id: 5VIQ3VaAoRKOEpJ0fewdvo name: Fleetwood Mac album_type: album image: https://i.scdn.co/image/ab67616d0000b2734fb043195e8d07e72edc7226 release_date: 1975-07-11
+[Duplicate] -Album- id: 6twKQ0EsUJHVlAr6XBylrj name: Death of a Bachelor album_type: album image: https://i.scdn.co/image/ab67616d0000b27323152d9337d6c57b116ed13a release_date: 2016-01-15
+[Duplicate] -Album- id: 3oIFxDIo2fwuk4lwCmFZCx name: No.6 Collaborations Project album_type: album image: https://i.scdn.co/image/ab67616d0000b273a53a148d92ce7afa20229e49 release_date: 2019-07-12
+[Duplicate] -Album- id: 5658aM19fA3JVwTK6eQX70 name: Divinely Uninspired To A Hellish Extent album_type: album image: https://i.scdn.co/image/ab67616d0000b273fc2101e6889d6ce9025f85f2 release_date: 2019-05-17
+[Duplicate] -Album- id: 3Q149ZH46Z0f3oDR7vlDYV name: ANTI album_type: album image: https://i.scdn.co/image/ab67616d0000b27333de8537b313380d4f4c3ca6 release_date: 2016-01-28
+[Duplicate] -Album- id: 2AkKk7DFnT2IV1gPcq7RCQ name: no tears left to cry album_type: single image: https://i.scdn.co/image/ab67616d0000b27365d28ba9f50b2eba46ffc55c release_date: 2018-04-20
+[Duplicate] -Album- id: 2ODvWsOgouMbaA5xf0RkJe name: Starboy album_type: album image: https://i.scdn.co/image/ab67616d0000b2734718e2b124f79258be7bc452 release_date: 2016-11-25
+[Duplicate] -Album- id: 1ATL5GLyefJaxhQzSPVrLX name: Scorpion album_type: album image: https://i.scdn.co/image/ab67616d0000b27323ddce858fdfad46782143e8 release_date: 2018-06-29
+[Duplicate] -Album- id: 1NXxURGbIYbunQfXmChHAl name: The Ultimate Jackie Wilson album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27338266f9d67ff7283d886918b release_date: 2006
+[Duplicate] -Album- id: 3r4KvV3xbEN0VAHthWYnAE name: Paradas Continuas album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273432b122f90d8f23424448abe release_date: 2010-02-01
+[Duplicate] -Album- id: 34vlTd4355ddD4q9pPsoqF name: African Giant album_type: album image: https://i.scdn.co/image/ab67616d0000b27355375ff19ae4e7ab60da3cac release_date: 2019-07-25
+[Duplicate] -Album- id: 21XMv0TCsnhWPt7MNVvkzD name: Kaleidoscope Dream album_type: album image: https://i.scdn.co/image/ab67616d0000b273fe113f478616e62a8fe14108 release_date: 2012-09-28
+[Duplicate] -Album- id: 0gZEC6z4RSUiLOK9nHhGwG name: Habit album_type: single image: https://i.scdn.co/image/ab67616d0000b273f0954c57df7cf1e2a6bcd293 release_date: 2018-12-07
+[Duplicate] -Album- id: 1qgJNWnPIeK9rx7hF8JCPK name: Over It album_type: album image: https://i.scdn.co/image/ab67616d0000b273b5ed9187ac7f8aa281a547e3 release_date: 2019-10-04
+[Duplicate] -Album- id: 63iWSELt9V1kV6RSMxN7Ii name: Changes album_type: album image: https://i.scdn.co/image/ab67616d0000b2737fe4a82a08c4f0decbeddbc6 release_date: 2020-02-14
+[Duplicate] -Album- id: 34GQP3dILpyCN018y2k61L name: BALLADS 1 album_type: album image: https://i.scdn.co/image/ab67616d0000b27360ba1d6104d0475c7555a6b2 release_date: 2018-10-26
+[Duplicate] -Album- id: 3N88bRVAwQrtKqSV0UgU69 name: My Dear Melancholy, album_type: single image: https://i.scdn.co/image/ab67616d0000b273f38e946900c89c38a070227b release_date: 2018-03-30
+[Duplicate] -Album- id: 4xnq1L6P551Qcb9gBXNMK7 name: "Awaken, My Love!" album_type: album image: https://i.scdn.co/image/ab67616d0000b2730b97e56ffad7c6211aa848f8 release_date: 2016-12-02
+[Duplicate] -Album- id: 5LZSpPoBVBsh6kRSEKfPQ8 name: Get You The Moon (feat. Snøw) album_type: single image: https://i.scdn.co/image/ab67616d0000b2730a64e2680bbc44107022e326 release_date: 2018-10-08
+[Duplicate] -Album- id: 2VP96XdMOKTXefI8Nui23s name: Shawn Mendes album_type: album image: https://i.scdn.co/image/ab67616d0000b273269423eb6467e308c0fbce24 release_date: 2018-05-25
+[Duplicate] -Album- id: 47LpgGVshd0tbFSbm9tTLb name: Sunflower (Spider-Man: Into the Spider-Verse) album_type: single image: https://i.scdn.co/image/ab67616d0000b273ef376d3257503f734de0eefc release_date: 2018-10-18
+[Duplicate] -Album- id: 2Qxc2NJ7yPKVFRWi3llRr2 name: Suncity album_type: album image: https://i.scdn.co/image/ab67616d0000b27360624c0781fd787c9aa4699c release_date: 2018-10-18
+[Duplicate] -Album- id: 1lXY618HWkwYKJWBRYR4MK name: More Life album_type: album image: https://i.scdn.co/image/ab67616d0000b2734f0fd9dad63977146e685700 release_date: 2017-03-18
+[Duplicate] -Album- id: 76290XdXVF9rPzGdNRWdCh name: Ctrl album_type: album image: https://i.scdn.co/image/ab67616d0000b2734c79d5ec52a6d0302f3add25 release_date: 2017-06-09
+[Duplicate] -Album- id: 4eLPsYPBmXABThSJ821sqY name: DAMN. album_type: album image: https://i.scdn.co/image/ab67616d0000b2738b52c6b9bc4e43d873869699 release_date: 2017-04-14
+[Duplicate] -Album- id: 392p3shh2jkxUxY2VHvlH8 name: channel ORANGE album_type: album image: https://i.scdn.co/image/ab67616d0000b2737aede4855f6d0d738012e2e5 release_date: 2012-07-10
+[Duplicate] -Album- id: 3xybjP7r2VsWzwvDQipdM0 name: Freudian album_type: album image: https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037 release_date: 2017-08-25
+[Duplicate] -Album- id: 5EbpxRwbbpCJUepbqVTZ1U name: Trilogy album_type: album image: https://i.scdn.co/image/ab67616d0000b273b298538481c52f7e217ed000 release_date: 2012-01-01
+[Duplicate] -Album- id: 6trNtQUgC8cgbWcqoMYkOR name: beerbongs & bentleys album_type: album image: https://i.scdn.co/image/ab67616d0000b273b1c4b76e23414c9f20242268 release_date: 2018-04-27
+[Duplicate] -Album- id: 3LONldJV06J1AHEph6lopK name: Let’s Fall In Love For The Night album_type: single image: https://i.scdn.co/image/ab67616d0000b273b226999f1df0dcdec8a53abe release_date: 2018-10-19
+[Duplicate] -Album- id: 0g1F5eGVwX4Sxi1n8ojPkE name: Dan + Shay album_type: album image: https://i.scdn.co/image/ab67616d0000b27305e4408393e1c81a8ab1bf26 release_date: 2018-06-22
+[Duplicate] -Album- id: 3TJSHb2z7Zo2K8ff8bMSik name: Ticket To L.A. album_type: album image: https://i.scdn.co/image/ab67616d0000b273720de70fda3ffbd62db799a1 release_date: 2018-12-07
+[Duplicate] -Album- id: 53Oa5Bu0UTU8o8qCTaHKoz name: This One's for You Too (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273ccba76fad1c624c09e72bc78 release_date: 2018-06-01
+[Duplicate] -Album- id: 5irmzpXixcdNF2ZJjcrN0A name: Rearview Town album_type: album image: https://i.scdn.co/image/ab67616d0000b27397696e218e92fa4c2640c6ee release_date: 2018-04-13
+[Duplicate] -Album- id: 52aaxT2Se2oUyijUbWwp3Z name: Graffiti U album_type: album image: https://i.scdn.co/image/ab67616d0000b273e4fb47b29d0898ce9bbeea96 release_date: 2018-04-27
+[Duplicate] -Album- id: 3yYIlnqvZvOs6R0nyee7sg name: Eyes On You album_type: single image: https://i.scdn.co/image/ab67616d0000b273635e68a670585fadaf2bce9c release_date: 2017-10-13
+[Duplicate] -Album- id: 4UoCJkoqgUmaWMiWifq4vp name: Kane Brown (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273c7ee084acfc2d7ca0b112b5c release_date: 2017-10-06
+[Duplicate] -Album- id: 4ykbJPI8MPscFzROE8dqLy name: Tangled Up album_type: album image: https://i.scdn.co/image/ab67616d0000b273f00a1acf866539632b187ea0 release_date: 2015-01-01
+[Duplicate] -Album- id: 3he0Uva3KD5aNSHpJm9H90 name: Hallelujah Nights album_type: album image: https://i.scdn.co/image/ab67616d0000b2730429daba876ee55ad630212a release_date: 2018-01-19
+[Duplicate] -Album- id: 6MTPPsqX8KnmDWmnQmbxJ5 name: Brett Young album_type: album image: https://i.scdn.co/image/ab67616d0000b2738c67513a5ffd9a018b410f1b release_date: 2017-02-10
+[Duplicate] -Album- id: 2XIhZ9IjqoIN5V6dfKHzCn name: I Don't Dance (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273e4d79c56c88a996b4d64d099 release_date: 2014-09-09
+[Duplicate] -Album- id: 73ZvpuYhKDr2FW4vlPsTpW name: While We Wait album_type: album image: https://i.scdn.co/image/ab67616d0000b273cccb973e9ff7440fbaf8485e release_date: 2019-02-22
+[Duplicate] -Album- id: 6eZdwrhB97A3EYx9QppGfl name: T R A P S O U L album_type: album image: https://i.scdn.co/image/ab67616d0000b2731dbcbe3d662ed70f27c1286b release_date: 2015-10-02
+[Duplicate] -Album- id: 6MI7UpFxq0mOdOeDnfa2eg name: Queen & Slim: The Soundtrack album_type: album image: https://i.scdn.co/image/ab67616d0000b273d71c94c91cf039897462fb85 release_date: 2019-11-15
+[Duplicate] -Album- id: 2ppZatWDv3f0B2wLFOqXEP name: Losin Control album_type: single image: https://i.scdn.co/image/ab67616d0000b273c06dbbb037ff3af20cf25435 release_date: 2015-11-09
+[Duplicate] -Album- id: 2gXTTQ713nCELgPOS0qWyt name: Nothing Was The Same (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27367ffd8d6bbf399430ba9c044 release_date: 2013-01-01
+[Duplicate] -Album- id: 0LncwHODjl9isM9pzVmuOS name: A Place Like This album_type: single image: https://i.scdn.co/image/ab67616d0000b27328213820cb7bb6beee668afa release_date: 2014-07-17
+[Duplicate] -Album- id: 5zUDvKAyEKkrhYLWJJWGPQ name: Chasing Summer album_type: album image: https://i.scdn.co/image/ab67616d0000b273bbee5481e94a03f4fd26fac4 release_date: 2019-08-30
+[Duplicate] -Album- id: 6Z5XlgKlOc9FVyM2Nb2Pyo name: Honesty album_type: single image: https://i.scdn.co/image/ab67616d0000b2735e46158f79390942db022b50 release_date: 2018-07-12
+[Duplicate] -Album- id: 48Kac3ieDtt9OSp9Fm4g9e name: ZOO album_type: album image: https://i.scdn.co/image/ab67616d0000b27364cf949eb6e426904f182823 release_date: 2018-09-07
+[Duplicate] -Album- id: 52u4anZbHd6UInnmHRFzba name: Please Excuse Me For Being Antisocial album_type: album image: https://i.scdn.co/image/ab67616d0000b273600adbc750285ea1a8da249f release_date: 2019-12-06
+[Duplicate] -Album- id: 3AlSuZnX4ZCab8eoWnnfbm name: Lost & Found album_type: album image: https://i.scdn.co/image/ab67616d0000b27378378dcaccec9e965e0d6351 release_date: 2018-06-08
+[Duplicate] -Album- id: 493HYe7N5pleudEZRyhE7R name: All I Want Is You album_type: album image: https://i.scdn.co/image/ab67616d0000b273d5a8395b0d80b8c48a5d851c release_date: 2010-11-26
+[Duplicate] -Album- id: 4hTM8jZ8DCCqglmZUDMSPz name: Last Day Of Summer album_type: album image: https://i.scdn.co/image/ab67616d0000b273fb023e6073e38a52082cc7b6 release_date: 2018-10-19
+[Duplicate] -Album- id: 6rXy4b147LkM3muZKuALSX name: Morning After album_type: album image: https://i.scdn.co/image/ab67616d0000b27301ff5212ec32ced8d1b4baf9 release_date: 2017-10-13
+[Duplicate] -Album- id: 4urnugBptJMguVYLRgOKqM name: Platinum Fire album_type: album image: https://i.scdn.co/image/ab67616d0000b27348dd5df154cec4a749ff7472 release_date: 2018-03-09
+[Duplicate] -Album- id: 17dsllSewkPuKbkGWU4chD name: Poison album_type: single image: https://i.scdn.co/image/ab67616d0000b2731a0d446b811ad07512eb19df release_date: 2016-08-03
+[Duplicate] -Album- id: 3arnVIFA8u1Jy3p2tn4MFr name: I Used To Know Her: The Prelude album_type: single image: https://i.scdn.co/image/ab67616d0000b273cbcf7df5b9720a31363d0d37 release_date: 2018-08-03
+[Duplicate] -Album- id: 5s0rmjP8XOPhP6HhqOhuyC name: Stoney (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27355404f712deb84d0650a4b41 release_date: 2016-12-09
+[Duplicate] -Album- id: 6X1x82kppWZmDzlXXK3y3q name: Take Care (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273c7ea04a9b455e3f68ef82550 release_date: 2011-11-15
+[Duplicate] -Album- id: 3fc97ZWLIMc1xawhxbKrh2 name: East Atlanta Love Letter album_type: album image: https://i.scdn.co/image/ab67616d0000b273e1530b42603367fdb2208d88 release_date: 2018-09-14
+[Duplicate] -Album- id: 6q8ucEDesX2Tk4F864VcYB name: Easily album_type: single image: https://i.scdn.co/image/ab67616d0000b27384930c5f264899c8519c567d release_date: 2016-11-25
+[Duplicate] -Album- id: 03nFfkhtHqQZZqprep3G6r name: Lost album_type: single image: https://i.scdn.co/image/ab67616d0000b2738dc200a857d146e67fe199e6 release_date: 2018-10-19
+[Duplicate] -Album- id: 0kKVLuYfFt1VSxaFSP0Cxb name: Come and See Me (feat. Drake) album_type: single image: https://i.scdn.co/image/ab67616d0000b273cb86389a87b18e168b514be1 release_date: 2016-03-23
+[Duplicate] -Album- id: 7uSaHPXSYaRB3FxLOmatG9 name: Provider album_type: single image: https://i.scdn.co/image/ab67616d0000b273ea6b1f7e51a387da94f51eb9 release_date: 2017-08-27
+[Duplicate] -Album- id: 3mGqeHmVPQvBEJJlyWXI4u name: Marvins Room album_type: single image: https://i.scdn.co/image/ab67616d0000b273e5cb63fed6342227db7dc3a3 release_date: 2011-01-01
+[Duplicate] -Album- id: 3bfmiUsXdErmCz71FjZqnW name: This Way album_type: single image: https://i.scdn.co/image/ab67616d0000b273b731aae501d2355ee128da9a release_date: 2018-06-06
+[Duplicate] -Album- id: 71QyofYesSsRMwFOTafnhB name: Coloring Book album_type: album image: https://i.scdn.co/image/ab67616d0000b273e71dd15fc5bdefd5bff70452 release_date: 2016-05-27
+[Duplicate] -Album- id: 34JNly8P6uZRKTGnmmLNAt name: You Should Be Here album_type: album image: https://i.scdn.co/image/ab67616d0000b2736af7b56ae1e3b6a97fa97cc3 release_date: 2015-04-28
+[Duplicate] -Album- id: 5GBcqixIFDPEom7AUNbFiM name: Kauai album_type: album image: https://i.scdn.co/image/ab67616d0000b273b81f8fd4b6c69c0eabb592ba release_date: 2014-10-03
+[Duplicate] -Album- id: 5qfhZ5YkZ4LhEUbYgjrWt6 name: Get You - Single album_type: single image: https://i.scdn.co/image/ab67616d0000b273617c314e94693fad9a26f798 release_date: 2016-10-21
+[Duplicate] -Album- id: 7Ix0FS4f1lK42C3rix5rHg name: More Life album_type: album image: https://i.scdn.co/image/ab67616d0000b2735ea859dc94365abd9fd84fd6 release_date: 2017-03-18
+[Duplicate] -Album- id: 5wy7JKTWa3JRjvQT7cWOcq name: Cutting Ties album_type: single image: https://i.scdn.co/image/ab67616d0000b27367823a08b229ce3ef1d45d85 release_date: 2018-02-14
+[Duplicate] -Album- id: 21UO4eAaNZ5kultgMBNEHD name: Psycho, Pt. 2 album_type: single image: https://i.scdn.co/image/ab67616d0000b273d76647a817d55638a50c863f release_date: 2016-11-08
+[Duplicate] -Album- id: 0ptlfJfwGTy0Yvrk14JK1I name: If You're Reading This It's Too Late album_type: album image: https://i.scdn.co/image/ab67616d0000b2732090f4f6cc406e6d3c306733 release_date: 2015-02-12
+[Duplicate] -Album- id: 4p9QlliNvKndyKSPyuJlP8 name: Late Nights: The Album album_type: album image: https://i.scdn.co/image/ab67616d0000b2738ca2982736fe67dc8614e169 release_date: 2015-12-04
+[Duplicate] -Album- id: 7EXstuWka51pNFzEAidEol name: Let Me Love You album_type: single image: https://i.scdn.co/image/ab67616d0000b273c42212db6d665fab0c51d495 release_date: 2004-09-21
+[Duplicate] -Album- id: 1JIsPeUpWLoDM6YRW0gQk2 name: Nonchalant album_type: single image: https://i.scdn.co/image/ab67616d0000b2736b0f49ecd50738229e0f4961 release_date: 2018-08-17
+[Duplicate] -Album- id: 1aL0tA9ErudUMrpaFnyP9v name: Shot Down album_type: single image: https://i.scdn.co/image/ab67616d0000b2738b2dcccfd2a11bb833778ebf release_date: 2017-02-03
+[Duplicate] -Album- id: 35Z0yQ32AbTSDh530LeNKB name: Location album_type: single image: https://i.scdn.co/image/ab67616d0000b27302f60ea7a290b0f40ba1538e release_date: 2016-05-24
+[Duplicate] -Album- id: 0CDbHMx23D44bHfttcHJki name: Novacane album_type: single image: https://i.scdn.co/image/ab67616d0000b273626a9ce92e0f381c4a36e5dc release_date: 2011-01-01
+[Duplicate] -Album- id: 1jBOlb1HB2TSCDskqGHuvW name: Call Me Over album_type: single image: https://i.scdn.co/image/ab67616d0000b273002727e1f01b53b32a25e7c6 release_date: 2017-09-08
+[Duplicate] -Album- id: 6btE9k5ED8ydC8XY1K0kko name: H.E.R. Volume 1 album_type: album image: https://i.scdn.co/image/ab67616d0000b27331cf49fd3091a58dae856775 release_date: 2016-09-09
+[Duplicate] -Album- id: 76FANVOor6l7OMUFcc0q9r name: Broken album_type: single image: https://i.scdn.co/image/ab67616d0000b27325320c49589e9817051df2d9 release_date: 2016-10-26
+[Duplicate] -Album- id: 51pSyGziPFv8ajzF7ilUAr name: Best Friend album_type: single image: https://i.scdn.co/image/ab67616d0000b27333a6b45fa8354efe37633964 release_date: 2017-01-25
+[Duplicate] -Album- id: 40GMAhriYJRO1rsY4YdrZb name: Views album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a7e346587596ca71fa8f4a1 release_date: 2016-05-06
+[Duplicate] -Album- id: 2vnPwMLtMXZWGkKsoylsGt name: Exis album_type: single image: https://i.scdn.co/image/ab67616d0000b27396f667a42104498e24f75bd8 release_date: 2015-07-31
+[Duplicate] -Album- id: 2a8IWtMGQl8oIA3lUtLDQw name: Groovy People album_type: single image: https://i.scdn.co/image/ab67616d0000b2738d72b4e6b3972cd88545d9d1 release_date: 2016-08-05
+[Duplicate] -Album- id: 3BDYBcdbGVRIDxy20G2Mp2 name: FREE 6LACK album_type: album image: https://i.scdn.co/image/ab67616d0000b273961c232973ddc027ab8bbfc5 release_date: 2016-11-18
+[Duplicate] -Album- id: 09Q3WwGYsQe5ognkvVkmCu name: When It's Dark Out album_type: album image: https://i.scdn.co/image/ab67616d0000b27398acfa8c055deedc25e6081d release_date: 2015-12-04
+[Duplicate] -Album- id: 0qQKOuHPlCPKaNgeOh3ytH name: Drive Slow album_type: album image: https://i.scdn.co/image/ab67616d0000b27322b392532bd082d33d74500b release_date: 2017-08-11
+[Duplicate] -Album- id: 63WdJvk8G9hxJn8u5rswNh name: Take Care (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273c12f4b7567671621abce2aaa release_date: 2011-11-15
+[Duplicate] -Album- id: 1y0ZiIIVOVdpg5lXkAJ36c name: Alone album_type: single image: https://i.scdn.co/image/ab67616d0000b273e0110c7fb446befb8186df05 release_date: 2018-01-19
+[Duplicate] -Album- id: 7CAAClnSiXdMibPT1oyl4k name: Trip album_type: album image: https://i.scdn.co/image/ab67616d0000b273d7ec0859863a41a35d5e8e32 release_date: 2017-09-22
+[Duplicate] -Album- id: 3mH6qwIy9crq0I9YQbOuDf name: Blonde album_type: album image: https://i.scdn.co/image/ab67616d0000b273c5649add07ed3720be9d5526 release_date: 2016-08-20
+[Duplicate] -Album- id: 3arNdjotCvtiiLFfjKngMc name: AT.LONG.LAST.A$AP album_type: album image: https://i.scdn.co/image/ab67616d0000b27381a6a2cafab2e7a4066b5eec release_date: 2015-05-26
+[Duplicate] -Album- id: 28ZKQMoNBB0etKXZ97G2SN name: Beauty Behind The Madness album_type: album image: https://i.scdn.co/image/ab67616d0000b273aac98daa18e4edf54d7a0a70 release_date: 2015-08-28
+[Duplicate] -Album- id: 30QoUTsSdpQuZunPNFsLnm name: digital druglord album_type: album image: https://i.scdn.co/image/ab67616d0000b27318e8b6e355542ddf38562055 release_date: 2017-04-21
+[Duplicate] -Album- id: 5EEkfRgfYHiFu0lGur6Z6M name: COSMIC album_type: album image: https://i.scdn.co/image/ab67616d0000b273f9f2d43ff44bdfbe8c556f8d release_date: 2018-04-12
+[Duplicate] -Album- id: 6wDc63NhKy2PyXdbhkRmrl name: These Things Happen album_type: album image: https://i.scdn.co/image/ab67616d0000b273bdfe4efd674482cf5ac88c99 release_date: 2014-06-20
+[Duplicate] -Album- id: 24X4IZGu9QcQ8pVf9dFAGg name: Goodbye & Good Riddance album_type: album image: https://i.scdn.co/image/ab67616d0000b2739b3d16ce73080214dd7b07c7 release_date: 2018-05-23
+[Duplicate] -Album- id: 733e1ZfktLSwj96X5rsMeE name: Luv Is Rage 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b27341b41e6f7924e530a9b00f9c release_date: 2017-08-25
+[Duplicate] -Album- id: 5amj9zNeZ3B2EdpBgXrOZ0 name: Mind Of Mine (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a15e26d05b7ce776b566579d release_date: 2016-03-25
+[Duplicate] -Album- id: 41GuZcammIkupMPKH2OJ6I name: ASTROWORLD album_type: album image: https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3 release_date: 2018-08-03
+[Duplicate] -Album- id: 4yg5OckIrdMo7yIJcDRU4F name: Envision album_type: single image: https://i.scdn.co/image/ab67616d0000b27330e523d2ba38682b5c751495 release_date: 2020-01-03
+[Duplicate] -Album- id: 3MwtBdr2Ohdg6TCtHoZDAH name: Endeavour album_type: single image: https://i.scdn.co/image/ab67616d0000b273db75db7ec1ce3d717ec4b940 release_date: 2019-10-04
+[Duplicate] -Album- id: 2CiGQi3XgsbETzwSFzn2yk name: Moonrise album_type: single image: https://i.scdn.co/image/ab67616d0000b273da9acbd7c455959cf57bec91 release_date: 2018-11-30
+[Duplicate] -Album- id: 6bLHDJ5r3dZinhZftckCsI name: 369 Seconds Of Bliss album_type: single image: https://i.scdn.co/image/ab67616d0000b2735717474bedd9dbe567607a7d release_date: 2019-04-05
+[Duplicate] -Album- id: 2uEPdEPr1HkwxgHqJwecAn name: Light Year album_type: single image: https://i.scdn.co/image/ab67616d0000b27351bb33995177855c13454ab6 release_date: 2019-07-28
+[Duplicate] -Album- id: 6HrenLgTHjgBKCVzRkvEe7 name: Wait Until Spring album_type: single image: https://i.scdn.co/image/ab67616d0000b27310502c1ff58b790880398db5 release_date: 2019-06-13
+[Duplicate] -Album- id: 2rv2qbzEqctupxhMXkDX7n name: Another Mellow Morning album_type: single image: https://i.scdn.co/image/ab67616d0000b273164533ee65c8d909e3204700 release_date: 2019-08-30
+[Duplicate] -Album- id: 7kmXJFHI5btwoDpUN4JsiN name: Fjarlagt Ljus album_type: single image: https://i.scdn.co/image/ab67616d0000b273c4483c0be5826cfbad2deac4 release_date: 2019-07-06
+[Duplicate] -Album- id: 1RXrGrbNghycihEnA8Sghl name: Limitless album_type: single image: https://i.scdn.co/image/ab67616d0000b2730d92c9947c8a697177e6c539 release_date: 2019-10-31
+[Duplicate] -Album- id: 6qUkti8iaY5YyPnrazmB7b name: Never Let Go album_type: single image: https://i.scdn.co/image/ab67616d0000b2731fca8f1dd39d4da133960284 release_date: 2019-05-06
+[Duplicate] -Album- id: 2okoZfiEKs54ajikpoc9WZ name: Dream Voucher album_type: single image: https://i.scdn.co/image/ab67616d0000b273c94dc19111cdc16094e3b789 release_date: 2019-01-25
+[Duplicate] -Album- id: 119PlPHpuUWF8DYrQrjVHe name: Through Changing Forms album_type: single image: https://i.scdn.co/image/ab67616d0000b2733c7197378bbcea7a9b794f80 release_date: 2019-02-22
+[Duplicate] -Album- id: 3ppEryBS6RaQDTrwmqB8n8 name: Floating album_type: single image: https://i.scdn.co/image/ab67616d0000b27310678e3a1e1309ec52e193dd release_date: 2019-10-21
+[Duplicate] -Album- id: 2jdTmcYye9EjeUiSNScJZC name: Moment of Clarity album_type: single image: https://i.scdn.co/image/ab67616d0000b2733988ba13a0fec4cac1943604 release_date: 2019-06-03
+[Duplicate] -Album- id: 4VNV5Z6ESAqrAjbe7nwIq9 name: Meditations pt 1 album_type: single image: https://i.scdn.co/image/ab67616d0000b273ea09cd8f70b588f207332ad5 release_date: 2019-05-13
+[Duplicate] -Album- id: 3r9LKZab8u1XmEJbxQjSjV name: Chasing Love album_type: single image: https://i.scdn.co/image/ab67616d0000b27313a73d83d05d5e97ca7fb8f9 release_date: 2019-05-01
+[Duplicate] -Album- id: 7mMVxWIPhNEyozLDXxqw71 name: The Light of Day album_type: single image: https://i.scdn.co/image/ab67616d0000b2731bf68b9bccd326c5a0b97784 release_date: 2019-01-24
+[Duplicate] -Album- id: 3Xd0DUFkobavWbWXTQe5M0 name: A new beginning album_type: single image: https://i.scdn.co/image/ab67616d0000b273985aa25af1826d809572c821 release_date: 2019-07-19
+[Duplicate] -Album- id: 0YERkukeb7sLlqtGQT2XYj name: Kohobodi Boy album_type: single image: https://i.scdn.co/image/ab67616d0000b273ff097537253f7ea9825304ed release_date: 2019-07-05
+[Duplicate] -Album- id: 7iEuYy67Zb83EwSTZcWS7O name: Cumulus Motion album_type: single image: https://i.scdn.co/image/ab67616d0000b27312c6473c3df33fa8d4fad39b release_date: 2019-06-28
+[Duplicate] -Album- id: 264T6B8vHgza4gfR6JCPAt name: Mujura album_type: album image: https://i.scdn.co/image/ab67616d0000b273081e09c1ca447ecff92af61e release_date: 2018-10-13
+[Duplicate] -Album- id: 4bLXZwh88rBBy6bgFFBhVg name: Infinite Sustain album_type: single image: https://i.scdn.co/image/ab67616d0000b27361cb41224d1cc9dd052a5dba release_date: 2019-10-04
+[Duplicate] -Album- id: 5SXT6dwhHX56Sos7KMcMF5 name: In Return album_type: album image: https://i.scdn.co/image/ab67616d0000b2732d86f76b4e373e312f3662b5 release_date: 2014-09-08
+[Duplicate] -Album- id: 2rmMeEq5D1Bg7YFRwtHBDr name: xx album_type: album image: https://i.scdn.co/image/ab67616d0000b273cd4b0b0947bdd7708d24349e release_date: 2009-08-18
+[Duplicate] -Album- id: 2ZfHkwHuoAZrlz7RMj0PDz name: Blinding Lights album_type: single image: https://i.scdn.co/image/ab67616d0000b273c464fabb4e51b72d657f779a release_date: 2019-11-29
+[Duplicate] -Album- id: 2HDW1EX8IBI3jqobswAfrZ name: Stupid Love album_type: single image: https://i.scdn.co/image/ab67616d0000b273f80f544565b410d292349893 release_date: 2020-02-28
+[Duplicate] -Album- id: 1qSOaTvsCOyFJya3v1UzkP name: Lose Control album_type: single image: https://i.scdn.co/image/ab67616d0000b273d43c59e52d6a8032a4e27fc4 release_date: 2019-10-11
+[Duplicate] -Album- id: 2mX8ktJoWvyidWBU9U8Jis name: Colores album_type: album image: https://i.scdn.co/image/ab67616d0000b27335692baca45542527d742d0d release_date: 2020-03-19
+[Duplicate] -Album- id: 7mKevNHhVnZER3BLgI8O4F name: Tusa album_type: single image: https://i.scdn.co/image/ab67616d0000b273ddd3154c58e15a8bdb63bbcc release_date: 2019-11-07
+[Duplicate] -Album- id: 3SgvmlSsTrMuqICaOTlo0p name: What A Man Gotta Do album_type: single image: https://i.scdn.co/image/ab67616d0000b2737a73cc006248544e1a9882ea release_date: 2020-01-17
+[Duplicate] -Album- id: 2YRwWCfsk2Uf9ycGS7FRMV name: Tattoo album_type: single image: https://i.scdn.co/image/ab67616d0000b2733a0be655a8c95ba6163d2a47 release_date: 2020-02-13
+[Duplicate] -Album- id: 6Pc3YAtxdkZba2tpmeXAXW name: La Difícil album_type: single image: https://i.scdn.co/image/ab67616d0000b27304f81750a484ade5581e507c release_date: 2019-12-20
+[Duplicate] -Album- id: 7B8BZGUymsz0SQWY73oMYM name: Dulcecitos (feat. Zion & Lennox) album_type: single image: https://i.scdn.co/image/ab67616d0000b273025e4aaa1521b3099a8f145f release_date: 2020-01-24
+[Duplicate] -Album- id: 6EobpC5SDFy5DF50dWNVGF name: RITMO (Bad Boys For Life) album_type: single image: https://i.scdn.co/image/ab67616d0000b2739e57eff8f10bfc9a8dbfe337 release_date: 2019-10-12
+[Duplicate] -Album- id: 3E12WU80fDMyu7GyIAx7wJ name: Beautiful People (feat. Khalid) album_type: single image: https://i.scdn.co/image/ab67616d0000b273358f874d5d31e76a8fe3f6d0 release_date: 2019-06-28
+[Duplicate] -Album- id: 28RBKKab2bzmcaKzW8h3Ji name: Recuerdo album_type: single image: https://i.scdn.co/image/ab67616d0000b27365dbd283fa629d57924d23e6 release_date: 2020-01-10
+[Duplicate] -Album- id: 5Nux7ozBJ5KJ02QYWwrneR name: I Don't Care (with Justin Bieber) album_type: single image: https://i.scdn.co/image/ab67616d0000b27357cc434093fd4b6af7500fd8 release_date: 2019-05-10
+[Duplicate] -Album- id: 3RG65TH0L4E9jtJoj5JpMQ name: TBT album_type: single image: https://i.scdn.co/image/ab67616d0000b27373d76762052dd4cc7924667b release_date: 2020-02-20
+[Duplicate] -Album- id: 7drDl79PNee5k9jR4R0EOr name: Studio It’s Hits album_type: single image: https://i.scdn.co/image/ab67616d0000b273b1aa038ee16b5398b07a8a8f release_date: 2020-03-20
+[Duplicate] -Album- id: 1k1HuvFs562Z3CCiSYhtc1 name: Good as Hell (feat. Ariana Grande) [Remix] album_type: single image: https://i.scdn.co/image/ab67616d0000b27383689afe01c228ceeef579c5 release_date: 2019-10-25
+[Duplicate] -Album- id: 1SN6N3fNkZk5oXQ9X46QZ3 name: Yummy album_type: single image: https://i.scdn.co/image/ab67616d0000b27360eec5a0953d4a33d77ed71d release_date: 2020-01-03
+[Duplicate] -Album- id: 4bFD3e4YDki1tu4EQCfSdt name: Don't Start Now (Remixes) album_type: single image: https://i.scdn.co/image/ab67616d0000b273e45e2fd04f2653205ebd09a4 release_date: 2020-01-10
+[Duplicate] -Album- id: 1V9oE8bVilClrk5naqyyvL name: Dancing With A Stranger (with Normani) album_type: single image: https://i.scdn.co/image/ab67616d0000b2733b52eca47232bedfbb5e9443 release_date: 2019-01-11
+[Duplicate] -Album- id: 3VKVZ7PvA64NtVJChPGDaH name: I Love Me album_type: single image: https://i.scdn.co/image/ab67616d0000b27381f82d9c1d6278a167aae855 release_date: 2020-03-06
+[Duplicate] -Album- id: 03Rd91m56yw4XklwHF9FHq name: With You album_type: single image: https://i.scdn.co/image/ab67616d0000b273f7780b364a5e2020cd754904 release_date: 2019-06-14
+[Duplicate] -Album- id: 3VCPQRcHVxiVaePlQ6TwoF name: Body Back (feat. Maia Wright) album_type: single image: https://i.scdn.co/image/ab67616d0000b273a2c3c702bdb4ad9ed5789fe5 release_date: 2019-10-18
+[Duplicate] -Album- id: 5FOy9CM3AZs86TIK7fsJTV name: Small Talk album_type: single image: https://i.scdn.co/image/ab67616d0000b273ca8df8b9b457e55e07faea2d release_date: 2019-08-09
+[Duplicate] -Album- id: 1fYOToOfdZXY5hrOra8z2Z name: Snacks album_type: album image: https://i.scdn.co/image/ab67616d0000b273362830453a85fb415e350eee release_date: 2019-07-12
+[Duplicate] -Album- id: 1QrYKuMTMLwpTwzOFhfnOk name: Faith (with Dolly Parton) [feat. Mr. Probz] album_type: single image: https://i.scdn.co/image/ab67616d0000b2731ebe832cc767233afcd41828 release_date: 2019-10-25
+[Duplicate] -Album- id: 4GtslEn7rHERVWRlqrYehy name: We Got Love album_type: single image: https://i.scdn.co/image/ab67616d0000b273002753665f089902cc74cbe6 release_date: 2019-11-01
+[Duplicate] -Album- id: 1pstYUSjG1gM0k1Sn2KYrH name: First Band On The Moon album_type: album image: https://i.scdn.co/image/ab67616d0000b27375faaad769f055513bca3088 release_date: 1996-09-17
+[Duplicate] -Album- id: 0wXQE5QGxFdviVPa7GKMCA name: All Night (feat. Ally Brooke) album_type: single image: https://i.scdn.co/image/ab67616d0000b27374b0c69ab4942384f1a983bd release_date: 2020-02-21
+[Duplicate] -Album- id: 4p0nrJ3SXAtZVaCnY0C0kM name: Roots album_type: single image: https://i.scdn.co/image/ab67616d0000b273bfe4e66c30c40927aeda89f6 release_date: 2019-08-16
+[Duplicate] -Album- id: 21dd5QyItuoqvPkViQXlKf name: You Need To Calm Down album_type: single image: https://i.scdn.co/image/ab67616d0000b273360d1326e9788dd97ff2031f release_date: 2019-06-14
+[Duplicate] -Album- id: 47hMwqG7KVLVzyMjgYUqxM name: Dancing in the Moonlight album_type: single image: https://i.scdn.co/image/ab67616d0000b273760b73048263d208cab8d864 release_date: 2018-06-22
+[Duplicate] -Album- id: 4YIOg7I2h6ISBGXijrVtLi name: DANCE album_type: single image: https://i.scdn.co/image/ab67616d0000b273731d9c59cbeb7cd0a332f983 release_date: 2019-10-18
+[Duplicate] -Album- id: 2tpWgbBdzjkaJVJzR4T8y1 name: Promises (with Sam Smith) album_type: single image: https://i.scdn.co/image/ab67616d0000b273ccdcbd450e42fc7b27a82a1f release_date: 2018-08-17
+[Duplicate] -Album- id: 798RdmwmE3IZcZnW0jT7kc name: 2 Hearts (feat. Gia Koka) album_type: single image: https://i.scdn.co/image/ab67616d0000b273103301a7b8a2ad637c0d73d7 release_date: 2020-01-10
+[Duplicate] -Album- id: 39Ld3ZRgEvVe4ydfd6qqzz name: Complicated album_type: single image: https://i.scdn.co/image/ab67616d0000b2737e8b8ff07e0d112ef79e7eba release_date: 2020-02-28
+[Duplicate] -Album- id: 5Vdzprr5cOqXQo44eHeV7t name: Whitney album_type: album image: https://i.scdn.co/image/ab67616d0000b273cc57e9b00b87dd0f6e868347 release_date: 1987-06-02
+[Duplicate] -Album- id: 1iuzMKNzVo8HJ67eW32YMr name: Bad Liar album_type: single image: https://i.scdn.co/image/ab67616d0000b27381cf523cf3cf268d3e2a243b release_date: 2017-05-18
+[Duplicate] -Album- id: 7K6JtyaSSVr7HidQsCHun0 name: Odessey and Oracle album_type: album image: https://i.scdn.co/image/ab67616d0000b2736de69821e8460a9d689e20ba release_date: 1968-04-19
+[Duplicate] -Album- id: 6lPb7Eoon6QPbscWbMsk6a name: Surrealistic Pillow album_type: album image: https://i.scdn.co/image/ab67616d0000b2732dac7a01676ddb36c1d0ec05 release_date: 1967
+[Duplicate] -Album- id: 3ycjBixZf7S3WpC5WZhhUK name: Led Zeppelin album_type: album image: https://i.scdn.co/image/ab67616d0000b2736f2f499c1df1f210c9b34b32 release_date: 1969-01-12
+[Duplicate] -Album- id: 7vEJAtP3KgKSpOHVgwm3Eh name: 1 (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273582d56ce20fe0146ffa0e5cf release_date: 2000-11-13
+[Duplicate] -Album- id: 50o7kf2wLwVmOTVYJOTplm name: Rubber Soul (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273ed801e58a9ababdea6ac7ce4 release_date: 1965-12-03
+[Duplicate] -Album- id: 05pI1Rx1HQ4KA0a0e3PJlV name: Where Did Our Love Go album_type: album image: https://i.scdn.co/image/ab67616d0000b273d5ea1215e77c3f7a7c716370 release_date: 1964-08-31
+[Duplicate] -Album- id: 0zrtTZC7yY2TOEhnbJzSb9 name: Wheels Of Fire album_type: album image: https://i.scdn.co/image/ab67616d0000b2735c7731f5acdcb2d02d78b7ee release_date: 1968-07-01
+[Duplicate] -Album- id: 3X7VD7TmOXlrnWGgjM6Qyd name: Sunny album_type: album image: https://i.scdn.co/image/ab67616d0000b273d20a0604340cbe7da451d0b4 release_date: 1966-01-01
+[Duplicate] -Album- id: 6edKvdyBPyTPPWCOcTdrhr name: Make Way For Dionne Warwick album_type: album image: https://i.scdn.co/image/ab67616d0000b27391f2d96a42e77de7834a8523 release_date: 1964
+[Duplicate] -Album- id: 2Pqkn9Dq2DFtdfkKAeqgMd name: Abbey Road (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f7c34e39bb746d7f41bc5519 release_date: 1969-09-26
+[Duplicate] -Album- id: 6TRHI63AVabVkLPou2biv8 name: The Spice Of Life album_type: album image: https://i.scdn.co/image/ab67616d0000b273c925139455d0480681315f02 release_date: 1969-01-01
+[Duplicate] -Album- id: 51uoKRa8vT5SULrlF8s2t1 name: Diana Ross Presents The Jackson 5 album_type: album image: https://i.scdn.co/image/ab67616d0000b27316aaf05fe82237576a7d0e38 release_date: 1969-12-18
+[Duplicate] -Album- id: 6GphKx2QAPRoVGWE9D7ou8 name: Pet Sounds (Original Mono & Stereo Mix Versions) album_type: album image: https://i.scdn.co/image/ab67616d0000b273bde8dfd1922129f3d9e3732f release_date: 1966-06-16
+[Duplicate] -Album- id: 4qK4QZUSp8QdoMEm9mrzyA name: The Best Of Bobby Vinton album_type: compilation image: https://i.scdn.co/image/ab67616d0000b2735980cda6de8365d077f34a5e release_date: 1962
+[Duplicate] -Album- id: 0CoNLgOwcZGBUSwd9fAZuy name: Presenting the Fabulous Ronettes Featuring Veronica album_type: album image: https://i.scdn.co/image/ab67616d0000b273b298efc29df3b69ec3f0d675 release_date: 2012-04-24
+[Duplicate] -Album- id: 11ho9FxQbJjMbQn1P1yWpm name: Da Doo Ron Ron: The Very Best of The Crystals album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273a93e542069f023c3c9be9b8d release_date: 2011-02-22
+[Duplicate] -Album- id: 0NUEQILaBzavnzcMEs4buZ name: The Very Best of Frankie Valli & The 4 Seasons album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273b96c21e15c091eb98a6c88a4 release_date: 2003-01-14
+[Duplicate] -Album- id: 66v9QmjAj0Wwhh2OpbU4BE name: Come Fly With Me (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273068a5559744d17bd5e871740 release_date: 1958
+[Duplicate] -Album- id: 5MsJK0kqiYIJDmd3cjkGMn name: That's All album_type: album image: https://i.scdn.co/image/ab67616d0000b273e774643594281699bde1e4ed release_date: 1959
+[Duplicate] -Album- id: 1lKYaRbV0AayVPss9i4oOp name: Anthology album_type: album image: https://i.scdn.co/image/ab67616d0000b273fff904fed002d7fe9272067d release_date: 1985
+[Duplicate] -Album- id: 0jTGHV5xqHPvEcwL8f6YU5 name: Let It Be (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b27384243a01af3c77b56fe01ab1 release_date: 1970-05-08
+[Duplicate] -Album- id: 2ei2X6ghPnw7YRwQtAH075 name: Honky Chateau album_type: album image: https://i.scdn.co/image/ab67616d0000b2733009007708ab5134936a58b3 release_date: 1972-05-19
+[Duplicate] -Album- id: 25X28V6p34T7dNc2x7Vzt4 name: The Complete Trio Collection album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273891ce1d53914077e2154a33b release_date: 2016-09-09
+[Duplicate] -Album- id: 6fQElzBNTiEMGdIeY0hy5l name: Hunky Dory (2015 Remastered Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b273c657af8d545b4dcf432ace76 release_date: 1971-12-17
+[Duplicate] -Album- id: 3L9sVl5T7UpFK6tNeEiXdy name: You Don't Mess Around With Jim album_type: album image: https://i.scdn.co/image/ab67616d0000b27398078d325c25a5ac4081cfba release_date: 1972-04-01
+[Duplicate] -Album- id: 7npBPiCHjPj8PVIGPuHXep name: Paul Simon album_type: album image: https://i.scdn.co/image/ab67616d0000b27337a40ab12a4fb96319a9d96f release_date: 1972-01-14
+[Duplicate] -Album- id: 79x0PRGIZv33znrCkPkCZ5 name: No Secrets album_type: album image: https://i.scdn.co/image/ab67616d0000b273143aaf19ecc28c7b41d42d9d release_date: 1972
+[Duplicate] -Album- id: 0sFuW4rH5mFZUjNKnckO3v name: Still Bill album_type: album image: https://i.scdn.co/image/ab67616d0000b27398e08f603553915a041b6937 release_date: 1972-05-01
+[Duplicate] -Album- id: 0E5IKYhiKgbYQkmfsFonbZ name: America album_type: album image: https://i.scdn.co/image/ab67616d0000b273afb855e6461310dff4046c56 release_date: 1972
+[Duplicate] -Album- id: 0PMasrHdpaoIRuHuhHp72O name: Born In The U.S.A. album_type: album image: https://i.scdn.co/image/ab67616d0000b273a7865e686c36a4adda6c9978 release_date: 1984-06-04
+[Duplicate] -Album- id: 15lJi5fAnWPltCKBTUbTry name: Simple Dreams album_type: album image: https://i.scdn.co/image/ab67616d0000b27382fde014acedf91cc99e0d69 release_date: 1977
+[Duplicate] -Album- id: 0JwHz5SSvpYWuuCNbtYZoV name: Bridge Over Troubled Water album_type: album image: https://i.scdn.co/image/ab67616d0000b273ba7fe7dd76cd4307e57dd75f release_date: 1970-01-26
+[Duplicate] -Album- id: 0xzaemKucrJpYhyl7TltAk name: Imagine album_type: album image: https://i.scdn.co/image/ab67616d0000b27399581550ef9746ca582bb3cc release_date: 1971-09-09
+[Duplicate] -Album- id: 25Vt8FvZBx4BsSJWEsF7sJ name: Tea For The Tillerman (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273409b4acd6ef9f8f05a41466c release_date: 1970-11-23
+[Duplicate] -Album- id: 6hmmX5UP4rIvOpGSaPerV8 name: Tracy Chapman album_type: album image: https://i.scdn.co/image/ab67616d0000b2737602becfedf6e25752cb54ff release_date: 1988-04-05
+[Duplicate] -Album- id: 2nsxERlQsbUOWBwaz8HCj8 name: Personal Jesus album_type: single image: https://i.scdn.co/image/ab67616d0000b273b65cdc085ef62773e5b20b89 release_date: 1989
+[Duplicate] -Album- id: 5d71Imt5CIb7LpQwDMQ093 name: Full Moon Fever album_type: album image: https://i.scdn.co/image/ab67616d0000b27336572e6726714544f5bed456 release_date: 1989-01-01
+[Duplicate] -Album- id: 3j7nicLAWXM0Fb08q9XGyf name: Pearl (Legacy Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2736f8c26346723dd0531696bed release_date: 1971-01-11
+[Duplicate] -Album- id: 1cM3r0WQZWNkCpEbmFjLln name: Face Value (Deluxe Editon) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f6954c1f074f66907a8c5483 release_date: 1981-01-01
+[Duplicate] -Album- id: 1ICKrl6sDjJD1YdR9VDfPR name: Chicago 17 (Expanded & Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273192f3a588427f2cbf8365506 release_date: 1984-05-14
+[Duplicate] -Album- id: 321q9p7PELvzcFAWxml7VX name: Uprising album_type: album image: https://i.scdn.co/image/ab67616d0000b2731c40418d1c37d727e8e91b04 release_date: 1980
+[Duplicate] -Album- id: 6oU298pdPTCQnMx1PYwyUA name: Point Of Know Return album_type: album image: https://i.scdn.co/image/ab67616d0000b27359f0f56a7cd13526b5b4204c release_date: 1977
+[Duplicate] -Album- id: 6uGqO41JwcvIKkViDgwGRm name: Mura Masa album_type: album image: https://i.scdn.co/image/ab67616d0000b273f6327094ae332deb480b16ce release_date: 2017-07-14
+[Duplicate] -Album- id: 7z441wPemUMJIZJC1sViNf name: Soundtrack to a Death album_type: album image: https://i.scdn.co/image/ab67616d0000b273d9f0e5b7a1daef12d9217fbe release_date: 2014-11-17
+[Duplicate] -Album- id: 2T8UlI17u5hwTqu6zkpkW7 name: PARTYMOBILE album_type: album image: https://i.scdn.co/image/ab67616d0000b273d8082097058d4c44739b17dd release_date: 2020-03-27
+[Duplicate] -Album- id: 2FXGUAESmG5l9YPrzWPvHI name: PARTYNEXTDOOR 3 (P3) album_type: album image: https://i.scdn.co/image/ab67616d0000b27346b39ced8f129323f46ebb14 release_date: 2016-08-12
+[Duplicate] -Album- id: 6s2isojT7rGZUgJyymjjKU name: PARTYNEXTDOOR TWO album_type: album image: https://i.scdn.co/image/ab67616d0000b2734abe8b5d722c2d2231625a12 release_date: 2014-07-29
+[Duplicate] -Album- id: 40Rs6HcEc6Juj0FBeMa86M name: Ghost (Remixes) album_type: single image: https://i.scdn.co/image/ab67616d0000b2730030a0378c9f565f896b7c45 release_date: 2014-06-08
+[Duplicate] -Album- id: 6xEVy6m4Rf0rGEGLu44MRH name: Habits (Stay High) [Oliver Nelson Remix] album_type: single image: https://i.scdn.co/image/ab67616d0000b273a18f5802d318faa28d3358e6 release_date: 2014-03-03
+[Duplicate] -Album- id: 55iNLm0eVaSN3jxhKdVGz3 name: Ain't A Thing (feat. Kaleem Taylor) album_type: single image: https://i.scdn.co/image/ab67616d0000b273421ff4e22bb67ea1c3d09ba5 release_date: 2016-09-16
+[Duplicate] -Album- id: 3IhDL1HDvlujs6ZcIfL9gE name: Apollo XXI album_type: album image: https://i.scdn.co/image/ab67616d0000b2739b791593e61e77e9a1c092fa release_date: 2019-05-24
+[Duplicate] -Album- id: 47DbvIExnHbqAhIuzBAO9W name: Steve Lacy's Demo album_type: single image: https://i.scdn.co/image/ab67616d0000b273a31dd5d96b9df819e331fdcb release_date: 2017-02-24
+[Duplicate] -Album- id: 50ztaMltoS9mN9fm8R3zcW name: Palo Santo (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27357624a6052499751a984abe7 release_date: 2018-07-06
+[Duplicate] -Album- id: 09mWpzpUOSjjvK2iNqEIYn name: Communion (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2731b540c6520c468dfc0171a60 release_date: 2015-06-22
+[Duplicate] -Album- id: 3mMWlBGocBwsS1Q0o9wvlc name: Where the Light Is album_type: album image: https://i.scdn.co/image/ab67616d0000b2733667dc27da7b24360d6050d0 release_date: 2019-01-06
+[Duplicate] -Album- id: 1HT8zTMIromrZOA4wnbGdV name: When Life Gives You Lemons, You Paint That Shit Gold [Standard Edition] album_type: album image: https://i.scdn.co/image/ab67616d0000b273f98d9ee18af2b12a5c6b1662 release_date: 2008-04-22
+[Duplicate] -Album- id: 0sqn3xP3bhmfSVykmw2S8n name: To All My Friends, Blood Makes The Blade Holy: the Atmosphere ep's album_type: album image: https://i.scdn.co/image/ab67616d0000b273df233105da0c8da5dcd17c03 release_date: 2010-09-06
+[Duplicate] -Album- id: 0YF8PfcGbsKg5IaFyPnlyY name: Ventura album_type: album image: https://i.scdn.co/image/ab67616d0000b2733d5b8fe604275dfab677bd0d release_date: 2019-04-12
+[Duplicate] -Album- id: 4VFG1DOuTeDMBjBLZT7hCK name: Malibu album_type: album image: https://i.scdn.co/image/ab67616d0000b273f8e77075414234fd77fce32b release_date: 2016-01-15
+[Duplicate] -Album- id: 3eNZDL2rqTVvmiC1f0yFwF name: For Lack of a Better Name (The Extended Mixes) album_type: album image: https://i.scdn.co/image/ab67616d0000b273e05790d82cd4932f818cac38 release_date: 2009
+[Duplicate] -Album- id: 2WLFwif81NStLAwtQQtsFs name: The Longest Road album_type: album image: https://i.scdn.co/image/ab67616d0000b2733c18ca03ecd6842bd65625bc release_date: 2018-12-21
+[Duplicate] -Album- id: 1m1V83RrHAsSfmmM8aKy0x name: W:/2016ALBUM/ album_type: album image: https://i.scdn.co/image/ab67616d0000b2739d899e2ff603f30ace1159a5 release_date: 2016-12-02
+[Duplicate] -Album- id: 2SZJP9Nd73rvadObrh7mdc name: Strobelite Seduction album_type: album image: https://i.scdn.co/image/ab67616d0000b273eb53ec4ded8035b0a18c3a83 release_date: 2008-06-03
+[Duplicate] -Album- id: 1ubczeMvCrPHbSEjgfu4a7 name: Day69: Graduation Day album_type: album image: https://i.scdn.co/image/ab67616d0000b27314d3a2a7a92b85a06c93e544 release_date: 2018-04-10
+[Duplicate] -Album- id: 4ow6xJwn49gpWz7iHpOzWY name: 10,000 Hours (with Justin Bieber) album_type: single image: https://i.scdn.co/image/ab67616d0000b27386953b1cbaa29e477db0b479 release_date: 2019-10-04
+[Duplicate] -Album- id: 6Fr2rQkZ383FcMqFyT7yPr name: Purpose (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f46b9d202509a8f7384b90de release_date: 2015-11-13
+[Duplicate] -Album- id: 6FED8aeieEnUWwQqAO9zT1 name: Huncho Jack, Jack Huncho album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a110ff20489fcf899d724c7 release_date: 2017-12-21
+[Duplicate] -Album- id: 2uDTi1PlpSpvAv7IRAoAEU name: HIGHEST IN THE ROOM album_type: single image: https://i.scdn.co/image/ab67616d0000b273e42b5fea4ac4c3d6328b622b release_date: 2019-10-04
+[Duplicate] -Album- id: 42WVQWuf1teDysXiOupIZt name: Birds In The Trap Sing McKnight album_type: album image: https://i.scdn.co/image/ab67616d0000b273f54b99bf27cda88f4a7403ce release_date: 2016-09-16
+[Duplicate] -Album- id: 1Sf8GsXG32t0jNrX11xqWx name: JACKBOYS album_type: album image: https://i.scdn.co/image/ab67616d0000b273dfc2f59568272de50a257f2f release_date: 2019-12-27
+[Duplicate] -Album- id: 6p9Y1K9yu3ojyS8fBJXUnp name: The London album_type: single image: https://i.scdn.co/image/ab67616d0000b273137c2d3150118e7157800c5b release_date: 2019-05-23
+[Duplicate] -Album- id: 7hVFsGvQ1apmp4EAldMwID name: Watch (feat. Lil Uzi Vert & Kanye West) album_type: single image: https://i.scdn.co/image/ab67616d0000b273ed71124ea2ab3ddc260eb1b6 release_date: 2018-05-04
+[Duplicate] -Album- id: 0D2ArJUb7VQ2tVmsHZohUZ name: Dark Knight Dummo (Feat. Travis Scott) album_type: single image: https://i.scdn.co/image/ab67616d0000b273a71dac1ff25a97b23b416032 release_date: 2017-12-05
+[Duplicate] -Album- id: 7hXWMVDn9SVV7zNYiQGvWO name: Hot (Remix) [feat. Gunna and Travis Scott] album_type: single image: https://i.scdn.co/image/ab67616d0000b2732a00ed4fab80272044d13356 release_date: 2019-11-01
+[Duplicate] -Album- id: 4PWBTB6NYSKQwfo79I3prg name: Rodeo (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2737433176f037e0ba14190c34f release_date: 2015-09-04
+[Duplicate] -Album- id: 3tx8gQqWbGwqIGZHqDNrGe name: Sweetener album_type: album image: https://i.scdn.co/image/ab67616d0000b273c3af0c2355c24ed7023cd394 release_date: 2018-08-17
+[Duplicate] -Album- id: 6EVYTRG1drKdO8OnIQBeEj name: My Everything (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273deec12a28d1e336c5052e9aa release_date: 2014-08-25
+[Duplicate] -Album- id: 1xuSorM2dDIiB5zhftB5NY name: Champions album_type: single image: https://i.scdn.co/image/ab67616d0000b273bddf05707f93b37fdbfeaab5 release_date: 2016-06-10
+[Duplicate] -Album- id: 07Jvk8tGuaMhR4H72znlLJ name: Quality Control: Control The Streets Volume 1 album_type: album image: https://i.scdn.co/image/ab67616d0000b273038f644dde923ccb6359261d release_date: 2017-12-08
+[Duplicate] -Album- id: 01sfgrNbnnPUEyz6GZYlt9 name: Dua Lipa (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2736b915e407b70e121e06fe979 release_date: 2017-06-02
+[Duplicate] -Album- id: 2vlhlrgMaXqcnhRqIEV9AP name: Dua Lipa album_type: album image: https://i.scdn.co/image/ab67616d0000b273a13ac79ec7e3ac62bd4ca4e8 release_date: 2017-06-02
+[Duplicate] -Album- id: 659e2eKbsMH0vYCs5qgFmy name: Watermelon Sugar album_type: single image: https://i.scdn.co/image/ab67616d0000b2737cf2b9825bb43083d123ac22 release_date: 2019-11-17
+[Duplicate] -Album- id: 5uCEoLCj3ZZZ1EtzQdQWVl name: Life Is Good (feat. Drake) album_type: single image: https://i.scdn.co/image/ab67616d0000b2738a01c7b77a34378a62f46402 release_date: 2020-01-10
+[Duplicate] -Album- id: 17FBoXK1NU2rvJBbzdzw0r name: FUTURE album_type: album image: https://i.scdn.co/image/ab67616d0000b273e0b64c8be3c4e804abcb2696 release_date: 2017-06-30
+[Duplicate] -Album- id: 6P9PZjWXoCRF5b66BafPKY name: Future & Juice WRLD Present... WRLD ON DRUGS album_type: album image: https://i.scdn.co/image/ab67616d0000b273644c510e8d4c02ae69028297 release_date: 2018-10-19
+[Duplicate] -Album- id: 1NXM5lF9YB7a3f1e4R48oH name: King's Dead (with Kendrick Lamar, Future & James Blake) album_type: single image: https://i.scdn.co/image/ab67616d0000b2739edc391d911405ea9f5c320e release_date: 2018-01-12
+[Duplicate] -Album- id: 3jJKDKdlwRS584zUlHV2Ly name: EVOL album_type: album image: https://i.scdn.co/image/ab67616d0000b273626745b3aa04899001a924ad release_date: 2016-04-13
+[Duplicate] -Album- id: 1ozpmkWcCHwsQ4QTnxOOdT name: What A Time To Be Alive album_type: album image: https://i.scdn.co/image/ab67616d0000b273d6adfbd3f091d6f2b9af6507 release_date: 2015-09-20
+[Duplicate] -Album- id: 6Q3VZtyPCZFMO4cPF4828q name: Monster album_type: album image: https://i.scdn.co/image/ab67616d0000b273e2528d35865f3114cfe9a16e release_date: 2019-10-28
+[Duplicate] -Album- id: 65hRa80KDworqyE8242rLN name: SAVE ME album_type: album image: https://i.scdn.co/image/ab67616d0000b2735cd6070603a9f2e5dcb01d0c release_date: 2019-06-07
+[Duplicate] -Album- id: 6Ew52HWkgfbth9ihRAq2Xd name: BEASTMODE 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b273c64062196630be5cee367ee8 release_date: 2018-07-06
+[Duplicate] -Album- id: 0C0Vs4XobImmqpr6kIasde name: SUPERFLY (Original Motion Picture Soundtrack) album_type: album image: https://i.scdn.co/image/ab67616d0000b273553162a7641ebb0aac36a90a release_date: 2018-06-15
+[Duplicate] -Album- id: 5lJqux7orBlA1QzyiBGti1 name: YHLQMDLG album_type: album image: https://i.scdn.co/image/ab67616d0000b273548f7ec52da7313de0c5e4a0 release_date: 2020-02-28
+[Duplicate] -Album- id: 3nR9B40hYLKLcR0Eph3Goc name: Memories album_type: single image: https://i.scdn.co/image/ab67616d0000b273b8c0135a218de2d10a8435f5 release_date: 2019-09-20
+[Duplicate] -Album- id: 2Auw0pTT6EcQdvHNimhLQI name: V album_type: album image: https://i.scdn.co/image/ab67616d0000b273442b53773d50e1b5369bb16c release_date: 2014-09-02
+[Duplicate] -Album- id: 5zClcGCSWj926AMjvBNSLc name: Songs About Jane: 10th Anniversary Edition album_type: album image: https://i.scdn.co/image/ab67616d0000b27392f2d790c6a97b195f66d51e release_date: 2002
+[Duplicate] -Album- id: 5x7JzoE4A3DwwU6FPt8qws name: Overexposed album_type: album image: https://i.scdn.co/image/ab67616d0000b2733119f490f02fcee6514e8604 release_date: 2012-01-01
+[Duplicate] -Album- id: 7strNUlU6xZqlVWBNUdOYv name: Hands All Over album_type: album image: https://i.scdn.co/image/ab67616d0000b273ce70cb2d7063cf869f9f1239 release_date: 2010
+[Duplicate] -Album- id: 2U2tXCZs8j0H4NEvhfe4zV name: Si Me Dices Que Sí album_type: single image: https://i.scdn.co/image/ab67616d0000b27325308a30a904fa96844c649f release_date: 2020-02-18
+[Duplicate] -Album- id: 3T4tUhGYeRNVUGevb0wThu name: ÷ (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96 release_date: 2017-03-03
+[Duplicate] -Album- id: 4D6BtgzCwuJx9omikqA8Rg name: Loving Is Easy album_type: single image: https://i.scdn.co/image/ab67616d0000b273280a72fdd9bd502bcba6ada8 release_date: 2017-10-11
+[Duplicate] -Album- id: 48IFY1wERoy8Lac5FuXHpc name: ALL-AMERICAN TRASH album_type: album image: https://i.scdn.co/image/ab67616d0000b27346fc3effbd1b9af4c69019ac release_date: 2016-04-11
+[Duplicate] -Album- id: 0iqqnLXoocsMeCYlTw3Q2q name: Moon River album_type: single image: https://i.scdn.co/image/ab67616d0000b2736566b46cd24c5f2d0561ee7a release_date: 2018-02-14
+[Duplicate] -Album- id: 5F4I5eUqVK1CpQbzt1ntMC name: Lens album_type: single image: https://i.scdn.co/image/ab67616d0000b273d26658c4a51d65855c27e03d release_date: 2017-04-23
+[Duplicate] -Album- id: 2jJfnAZE6IG3oYnUv2eCj4 name: Love Yourself 轉 'Tear' album_type: album image: https://i.scdn.co/image/ab67616d0000b27321108e396b83d171cc5c2692 release_date: 2018-05-18
+[Duplicate] -Album- id: 6k3vC8nep1BfqAIJ81L6OL name: An Awesome Wave album_type: album image: https://i.scdn.co/image/ab67616d0000b27369592e88bb29d610a35118f8 release_date: 2012-09-18
+[Duplicate] -Album- id: 5vaoiQeWdC1ssSaM2WjcjZ name: Flume: Deluxe Edition album_type: album image: https://i.scdn.co/image/ab67616d0000b2739aa95cd8a6db301401b04b20 release_date: 2013-11-11
+[Duplicate] -Album- id: 6OGzmhzHcjf0uN9j7dYvZH name: Chanel album_type: single image: https://i.scdn.co/image/ab67616d0000b273a0b780c23fc3c19bd412b234 release_date: 2017-03-10
+[Duplicate] -Album- id: 5fEgDYFPUcvQy21TYoLEZ0 name: New Light album_type: single image: https://i.scdn.co/image/ab67616d0000b27321f02a52720857a42bba5417 release_date: 2018-05-10
+[Duplicate] -Album- id: 25FGyvj0UnD6YYWLq0s9nl name: Bellyache album_type: single image: https://i.scdn.co/image/ab67616d0000b2734adbeb26299adca766cec2c5 release_date: 2017-02-24
+[Duplicate] -Album- id: 2DfPdWWXknoGKrfa2Eicyw name: when the party's over album_type: single image: https://i.scdn.co/image/ab67616d0000b27304b3aa9683e334b8140d19e7 release_date: 2018-10-17
+[Duplicate] -Album- id: 7J9fifadXb0PPSBWXctbi8 name: Good Thing album_type: album image: https://i.scdn.co/image/ab67616d0000b273a47ee7a49c53ccdcb38dc874 release_date: 2018-05-04
+[Duplicate] -Album- id: 4CqmBX4qQUp0i5DDFkHCFd name: I Wish I Missed My Ex album_type: single image: https://i.scdn.co/image/ab67616d0000b2734db8fdd180552dc97a2b21cc release_date: 2018-05-31
+[Duplicate] -Album- id: 2Z9WUERfMjOgQ6ze9TcGbF name: Little Voice album_type: album image: https://i.scdn.co/image/ab67616d0000b2731c3e0a58f3ee28af2922e351 release_date: 2007-07-03
+[Duplicate] -Album- id: 1KlU96Hw9nlvqpBPlSqcTV name: Red (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a7613d346501b828b56a0bc3 release_date: 2012-10-22
+[Duplicate] -Album- id: 0fhmJYVhW0e4i33pCLPA5i name: Cole World: The Sideline Story album_type: album image: https://i.scdn.co/image/ab67616d0000b27399da48a530f6ca2ef86da3cc release_date: 2011-09-27
+[Duplicate] -Album- id: 2DOiha5oI19Dmw5M9ryHD8 name: Venice album_type: album image: https://i.scdn.co/image/ab67616d0000b2731904cf63d8f039da1555ad18 release_date: 2014-10-28
+[Duplicate] -Album- id: 66Y5XaoFSoa0A4P0u56s8V name: Happy Endings album_type: album image: https://i.scdn.co/image/ab67616d0000b273d25f1f1f93036cc3b5abf4e8 release_date: 2017-08-25
+[Duplicate] -Album- id: 2h9jolF67mjDsFP1BF9bid name: Someday album_type: single image: https://i.scdn.co/image/ab67616d0000b27349dca0bd3659134b3b75d88b release_date: 2018-11-08
+[Duplicate] -Album- id: 1xJ7jIK1tT0aVoJw1fPE6r name: Inner Monologue Part 1 album_type: single image: https://i.scdn.co/image/ab67616d0000b273db1aa6e7eb3a86bda64c9ddf release_date: 2019-01-24
+[Duplicate] -Album- id: 4WF4HvVT7VjGnVjxjoCR6w name: When I Get Home album_type: album image: https://i.scdn.co/image/ab67616d0000b273b1150f77ae2fbf0d5b4715fc release_date: 2019-03-01
+[Duplicate] -Album- id: 05LEST8E8mkEIl2LRfUkcI name: War & Leisure album_type: album image: https://i.scdn.co/image/ab67616d0000b2735e9dff10c31ac14c6c6c920d release_date: 2017-12-01
+[Duplicate] -Album- id: 1yyCXBEu27Ia1Y3torWIwC name: American Boyfriend: A Suburban Love Story album_type: album image: https://i.scdn.co/image/ab67616d0000b273030b3a60e1041ebec36d2a73 release_date: 2016-11-18
+[Duplicate] -Album- id: 2wqG59dVVQlJaxoO7N0LJt name: Lady Lady album_type: album image: https://i.scdn.co/image/ab67616d0000b273f1814f1b76df2fa196e4f45e release_date: 2018-09-07
+[Duplicate] -Album- id: 5zi7WsKlIiUXv09tbGLKsE name: IGOR album_type: album image: https://i.scdn.co/image/ab67616d0000b2737005885df706891a3c182a57 release_date: 2019-05-17
+[Duplicate] -Album- id: 2NCtCObbmJoJnplsR5mLAl name: Sinatra/Basie: The Complete Reprise Studio Recordings album_type: album image: https://i.scdn.co/image/ab67616d0000b273cb81eb3c1238c60f2bbfd3b5 release_date: 1962-12-10
+[Duplicate] -Album- id: 0AP5O47kJWlaKVnnybKvQI name: Everybody Else Is Doing It, So Why Can't We? album_type: album image: https://i.scdn.co/image/ab67616d0000b273f6325f361d7803ad0d908451 release_date: 1993-03-01
+[Duplicate] -Album- id: 7bvmGyFDwpHNRRRZJ0AHvn name: Negro Swan album_type: album image: https://i.scdn.co/image/ab67616d0000b27347dd2ca47ec9bf14559e17c6 release_date: 2018-08-24
+[Duplicate] -Album- id: 6wi40lIjhukePWyXRKY7qO name: ARIZONA BABY album_type: album image: https://i.scdn.co/image/ab67616d0000b273595101c281d7e229e1f0e6c4 release_date: 2019-04-25
+[Duplicate] -Album- id: 5L8VJO457GXReKVVfRhzyM name: I Don't Know You album_type: single image: https://i.scdn.co/image/ab67616d0000b273b8cca972978cb4f2f7be74ad release_date: 2017-06-14
+[Duplicate] -Album- id: 2B87zXm9bOWvAJdkJBTpzF name: Melodrama album_type: album image: https://i.scdn.co/image/ab67616d0000b273f8553e18a11209d4becd0336 release_date: 2017-06-16
+[Duplicate] -Album- id: 0rmhjUgoVa17LZuS8xWQ3v name: Pure Heroine album_type: album image: https://i.scdn.co/image/ab67616d0000b273187331e276c898d39764cc98 release_date: 2013-09-27
+[Duplicate] -Album- id: 4UlGauD7ROb3YbVOFMgW5u name: ANTI (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27333c6b920eabcf4c00d7a1093 release_date: 2016-01-28
+[Duplicate] -Album- id: 6awIkxDLnbvhD1Wxrvwvb5 name: plum blossom album_type: album image: https://i.scdn.co/image/ab67616d0000b27343def9298e39310a2033b8d1 release_date: 2018-12-07
+[Duplicate] -Album- id: 4ClyeVlAKJJViIyfVW0yQD name: Pang album_type: album image: https://i.scdn.co/image/ab67616d0000b2737d983e7bf67c2806218c2759 release_date: 2019-10-18
+[Duplicate] -Album- id: 68enXe5XcJdciSDAZr0Alr name: Manic album_type: album image: https://i.scdn.co/image/ab67616d0000b2737636e1c9e67eaafc9f49aefd release_date: 2020-01-17
+[Duplicate] -Album- id: 600ClrWRsAr7jZ0qjaBLHz name: 3.15.20 album_type: album image: https://i.scdn.co/image/ab67616d0000b2734c8974d1d37295694d7d4e8f release_date: 2020-03-22
+[Duplicate] -Album- id: 1haNHfsOFIrDKDFYr0pbsy name: EP2 album_type: single image: https://i.scdn.co/image/ab67616d0000b273a50beafda6a95bbe8a776d07 release_date: 2017-11-03
+[Duplicate] -Album- id: 3QOPUURs2S8ZUnbn1aScjw name: WHAT WE DREW 우리가 그려왔던 album_type: single image: https://i.scdn.co/image/ab67616d0000b273706c2a9ec7a19ec1c5661459 release_date: 2020-03-31
+[Duplicate] -Album- id: 5zzlBUeiaoGOUsT2feGDdB name: WAKING UP DOWN album_type: single image: https://i.scdn.co/image/ab67616d0000b273d61cfa52d579575cc0d83617 release_date: 2020-03-10
+[Duplicate] -Album- id: 6K8iDZW8jPaoiqSzFFebJA name: Top Gun - Motion Picture Soundtrack (Special Expanded Edition) album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273fa183fdd680f1d249ba2f893 release_date: 1999-01-01
+[Duplicate] -Album- id: 3TFzRE2Mm1uZcJeu91UNs9 name: Perfect Angel album_type: album image: https://i.scdn.co/image/ab67616d0000b2731d3aab58dd4e235e7059b6a1 release_date: 1974
+[Duplicate] -Album- id: 4NwG11AsDJluT732lSjMrV name: Let's Dance (2018 Remaster) album_type: album image: https://i.scdn.co/image/ab67616d0000b273db0917ddd4139153bc1d1a1a release_date: 1983-04-14
+[Duplicate] -Album- id: 2HTbQ0RHwukKVXAlTmCZP2 name: Ready to Die (The Remaster) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a4950162a626593b7340f6c7 release_date: 1994-09-13
+[Duplicate] -Album- id: 1IWhZEOwEoXbOB4a40XaR3 name: II album_type: album image: https://i.scdn.co/image/ab67616d0000b2736b3b28022871bae1a5d0f057 release_date: 1994-01-01
+[Duplicate] -Album- id: 34hQFIwGTLf03BZQmGL0iy name: I Do Not Want What I Haven't Got album_type: album image: https://i.scdn.co/image/ab67616d0000b2736f6536c2e326fb2b42db90f8 release_date: 1990-07-01
+[Duplicate] -Album- id: 4M6s2jbhKWEcOdXZ8WiHts name: Parallel Lines album_type: album image: https://i.scdn.co/image/ab67616d0000b273ace2bedb8e6cfa04207d5c0f release_date: 1978-09-23
+[Duplicate] -Album- id: 3P9Pzn7O4Zsr3tsCSsx7Uk name: What's Going On - 40th Anniversary (Super Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273ebd0b8baa57a95925425769c release_date: 1971-05-21
+[Duplicate] -Album- id: 6eGYLONkDMja0MNtZWnRRB name: Hello Nasty (Deluxe Version/Remastered 2009) album_type: album image: https://i.scdn.co/image/ab67616d0000b27375798395abfa719c304f6a8d release_date: 1998-07-14
+[Duplicate] -Album- id: 48D1hRORqJq52qsnUYZX56 name: The Rise and Fall of Ziggy Stardust and the Spiders from Mars (2012 Remaster) album_type: album image: https://i.scdn.co/image/ab67616d0000b273319d2e2cf5c0ff18e46efea2 release_date: 1972-06-06
+[Duplicate] -Album- id: 4jxokHekH1qSad1DcC82ku name: Workingman's Dead album_type: album image: https://i.scdn.co/image/ab67616d0000b273f3fb857b9c6b032edf2d571a release_date: 1970
+[Duplicate] -Album- id: 5z090LQztiqh13wYspQvKQ name: Electric Ladyland album_type: album image: https://i.scdn.co/image/ab67616d0000b273522088789d49e216d9818292 release_date: 1968-10-25
+[Duplicate] -Album- id: 1B4oPgG5ljWTRxsKcTHAYn name: Never Too Much album_type: album image: https://i.scdn.co/image/ab67616d0000b2734c614878cb234061701cac6c release_date: 1981-07-23
+[Duplicate] -Album- id: 0Kmw2yUjTfdaN1son7GTp5 name: Break Out album_type: album image: https://i.scdn.co/image/ab67616d0000b273892a6e0085d9d47cc796c545 release_date: 1983-11-06
+[Duplicate] -Album- id: 2vk0n8aeQSO74VtQBbNDPR name: Falling into You album_type: album image: https://i.scdn.co/image/ab67616d0000b273a78dd7478332da7edf61863e release_date: 1996-02-28
+[Duplicate] -Album- id: 2sXJQdHykPYcRQ7xFhwzMR name: In Color album_type: album image: https://i.scdn.co/image/ab67616d0000b27357a0bca6d7da93cd0c551f6a release_date: 1977-09
+[Duplicate] -Album- id: 3PResMqFgQYBfzTnqTKwQw name: Talking Book album_type: album image: https://i.scdn.co/image/ab67616d0000b273a14b08b9a6616e121df5e8b0 release_date: 1972-10-28
+[Duplicate] -Album- id: 6ZANEjETQ9L9pjBuvOAhCQ name: The Velvet Rope album_type: album image: https://i.scdn.co/image/ab67616d0000b2731e0950dd2574e22c043d56e7 release_date: 1997-10-07
+[Duplicate] -Album- id: 5sY6UIQ32GqwMLAfSNEaXb name: Circles album_type: album image: https://i.scdn.co/image/ab67616d0000b27326b7dd89810cc1a40ada642c release_date: 2020-01-17
+[Duplicate] -Album- id: 5wtE5aLX5r7jOosmPhJhhk name: Swimming album_type: album image: https://i.scdn.co/image/ab67616d0000b273175c577a61aa13d4fb4b6534 release_date: 2018-08-03
+[Duplicate] -Album- id: 2Tyx5dLhHYkx6zeAdVaTzN name: GO:OD AM album_type: album image: https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4 release_date: 2015-09-18
+[Duplicate] -Album- id: 6f6tko6NWoH00cyFOl4VYQ name: The Divine Feminine album_type: album image: https://i.scdn.co/image/ab67616d0000b2732e92f776279eaf45d14a33fd release_date: 2016-09-16
+[Duplicate] -Album- id: 1YZ3k65Mqw3G8FzYlW1mmp name: Circles (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2738cbe65eb023c2f2b5cdf5a91 release_date: 2020-03-19
+[Duplicate] -Album- id: 2io9FL9DbX7AtefnQXFTOH name: DYSFUNCTIONAL album_type: single image: https://i.scdn.co/image/ab67616d0000b2730f5628653fd7115e4e37a258 release_date: 2019-04-10
+[Duplicate] -Album- id: 4KdtEKjY3Gi0mKiSdy96ML name: Invasion of Privacy album_type: album image: https://i.scdn.co/image/ab67616d0000b273a0caffda54afd0a65995bbab release_date: 2018-04-06
+[Duplicate] -Album- id: 3vLaOYCNCzngDf8QdBg2V1 name: Uptown Special album_type: album image: https://i.scdn.co/image/ab67616d0000b27375a609817a8b9a5d1ea6911d release_date: 2015-01-12
+[Duplicate] -Album- id: 4UZ0792AClQ9vo3d74x9fY name: TheSoundYouNeed, Vol. 1 album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273334267c57b1e0d9d62239fde release_date: 2014-11-16
+[Duplicate] -Album- id: 5NPQ3KFdwLrZKuOebTAIzb name: Time for a Change album_type: single image: https://i.scdn.co/image/ab67616d0000b273fddfcb950983da8d54cb0bdc release_date: 2013-07-08
+[Duplicate] -Album- id: 5C2k85Yfu861tvVcP5vpY1 name: Take Off album_type: single image: https://i.scdn.co/image/ab67616d0000b27373612ed24e076833ed7e4044 release_date: 2014-07-21
+[Missing Data] -Album- id: 4yZUGruCKMwFkgMZAX3IMe name: Master Serie Vol 1 album_type: album image: null release_date: 1999-01-01
+[Duplicate] -Album- id: 6YuE6wbqwzvSHungRfuvk7 name: Yael Naïm album_type: album image: https://i.scdn.co/image/ab67616d0000b27370192b59de6ee306dcbf1fda release_date: 2007-10-22
+[Duplicate] -Album- id: 7h4cJfXQZMUCzHdqh25ye6 name: BALD! album_type: single image: https://i.scdn.co/image/ab67616d0000b27366d8ddd534a933d37fac01d4 release_date: 2020-02-26
+[Duplicate] -Album- id: 2MhYXB8X3Vwf55VK3MYr0E name: Jesus Forgive Me, I Am A Thot album_type: single image: https://i.scdn.co/image/ab67616d0000b273100cba8371b5593c14efe3fd release_date: 2019-08-13
+[Duplicate] -Album- id: 5I48ENiZiaZZSOpec6PdS5 name: A Winter Romance album_type: album image: https://i.scdn.co/image/ab67616d0000b273e359bd02a639a4d01b8241ae release_date: 1959-01-01
+[Duplicate] -Album- id: 0kWahEXdUersaxWrukioH2 name: Psycho album_type: single image: https://i.scdn.co/image/ab67616d0000b27312586bf05dacd1857f8deb4a release_date: 2019-09-10
+[Duplicate] -Album- id: 2IH6OKfpHWi7bonXusaSRh name: Shawshank [Feat. Tate Kobang] album_type: single image: https://i.scdn.co/image/ab67616d0000b273389bbe4177543ec074741f87 release_date: 2019-07-24
+[Duplicate] -Album- id: 6idVoBWP2mt1qoMtASm3gc name: TA13OO album_type: album image: https://i.scdn.co/image/ab67616d0000b2737d05dd3ebb77cc048d66b294 release_date: 2018-07-27
+[Duplicate] -Album- id: 42fyKPanos0Q3woi848ktg name: Imperial album_type: album image: https://i.scdn.co/image/ab67616d0000b273166442984ba98f0a2dcaea5e release_date: 2016-10-14
+[Duplicate] -Album- id: 6PkSBdx19zarn4ae1D08gA name: ZUU album_type: album image: https://i.scdn.co/image/ab67616d0000b2735d46e4578c8e1adad9206480 release_date: 2019-05-31
+[Duplicate] -Album- id: 5LsyqeWryTmxsmda4xkm5a name: UNLOCKED album_type: album image: https://i.scdn.co/image/ab67616d0000b273922a12ba0b5a66f034dc9959 release_date: 2020-02-07
+[Duplicate] -Album- id: 5r0LVuUjx659ddoV15P5MI name: Ultimate album_type: single image: https://i.scdn.co/image/ab67616d0000b273b9c31bc080dd46b38bbafce2 release_date: 2015-01-01
+[Duplicate] -Album- id: 1XcWosLrZX4QBLJCkVR3dm name: Falling for U album_type: single image: https://i.scdn.co/image/ab67616d0000b2738a63cbc0882c7d15504f5a12 release_date: 2017-08-14
+[Duplicate] -Album- id: 4g1ZRSobMefqF6nelkgibi name: Hollywood's Bleeding album_type: album image: https://i.scdn.co/image/ab67616d0000b2739478c87599550dd73bfa7e02 release_date: 2019-09-06
+[Duplicate] -Album- id: 3tRmxSQyoyXXwcVDcUFQic name: July (feat. Leon Bridges) album_type: single image: https://i.scdn.co/image/ab67616d0000b273acebb58ea70a6e5ff1c4d261 release_date: 2019-11-08
+[Duplicate] -Album- id: 6rnzvZhe3PA57xKcKLRtJ6 name: Pure Heroine (Extended) album_type: album image: https://i.scdn.co/image/ab67616d0000b27333a859e36fdc9a27ed86516e release_date: 2013-01-01
+[Duplicate] -Album- id: 4oCGmYsAQOWt2ACWTpNUU6 name: Melodrama album_type: album image: https://i.scdn.co/image/ab67616d0000b27375083e2519d18ee196df3558 release_date: 2017-11-10
+[Duplicate] -Album- id: 0wfne2JijoxJm0qzJd3V5h name: ARDIPITHECUS album_type: album image: https://i.scdn.co/image/ab67616d0000b2736ee651e65c3766d80e7fcab7 release_date: 2015-01-11
+[Duplicate] -Album- id: 5UoWl95U6YTsS1N6JyQ7j4 name: Perception EP album_type: single image: https://i.scdn.co/image/ab67616d0000b2738f5b10774f455be8c7b930c6 release_date: 2019-05-31
+[Duplicate] -Album- id: 6znFcVbDZJpb6w4bSdRrXv name: Influence EP album_type: single image: https://i.scdn.co/image/ab67616d0000b273d6f4c3ca2eb2eff8e54ecf5c release_date: 2018-07-13
+[Duplicate] -Album- id: 6swppTxkC1Utll62Bv39PN name: Feel Trip, Vol. 2 album_type: compilation image: https://i.scdn.co/image/ab67616d0000b2731e01d638d164d1806c30a244 release_date: 2016-12-19
+[Duplicate] -Album- id: 76Cy5TK0hmSlVaPzTGGFBv name: Delusions album_type: album image: https://i.scdn.co/image/ab67616d0000b273e32e8aac05f032b5edc97f26 release_date: 2016-07-08
+[Duplicate] -Album- id: 386IqvSuljaZsMjwDGGdLj name: Charli album_type: album image: https://i.scdn.co/image/ab67616d0000b273cee4acc7bfe23bc75461a66c release_date: 2019-09-13
+[Duplicate] -Album- id: 2PjlaxlMunGOUvcRzlTbtE name: Dirty Computer album_type: album image: https://i.scdn.co/image/ab67616d0000b2730a60fb0deda858270cca82ee release_date: 2018-04-27
+[Duplicate] -Album- id: 2FgknX5e7fJlriQtxvpLhZ name: Lungs (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2730672b0f8756ae2af86e8a5ce release_date: 2009
+[Duplicate] -Album- id: 1bnHPO4dKK7IjvgrtVBcQh name: So Much Fun album_type: album image: https://i.scdn.co/image/ab67616d0000b2736fcd1b6e205d0d19d9efa0cc release_date: 2019-08-16
+[Duplicate] -Album- id: 4IRiXE5NROxknUSAUSjMoO name: 7 EP album_type: single image: https://i.scdn.co/image/ab67616d0000b273c0e7bf5cdd630f314f20586a release_date: 2019-06-21
+[Duplicate] -Album- id: 0O1PJ0t69iTO5yWrIeIga0 name: Baby On Baby album_type: album image: https://i.scdn.co/image/ab67616d0000b27374d72ebd51dd5781d5f83ffd release_date: 2019-03-01
+[Duplicate] -Album- id: 6UYZEYjpN1DYRW0kqFy9ZE name: Championships album_type: album image: https://i.scdn.co/image/ab67616d0000b273cd63c5962050729d260077d6 release_date: 2018-11-30
+[Duplicate] -Album- id: 2n3quCZ0anEa46j2IveacI name: Revenge Of The Dreamers III album_type: album image: https://i.scdn.co/image/ab67616d0000b273c0ae820e3b64854de4642101 release_date: 2019-07-05
+[Duplicate] -Album- id: 5WLquTz7nUnsHCj80b6wci name: Fever album_type: album image: https://i.scdn.co/image/ab67616d0000b2738fdfd969c0b6375ca22c3fa3 release_date: 2019-05-17
+[Duplicate] -Album- id: 1BR69wIifGZUSimcuTjWVg name: Rap Or Go To The League album_type: album image: https://i.scdn.co/image/ab67616d0000b27384f49cbc39ac1f18422a4d42 release_date: 2019-03-01
+[Duplicate] -Album- id: 2aTOwGU66ocsf8IQpOI0XZ name: Mr. Davis album_type: album image: https://i.scdn.co/image/ab67616d0000b273af7525e55333b110ff0f4e95 release_date: 2017-10-13
+[Duplicate] -Album- id: 6MQtWELG7aRX7CkAzQ6nLM name: Flockaveli album_type: album image: https://i.scdn.co/image/fade577145599daff924bb7b28386a84f67bd1db release_date: 2010-10-01
+[Duplicate] -Album- id: 7JgDLtQ8g7RrfNdLf4Dk2I name: I'm Him album_type: album image: https://i.scdn.co/image/ab67616d0000b2739a99ab666427dba69f1d45cd release_date: 2019-09-27
+[Duplicate] -Album- id: 6dFFcYQ8VhifgdKgYY5LYL name: Cuz I Love You album_type: album image: https://i.scdn.co/image/ab67616d0000b27306af802e2ea241b6ba1ce0f2 release_date: 2019-04-19
+[Duplicate] -Album- id: 35AZkwcf7WxuzNQ6iOhiIh name: Relax album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27371fc33e9f642f02996fa13e2 release_date: 2008-09-08
+[Duplicate] -Album- id: 0bgjJ99UFbk0yBOzjJl7cq name: The 50 Greatest Pieces of Classical Music album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27376206bd8de3a477aafd7ba83 release_date: 2009-11-23
+[Duplicate] -Album- id: 3cvjMNWg7t46NyDZzujfNg name: Bach: Cello Suites Nos. 1, 5 & 6 album_type: album image: https://i.scdn.co/image/ab67616d0000b273cbb64bd416bb225456100bbc release_date: 1983
+[Duplicate] -Album- id: 1Czfd5tEby3DbdYNdqzrCa name: Falling album_type: single image: https://i.scdn.co/image/ab67616d0000b2736376adb8412509a697896090 release_date: 2018-10-05
+[Duplicate] -Album- id: 0BHgyJ3dblyBOmxV8pRmGg name: Love Me Less (feat. Quinn XCII) album_type: single image: https://i.scdn.co/image/ab67616d0000b273038e01a9fbf375dcccea5a3c release_date: 2019-04-05
+[Duplicate] -Album- id: 6HJDrXs0hpebaRFKA1sF90 name: ROXANNE album_type: single image: https://i.scdn.co/image/ab67616d0000b273069a93617a916760ab88ffea release_date: 2019-10-10
+[Duplicate] -Album- id: 0OmYuz9hwn1XoqmDaU0yJ7 name: Too Low For Zero album_type: album image: https://i.scdn.co/image/ab67616d0000b273eb11e2abccdca41f39ad3b89 release_date: 1983-05-30
+[Duplicate] -Album- id: 69P9Ro0W286yLFgYwrGVN0 name: Elton John album_type: album image: https://i.scdn.co/image/ab67616d0000b2734b292ed7c7360a04d3d6b74a release_date: 1970-04-10
+[Duplicate] -Album- id: 7iKDBfOFUtg8E8RbuDhiux name: To Be Continued... album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27390b432523487481711fd9887 release_date: 1990-11-08
+[Duplicate] -Album- id: 5WupqgR68HfuHt3BMJtgun name: Goodbye Yellow Brick Road (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f72f1e38e9bd48f18a17ed9b release_date: 1973-10-05
+[Duplicate] -Album- id: 1reJ8DttK5EGwdyf7y9FBR name: Don't Shoot Me I'm Only The Piano Player album_type: album image: https://i.scdn.co/image/ab67616d0000b273f67fbf0d465cca2b3e25af96 release_date: 1973-01-22
+[Duplicate] -Album- id: 143dMy2NJalRNn5AdOA8AI name: Music Sounds Better With You album_type: single image: https://i.scdn.co/image/ab67616d0000b273d7f8b82781e725ffa5180bc9 release_date: 2017-07-21
+[Duplicate] -Album- id: 7c2Xfq7aQKzs0KdSI3K7Rc name: Sex & Food album_type: album image: https://i.scdn.co/image/ab67616d0000b273aa839bb04931542d830c73b1 release_date: 2018-04-06
+[Duplicate] -Album- id: 7nCWzcMZanUBPZgZaKpzM6 name: Too Rye Ay album_type: album image: https://i.scdn.co/image/ab67616d0000b2738bd8adbdc4727d9080240905 release_date: 1982-07-22
+[Duplicate] -Album- id: 5YHZaCxCuuK81h4Fimb9rT name: Greatest album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27352038992fc6d7868f31d23b7 release_date: 1979-01-01
+[Duplicate] -Album- id: 4V8z8vZUCyYUBlUI9CfSbY name: Children Of The World album_type: album image: https://i.scdn.co/image/ab67616d0000b27345b4e9481e0846c16553a048 release_date: 1976-01-01
+[Duplicate] -Album- id: 6bddpRTD2imtFdhXqr6MKm name: Spirits Having Flown album_type: album image: https://i.scdn.co/image/ab67616d0000b27344d10bd5b6282b959d695a41 release_date: 1979-02-05
+[Duplicate] -Album- id: 6iqFb4EhmlHHjJGFcRgJmQ name: Staying Alive (Original Motion Picture Soundtrack) album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27355fb38fda5321a8923911ff9 release_date: 1977-12-13
+[Duplicate] -Album- id: 0M4KfcwtjsxZye3gK4fBKX name: One Night Only album_type: album image: https://i.scdn.co/image/ab67616d0000b273e26ce1c55b975d5e558c260e release_date: 1998-01-01
+[Duplicate] -Album- id: 6FCakQJ6z6TF0y0qkHYKgy name: Clapton Chronicles: The Best of Eric Clapton album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273ed4b2a6ea7d8a04f39be0be0 release_date: 1999-10-12
+[Duplicate] -Album- id: 02f3y3NTsddjdUMoNiBppI name: Make It Big album_type: album image: https://i.scdn.co/image/ab67616d0000b273a2fc41b0dd6ce4f0d16a4c46 release_date: 1984-10-23
+[Duplicate] -Album- id: 6vihnceXTNegYbpurc6qkR name: Fantastic album_type: album image: https://i.scdn.co/image/ab67616d0000b273bb126e633cb3c52079aa7d82 release_date: 1983-07-09
+[Duplicate] -Album- id: 6ZJD7uT643TvniNyAk90bd name: The Final album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273ee44e3a23aaaa941f7adb48d release_date: 1986-11-25
+[Duplicate] -Album- id: 6egzU9NKfora01qaNbvwfZ name: LAST CHRISTMAS album_type: single image: https://i.scdn.co/image/ab67616d0000b273f2d2adaa21ad616df6241e7d release_date: 1984-11-29
+[Duplicate] -Album- id: 51B7LbLWgYLKBVSpkan8Z7 name: Eagles (2013 Remaster) album_type: album image: https://i.scdn.co/image/ab67616d0000b273c13acd642ba9f6f5f127aa1b release_date: 1972
+[Duplicate] -Album- id: 1M4anG49aEs4YimBdj96Oy name: Arrival album_type: album image: https://i.scdn.co/image/ab67616d0000b2733c60391b048d33edff6f3d62 release_date: 1976
+[Duplicate] -Album- id: 0zdZSyxWaYmaRMPeUHcG1K name: Voulez-Vous album_type: album image: https://i.scdn.co/image/ab67616d0000b273e47ce0362dd11917fb8307f1 release_date: 1979
+[Duplicate] -Album- id: 5PVuX09frPq7AMYkkdcDfR name: Super Trouper album_type: album image: https://i.scdn.co/image/ab67616d0000b273b068bc8047c241b565d80eb2 release_date: 1980
+[Duplicate] -Album- id: 0C36RlW2Fa0C7n1JnWBBMP name: Abba album_type: album image: https://i.scdn.co/image/ab67616d0000b273d8154127a53ef0aab783f100 release_date: 1975
+[Duplicate] -Album- id: 1WAlaVMaCstzAQ1Y5i0VeX name: Waterloo album_type: album image: https://i.scdn.co/image/ab67616d0000b273de7c45e97d915ae2b68be530 release_date: 1974-01-01
+[Duplicate] -Album- id: 5GwbPSgiTECzQiE6u7s0ZN name: The Album album_type: album image: https://i.scdn.co/image/ab67616d0000b273dca40205d34a5975ef2f04ac release_date: 1977
+[Duplicate] -Album- id: 4sLtOBOzn4s3GDUv3c5oJD name: A Star Is Born Soundtrack album_type: album image: https://i.scdn.co/image/ab67616d0000b273e2d156fdc691f57900134342 release_date: 2018-10-05
+[Duplicate] -Album- id: 6rePArBMb5nLWEaY9aQqL4 name: The Fame Monster (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2735c9890c0456a3719eeecd8aa release_date: 2009-11-05
+[Duplicate] -Album- id: 5maeycU97NHBgwRr2h2A4O name: Born This Way (Special Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a47c0e156ea3cebe37fdcab8 release_date: 2011-01-01
+[Duplicate] -Album- id: 2eRJUtI7nXrQ5uYQ7tzTo9 name: ARTPOP album_type: album image: https://i.scdn.co/image/ab67616d0000b2737da123c944790bfab54b2522 release_date: 2013-11-11
+[Duplicate] -Album- id: 5VoeRuTrGhTbKelUfwymwu name: Born To Die - The Paradise Edition album_type: album image: https://i.scdn.co/image/ab67616d0000b273ebc8cfac8b586bc475b04918 release_date: 2012-01-01
+[Duplicate] -Album- id: 4nYzn3xOXQsltWZ5AIQns7 name: Something album_type: album image: https://i.scdn.co/image/ab67616d0000b27367a74f87b45b405940538848 release_date: 2012-01-24
+[Duplicate] -Album- id: 3DGQ1iZ9XKUQxAUWjfC34w name: good kid, m.A.A.d city (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273d58e537cea05c2156792c53d release_date: 2012
+[Duplicate] -Album- id: 5IenxFp0vpnXBUxPcwJtbE name: MKTO album_type: album image: https://i.scdn.co/image/ab67616d0000b273a3aa50c6d18d38be136bd67d release_date: 2012
+[Duplicate] -Album- id: 5BvgP623rtvlc0HDcpzquz name: Katy Perry - Teenage Dream: The Complete Confection album_type: album image: https://i.scdn.co/image/ab67616d0000b273937af329667311f4b2831616 release_date: 2012-03-12
+[Duplicate] -Album- id: 0gT5HL6RnvHBxJ2gY7lidR name: Warrior (Deluxe Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b273861f0d79ff28c0206bb34474 release_date: 2012-11-30
+[Duplicate] -Album- id: 5SxEsi1PNyo1XfEKDYcFKF name: Take Me Home: Yearbook Edition album_type: album image: https://i.scdn.co/image/ab67616d0000b273ddacff8ec2f8f34ed56957cf release_date: 2012-11-09
+[Duplicate] -Album- id: 7w19PFbxAjwZ7UVNp9z0uT name: 18 Months album_type: album image: https://i.scdn.co/image/ab67616d0000b273dcef905cb144d4867119850b release_date: 2012-10-29
+[Duplicate] -Album- id: 7juWTdmjo0vYywWu8HiQxs name: Clarity album_type: album image: https://i.scdn.co/image/ab67616d0000b273941dd3b3343d9cb9329d37bf release_date: 2012-01-01
+[Duplicate] -Album- id: 6cunQQ7YZisYOoiFu2ywIq name: Up All Night album_type: album image: https://i.scdn.co/image/ab67616d0000b2734a5584795dc73860653a9a3e release_date: 2012-05-25
+[Duplicate] -Album- id: 7i1Ej2Ix9aIiLKqhNwAB2l name: Overexposed (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2739d41d73f973cb817462e068a release_date: 2012-01-01
+[Duplicate] -Album- id: 76FXHQhTuT4QMIxfL09gX8 name: The Heist album_type: album image: https://i.scdn.co/image/ab67616d0000b27398a02fef3a8b1d80a0f164ec release_date: 2012-10-09
+[Duplicate] -Album- id: 36fdxiOzdlmsrHgGcfvqUJ name: THE E.N.D. (THE ENERGY NEVER DIES) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f051a314bb7eaa973c795176 release_date: 2009-01-01
+[Duplicate] -Album- id: 4wBDclsxFzGnR4kVAAMI7K name: Elephunk album_type: album image: https://i.scdn.co/image/ab67616d0000b273e435b4dfdcf5e3c4a25663df release_date: 2003
+[Duplicate] -Album- id: 2szeSQtOcJgRhDXmTS3SIf name: Monkey Business album_type: album image: https://i.scdn.co/image/ab67616d0000b27308b19a033829c0bec97be61a release_date: 2005-01-01
+[Duplicate] -Album- id: 3IpexNXiKbezuY526S4Jvy name: The Beginning album_type: album image: https://i.scdn.co/image/ab67616d0000b2739efc623f9c64c8efb583b186 release_date: 2010-01-01
+[Duplicate] -Album- id: 1TuKgkCGIxiIns9Bc5XKRC name: Free Wired album_type: album image: https://i.scdn.co/image/ab67616d0000b27358b08d62231dfca8d358b876 release_date: 2010-01-01
+[Duplicate] -Album- id: 4xEezXbNe6k2IJKq37Vdpa name: Just Used Music Again album_type: single image: https://i.scdn.co/image/ab67616d0000b273811d273d09bbcf5377e23358 release_date: 2019-09-04
+[Duplicate] -Album- id: 3Y3CwwjIi03RRyJohYzKXh name: Indigo album_type: single image: https://i.scdn.co/image/ab67616d0000b2734b48ac8daf3d6e08548af8dd release_date: 2019-08-13
+[Duplicate] -Album- id: 6YFBWwUDdot8IjBZSYOacB name: Head In The Clouds album_type: album image: https://i.scdn.co/image/ab67616d0000b2734aedbebc17bc6ebccad220e9 release_date: 2018-07-20
+[Duplicate] -Album- id: 7bOpX6Ilc9UCFmH9uGyUDy name: Head In The Clouds II album_type: album image: https://i.scdn.co/image/ab67616d0000b273488df3d22b1f5c0ea15b686a release_date: 2019-10-11
+[Duplicate] -Album- id: 23dKNZpiadggKHrQgHLi3L name: Assume Form album_type: album image: https://i.scdn.co/image/ab67616d0000b2739af56a54edacb6237b49fa2e release_date: 2019-01-18
+[Duplicate] -Album- id: 53FEYOXnplxBWoQMmWn82U name: Overgrown album_type: album image: https://i.scdn.co/image/ab67616d0000b273d134dbb0fad78dda23d777ff release_date: 2013-04-08
+[Duplicate] -Album- id: 0IQbQC6V4UuHLcgO9Yt3uu name: Wolfgang Amadeus Phoenix album_type: album image: https://i.scdn.co/image/ab67616d0000b273738f2371ae0c10a381aa5052 release_date: 2009-05-25
+[Duplicate] -Album- id: 09AwlP99cHfKVNKv4FC8VW name: Jagged Little Pill album_type: album image: https://i.scdn.co/image/ab67616d0000b27389bc5819382ffda1b450a0fb release_date: 1995-06-09
+[Duplicate] -Album- id: 1Iu5sceGmML4CeQ2f5Q6aO name: Superclean, Vol. II album_type: single image: https://i.scdn.co/image/ab67616d0000b27301f38820004136252d5db961 release_date: 2018-09-28
+[Duplicate] -Album- id: 4xkM0BwLM9H2IUcbYzpcBI name: I Love You. album_type: album image: https://i.scdn.co/image/ab67616d0000b27378f71c0d2fe34592a3c18f80 release_date: 2013-04-19
+[Duplicate] -Album- id: 18iFxjZugvKhuNNMbLjZJF name: Wiped Out! album_type: album image: https://i.scdn.co/image/ab67616d0000b2733066581d697fbdee4303d685 release_date: 2015-10-30
+[Duplicate] -Album- id: 5mcuyVRQmrRlfFqDDfJI1q name: In a Poem Unlimited album_type: album image: https://i.scdn.co/image/ab67616d0000b273cdfe9ca52fbe76c85e055aef release_date: 2018-02-16
+[Duplicate] -Album- id: 3c9D4qaxb9XNd9BJasUEdo name: Back To Black: B-Sides album_type: album image: https://i.scdn.co/image/ab67616d0000b273882d38c1251b08760e74dd88 release_date: 2007-01-01
+[Duplicate] -Album- id: 3ynoYncFXzo2OfPT8j93Pw name: Lost In Japan (Remix) album_type: single image: https://i.scdn.co/image/ab67616d0000b273983a15dbbda621fd434754a3 release_date: 2018-09-27
+[Duplicate] -Album- id: 4oN0HoJVDsVKwJmquYy7d2 name: Life of a Wallflower Vol. 1 album_type: album image: https://i.scdn.co/image/ab67616d0000b273abc20d6fca3df753a2243a5f release_date: 2018-11-09
+[Duplicate] -Album- id: 6DcjgwmNJdsl2BODdwPOH6 name: Greetings From...Jake album_type: album image: https://i.scdn.co/image/ab67616d0000b27341d60c90951cdecd05abfbe6 release_date: 2019-03-29
+[Duplicate] -Album- id: 38kpkGLuPr1nNfD3iEyOlJ name: Old Town Road album_type: single image: https://i.scdn.co/image/ab67616d0000b273bc5839eea68e7ff7f1010f93 release_date: 2019-04-05
+[Duplicate] -Album- id: 1dZZh7PvVgce1DDsDPzy8Z name: 99.9% album_type: album image: https://i.scdn.co/image/ab67616d0000b27342c18fe458181bc13d08070a release_date: 2016-05-06
+[Duplicate] -Album- id: 097eYvf9NKjFnv4xA9s2oV name: Back To Black album_type: album image: https://i.scdn.co/image/ab67616d0000b2738f52f321140e4a76ea720c52 release_date: 2006-10-27
+[Duplicate] -Album- id: 2f4Ejh4Po2rpuXSYa6IDCe name: Inner Monologue Part 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b273392fe1e2e2719b901c07b827 release_date: 2019-06-28
+[Duplicate] -Album- id: 20mfnTTQTPZ4MHVOg0R83D name: Açaí Bowl album_type: single image: https://i.scdn.co/image/ab67616d0000b2737cfa916ef30e2f720a9282f3 release_date: 2019-06-07
+[Duplicate] -Album- id: 6RhSCF1Z3g95Q1rZWqpUdT name: Phone Numbers album_type: single image: https://i.scdn.co/image/ab67616d0000b2731047fa3fb0151cf803d9c696 release_date: 2019-07-04
+[Duplicate] -Album- id: 2ZaX1FdZCwchXl1QZiD4O4 name: Señorita album_type: single image: https://i.scdn.co/image/ab67616d0000b273e6095c382c2853667c1623eb release_date: 2019-06-21
+[Duplicate] -Album- id: 7viNUmZZ8ztn2UB4XB3jIL name: 2014 Forest Hills Drive album_type: album image: https://i.scdn.co/image/ab67616d0000b2736aca031ccc27d2e4dd829d14 release_date: 2014-12-09
+[Duplicate] -Album- id: 1meis09isQJFDA65afUTt8 name: Unwritten album_type: album image: https://i.scdn.co/image/ab67616d0000b2735c8872bc90197dd979e069fe release_date: 2004-08-30
+[Duplicate] -Album- id: 01uabHpYa9AA55wc6AwRQL name: In Colour album_type: album image: https://i.scdn.co/image/ab67616d0000b273c794708c6cb4c4288d7f31d8 release_date: 2015-06-02
+[Duplicate] -Album- id: 0mZIUXje90JtHxPNzWsJNR name: Voicenotes album_type: album image: https://i.scdn.co/image/ab67616d0000b273897f73256b9128a9d70eaf66 release_date: 2018-05-11
+[Duplicate] -Album- id: 4mchkmnzdTYIEAnw2FijA3 name: Broccoli album_type: single image: https://i.scdn.co/image/ab67616d0000b273fdeac207b7369d188cb2221c release_date: 2016-04-06
+[Duplicate] -Album- id: 5qBu7Ab6alstSCAzxTJMb1 name: Chill Bill (feat. J. Davi$ & Spooks) album_type: single image: https://i.scdn.co/image/ab67616d0000b2736f3e9696889a2425338e0836 release_date: 2016-06-17
+[Duplicate] -Album- id: 7vzvohRzBtrnr3miUJrpAk name: All The Way Up (feat. French Montana & Infared) - Single album_type: single image: https://i.scdn.co/image/91f40b5a93fcd4c30a74fcda4a995bd2aa0ffac2 release_date: 2016-03-02
+[Duplicate] -Album- id: 0rSLgV8p5FzfnqlEk4GzxE name: Closer album_type: single image: https://i.scdn.co/image/ab67616d0000b273495ce6da9aeb159e94eaa453 release_date: 2016-07-29
+[Duplicate] -Album- id: 0hmFRR0pDSZIAvoJqEFSKv name: Mercy album_type: single image: https://i.scdn.co/image/ab67616d0000b273edaf2b740bf3406d8aa82a37 release_date: 2012-01-01
+[Duplicate] -Album- id: 4undIeGmofnAYKhnDclN1w name: Hot Fuss album_type: album image: https://i.scdn.co/image/ab67616d0000b27356a6d6e493a8f338be63fc49 release_date: 2004-06-15
+[Duplicate] -Album- id: 74JkTYeuAlUUNuusDyAl3Q name: Forever album_type: single image: https://i.scdn.co/image/ab67616d0000b273eb2ed001725f6548feb2c37c release_date: 2007-11-02
+[Duplicate] -Album- id: 7EpUpNUkkEGnaCvkcn1j4H name: JEFFERY album_type: album image: https://i.scdn.co/image/ab67616d0000b273d0c72291cd96834e199e1ff8 release_date: 2016-08-26
+[Duplicate] -Album- id: 7zf9kyxc3ZhJv79HrjTRir name: Tiimmy Turner album_type: single image: https://i.scdn.co/image/ab67616d0000b27335243e14634fea3e3cfe3121 release_date: 2016-07-22
+[Duplicate] -Album- id: 25icVyYwOAjrUOZOLx44K0 name: So So Def Bass All-Stars album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27347b750133b4ef958854c866d release_date: 1996-06-04
+[Duplicate] -Album- id: 6TZp52tXShLQbq8yNMxqNT name: Welcome Interstate Managers album_type: album image: https://i.scdn.co/image/ab67616d0000b27345fb00c06655f17c91de396f release_date: 2003-01-01
+[Duplicate] -Album- id: 5ll74bqtkcXlKE7wwkMq4g name: Late Registration album_type: album image: https://i.scdn.co/image/ab67616d0000b273de720f487ec5a6a3cfad9ebb release_date: 2005-09-30
+[Duplicate] -Album- id: 1Lymt1abGCr3J06bbnmWca name: Kala album_type: album image: https://i.scdn.co/image/ab67616d0000b273a46877c3e262a53224c17324 release_date: 2007-01-01
+[Duplicate] -Album- id: 61ulfFSmmxMhc2wCdmdMkN name: Merry Christmas album_type: album image: https://i.scdn.co/image/ab67616d0000b2734246e3158421f5abb75abc4f release_date: 1994-11-01
+[Duplicate] -Album- id: 67Eq3nfl1km9s5ig76Cc8B name: United album_type: album image: https://i.scdn.co/image/ab67616d0000b27396e0b7befe3ba88f5a7d5a3f release_date: 1967-08-29
+[Duplicate] -Album- id: 3FDYmCinR2Mx94ukKJKDew name: Writer's Block album_type: album image: https://i.scdn.co/image/ab67616d0000b273db2c07b93263280a636c1567 release_date: 2007-02-20
+[Duplicate] -Album- id: 0G1ffjfFuTUTVjDrVdLimH name: Views album_type: album image: https://i.scdn.co/image/ab67616d0000b27382e3e6968e73ec00a9f7861b release_date: 2016-05-13
+[Duplicate] -Album- id: 5lkNnHVlnCCCV304t89wOH name: My House album_type: album image: https://i.scdn.co/image/ab67616d0000b2737947bf3e8af32378de181b41 release_date: 2015-04-07
+[Duplicate] -Album- id: 17l7MIu0Jh0tdgK7or9ovw name: Dopamine album_type: album image: https://i.scdn.co/image/ab67616d0000b273cc2cf912462d8ae4ef856434 release_date: 2015-10-16
+[Duplicate] -Album- id: 1k3BLTc4VZ7beRBXL1SPN6 name: Panda album_type: single image: https://i.scdn.co/image/ab67616d0000b273584ad36d1712bc9d51e797ff release_date: 2016-02-26
+[Duplicate] -Album- id: 5dtw6CoMhbrSj01YUvdQOF name: Chief album_type: album image: https://i.scdn.co/image/ab67616d0000b273c1bc36faa8afff2b5273490b release_date: 2011-01-01
+[Duplicate] -Album- id: 6cowf7fdb5dgKoglTekOK8 name: True Believers album_type: album image: https://i.scdn.co/image/ab67616d0000b2733c814f8afa852904e9db8a9f release_date: 2013-01-01
+[Duplicate] -Album- id: 0Im5nUhAuNDSYVjfPh7RyS name: The Foundation album_type: album image: https://i.scdn.co/image/ab67616d0000b2733f6f4ab78c05dfdfcc37a205 release_date: 2008-11-17
+[Duplicate] -Album- id: 022DrG7Wp2PSCwzuD0bSzT name: American Beauty/American Psycho album_type: album image: https://i.scdn.co/image/ab67616d0000b273ab185b1b8d28e03004ce61dc release_date: 2015-01-20
+[Duplicate] -Album- id: 1116PKIKlArm87HVaPtonW name: A Town Called Paradise (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27398d7415fe3899cdffe673b22 release_date: 2014-06-13
+[Duplicate] -Album- id: 34y7m68F7rN9ou6m5GWohR name: Love Angel Music Baby album_type: album image: https://i.scdn.co/image/ab67616d0000b273f049fc9322f0c93646cdcc77 release_date: 2004-11-22
+[Duplicate] -Album- id: 32Bu3ETQhR1PFCj3ndDlYf name: The Trinity album_type: album image: https://i.scdn.co/image/ab67616d0000b27369ba684e533706bafe248ef3 release_date: 2005-09-26
+[Duplicate] -Album- id: 56PJDByaunMWwCqs5rV3Nc name: No Label II album_type: album image: https://i.scdn.co/image/ab67616d0000b273c0f275798fc87a26c3d3c5e4 release_date: 2014-06-03
+[Duplicate] -Album- id: 20r762YmB5HeofjMCiPMLv name: My Beautiful Dark Twisted Fantasy album_type: album image: https://i.scdn.co/image/ab67616d0000b2735bd363295a677dacd0b4187b release_date: 2010-11-22
+[Duplicate] -Album- id: 3mNoFlD1wsoXfkljfFzExT name: TALKING IS HARD album_type: album image: https://i.scdn.co/image/ab67616d0000b27343294cfa2688055c9d821bf3 release_date: 2014-12-02
+[Duplicate] -Album- id: 5M8gr5RV2eR6UkztC69ogB name: Crash My Party album_type: album image: https://i.scdn.co/image/ab67616d0000b27316fce2616744168b30462991 release_date: 2013-01-01
+[Duplicate] -Album- id: 7ycBtnsMtyVbbwTfJwRjSP name: To Pimp A Butterfly album_type: album image: https://i.scdn.co/image/ab67616d0000b273cdb645498cd3d8a2db4d05e1 release_date: 2015-03-16
+[Duplicate] -Album- id: 5qENHeCSlwWpEzb25peRmQ name: Curtain Call album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273eab40fc794b88b9d1e012578 release_date: 2005-12-06
+[Duplicate] -Album- id: 3SZr5Pco2oqKFORCP3WNj9 name: Graduation album_type: album image: https://i.scdn.co/image/ab67616d0000b273675561f3defd1d5a551936a8 release_date: 2007-01-01
+[Duplicate] -Album- id: 5qf9TEgsN87fxwEKsJP2vu name: The Beginning & The Best Of The E.N.D. album_type: compilation image: https://i.scdn.co/image/ab67616d0000b27308c63cf0aa88f47866a9df01 release_date: 2011-01-01
+[Duplicate] -Album- id: 3CDIhRuL5iaenmrd95W3Ym name: Cheerleader (Felix Jaehn Remix Radio Edit) album_type: single image: https://i.scdn.co/image/ab67616d0000b273b3b494eb7a611438c08735be release_date: 2015-03-06
+[Duplicate] -Album- id: 0V7c0hnrLUFJyHNtjiAT2E name: Montevallo album_type: album image: https://i.scdn.co/image/ab67616d0000b2739e6b694939f7495f67a0de33 release_date: 2014-10-27
+[Duplicate] -Album- id: 5nkUSlIhtoJZMOUlB0sNCp name: From Under The Cork Tree album_type: album image: https://i.scdn.co/image/ab67616d0000b273b1f8728ff3d8b53e3e977b3a release_date: 2005-05-03
+[Duplicate] -Album- id: 6NrLpQCPYrNS3kVWxDgIlg name: Get Born album_type: album image: https://i.scdn.co/image/ab67616d0000b273d06bd6d3b1f258ba2bca597a release_date: 2003-09-15
+[Duplicate] -Album- id: 3vGtqTr5he9uQfusQWJ0oC name: Platinum & Gold Collection album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273ae75fb0f0023235dc4e62283 release_date: 2004-03-09
+[Duplicate] -Album- id: 6Di4m5k1BtMJ0R44bWNutu name: News Of The World (Deluxe Remastered Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b27393c65b02f4a72cd6eccf446d release_date: 1977-10-28
+[Duplicate] -Album- id: 574xhx2X0G9MkqACxqi4cg name: Greatest Hits: My Prerogative album_type: compilation image: https://i.scdn.co/image/ab67616d0000b2735028c2ac460025bffa43057e release_date: 2004
+[Duplicate] -Album- id: 6mGDfbDErYIJsmSewvccWm name: Meet The Orphans album_type: album image: https://i.scdn.co/image/ab67616d0000b2734640a26eb27649006be29a94 release_date: 2010-01-01
+[Duplicate] -Album- id: 2tm3Ht61kqqRZtIYsBjxEj name: Stankonia album_type: album image: https://i.scdn.co/image/ab67616d0000b273c2c10aadaee962bb683354fc release_date: 2000-10-31
+[Duplicate] -Album- id: 7yBl4uFyJzH48Vy6tPieXL name: FourFiveSeconds album_type: single image: https://i.scdn.co/image/ab67616d0000b27336a9ed72b45e54ff307641be release_date: 2015-01-24
+[Duplicate] -Album- id: 2F7tejLHzTqFq2XLol9ZGy name: Global Warming: Meltdown (Deluxe Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f2486b438645e97b523e4f90 release_date: 2012
+[Duplicate] -Album- id: 7iycyHwOW2plljYIK6I1Zo name: Some Nights album_type: album image: https://i.scdn.co/image/ab67616d0000b27305fb4e9947c6edaf3836766e release_date: 2012-02-21
+[Duplicate] -Album- id: 3zo0Hxh9rjJsdw2JAKReE3 name: Turn Down for What album_type: single image: https://i.scdn.co/image/ab67616d0000b273d905e78cad304de028db39b7 release_date: 2013-12-18
+[Duplicate] -Album- id: 5ppnlEoj4HdRRdRihnY3jU name: Oral Fixation, Vol. 2 (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b27327ddd747545c0d0cfe7595fa release_date: 2005-11-28
+[Duplicate] -Album- id: 7hPq9fDWwXPo1tT0oi3XcM name: Finest album_type: album image: https://i.scdn.co/image/ab67616d0000b273b0c0201a8796d8a536253a61 release_date: 2003-09-01
+[Duplicate] -Album- id: 7oJa8bPFKVbq4c7NswXHw8 name: Shape of You album_type: single image: https://i.scdn.co/image/ab67616d0000b27383e9b06ccd219248b5301264 release_date: 2017-01-06
+[Duplicate] -Album- id: 04bMI1jl7CB82LkdeHXyEo name: The Boombastic Collection - Best of Shaggy album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273863098b4108636d18d8e52e0 release_date: 2008-01-01
+[Duplicate] -Album- id: 5v6iBhIlflzR9rEd1LAMbd name: SremmLife 2 (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273881fb62d913fe712fc2e1c95 release_date: 2016-08-12
+[Duplicate] -Album- id: 2r69WsAMyjbgLf8c4woaUr name: My Type EP album_type: single image: https://i.scdn.co/image/ab67616d0000b2738ba29b297a3e252d9d3e59a2 release_date: 2014-08-16
+[Duplicate] -Album- id: 6NoBzYmh5gUusGPCfg0pct name: x (Wembley Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273d08209944468440145f01524 release_date: 2013
+[Duplicate] -Album- id: 0UkgnXc0w7qiRE2X086BdN name: Whatever album_type: album image: https://i.scdn.co/image/ab67616d0000b2733b97f1c9a0273bfbdc6bd791 release_date: 2011-11-25
+[Duplicate] -Album- id: 6fpLLJsDSSAlToEDW2jv4F name: Animal (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a6339d6ddfd579f77559b3c release_date: 2010-01-01
+[Duplicate] -Album- id: 0pGumY11G8OGH05ti6jh23 name: Cannibal (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2733556ff5e46e50eb27be71ebe release_date: 2010-11-19
+[Duplicate] -Album- id: 5ZQB1ZQ2Yx9YT3nZlR2Pgu name: Warrior (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b27376c5c62197115a22b23ff950 release_date: 2012-11-30
+[Duplicate] -Album- id: 57OyAMchBAwqVGuOekcYXn name: Amygdala album_type: album image: https://i.scdn.co/image/ab67616d0000b2738f5c0a0f29cdb013c607dd46 release_date: 2018-03-16
+[Duplicate] -Album- id: 4i3rAwPw7Ln2YrKDusaWyT name: everything i wanted album_type: single image: https://i.scdn.co/image/ab67616d0000b273f2248cf6dad1d6c062587249 release_date: 2019-11-13
+[Duplicate] -Album- id: 0uRFz92JmjwDbZbB7hEBIr name: Picture Show album_type: album image: https://i.scdn.co/image/ab67616d0000b2734a6c0376235e5aa44e59d2c2 release_date: 2012-01-01
+[Duplicate] -Album- id: 7xpjpdislqMXOCw5xsDt4g name: Habits album_type: album image: https://i.scdn.co/image/ab67616d0000b27326ca7305db69aa21efcf2b7a release_date: 2010-01-01
+[Duplicate] -Album- id: 4PwXTHenZZx7ebgsnTM65K name: Giant (with Rag'n'Bone Man) album_type: single image: https://i.scdn.co/image/ab67616d0000b273a9a9d8a16c0b4146fb707c02 release_date: 2019-01-11
+[Duplicate] -Album- id: 0zi2TaQkYxfXIBvl2yTjQJ name: Because The Internet album_type: album image: https://i.scdn.co/image/ab67616d0000b27354ce59f0a3c40d1942f6e86a release_date: 2013-01-01
+[Duplicate] -Album- id: 6ApYSpXF8GxZAgBTHDzYge name: Pray for the Wicked album_type: album image: https://i.scdn.co/image/ab67616d0000b273c5148520a59be191eea16989 release_date: 2018-06-22
+[Duplicate] -Album- id: 2RkX2NKalycnEllUXs1Fhd name: Tyler Rich EP album_type: single image: https://i.scdn.co/image/ab67616d0000b273197c43e9578765fab264c15c release_date: 2018-09-21
+[Duplicate] -Album- id: 0syM7OUAhV7S6XmOa4nLUZ name: Ivy To Roses (Mixtape) album_type: album image: https://i.scdn.co/image/ab67616d0000b273fb4278cf3d557dc89ca80ad5 release_date: 2019-01-18
+[Duplicate] -Album- id: 53xHggSRIfHec0bA1oyReb name: No New Friends album_type: single image: https://i.scdn.co/image/ab67616d0000b2738dc45578c53241f47be7dfb6 release_date: 2019-03-14
+[Duplicate] -Album- id: 2Vx9FC6Um8i6kEtY7HNswB name: Hi This Is Flume (Mixtape) album_type: album image: https://i.scdn.co/image/ab67616d0000b27359aaefba0f8d74f0054ff1a3 release_date: 2019-03-20
+[Duplicate] -Album- id: 1FZZY15WZ9afpD4xshFGXA name: Enzo (with Sheck Wes, feat. Offset, 21 Savage & Gucci Mane) album_type: single image: https://i.scdn.co/image/ab67616d0000b2734256fcdf28af85ed47019b5d release_date: 2019-04-24
+[Duplicate] -Album- id: 1SJwQGcL8CpUz0SLbLWVS3 name: Snacks album_type: album image: https://i.scdn.co/image/ab67616d0000b27360daebe571419e29e4eae6e6 release_date: 2018-10-12
+[Duplicate] -Album- id: 4bxHLppgdmaYJk0yfdcP0l name: Con Altura album_type: single image: https://i.scdn.co/image/ab67616d0000b27365b0e3e1bd8b5fe2f602c1ea release_date: 2019-03-28
+[Duplicate] -Album- id: 3Mj4A4nNJzIdxOyS4yzOhj name: iridescence album_type: album image: https://i.scdn.co/image/ab67616d0000b273de91214392394303e66d1cb6 release_date: 2018-09-21
+[Duplicate] -Album- id: 0c4JocKlxYfBjZep8TJkcI name: OTW album_type: single image: https://i.scdn.co/image/ab67616d0000b2739766f79668e76238a1c13e2c release_date: 2018-04-20
+[Duplicate] -Album- id: 7iwGw8ob3YLqZrbKzGFnHi name: FREE 6LACK album_type: album image: https://i.scdn.co/image/ab67616d0000b273e4f13cd87b3b1ead6735a520 release_date: 2016-11-18
+[Duplicate] -Album- id: 2H7CLWulZOueBe1Hjtznm1 name: it's not u it's me album_type: single image: https://i.scdn.co/image/ab67616d0000b273abefb9ae872078ef9477a926 release_date: 2019-03-01
+[Duplicate] -Album- id: 09VyQ2zwUx0EBKTJNBUZv1 name: Yo Love (From "Queen & Slim: The Soundtrack") album_type: single image: https://i.scdn.co/image/ab67616d0000b273aac370232c213219c3c9d47c release_date: 2019-11-11
+[Duplicate] -Album- id: 3YPFaTR7WMi1Hd4NVKdCJx name: Rare album_type: album image: https://i.scdn.co/image/ab67616d0000b2732abcc266597eb46f897a8666 release_date: 2020-01-10
+[Duplicate] -Album- id: 2e0BYdQ7VJlzSNHafdmfrl name: Veneer album_type: album image: https://i.scdn.co/image/ab67616d0000b2731017779b8f5fe0ccd77bf886 release_date: 2006
+[Duplicate] -Album- id: 0SD7kwnJEC2oDzQBKEHQnH name: Tourist History album_type: album image: https://i.scdn.co/image/ab67616d0000b2731d579563f814da8508cafad2 release_date: 2010-02-17
+[Duplicate] -Album- id: 6rsQnwaoJHxXJRCDBPkBRw name: Favourite Worst Nightmare (Standard Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b2730c8ac83035e9588e8ad34b90 release_date: 2007-04-24
+[Duplicate] -Album- id: 4p9dVvZDaZliSjTCbFRhJy name: My Head Is An Animal album_type: album image: https://i.scdn.co/image/ab67616d0000b27368505105a8dac176056f3af9 release_date: 2012-01-01
+[Duplicate] -Album- id: 47enZlu6ssi5aFaAxHc0wt name: Conditions album_type: album image: https://i.scdn.co/image/ab67616d0000b27357a0868419086b576553c9f4 release_date: 2009-03-24
+[Duplicate] -Album- id: 3WrufJir7I61NkvkDwxero name: In A Tidal Wave Of Mystery (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b27313c6cb6a81c8db4dbc8b9924 release_date: 2013
+[Duplicate] -Album- id: 5B6XfyHHYawyLkEvNvhSPh name: Walking On A Dream (10th Anniversary Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f3aa0e6ca22a382007f61e4d release_date: 2008-10-03
+[Duplicate] -Album- id: 0gyRFAfY08NFv7N8RTFg9M name: Tourist History album_type: album image: https://i.scdn.co/image/ab67616d0000b273cba7eaf46111c54eaf2faeb9 release_date: 2010-02-07
+[Duplicate] -Album- id: 3PYk8e7eo2t5CA1Y3AvhaG name: Home of the Strange album_type: album image: https://i.scdn.co/image/ab67616d0000b273e1b41f261acaa01849b42991 release_date: 2016-08-12
+[Duplicate] -Album- id: 0Z9NeEvqeecaLCFUmI4uDw name: Cat Heaven album_type: album image: https://i.scdn.co/image/ab67616d0000b273de3c33086dd2e75eae9a27da release_date: 2017-12-08
+[Duplicate] -Album- id: 1E3Dc94QXnqiQcGVgij0iW name: Skin album_type: single image: https://i.scdn.co/image/ab67616d0000b27324a1563d4e61f31efec9be17 release_date: 2018-04-19
+[Duplicate] -Album- id: 0MV1yCXcNNQBfwApqAVkH0 name: Without Warning album_type: album image: https://i.scdn.co/image/ab67616d0000b2730f206fe737d46f2f2d826d83 release_date: 2017-10-30
+[Duplicate] -Album- id: 3o5M2OXfUVRsUFrd7u4a5K name: RICH YOUNGIN album_type: album image: https://i.scdn.co/image/ab67616d0000b2732d0cfed5d07db2e6ecb4afd1 release_date: 2020-01-17
+[Duplicate] -Album- id: 59zpaLOByFkJhc9D5Xqna9 name: Quality Control: Control The Streets Volume 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b273f5c547a4335523f10a802f94 release_date: 2019-08-16
+[Duplicate] -Album- id: 3yHOaiXecTJVUdn7mApZ48 name: Room For Squares album_type: album image: https://i.scdn.co/image/ab67616d0000b2738848d57cbfa7751e028f4dc9 release_date: 2001-08-16
+[Duplicate] -Album- id: 31u58iuxrUOJeKJj4SKqOl name: Goodie Bag album_type: single image: https://i.scdn.co/image/ab67616d0000b273202f77ff09565d9d52cc1656 release_date: 2017-11-05
+[Duplicate] -Album- id: 36aWHA59o4IuxVg8WTV3v8 name: Cooks album_type: single image: https://i.scdn.co/image/ab67616d0000b273ebb59520634f47b79f87d0b1 release_date: 2017-07-16
+[Duplicate] -Album- id: 5hM5ssh6iYFAQSPerkaWbx name: Lucy album_type: single image: https://i.scdn.co/image/ab67616d0000b27311f7e8e8010893661646b4e7 release_date: 2018-03-22
+[Duplicate] -Album- id: 3crucKpfRuUTGoQK8OunJ1 name: Lava album_type: single image: https://i.scdn.co/image/ab67616d0000b27383251267f054f53a985b21d1 release_date: 2019-04-05
+[Duplicate] -Album- id: 79dL7FLiJFOO0EoehUHQBv name: Currents album_type: album image: https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79 release_date: 2015-07-17
+[Duplicate] -Album- id: 65siSh34OjZPMx0obk0YRj name: Patience album_type: single image: https://i.scdn.co/image/ab67616d0000b2733daf1e477cbdcb84220b006a release_date: 2019-03-22
+[Duplicate] -Album- id: 3AlyvIIMZyT5LjWFeK5LSl name: Sundress album_type: single image: https://i.scdn.co/image/ab67616d0000b2731ae967e4a02c7a39eb3c189b release_date: 2018-11-20
+[Duplicate] -Album- id: 75n7rjlC1fxezRtoMQmtL5 name: Circles album_type: single image: https://i.scdn.co/image/ab67616d0000b2732919189f53d1f4ca51ac0aa9 release_date: 2019-08-30
+[Duplicate] -Album- id: 5KvmuOTWNRFPAQdz0KRPcf name: Carry Me Away album_type: single image: https://i.scdn.co/image/ab67616d0000b2730e0f646a1fb0fb177e78bf18 release_date: 2019-09-06
+[Duplicate] -Album- id: 7dVA06E7AP7P7VzPyNxQVO name: Tchaikovsky: Swan Lake album_type: album image: https://i.scdn.co/image/ab67616d0000b273fed0dce89c06222341dcb227 release_date: 1976
+[Duplicate] -Album- id: 54Awn36ryf55PkZyOR4iwQ name: Tchaikovsky: The Nutcracker (Standard Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a94cfebf3755559da1946ca0 release_date: 2010-10-11
+[Duplicate] -Album- id: 6bB2g7YWY6IjetZBzRsWfE name: Tchaikovsky: Serenade for Strings - Grieg: Holberg Suite - Mozart: Eine kleine Nachtmusik album_type: album image: https://i.scdn.co/image/ab67616d0000b2738a5ff5fdabe5dcf86777bde4 release_date: 2008-09-24
+[Duplicate] -Album- id: 7nwyvRjkUjKKuxuHZWT1Hx name: Tchaikovsky : Symphony No.5 & 1812 Overture album_type: album image: https://i.scdn.co/image/ab67616d0000b273ef5e69331e15a14ca11862de release_date: 1996-01-01
+[Duplicate] -Album- id: 1CTMjqapaLGF4Qi0fMtfuf name: Elgar: Cello Concerto, Op. 85 - Tchaikovsky: Variations on a Rococo Theme Op. 33 album_type: album image: https://i.scdn.co/image/ab67616d0000b273e81a0ad29fd2fe0c85cdbe29 release_date: 2013-09-23
+[Duplicate] -Album- id: 3mGmn1JDde3XyKQqZTJUAL name: L-O-V-E album_type: album image: https://i.scdn.co/image/ab67616d0000b2738daeb3002870ebba8e8d1387 release_date: 1992-01-01
+[Duplicate] -Album- id: 3NoP1ifIejWkGSDsO9T2xH name: The Nat King Cole Story album_type: album image: https://i.scdn.co/image/ab67616d0000b273deac5adf07affb5fec422701 release_date: 1991-01-01
+[Duplicate] -Album- id: 3kV0i1qqudjf0PGawJ4jck name: People's Instinctive Travels and the Paths of Rhythm (25th Anniversary Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2734ba1fe238a517021ebcc2ace release_date: 1990-04-17
+[Duplicate] -Album- id: 7navB8hDkagN6t01k7dBBx name: Lovestained album_type: single image: https://i.scdn.co/image/ab67616d0000b273a7883074d74b5205baba0408 release_date: 2019-04-03
+[Duplicate] -Album- id: 3ZTUu9z3rxEC4MA9N4ZOzl name: Synthetic Soul album_type: album image: https://i.scdn.co/image/ab67616d0000b273dc650504ef436a13bf0f4091 release_date: 2020-02-28
+[Duplicate] -Album- id: 3aEdbaJGWXbBxn79DgjamF name: Hell N Back album_type: single image: https://i.scdn.co/image/ab67616d0000b273b6aa65ea45fef5e36dfe1a45 release_date: 2019-08-15
+[Duplicate] -Album- id: 7atL3NBAVjqASdyz6Pcw5V name: Guilty Conscience album_type: single image: https://i.scdn.co/image/ab67616d0000b273a309d9cbb0048a43ab5289a4 release_date: 2020-01-10
+[Duplicate] -Album- id: 5FQ4sOGqRWUA5wO20AwPcO name: BUBBA album_type: album image: https://i.scdn.co/image/ab67616d0000b2739b6375bad39943011986c247 release_date: 2019-12-13
+[Duplicate] -Album- id: 3kA60o0MYYVEMCwYlT6WJg name: I KNO V3 album_type: single image: https://i.scdn.co/image/ab67616d0000b273d69703b62b09f1e5c38edf9b release_date: 2019-12-13
+[Duplicate] -Album- id: 7xoKAS8YKaD85hP4FjOKyL name: It's a Moot Point album_type: single image: https://i.scdn.co/image/ab67616d0000b273cec39f20ed1c35e7b5fed956 release_date: 2020-03-17
+[Duplicate] -Album- id: 7lJsGMbtu0hPV36GR3rxf5 name: Coffee For Dinner album_type: single image: https://i.scdn.co/image/ab67616d0000b273bed86eaa9b3ab96afd8a7b61 release_date: 2020-02-11
+[Duplicate] -Album- id: 207BLTz3BLhjemvQNxYJZA name: Run Fast album_type: single image: https://i.scdn.co/image/ab67616d0000b273c4e9c33cfea81611629106b4 release_date: 2019-11-08
+[Duplicate] -Album- id: 6U2yXVQ8xY1HNOtDU191CD name: Ne Me Quitte Pas (Don't Leave Me) album_type: single image: https://i.scdn.co/image/ab67616d0000b27315242d467f83764db3e18697 release_date: 2020-01-10
+[Duplicate] -Album- id: 3ue7xLhaMzW4VS2wD5CsO9 name: Headaches album_type: single image: https://i.scdn.co/image/ab67616d0000b2730d3ecc54778a17c0aedc0898 release_date: 2020-01-31
+[Duplicate] -Album- id: 1YTwyOpE6IHveWc0Jb5zOq name: Lightning album_type: single image: https://i.scdn.co/image/ab67616d0000b273c99e605ed98cb17bc3152c06 release_date: 2020-03-13
+[Duplicate] -Album- id: 77f24Q9GaFt5QfPxo9UxD6 name: Fair Chance album_type: single image: https://i.scdn.co/image/ab67616d0000b273248a64f177930c3538547e9b release_date: 2020-03-17
+[Duplicate] -Album- id: 16DLCO4FPIsyBZeoMYTzqO name: Wondering album_type: single image: https://i.scdn.co/image/ab67616d0000b273a6907c0555e380a1b81e056b release_date: 2020-03-25
+[Duplicate] -Album- id: 2DTKy8cjrG6GIvDO4s3ljv name: Slowly album_type: single image: https://i.scdn.co/image/ab67616d0000b273dbc86fcf14a7bafc57826a91 release_date: 2020-01-30
+[Duplicate] -Album- id: 3ywrdgcYFubophxFr3cbBR name: SirLadyMakemFall album_type: single image: https://i.scdn.co/image/ab67616d0000b2738ad12bdc8ded8b8f91cbbac5 release_date: 2020-01-21
+[Duplicate] -Album- id: 7FJKoKn7zy2OET6KtiJJp7 name: Eugene album_type: single image: https://i.scdn.co/image/ab67616d0000b2735fcd8793a97f15b365235441 release_date: 2020-02-11
+[Duplicate] -Album- id: 1ABcrGPj8OQRyfi9oFaNw7 name: Hands Off Me album_type: single image: https://i.scdn.co/image/ab67616d0000b2730c9d2a5027ce256df34e6a64 release_date: 2020-01-22
+[Duplicate] -Album- id: 4Y9r8QQYroasHOYHUwCeSB name: Hold Space For Me album_type: album image: https://i.scdn.co/image/ab67616d0000b273600c6207f4192b69a3df5bd3 release_date: 2020-03-27
+[Duplicate] -Album- id: 3lpLu3yxcn1NMkj6T66NJ9 name: Kerosene! album_type: single image: https://i.scdn.co/image/ab67616d0000b273b75a4f76e55bc057408b7c52 release_date: 2020-03-09
+[Duplicate] -Album- id: 2MMubyRaJMkOAajctIEBeK name: I Did It album_type: single image: https://i.scdn.co/image/ab67616d0000b2739a9d0af6cae0adb09e9078a9 release_date: 2019-07-18
+[Duplicate] -Album- id: 1uV0IhVjPSe88XugMAFsmT name: QADIR album_type: single image: https://i.scdn.co/image/ab67616d0000b2734bba7a36737864570a22e82d release_date: 2020-03-31
+[Duplicate] -Album- id: 0woKaznGSGpOoxbuidbHpE name: Sensitive album_type: single image: https://i.scdn.co/image/ab67616d0000b2734a56bb6c09d09582ddf179f2 release_date: 2020-03-18
+[Duplicate] -Album- id: 1gIC63gC3B7o7FfpPACZQJ name: 4 album_type: album image: https://i.scdn.co/image/ab67616d0000b273ff5429125128b43572dbdccd release_date: 2011-06-24
+[Duplicate] -Album- id: 7kSa9AwcDQ6ZUScaXxp8zP name: Creed II: The Album album_type: album image: https://i.scdn.co/image/ab67616d0000b273e8230123dfe625c953eabae2 release_date: 2018-11-16
+[Duplicate] -Album- id: 3JSWZWeTHF4HDGt5Eozdy7 name: Good Girl Gone Bad: Reloaded album_type: album image: https://i.scdn.co/image/ab67616d0000b273f9f27162ab1ed45b8d7a7e98 release_date: 2008-06-02
+[Duplicate] -Album- id: 7lEOKZaOpqP70UYqdLPejG name: Lady Soul (With Bonus Selections) album_type: album image: https://i.scdn.co/image/ab67616d0000b27377d3f6667f52ae3f8652932c release_date: 1968-01-22
+[Duplicate] -Album- id: 3eOdBKYQ2w2eCvz2FxEmBA name: Feel Like Makin' Love album_type: album image: https://i.scdn.co/image/ab67616d0000b2731e907c4adc9153bfe784f1cf release_date: 1975
+[Duplicate] -Album- id: 2BBrAtWY0c6dPio5b2JYFK name: It's About Time album_type: album image: https://i.scdn.co/image/ab67616d0000b273cfc529522ad920757b6b9902 release_date: 1992-10-27
+[Duplicate] -Album- id: 3j0kxKahatiR5d0sPPtTjP name: Stompin' At The Savoy album_type: album image: https://i.scdn.co/image/ab67616d0000b2732a5f62d678ea23c85b51ba4f release_date: 1983
+[Duplicate] -Album- id: 5HmYiJnUkFuciiqRrAAv4o name: What's Love Got to Do with It? album_type: album image: https://i.scdn.co/image/ab67616d0000b273e9c361da971c6e81b51ef06b release_date: 1993
+[Duplicate] -Album- id: 7JVJlkNNobS0GSoy4tCS96 name: The Bodyguard - Original Soundtrack Album album_type: album image: https://i.scdn.co/image/ab67616d0000b273456c0b5d0316a80dc600802e release_date: 1992-11-17
+[Duplicate] -Album- id: 1Zc6fY5TjkirFsQIeX7KFL name: Capitol Gold: The Best Of Minnie Riperton album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273e9100468145b30ffbedefbb5 release_date: 1993-01-01
+[Duplicate] -Album- id: 43iBTEWECK7hSnE0p6GgNo name: The Emancipation of Mimi album_type: album image: https://i.scdn.co/image/ab67616d0000b273768bc8d9f078db929dfcfbd1 release_date: 2005-01-01
+[Duplicate] -Album- id: 7eJH6omaUJc3iAOw4CieNf name: Bad Girls [Deluxe Edition (US Version)] album_type: album image: https://i.scdn.co/image/ab67616d0000b2731bc2def4eb24e8fd44494884 release_date: 1979
+[Duplicate] -Album- id: 3zgDLoVcpVGfFbDZJf3uHI name: Diana album_type: album image: https://i.scdn.co/image/ab67616d0000b2735fd9cc716b397b29fe4d2bb2 release_date: 1980-05-22
+[Duplicate] -Album- id: 5u4oZQY6eYzH7ZpydPoUN3 name: Favorites album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273e6bee0d562bda5b6237996f8 release_date: 2008-01-01
+[Duplicate] -Album- id: 4AsXQ17Arq1cUVoa9dKJ3F name: Tango In the Night (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273aaba065944cd82a6f15c86b6 release_date: 1987-04-13
+[Duplicate] -Album- id: 1tfS7Fo1UtAxQSf256fnYs name: Let's Talk About Love album_type: album image: https://i.scdn.co/image/ab67616d0000b273745adc3f697ea1ec79d66901 release_date: 1997-10-24
+[Duplicate] -Album- id: 6Po5zdKMIH5Xk99vjXyQpC name: The Colour Of My Love album_type: album image: https://i.scdn.co/image/ab67616d0000b273b3d0e02b3a9e8057484cfef0 release_date: 1993-11-09
+[Duplicate] -Album- id: 7mEjsBlRmfP63cH1gdPT6A name: Best Of Blondie album_type: compilation image: https://i.scdn.co/image/ab67616d0000b2738cf86a9be38868f1d73cdb58 release_date: 1981-10-31
+[Duplicate] -Album- id: 18fOLsMG8Msf1DEaW0E71K name: Call Me album_type: single image: https://i.scdn.co/image/ab67616d0000b27313cbe3e4dfa81fe5b91f2f1c release_date: 2004-01-01
+[Duplicate] -Album- id: 0zkNOW8F8hcsEwIhulD67b name: Tide Is High album_type: single image: https://i.scdn.co/image/ab67616d0000b2732c240cf9bee7ac86cc272c92 release_date: 1980-10-01
+[Duplicate] -Album- id: 14IOe7ahxQPTwUYUQX3IFi name: ZABA album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a293e6787c6d200c5077cd0 release_date: 2014-06-03
+[Duplicate] -Album- id: 6qb9MDR0lfsN9a2pw77uJy name: How To Be A Human Being album_type: album image: https://i.scdn.co/image/ab67616d0000b273ec3d15eab5bd77027abc4b23 release_date: 2016-08-26
+[Duplicate] -Album- id: 3jknvlUSe6D9Oyn2E3JBLO name: Cooleyhighharmony (Bonus Tracks Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b27373d0d8625dcf1e48043cfbf9 release_date: 1991-04-30
+[Duplicate] -Album- id: 1ibYM4abQtSVQFQWvDSo4J name: Daydream album_type: album image: https://i.scdn.co/image/ab67616d0000b273749e9bfa78277f30ad2c9a9c release_date: 1995-09-26
+[Duplicate] -Album- id: 007DWn799UWvfY1wwZeENR name: i am > i was album_type: album image: https://i.scdn.co/image/ab67616d0000b273280689ecc5e4b2038bb5e4bd release_date: 2018-12-21
+[Duplicate] -Album- id: 7IyoGB8J31fvQDwGtHAq9m name: Eternal Atake album_type: album image: https://i.scdn.co/image/ab67616d0000b273fddacedcd925ce3aa56bd991 release_date: 2020-03-06
+[Duplicate] -Album- id: 1NsTSXjVNE7XmZ8PmyW0wl name: KIRK album_type: album image: https://i.scdn.co/image/ab67616d0000b273f2b94b2fda4f08836d6371ba release_date: 2019-09-27
+[Duplicate] -Album- id: 37CqAwxTungNxKpIK5vSgE name: hot girl bummer album_type: single image: https://i.scdn.co/image/ab67616d0000b27395e845fcceb1625ff6178411 release_date: 2019-08-23
+[Duplicate] -Album- id: 00HZxSA1sOS9T3nA950sg4 name: The Best In The World Pack album_type: single image: https://i.scdn.co/image/ab67616d0000b2733f3b653b0a7b9e889a712c3d release_date: 2019-06-15
+[Duplicate] -Album- id: 2p9gK2BcdrloHNJwarc9gc name: death bed (coffee for your head) (feat. beabadoobee) album_type: single image: https://i.scdn.co/image/ab67616d0000b273bf01fd0986a195d485922167 release_date: 2020-02-08
+[Duplicate] -Album- id: 71BrrQxz8mZAneNSDE9Lov name: Panini album_type: single image: https://i.scdn.co/image/ab67616d0000b273de048a43d03fb53a466c1c9f release_date: 2019-09-13
+[Duplicate] -Album- id: 1ynyQdPQiXdYJNQEDL1S3d name: My Turn album_type: album image: https://i.scdn.co/image/ab67616d0000b273f46a9ad551acbdab8f72fd89 release_date: 2020-02-28
+[Duplicate] -Album- id: 6tkjU4Umpo79wwkgPMV3nZ name: Goodbye & Good Riddance album_type: album image: https://i.scdn.co/image/ab67616d0000b273f7db43292a6a99b21b51d5b4 release_date: 2018-12-10
+[Duplicate] -Album- id: 4otkd9As6YaxxEkIjXPiZ6 name: Music To Be Murdered By album_type: album image: https://i.scdn.co/image/ab67616d0000b2732f44aec83b20e40f3baef73c release_date: 2020-01-17
+[Duplicate] -Album- id: 5VdyJkLe3yvOs0l4xXbWp0 name: 17 album_type: album image: https://i.scdn.co/image/ab67616d0000b273203c89bd4391468eea4cc3f5 release_date: 2017-08-25
+[Duplicate] -Album- id: 3t6Z2qoBVCS4NHNI25XECH name: Bandit (with YoungBoy Never Broke Again) album_type: single image: https://i.scdn.co/image/ab67616d0000b2735b4bee4c0dfe7f1ec4b2cc6d release_date: 2019-10-04
+[Duplicate] -Album- id: 0bUTHlWbkSQysoM3VsWldT name: Demon Days album_type: album image: https://i.scdn.co/image/ab67616d0000b27319d85a472f328a6ed9b704cf release_date: 2005-05-23
+[Duplicate] -Album- id: 7Kmmw7Z5D2UD5MVwdm10sT name: Torches album_type: album image: https://i.scdn.co/image/ab67616d0000b273c03f8ef4160b2a3b72dd407d release_date: 2011-05-23
+[Duplicate] -Album- id: 6Lo6ylJg4qbFfxicPEOzMI name: Suga album_type: album image: https://i.scdn.co/image/ab67616d0000b27320fbc17fcb9376bc76a1b510 release_date: 2020-03-06
+[Duplicate] -Album- id: 6Wq84YPRzpAIY8CEeluUlv name: Time Served album_type: album image: https://i.scdn.co/image/ab67616d0000b273e48872ea797d4e20d2775f51 release_date: 2020-01-10
+[Duplicate] -Album- id: 26jEIrN7WSAnVQXXUmLRSN name: Tina Snow album_type: album image: https://i.scdn.co/image/ab67616d0000b2736cf50daf249842c725cef102 release_date: 2018-12-21
+[Duplicate] -Album- id: 34LUTyhy4RZkfjvnF0gWu4 name: B.I.T.C.H. album_type: single image: https://i.scdn.co/image/ab67616d0000b27380e401ab09a62223ad4a55a4 release_date: 2020-01-24
+[Duplicate] -Album- id: 5PerfGh9Smd6XjwkxpmL4V name: Revenge Of The Dreamers III: Director's Cut album_type: album image: https://i.scdn.co/image/ab67616d0000b273a145ed96ce61bf4201d619c3 release_date: 2020-01-16
+[Duplicate] -Album- id: 2HaqChIDc5go3qxVunBDK0 name: Funk Wav Bounces Vol.1 album_type: album image: https://i.scdn.co/image/ab67616d0000b2734d3fa5ce7ba599f4fd7803ef release_date: 2017-06-30
+[Duplicate] -Album- id: 1j2x7FJXTgUT0X5hZ8TDXE name: Dark Sky Paradise album_type: album image: https://i.scdn.co/image/ab67616d0000b273188b4d91005703a250143960 release_date: 2015-02-24
+[Duplicate] -Album- id: 0XAIjjN5qxViVS0Y5fYkar name: I Decided. album_type: album image: https://i.scdn.co/image/ab67616d0000b273e572359074e5da958a922987 release_date: 2017-02-03
+[Duplicate] -Album- id: 0llyIxX3nDC3hobbGibVZl name: Double Or Nothing (& Metro Boomin) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a921ed2b886e7d154e88d37b release_date: 2017-12-08
+[Duplicate] -Album- id: 5vvvo79z68vWj9yimoygfS name: Pretty Girls Like Trap Music album_type: album image: https://i.scdn.co/image/ab67616d0000b273c0c05243a846dda6c84607f9 release_date: 2017-06-16
+[Duplicate] -Album- id: 3pLdWdkj83EYfDN6H2N8MR name: Black Panther The Album Music From And Inspired By album_type: album image: https://i.scdn.co/image/ab67616d0000b273c027ad28821777b00dcaa888 release_date: 2018-02-09
+[Duplicate] -Album- id: 7h1ut6IUbndKY7QrqcbAND name: Stay Trippy album_type: album image: https://i.scdn.co/image/ab67616d0000b273396bcd4043a871d830c848a3 release_date: 2013-08-23
+[Duplicate] -Album- id: 4BGd9BmpePqeSfHLeYiCDr name: Eye In The Sky (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273182cfcd0cc42013557f64c89 release_date: 1982
+[Duplicate] -Album- id: 1C2fgiQmiTF9Dr8NdbPSou name: Ashes Are Burning album_type: album image: https://i.scdn.co/image/ab67616d0000b273093baf59cd868ea3f06217fd release_date: 1973-01-01
+[Duplicate] -Album- id: 1CsuCA05y9r7ftG9bGGtWV name: Close To You album_type: album image: https://i.scdn.co/image/ab67616d0000b2739bdf3aab5a03f7d5a7c63f28 release_date: 1970
+[Duplicate] -Album- id: 0ESCnyuOCpztPojn8m0uqi name: Horizon album_type: album image: https://i.scdn.co/image/ab67616d0000b27330e5af0ab55dbfa49af947a2 release_date: 1975-06-06
+[Duplicate] -Album- id: 1C2h7mLntPSeVYciMRTF4a name: Thriller 25 Super Deluxe Edition album_type: album image: https://i.scdn.co/image/ab67616d0000b2734121faee8df82c526cbab2be release_date: 1982-11-30
+[Duplicate] -Album- id: 24TAupSNVWSAHL0R7n71vm name: Bad 25th Anniversary album_type: album image: https://i.scdn.co/image/ab67616d0000b2731bb21d27effb96a1d0fe8d6d release_date: 1987-08-31
+[Duplicate] -Album- id: 2ZytN2cY4Zjrr9ukb2rqTP name: Off the Wall album_type: album image: https://i.scdn.co/image/ab67616d0000b2737027294551db4fda68b5ddac release_date: 1979-08-10
+[Duplicate] -Album- id: 0oX4SealMgNXrvRDhqqOKg name: Dangerous album_type: album image: https://i.scdn.co/image/ab67616d0000b2733b9f8b18cc685e1502128aa8 release_date: 1991-11-13
+[Duplicate] -Album- id: 2X8UOIkZQdcz2Hi5Ynt2uk name: Scream album_type: album image: https://i.scdn.co/image/ab67616d0000b273cde37cfdee48dc0eae1e2ab8 release_date: 2017-09-27
+[Duplicate] -Album- id: 7pomP86PUhoJpY3fsC0WDQ name: XSCAPE album_type: album image: https://i.scdn.co/image/ab67616d0000b273ed81569cdc08ab5c2dc5bd91 release_date: 2014-05-09
+[Duplicate] -Album- id: 3OBhnTLrvkoEEETjFA3Qfk name: HIStory - PAST, PRESENT AND FUTURE - BOOK I album_type: album image: https://i.scdn.co/image/ab67616d0000b273d0593178c6c2594693ee34b7 release_date: 1995-06-16
+[Duplicate] -Album- id: 46yTC334aJI4QTv4lkzj3a name: Destiny album_type: album image: https://i.scdn.co/image/ab67616d0000b27386e5468d84ed66f06d9a799e release_date: 1978-12-17
+[Duplicate] -Album- id: 77dNyQA0z8dV33M4so4eRY name: The Essential Michael Jackson album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273ed1c305cd1e673fe925407ce release_date: 2005-07-19
+[Duplicate] -Album- id: 7pMVCMwGykuEu9rzTHxLCm name: Michael Jackson's This Is It album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273ccf0faf403b9b87673ed73e0 release_date: 2009
+[Duplicate] -Album- id: 3TU9a0ngwVYr7YRe5fJPVH name: Shout! album_type: album image: https://i.scdn.co/image/ab67616d0000b273f9ddaa9b3da1cd7275626987 release_date: 1959-08-21
+[Duplicate] -Album- id: 2tMcirhdFUp4hS2eJwsHvF name: It's Our Thing album_type: album image: https://i.scdn.co/image/ab67616d0000b27330ca41ca509871de84b3fea9 release_date: 1969-08-21
+[Duplicate] -Album- id: 4he7R24eqd1EbF9kegiAK8 name: R&B: From Doo-Wop To Hip-Hop album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273980caf4dd525a15f08f8cb87 release_date: 1999-10-08
+[Duplicate] -Album- id: 09jTPeDoSuJLLAwFGNUKCX name: Back Stabbers album_type: album image: https://i.scdn.co/image/ab67616d0000b2737bc09ea8d6c7db1993dfb77d release_date: 1972
+[Duplicate] -Album- id: 6WWXMhWEmIM9SaAyZCFvYL name: OUTTA MY MIND album_type: single image: https://i.scdn.co/image/ab67616d0000b273b30910fc05d69799e6d063c2 release_date: 2019-08-30
+[Duplicate] -Album- id: 4zETbpGKT1FHsEZq3QFQUR name: Tradition album_type: single image: https://i.scdn.co/image/ab67616d0000b273e06d18ec0d225b6d0bd29ef3 release_date: 2019-09-20
+[Duplicate] -Album- id: 2DW7xZRqOhta0mMUKAWs3V name: Black Qualls (Single Version) album_type: single image: https://i.scdn.co/image/ab67616d0000b273a44f62bdb4378a8b03ec7767 release_date: 2020-01-15
+[Duplicate] -Album- id: 6DwdzG4UGYLxJ2p7bd483v name: Built On Glass album_type: album image: https://i.scdn.co/image/ab67616d0000b273adaa2007dffc30492c87bba4 release_date: 2014-04-01
+[Duplicate] -Album- id: 2RcMU32LTkLjqjkjuQSPP2 name: Mutations album_type: album image: https://i.scdn.co/image/ab67616d0000b27325e51318194fdc2dbfd601a5 release_date: 1998
+[Duplicate] -Album- id: 2guirTSEqLizK7j9i1MTTZ name: Nevermind (Remastered) album_type: album image: https://i.scdn.co/image/ab67616d0000b273e175a19e530c898d167d39bf release_date: 1991-09-26
+[Duplicate] -Album- id: 2rQu10gUgBVYzgsitDZNyU name: aurora album_type: album image: https://i.scdn.co/image/ab67616d0000b273f6aca65621e1665d7da316ff release_date: 2018-02-23
+[Duplicate] -Album- id: 5cRfEKSt7XnvyUTTYuDU7v name: Fade Out album_type: single image: https://i.scdn.co/image/ab67616d0000b2731493bf8817098d661f1d15a5 release_date: 2019-05-15
+[Duplicate] -Album- id: 57BhVBJbVPfIbwLANO5fSe name: Rescue Me album_type: single image: https://i.scdn.co/image/ab67616d0000b2734de9c83e9dfab133fb55d071 release_date: 2019-05-17
+[Duplicate] -Album- id: 2bbhW5ifCwOYM8DMkqoYBF name: Native album_type: album image: https://i.scdn.co/image/ab67616d0000b273e80e7dbce3996a1ae5967751 release_date: 2014-01-01
+[Duplicate] -Album- id: 2pLAOZiilrhOrTQNqrF8qr name: Waking Up album_type: album image: https://i.scdn.co/image/ab67616d0000b27377a7bd558d81172446e525bb release_date: 2009-01-01
+[Duplicate] -Album- id: 3N6fadaHlhGxflLKYSDSoU name: Church album_type: album image: https://i.scdn.co/image/ab67616d0000b2737c83f0888b2f25f3f104b4d0 release_date: 2020-02-07
+[Duplicate] -Album- id: 2KSpGeDoNjqCKg6HL8LAyI name: Dreaming Out Loud album_type: album image: https://i.scdn.co/image/ab67616d0000b27334ef81d1ff3b4682a4e97f70 release_date: 2007-01-01
+[Duplicate] -Album- id: 0V4laGZGshNCpurfIdUhHv name: Oh, What A Life album_type: album image: https://i.scdn.co/image/ab67616d0000b273cc761ba55b0e7abad4539abe release_date: 2014-01-01
+[Duplicate] -Album- id: 4vUClKTFaDWnsHE8rK52GY name: All That We Needed album_type: album image: https://i.scdn.co/image/ab67616d0000b273beae6e69d6505fd379ef3081 release_date: 2005-01-01
+[Duplicate] -Album- id: 3BCMpDOcQlbCZpf5vnTadZ name: When The World Comes Down album_type: album image: https://i.scdn.co/image/ab67616d0000b2738f6b4035c82eb9cf42e9d8d7 release_date: 2008-01-01
+[Duplicate] -Album- id: 3PWEGZ6CYvXRnr0JCECsDe name: Move Along album_type: album image: https://i.scdn.co/image/ab67616d0000b273aaf8c068ffe217db825a1945 release_date: 2005-01-01
+[Duplicate] -Album- id: 5CTygC3aONv7l0klY4k3hc name: The Young and The Hopeless album_type: album image: https://i.scdn.co/image/ab67616d0000b273a9bae94ddb20a71f573931c0 release_date: 2002-10-04
+[Duplicate] -Album- id: 3QgFzksD4J43TnGIJOOrRV name: The Difference album_type: single image: https://i.scdn.co/image/ab67616d0000b273a8d74e789b99484e0e169001 release_date: 2020-03-11
+[Duplicate] -Album- id: 2CyKUYHNWa9p6OJS1CSA1r name: Omaha album_type: single image: https://i.scdn.co/image/ab67616d0000b273c02272f5161852616cbde325 release_date: 2017-04-10
+[Duplicate] -Album- id: 7lXkGYfPd8ygerG681NxQG name: Outer Peace album_type: album image: https://i.scdn.co/image/ab67616d0000b273e6afa3b111faa03806f7d257 release_date: 2019-01-18
+[Duplicate] -Album- id: 5IFt4HfQU8t336zryKaAyr name: What For? album_type: album image: https://i.scdn.co/image/ab67616d0000b273e4c1aab2ab7ddde12f145030 release_date: 2015-04-07
+[Duplicate] -Album- id: 3xDRuOqakukb1SjHQG4WWc name: Anything In Return album_type: album image: https://i.scdn.co/image/ab67616d0000b273fb423719d651817de5c08ba9 release_date: 2013-01-22
+[Duplicate] -Album- id: 1FXPtnn4O36fH3A2Ih2ThZ name: Live from Trona album_type: album image: https://i.scdn.co/image/ab67616d0000b2739ebc248254e05f1e4c50dc7e release_date: 2016-08-05
+[Duplicate] -Album- id: 1hg0pQJLE9dzfT1kgZtDPr name: Confessions on a Dance Floor album_type: album image: https://i.scdn.co/image/ab67616d0000b273efcbc3f42da96cea7583bb6f release_date: 2005-11-11
+[Duplicate] -Album- id: 2IU9ftOgyRL2caQGWK1jjX name: Like a Virgin (Reissue) album_type: album image: https://i.scdn.co/image/ab67616d0000b273e09cc42d97962159cd0ab1e6 release_date: 1984-11-12
+[Duplicate] -Album- id: 3Lqn8M0QxPLIPRJ4nUKTGN name: Love Angel Music Baby (Deluxe Version) album_type: album image: https://i.scdn.co/image/ab67616d0000b2737c7136a182372ccdffb3d3c4 release_date: 2004-11-23
+[Duplicate] -Album- id: 7xnZ539lh8x6de9jzlpCJp name: The Sweet Escape album_type: album image: https://i.scdn.co/image/ab67616d0000b2738dd53da15b55d402dfc3a20e release_date: 2006-01-01
+[Duplicate] -Album- id: 7tTc46dNdE6GGuiQsssWxo name: In Between Dreams album_type: album image: https://i.scdn.co/image/ab67616d0000b27306b42768ebe736eec21336ea release_date: 2005-01-01
+[Duplicate] -Album- id: 0Tt5WHP4RdkQemDgD1QItP name: Chapter Of The Forest album_type: album image: https://i.scdn.co/image/ab67616d0000b273f82ca582afffed0a72880971 release_date: 2014-06-17
+[Duplicate] -Album- id: 34rT9ovQneEIUPtwPX9tDn name: Trevor Hall album_type: album image: https://i.scdn.co/image/ab67616d0000b2731973bbabf187679d9ad8a34f release_date: 2009-01-01
+[Duplicate] -Album- id: 28oTgJvQM749lGTpdxBlQr name: Penguin Prison album_type: album image: https://i.scdn.co/image/ab67616d0000b273400cfe36aeffc3cf261cf7ef release_date: 2011-01-01
+[Duplicate] -Album- id: 1Nb8xRzI4OVThbG3ewobwY name: Illumination album_type: album image: https://i.scdn.co/image/ab67616d0000b273eefae638758f93fa509cd3b0 release_date: 2010-08-20
+[Duplicate] -Album- id: 7iWI0ecSGNNUbVKzyyElgg name: All Possible Futures album_type: album image: https://i.scdn.co/image/ab67616d0000b273e970887a2c0ba6c7526fa983 release_date: 2015-04-21
+[Duplicate] -Album- id: 1f7ctORquPgU8g7R2teLP8 name: Real Slow (Remixes) album_type: album image: https://i.scdn.co/image/ab67616d0000b27395f58a1387795e172a9cc73e release_date: 2014-11-28
+[Duplicate] -Album- id: 4bNwPPpk01D8pVV9IFSBde name: Beethoven: Piano Sonatas, Vol.3 album_type: album image: https://i.scdn.co/image/ab67616d0000b2735fbde95caaf1018f9af50f71 release_date: 2007-09-25
+[Duplicate] -Album- id: 74YXY7P1wuM4JR9hGDzPBx name: Beethoven: Bagatelle No. 25 in A Minor, WoO 59 "Für Elise" album_type: single image: https://i.scdn.co/image/ab67616d0000b2739e143ebd3e4eb57e3dd198da release_date: 2019-01-18
+[Duplicate] -Album- id: 6eOuqhCfrTPp1H0YbQ9PmL name: Beethoven: Symphonies Nos.5 & 7 album_type: album image: https://i.scdn.co/image/ab67616d0000b2733f26be8a62aa6532c2ed93f2 release_date: 1995-01-01
+[Duplicate] -Album- id: 5Vzq1wKBUXMxEZl3NPjJpS name: Physical album_type: single image: https://i.scdn.co/image/ab67616d0000b27313a6ef8345c14d2eeb2a37ef release_date: 2020-01-30
+[Duplicate] -Album- id: 368tzVdeju4vLSY8PHnQUs name: Break My Heart album_type: single image: https://i.scdn.co/image/ab67616d0000b2738c801003e253e5025c437041 release_date: 2020-03-25
+[Duplicate] -Album- id: 2nfOFXxNyf61geA17cW6e6 name: Turks album_type: single image: https://i.scdn.co/image/ab67616d0000b27319df39f54bf7f87a2897136e release_date: 2020-03-27
+[Duplicate] -Album- id: 07bIdDDe3I3hhWpxU6tuBp name: DAYTONA album_type: album image: https://i.scdn.co/image/ab67616d0000b273263555eebbe2b375593aa31e release_date: 2018-05-25
+[Duplicate] -Album- id: 4IFpj2jyRcugt1yzH82m3E name: SYRE album_type: album image: https://i.scdn.co/image/ab67616d0000b2736aafb01504b69173c877bdca release_date: 2017-11-17
+[Duplicate] -Album- id: 4NaE34wj8KRWoxRmgbr915 name: Pick It Up (feat. A$AP Rocky) album_type: single image: https://i.scdn.co/image/ab67616d0000b273b3c4572395192f7c8d26820b release_date: 2017-10-20
+[Duplicate] -Album- id: 4fOw7xSDwqb58Z2Qia5j81 name: BUTTERFLY EFFECT album_type: single image: https://i.scdn.co/image/ab67616d0000b273b5e9358d0d07114609d9afab release_date: 2017-05-18
+[Duplicate] -Album- id: 50yFYgKdwJANZ5O9MIbMkg name: Tha Carter V album_type: album image: https://i.scdn.co/image/ab67616d0000b273d5bba526ba7231788f867c86 release_date: 2018-09-28
+[Duplicate] -Album- id: 6eDx949ONWDCN0O22wFZf7 name: SremmLife album_type: album image: https://i.scdn.co/image/ab67616d0000b2734ca3fb4517ff722918877460 release_date: 2015-01-06
+[Duplicate] -Album- id: 15Id9Jrqab8IwHFirdrrLp name: MUDBOY album_type: album image: https://i.scdn.co/image/ab67616d0000b27359cd47039c5b10ed919fbaa8 release_date: 2018-10-05
+[Duplicate] -Album- id: 33TJ52PuwenGmysJrwMGCe name: Come Over When You're Sober, Pt. 1 album_type: album image: https://i.scdn.co/image/ab67616d0000b2734958dc3c8e7aa7db22f55af3 release_date: 2017-08-15
+[Duplicate] -Album- id: 3SHx7bBQFI4J8QRr6D5cOK name: Or Nah (feat. The Weeknd, Wiz Khalifa & DJ Mustard) [Remix] album_type: single image: https://i.scdn.co/image/ab67616d0000b2731c04efd2804b16cf689de7f0 release_date: 2014-06-10
+[Duplicate] -Album- id: 3HnoQ7RGzU3o4CIGlKsNsF name: Bartier Cardi (feat. 21 Savage) album_type: single image: https://i.scdn.co/image/ab67616d0000b2738cb4b5d8ae71725b96b8907c release_date: 2017-12-22
+[Duplicate] -Album- id: 5mG8oNkNKM2my7t9ywra96 name: Painting Pictures album_type: album image: https://i.scdn.co/image/ab67616d0000b2731541a676423805fc68ff3e66 release_date: 2017-03-31
+[Duplicate] -Album- id: 7D2NdGvBHIavgLhmcwhluK name: Yeezus album_type: album image: https://i.scdn.co/image/ab67616d0000b273d069a24a6d949c1d2a0aaa3e release_date: 2013-01-01
+[Duplicate] -Album- id: 0gjZidNFs7O2qqE2Z5elJ3 name: FEFE (feat. Nicki Minaj & Murda Beatz) album_type: single image: https://i.scdn.co/image/ab67616d0000b273a16370461881d18ace95d83f release_date: 2018-07-22
+[Duplicate] -Album- id: 0CuYNS755Ow710G2E7aLDE name: Life of a Dark Rose album_type: album image: https://i.scdn.co/image/ab67616d0000b273c56dcd1015c1ffb8c56d2988 release_date: 2017-12-12
+[Duplicate] -Album- id: 4QUNWTw2FsIz722xjUjFJw name: Issa Album album_type: album image: https://i.scdn.co/image/ab67616d0000b273ac3c0aecec76cd7b5a54795e release_date: 2017-09-23
+[Duplicate] -Album- id: 4bJqW1SBOvsfcEzZwsjdjx name: Lil Boat album_type: album image: https://i.scdn.co/image/ab67616d0000b27314d1a203158bed18a4ea7375 release_date: 2016-07-05
+[Duplicate] -Album- id: 1KvHCH7ZuC3cWrfi28Xq5w name: No Limit album_type: single image: https://i.scdn.co/image/ab67616d0000b27330e1314399055d25579f7ae3 release_date: 2017-09-07
+[Duplicate] -Album- id: 7mgdTKTCdfnLoa1HXHvLYM name: Lil Uzi Vert vs. The World album_type: album image: https://i.scdn.co/image/ab67616d0000b2738be07181aa935225a6f25d56 release_date: 2016-05-27
+[Duplicate] -Album- id: 15qLmAABocTCRBSbWWqL7K name: iSpy (feat. Lil Yachty) album_type: single image: https://i.scdn.co/image/ab67616d0000b27332e373f2988bc6596a542d1c release_date: 2016-12-02
+[Duplicate] -Album- id: 4F87p1aiFwHeU4uu65MaPV name: Bobby Tarantino II album_type: album image: https://i.scdn.co/image/ab67616d0000b273e19b1b51cdd35051e17cf6dc release_date: 2018-03-09
+[Duplicate] -Album- id: 44cXGGKLjDCExEc0aAMZK3 name: I Like Tuh album_type: single image: https://i.scdn.co/image/ab67616d0000b273bc5ddad43dce31f02d77441b release_date: 2015-02-24
+[Duplicate] -Album- id: 793GjzTKqeLWecWiEFT5u4 name: Drowning (feat. Kodak Black) album_type: single image: https://i.scdn.co/image/ab67616d0000b273422289e2c09a3b210aa425b5 release_date: 2017-03-10
+[Duplicate] -Album- id: 1HiN2YXZcc3EjmVZ4WjfBk name: Everybody album_type: album image: https://i.scdn.co/image/ab67616d0000b273cfdf40cf325b609a52457805 release_date: 2017-05-05
+[Duplicate] -Album- id: 1YwzJz7CrV9fd9Qeb6oo1d name: Watch The Throne (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b27370cf055d00ab1ec0290d3d5a release_date: 2011-08-08
+[Duplicate] -Album- id: 0TyDTzG2zt2tg0wONT9wSU name: 679 (feat. Remy Boyz) album_type: single image: https://i.scdn.co/image/ab67616d0000b2731769fa68b9643ca67c4d44ce release_date: 2015-06-29
+[Duplicate] -Album- id: 2AvupjUeMnSffKEV05x222 name: Culture album_type: album image: https://i.scdn.co/image/ab67616d0000b27399a8ab6da9d593939302828a release_date: 2017-01-27
+[Duplicate] -Album- id: 0D2kFxAO1YPAuxAtP23g0p name: Project Baby 2: All Grown Up (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2738e3046e13f253a208519b21a release_date: 2017-11-24
+[Duplicate] -Album- id: 5ptl9Sheh9eWaogxFOZ3PV name: Hot N*gga album_type: single image: https://i.scdn.co/image/ab67616d0000b273d52e14e0595216ca453572ab release_date: 2014-07-25
+[Duplicate] -Album- id: 31lHUoHC3P6BRFzKYLyRJO name: Bad Habits (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273a4aaecb02b51550635d7c1b1 release_date: 2019-03-26
+[Duplicate] -Album- id: 1hTrdWpdPEeXHQWc9GmpxZ name: RECKLESS album_type: album image: https://i.scdn.co/image/ab67616d0000b2730231368c38cf69a722ed1d0b release_date: 2018-05-18
+[Duplicate] -Album- id: 4JR29CNW14Zc4Z5vflxkoJ name: NAV album_type: album image: https://i.scdn.co/image/ab67616d0000b27309641cc11bfab19e890bbf58 release_date: 2017-02-24
+[Duplicate] -Album- id: 6VFETcEfjilkAng073KLt9 name: Perfect Timing album_type: album image: https://i.scdn.co/image/ab67616d0000b27337f06380716c1f2de5a50269 release_date: 2017-07-21
+[Duplicate] -Album- id: 6gYk1JlSSmlUZGs1Lef1BI name: My Kinda Party album_type: album image: https://i.scdn.co/image/ab67616d0000b27330fb8097859c939e15124037 release_date: 2010-11-02
+[Duplicate] -Album- id: 64IFfMf7W67CLvXaYeRNB6 name: They Don't Know album_type: album image: https://i.scdn.co/image/ab67616d0000b273a5f4696adf8c9bb9083a362b release_date: 2016-09-09
+[Duplicate] -Album- id: 7k9oif0MqtQ79j8swtZRMS name: Wide Open album_type: album image: https://i.scdn.co/image/ab67616d0000b273a68033ff9f447bd5df7296ac release_date: 2009-04-07
+[Duplicate] -Album- id: 4rJgzzfFHAVFhCSt2P4I3j name: Playboi Carti album_type: album image: https://i.scdn.co/image/ab67616d0000b273e120608fc6313866a5127c3a release_date: 2017-04-14
+[Duplicate] -Album- id: 6UGajHeNjVlZN2I9LJhT2l name: MISUNDERSTOOD album_type: album image: https://i.scdn.co/image/ab67616d0000b27365e82849b0abfdcd9ff095e7 release_date: 2019-07-24
+[Duplicate] -Album- id: 5SUCWEBHIyHPet1gAdSsPp name: Yung Bans Vol. 5 album_type: album image: https://i.scdn.co/image/ab67616d0000b273fb90766bea7665479adff42e release_date: 2018-06-27
+[Duplicate] -Album- id: 78Mvyn2rBPIm7CSL12lzUa name: Yung Bans Vol. 3 album_type: album image: https://i.scdn.co/image/ab67616d0000b27375964f6ab98d0b792f23cb9a release_date: 2018-01-23
+[Duplicate] -Album- id: 2jLwYNAND8VQYD3YFhtujW name: Sli'merre album_type: album image: https://i.scdn.co/image/ab67616d0000b2735ab2e9ee13191c3fcd1d58d3 release_date: 2019-05-08
+[Duplicate] -Album- id: 0agALBMd2a8cnpbpukTg03 name: The Life Of Pi'erre 4 album_type: album image: https://i.scdn.co/image/ab67616d0000b27346fe2968c4c6f8f82ab4eb5b release_date: 2019-06-21
+[Duplicate] -Album- id: 3VzsvmhnUb9OZ59bq2aoNZ name: A Moment Apart album_type: album image: https://i.scdn.co/image/ab67616d0000b27399a3a1c380019cdc2ba9b8c2 release_date: 2017-09-08
+[Duplicate] -Album- id: 4vLYreWxd2ptOAzPwTyBI3 name: SR3MM album_type: album image: https://i.scdn.co/image/ab67616d0000b273ba9015f4504a9dfd7560bfa9 release_date: 2018-05-04
+[Duplicate] -Album- id: 5r7L8DlTsIKoDwSSiRf5M7 name: 23 album_type: single image: https://i.scdn.co/image/ab67616d0000b27344b72761419fcedcf38998b7 release_date: 2013-01-01
+[Duplicate] -Album- id: 0jqcY0azNzkluuC8hxNGlw name: Ransom 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b27387f32427f479a260cd94f8e5 release_date: 2017-03-24
+[Duplicate] -Album- id: 4i1ukevFHCZqPSRsXKyYgl name: KOLORBLIND album_type: album image: https://i.scdn.co/image/ab67616d0000b273d05798eaa043362f2d205ebb release_date: 2018-04-09
+[Duplicate] -Album- id: 7GGoJfKFOwDNuiLjjfzyCS name: Look Alive (feat. Drake) album_type: single image: https://i.scdn.co/image/ab67616d0000b27355cad990bc1ce5808367fa0e release_date: 2018-02-09
+[Duplicate] -Album- id: 6NrsgXTJ3x2RRR8b0v2M7S name: Simi album_type: album image: https://i.scdn.co/image/ab67616d0000b273329e7f66e816c25f2f06bf31 release_date: 2018-05-04
+[Duplicate] -Album- id: 12pnVAswzLE6hArSl0bF0h name: Mac and Devin Go To High School (Music From and Inspired By The Movie) album_type: album image: https://i.scdn.co/image/ab67616d0000b273f8fa110661ccdfb74cbcb447 release_date: 2011-12-12
+[Duplicate] -Album- id: 797fkvAtk0iZvP1HHPCWbp name: R&G (Rhythm & Gangsta): The Masterpiece album_type: album image: https://i.scdn.co/image/ab67616d0000b273e803716268c173c3f9a0c057 release_date: 2004-01-01
+[Duplicate] -Album- id: 6pwuKxMUkNg673KETsXPUV name: KIDS SEE GHOSTS album_type: album image: https://i.scdn.co/image/ab67616d0000b273013c00ee367dd85396f79c82 release_date: 2018-06-08
+[Duplicate] -Album- id: 35s58BRTGAEWztPo9WqCIs name: Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture) album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f release_date: 2018-12-14
+[Duplicate] -Album- id: 2Qxg5B6lYfFr4h3DUJK8kX name: an XTRA UUGLY Mixtape album_type: album image: https://i.scdn.co/image/ab67616d0000b273f3fd7b99e2a43f5a79a9143d release_date: 2017-11-03
+[Duplicate] -Album- id: 1R9BIE7X0fzMrn3XHvetFO name: Crush album_type: single image: https://i.scdn.co/image/ab67616d0000b27313306cdb93a8569ed680d164 release_date: 2019-08-30
+[Duplicate] -Album- id: 1JqHKxNhfBv3ZIz1VwhENp name: I'M UUGLY album_type: album image: https://i.scdn.co/image/d47756980933a9903ac79fa3f7f7b749280cdfda release_date: 2016-09-23
+[Duplicate] -Album- id: 1DRoEmmMAuv4AfKFydvUqv name: Fangs album_type: single image: https://i.scdn.co/image/ab67616d0000b2739a3ab81a114f5a519c2feb75 release_date: 2017-02-13
+[Duplicate] -Album- id: 6LPTa6WxHqzA5E9ohh1JoN name: CRYBABY :*( album_type: single image: https://i.scdn.co/image/ab67616d0000b27301baa26c1e3d30f79aa9d116 release_date: 2019-11-01
+[Duplicate] -Album- id: 4uE7odbSKeUSUBaq7URXXI name: Cardboard City album_type: album image: https://i.scdn.co/image/ab67616d0000b273a5f9e71d4ec13b3c85826e53 release_date: 2020-02-14
+[Duplicate] -Album- id: 5UFBJXQtytWA9vfaO2DxLx name: A Song For Every Moon album_type: album image: https://i.scdn.co/image/ab67616d0000b273e6dfaed2104e0512b7f22256 release_date: 2017-08-31
+[Duplicate] -Album- id: 6NUEU1vyIctdAg8IHot8Wy name: What Makes You Country album_type: album image: https://i.scdn.co/image/ab67616d0000b273abc1b9e1373512ffb33d609b release_date: 2017-12-08
+[Duplicate] -Album- id: 0WtCqmpVN7rRGfDMSWSXBA name: Kill The Lights (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273835eac21a1158e54eecd6260 release_date: 2015-08-07
+[Duplicate] -Album- id: 6MzrSTAQdDR92tHLLAhYp0 name: Based on a True Story... (Deluxe Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b273de2b6ae73697b2da4d3e9c27 release_date: 2013-03-26
+[Duplicate] -Album- id: 4JmphteFDt5gNZbgraR9Dc name: If I'm Honest album_type: album image: https://i.scdn.co/image/ab67616d0000b273cd822154e0369fa0d46431b9 release_date: 2016-05-20
+[Duplicate] -Album- id: 1IbfOjLqUSkhtXLpX31WZq name: Ripcord album_type: album image: https://i.scdn.co/image/ab67616d0000b27354cf35cdbebd3ff59e9328b4 release_date: 2016-05-06
+[Duplicate] -Album- id: 5F5mOJ0WkMwpqVkK1AwMHC name: Phil Vassar album_type: album image: https://i.scdn.co/image/ab67616d0000b27364610b1b0448406d083e117b release_date: 2000-02-21
+[Duplicate] -Album- id: 01GR4NL5O5CZM51k0aejKD name: World War Joy album_type: album image: https://i.scdn.co/image/ab67616d0000b2735e90ff76fd49a23f7333de76 release_date: 2019-12-06
+[Duplicate] -Album- id: 60xcVwuQJAOyu11xf9mObS name: ASCEND album_type: album image: https://i.scdn.co/image/ab67616d0000b273529c6fa82d23f65076c1579b release_date: 2019-08-16
+[Duplicate] -Album- id: 5rvIgXvAPGWspXY4rDLkeU name: Awake album_type: album image: https://i.scdn.co/image/ab67616d0000b2733636ac7a8af679d425fdefee release_date: 2017-09-21
+[Duplicate] -Album- id: 1aMtc9GO9PE3bqFd0pu4C4 name: Wide-Eyed album_type: album image: https://i.scdn.co/image/ab67616d0000b273f817f90531b8b396b370ab0d release_date: 2018-07-20
+[Duplicate] -Album- id: 4pCLlUxlKj3pNVdBtFyhrU name: Peace Is The Mission (Extended) album_type: album image: https://i.scdn.co/image/ab67616d0000b273548910835dbfaf3f79a1dc46 release_date: 2015-11-27
+[Duplicate] -Album- id: 41JcySyB2ps5j4bt5LPReq name: Starlight album_type: single image: https://i.scdn.co/image/ab67616d0000b273b3bd71220f470461ac181707 release_date: 2017-04-07
+[Duplicate] -Album- id: 3oVJurbGWETjeZX4FGdyHp name: Potions album_type: single image: https://i.scdn.co/image/ab67616d0000b2737d178a8983cef2ef7d2420c3 release_date: 2019-05-31
+[Duplicate] -Album- id: 0fEO7g2c5onkaXsybEtuD2 name: Eternal Atake (Deluxe) - LUV vs. The World 2 album_type: album image: https://i.scdn.co/image/ab67616d0000b273a4865bd4e21a153d4d7f72f0 release_date: 2020-03-13
+[Duplicate] -Album- id: 4I3EcXD4e3KcEoDJfFEZ5b name: Savage Mode album_type: album image: https://i.scdn.co/image/ab67616d0000b2732dd1ac4a61495080ef8f78ca release_date: 2016-07-15
+[Duplicate] -Album- id: 6guJZpZ52v4MrJKIH7tASl name: i am > i was (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b273ca29f023b5d11f85de854f1b release_date: 2018-12-24
+[Duplicate] -Album- id: 3IO8IPjwXuzPJnoaqkwYrj name: NOT ALL HEROES WEAR CAPES (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2732887f8c05b5a9f1cb105be29 release_date: 2018-11-06
+[Duplicate] -Album- id: 1BgPkFMgud3lmEc6enZsjd name: 88GLAM2 album_type: album image: https://i.scdn.co/image/ab67616d0000b27357eb221f1ac08ff9e6abb518 release_date: 2018-11-16
+[Duplicate] -Album- id: 0BHoLb77mSCByEkoI0juyH name: Bankroll album_type: single image: https://i.scdn.co/image/ab67616d0000b273ae60c639476aaf4dfdff2bf2 release_date: 2019-11-07
+[Duplicate] -Album- id: 6VML3yX1WR5pXtg6fmwdzZ name: Finally Rich (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2732a8cbe9e04db628271fe9558 release_date: 2012-01-01
+[Duplicate] -Album- id: 1Wfr7zwBCyHH2n9A2s651R name: Mansion Musick album_type: album image: https://i.scdn.co/image/ab67616d0000b27339fd3ed559c1254f362704c7 release_date: 2018-07-13
+[Duplicate] -Album- id: 7v4AVMTkuZLfbFrQG8HdJq name: Back from the Dead album_type: album image: https://i.scdn.co/image/ab67616d0000b273f4a78915bb0467ed5bf21ff3 release_date: 2012-03-14
+--------------------------------------------
+-----------------Statistics-----------------
+--------------------------------------------
+Albums Parsed: 5942
+Albums Inserted: 4865
+Albums Duplicates: 856
+Albums Missing Data: 1
+--------------------------------------------
+
+13.47s user 1.33s system 171% cpu 8.621 total
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.253 s
+[INFO] Finished at: 2020-05-11T11:16:53-07:00
+[INFO] ------------------------------------------------------------------------
