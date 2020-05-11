@@ -4,7 +4,14 @@
 
 Lasse Nordahl and Zachary Pinto - Team 53
 
-URL: http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed
+URL: https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/landing
+
+## Note on Dashboard
+
+When attempting to use the dashboard to add songs, it may be difficult to find songs that are not added already. Try to think of weird names and obscure songs. Here is one that should not already be added:
+
+- When You Come Back Down
+  - Kina Grannis
 
 ## Video Links
 
@@ -18,7 +25,7 @@ URL: http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed
 
 ### Project 3
 
--
+- https://youtu.be/jR0fzJdOtPQ
 
 ## Deployment Instructions
 
@@ -180,10 +187,21 @@ POST employee
            - track_metas.xml: 13.98s user 1.53s system 136% cpu 11.355 total
       4. Custom Domain
          - We built our parser to handle duplicate data and xml elements that are missing data
+      5. Testing Parsing
+         - Artists inserted by parser:
+           - Guitar Duo
+           - L’Orchestra Cinematique
+         - Albums inserted by parser
+           - In'terview in Concert
+           - Midnight Mushrumps
+         - Songs inserted by parser
+           - Missed Calls (feat. Hayley Kiyoko)
+           - Good In Goodbye
 
 ## Project Contributions
 
 ### Lasse Nordahl
+
 - Start React App
 - Do main css
 - Design song, artist, album list view
