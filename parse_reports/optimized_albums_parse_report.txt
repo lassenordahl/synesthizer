@@ -612,6 +612,7 @@ Artists Missing Data: 0
 [Duplicate] -Album- id: 6fpLLJsDSSAlToEDW2jv4F name: Animal (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2737a6339d6ddfd579f77559b3c release_date: 2010-01-01
 [Duplicate] -Album- id: 0pGumY11G8OGH05ti6jh23 name: Cannibal (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b2733556ff5e46e50eb27be71ebe release_date: 2010-11-19
 [Duplicate] -Album- id: 5ZQB1ZQ2Yx9YT3nZlR2Pgu name: Warrior (Expanded Edition) album_type: album image: https://i.scdn.co/image/ab67616d0000b27376c5c62197115a22b23ff950 release_date: 2012-11-30
+[Duplicate] -Album- id: 6kFmH2VMMFaUrK4QhY4hLi name: Saturday Night Fever (The Original Movie Soundtrack) album_type: compilation image: https://i.scdn.co/image/ab67616d0000b273605128d275ca60ccc9cd3b6d release_date: 1977-12-12
 [Duplicate] -Album- id: 57OyAMchBAwqVGuOekcYXn name: Amygdala album_type: album image: https://i.scdn.co/image/ab67616d0000b2738f5c0a0f29cdb013c607dd46 release_date: 2018-03-16
 [Duplicate] -Album- id: 4i3rAwPw7Ln2YrKDusaWyT name: everything i wanted album_type: single image: https://i.scdn.co/image/ab67616d0000b273f2248cf6dad1d6c062587249 release_date: 2019-11-13
 [Duplicate] -Album- id: 0uRFz92JmjwDbZbB7hEBIr name: Picture Show album_type: album image: https://i.scdn.co/image/ab67616d0000b2734a6c0376235e5aa44e59d2c2 release_date: 2012-01-01
@@ -877,20 +878,22 @@ Artists Missing Data: 0
 [Duplicate] -Album- id: 6VML3yX1WR5pXtg6fmwdzZ name: Finally Rich (Deluxe) album_type: album image: https://i.scdn.co/image/ab67616d0000b2732a8cbe9e04db628271fe9558 release_date: 2012-01-01
 [Duplicate] -Album- id: 1Wfr7zwBCyHH2n9A2s651R name: Mansion Musick album_type: album image: https://i.scdn.co/image/ab67616d0000b27339fd3ed559c1254f362704c7 release_date: 2018-07-13
 [Duplicate] -Album- id: 7v4AVMTkuZLfbFrQG8HdJq name: Back from the Dead album_type: album image: https://i.scdn.co/image/ab67616d0000b273f4a78915bb0467ed5bf21ff3 release_date: 2012-03-14
+[Missing Data] -Album- id: 5fLOHW1UXr1cJrnXiU3FBt name: The Album album_type: album image: https://i.scdn.co/image/ab67616d0000b2736f705bef76c1d861c4d51d8c release_date: null
+[Missing Data] -Album- id: null name: null album_type: album image: https://i.scdn.co/image/ab67616d0000b2733711fa074510441f17c0d594 release_date: 1977-09-16
 --------------------------------------------
 -----------------Statistics-----------------
 --------------------------------------------
-Albums Parsed: 5942
-Albums Inserted: 4864
-Albums Duplicates: 856
-Albums Missing Data: 1
+Albums Parsed: 5946
+Albums Inserted: 4865
+Albums Duplicates: 857
+Albums Missing Data: 3
 --------------------------------------------
 
-10.86s user 1.16s system 146% cpu 8.216 total
+13.41s user 1.18s system 173% cpu 8.396 total
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.758 s
-[INFO] Finished at: 2020-05-11T11:25:57-07:00
+[INFO] Total time:  7.921 s
+[INFO] Finished at: 2020-05-11T03:12:48-07:00
 [INFO] ------------------------------------------------------------------------

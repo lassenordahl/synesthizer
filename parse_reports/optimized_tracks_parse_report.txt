@@ -20,7 +20,7 @@ Artists Duplicates: 2
 Artists Missing Data: 0
 --------------------------------------------
 
-3294
+67
 [Missing Data] -Track- id: null name: null track_number: 1
 [Duplicate] -Track- id: 0TrPqhAMoaKUFLR7iYDokf name: Know Your Worth track_number: 1
 [Duplicate] -Track- id: 463PQggkmk5tTw8ug0ahOX name: The Other Side (from Trolls World Tour) track_number: 1
@@ -3257,11 +3257,11 @@ Tracks Duplicates: 3224
 Tracks Missing Data: 3
 --------------------------------------------
 
-62.95s user 4.28s system 187% cpu 35.798 total
+51.35s user 4.03s system 164% cpu 33.587 total
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  32.318 s
-[INFO] Finished at: 2020-05-11T02:57:02-07:00
+[INFO] Total time:  34.455 s
+[INFO] Finished at: 2020-05-11T03:15:14-07:00
 [INFO] ------------------------------------------------------------------------

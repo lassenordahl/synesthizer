@@ -1,18 +1,19 @@
-Post XML Parsing Table Counts:
+Table Counts Post XML Parsing
+
 
 SELECT COUNT(*) FROM track;
-26411
+26481
 SELECT COUNT(*) FROM track_meta;
-26479
+26407
 SELECT COUNT(*) FROM album;
-11220
+11222
 SELECT COUNT(*) FROM track_in_album;
-25658
+25729
 SELECT COUNT(*) FROM artist;
-5147
+5149
 SELECT COUNT(*) FROM artist_in_track;
-30344
+29310
 SELECT COUNT(*) FROM artist_in_album;
-11840
-SELECT COUNT(*) FROM artist_in_genre;
-17796
+11859
+COUNT(*)SELECT COUNT(*) FROM artist_in_genre;
+17963

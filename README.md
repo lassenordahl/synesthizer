@@ -141,6 +141,7 @@ POST employee
 ```
 
 ### Test Spotify Account for TA's:
+
 1. **Username:** [`cs122b.test.spotify@gmail.com`](mailto:cs122b.test.spotify@gmail.com)
 2. **Password:** `chenlics122b`
 
@@ -176,31 +177,21 @@ POST employee
          - Using batch insert instead of inserting each record one at a time greatly reduced the time that it took to parse and insert records. This is because several records can be committed at once, reducing the load on the DBMS.
          - Pulling Ids for the corresponding tables prior to adding a record to the batch. This reduced the number of records in the batch allowing the batch to be executed more quickly.
          - Checking the parsed data to see if it had proper fields prior to putting it into the batch. This also reduces the number of records in the batch and improves performance by removing the error handling from the DBMS.
-      2. Inconsistency Data and Relevant Statistics can be found in the following directory [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/tree/master/parse_reports](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/tree/master/parse_reports)
+      2. Inconsistency Data and Relevant Statistics can be found in the following directory
          - Final Stats can be found at the bottom of these files
       3. Performance Comparison (Both Approaches Use Batch Insert, since we originally implemented the parser this way)
          - Without Optimization:
-           - artists.xml: 11.08s user 1.01s system 176% cpu 6.837 total
-           - albums.xml: 13.47s user 1.33s system 171% cpu 8.621 total
-           - tracks.xml: 17.23s user 2.41s system 96% cpu 20.336 total
-           - track_metas.xml: 17.26s user 1.70s system 139% cpu 13.626 total
+           - artists.xml: 8.90s user 0.82s system 168% cpu 5.756 total
+           - albums.xml: 16.66s user 1.15s system 196% cpu 9.047 total
+           - tracks.xml: 62.95s user 4.28s system 187% cpu 35.798 total
+           - track_metas.xml: 16.73s user 1.40s system 157% cpu 11.536 total
          - With Optimization
-           - artists.xml: 9.35s user 0.88s system 185% cpu 5.521 total
-           - albums.xml: 10.86s user 1.16s system 146% cpu 8.216 total
-           - tracks.xml: 16.53s user 2.44s system 92% cpu 20.580 total
-           - track_metas.xml: 13.98s user 1.53s system 136% cpu 11.355 total
+           - artists.xml: 7.89s user 0.80s system 195% cpu 6.032 total
+           - albums.xml: 13.41s user 1.18s system 173% cpu 8.396 total
+           - tracks.xml: 51.35s user 4.03s system 164% cpu 33.587 total
+           - track_metas.xml: 16.08s user 1.42s system 149% cpu 11.714 total
       4. Custom Domain
          - We built our parser to handle duplicate data and xml elements that are missing data
-      5. Testing Parsing
-         - Artists inserted by parser:
-           - Guitar Duo
-           - L’Orchestra Cinematique
-         - Albums inserted by parser
-           - In'terview in Concert
-           - Midnight Mushrumps
-         - Songs inserted by parser
-           - Missed Calls (feat. Hayley Kiyoko)
-           - Good In Goodbye
 
 ## Project Contributions
 
@@ -221,7 +212,10 @@ POST employee
 - Playlist Session Endpoints
 - Spotify Integration
   - Implicit Grant Flow on Front-End
-  - Create spotify playlist functionality on playlist page
+    <<<<<<< HEAD
+  - # Create spotify playlist functionality on playlist page
+  - Create playlist functionality on playlist page
+    > > > > > > > add parsing reports and parsing info to readme
 - Spotify Snapshot SQL and Endpoints
 - ReCaptcha integration
 - Password Encryption
