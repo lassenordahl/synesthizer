@@ -21,7 +21,8 @@ CREATE TABLE track_meta (
     type VARCHAR(60),
     uri VARCHAR(200),
     valence FLOAT,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES track(id)
 );
 
 
@@ -29,8 +30,7 @@ CREATE TABLE track (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(100) NOT NULL,
     track_number integer NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES track_meta(id)
+    PRIMARY KEY (id)
 );
 
 
