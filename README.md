@@ -25,7 +25,7 @@ When attempting to use the dashboard to add songs, it may be difficult to find s
 
 ### Project 3
 
-- https://youtu.be/jR0fzJdOtPQ
+- https://youtu.be/jVCjuwmYFyg
 
 ## Deployment Instructions
 
