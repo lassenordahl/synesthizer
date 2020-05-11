@@ -15,9 +15,12 @@ TRACK_DATA_FILENAME = 'collected_data/track_data.json'
 ARTIST_DATA_FILENAME = 'collected_data/artist_data.json'
 ALBUM_DATA_FILENAME ='collected_data/album_data.json'
 
-SCRAPING_PLAYLIST_ID = '2n4Z5LcJPLWEMciZ40jLIC'
+# SCRAPING_PLAYLIST_ID = '2n4Z5LcJPLWEMciZ40jLIC'
+
+SCRAPING_PLAYLIST_IDS = ['1AT482DK1kutrhJ2WoSmQh','2N74R66dgGbIgtPg3mDeAa']
 
 def get_track_ids(token):
+  PLAYLIST_INDEX = 0
   current_song = 0
 
   if token:
@@ -25,10 +28,15 @@ def get_track_ids(token):
       with open(ARTIST_IDS_FILENAME, 'w') as artist_id_file:
         while True:
           sp = spotipy.Spotify(auth=token)
-          response = sp.playlist_tracks(SCRAPING_PLAYLIST_ID, fields='items', offset=current_song)
+          response = sp.playlist_tracks(SCRAPING_PLAYLIST_IDS[PLAYLIST_INDEX], fields='items', offset=current_song)
 
           if len(response['items']) == 0:
-            break
+            if PLAYLIST_INDEX < 1:
+              print("second playlist")
+              PLAYLIST_INDEX += 1
+              current_song = 0
+            else:
+              break
 
           for item in response['items']:
             track = item['track']
@@ -40,6 +48,7 @@ def get_track_ids(token):
     print("Can't get token for", username)
 
 def get_track_details(token):
+  PLAYLIST_INDEX = 0
   current_song = 0
 
   if token:
@@ -49,10 +58,16 @@ def get_track_details(token):
 
       while True:
         sp = spotipy.Spotify(auth=token)
-        response = sp.playlist_tracks(SCRAPING_PLAYLIST_ID, fields='items', offset=current_song)
+        response = sp.playlist_tracks(SCRAPING_PLAYLIST_IDS[PLAYLIST_INDEX], fields='items', offset=current_song)
 
         if len(response['items']) == 0:
-          break
+          if PLAYLIST_INDEX < 1:
+            print("second playlist")
+            PLAYLIST_INDEX += 1
+            current_song = 0
+          else:
+            
+            break
 
         
 
@@ -143,10 +158,10 @@ if __name__ == '__main__':
     redirect_uri='http://localhost/'
   )
 
-  # get_track_ids(token)
-  # get_track_details(token)
-  # get_track_data(token)
-  # get_artist_data(token)
+  get_track_ids(token)
+  get_track_details(token)
+  get_track_data(token)
+  get_artist_data(token)
   get_album_data(token)
   # test_print()
 
