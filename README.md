@@ -76,149 +76,90 @@ CREATE TABLE playlist_spotify_snapshot (
 );
 ```
 
-### Feature Substitutions
+### Queries with Prepared Statements
 
-1. Searching
-   - Our search parameters:
-     - Search by `name`, `album name`, `artist name`, and `release date` across all pages
-     - Search types change depending on what you're looking at. For instance, if you're on the _artist_ page, you cannot search by _song name_
-   - Our sort parameters:
-     - Sort by `popularity`, `name`, `release date`, and `album name`
-     - Sort types change depending on what you're looking at. For instance, if you're on the _artist_ page, you cannot sort by _album name_
-2. Movie List Page
-   - Replaced by `Song Page`, `Album Page`, `Artist Page`, and `Playlist Page` (However, the playlist page has minimal features and is mostly used for Spotify integration)
-     - Song Page displays:
-       - Song Name (Hyperlinked)
-       - Artists (Hyperlinked)
-       - Release Date
-       - Album Art
-       - Popularity (# of playlists this song has been added to)
-     - Album Page displays:
-       - Album Name (Hyperlinked)
-       - Artists (Hyperlinked)
-       - Release Date
-       - Album Art
-       - Popularity (Sum of the # of playlists each song in the album has been added to)
-     - Artist Page displays:
-       - Artist Name (Hyperlinked)
-   - Previous/Next button is at the bottom of the page
-   - Number of listings can be changed from 20, to 40, to 80
-   - Sorting is described in the section above (#1)
-3. Single Page
-   - Replaced by `Song Selected Page`, `Album Selected Page`, `Artist Selected Page`
-     - Song Selected Page displays:
-       - Song Name
-       - Album (Hyperlinked)
-       - Artists (Hyperlinked)
-       - Album art
-       - Song metadata (Note, liveliness, etc)
-     - Album Selected Page displays:
-       - Album Name
-       - Artist Name (Hyperlinked)
-       - Release date
-       - Album art
-       - Songs in album (Hyperlinked)
-         - Song name, duration in seconds
-     - Artist Selected Page displays:
-       - Artist Name
-       - Artist Genres
-       - Albums (Hyperlinked)
-4. Jump functionality
+For our code, we created Services that we used to assist the Servlet GET/POST/PUT endpoints. All of our code (prepared statements) for these endpoints are located in these services. Below are all of the  endpoints that take user information.
 
-   - For single pages, that are accessed through the browser view, the go back to songs button can be clicked
-
-     ![Project%202%20README/Screen_Shot_2020-04-27_at_7.28.56_PM.png](https://user-images.githubusercontent.com/13127625/80444583-e24fbc80-88c6-11ea-9adc-38d51cccb35f.png)
-
-   - Pagination information is maintained through using the back button or the "go back to \_\_\_" button at the top
-
-5. Browsing
-
-   1. Browsing can be enabled through use of the browse vs search button
-
-      - Browsing can search by `letter/number` for songs and albums
-      - Browsing can search by `letter/number` and `genre` for artists (Genre data is only provided for artists from our scraped Spotify data)
-
-      ![Project%202%20README/Screen_Shot_2020-04-27_at_7.31.53_PM.png](https://user-images.githubusercontent.com/13127625/80444605-e8de3400-88c6-11ea-91b3-9cdc7bc877ca.png)
-
-6. Shopping Cart
-
-   - Rather than building a "shopping cart", we opted to build a playlist session that would step by step generate playlists for the user
-   - Rather than modifying quantity for tracks, we allowed the user to add both `albums` and `songs` to their playlist session
-     - Duplicate tracks are removed on playlist generation, for example: if you add one song from a playlist, then add that playlist, it will not duplicate the track information.
-   - Since we had all of the track data from Spotify, we opted to use that to create a Spotify playlist from the created playlist that the user made. This uses the `implicit grant flow` from Spotify, as we felt it had a good mix of complexity and security for the scope of our application.
-     - [https://developer.spotify.com/documentation/general/guides/authorization-guide/](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
-   - Adding to cart:
-
-     - Songs/Albums can be added to cart using the top right icon on the song/album card. When something is added to cart, the cart in the top right will update.
-
-       ![Project%202%20README/Screen_Shot_2020-04-27_at_7.36.58_PM.png](https://user-images.githubusercontent.com/13127625/80444615-eed41500-88c6-11ea-8c13-30a5df296d7c.png)
-
-       Add to cart in the top right
-
-       ![Project%202%20README/Screen_Shot_2020-04-26_at_10.43.16_PM.png](https://user-images.githubusercontent.com/13127625/80444534-cb10cf00-88c6-11ea-8d36-b79c149fd7f7.png)
-
-       Cart in top right of browsing pages
-
-   - After navigating to the playlist/create page, the user can name a playlist, and save the playlist name in the session or create the playlist. After a playlist has been posted, the create playlist page will refresh, and the playlist will show up in the /playlists page
-   - The user can click "Add to Spotify" on the playlist cards. This will trigger the implicit grant flow if the user does not have an authentication key.
-
-     [https://developer.spotify.com/documentation/general/guides/authorization-guide/](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
-
-     1. If there is no authentication key in localstorage or the authentication key has expired, the application will redirect to the Spotify Auth page. Functionality for this can be found in the Playlists.js and PlaylistCard.js files in the react application under /app.
-     2. After logging into the Spotify Auth page, the Spotify auth page will redirect back to the /playlists URL, where the application will save the authentication key and the time that it was saved. This authentication key has scope for editing/managing playlists for the user.
-        1. Test Account for TA's
-           1. **Username:** [`cs122b.test.spotify@gmail.com`](mailto:cs122b.test.spotify@gmail.com)
-           2. **Password:** `chenlics122b`
-     3. The app will then use the authentication key to make a request to the Spotify API, getting the users username.
-        1. [https://developer.spotify.com/documentation/web-api/reference/users-profile/get-current-users-profile/](https://developer.spotify.com/documentation/web-api/reference/users-profile/get-current-users-profile/)
-     4. The app will use the username to create a playlist with the name of the playlist that is being added to Spotify.
-        1. [https://developer.spotify.com/console/post-playlists/](https://developer.spotify.com/console/post-playlists/)
-     5. After a playlist is successfully created, the app then adds all the tracks from the playlist to the Spotify playlist.
-        1. [https://developer.spotify.com/console/post-playlist-tracks/](https://developer.spotify.com/console/post-playlist-tracks/)
-     6. After the tracks are added, the application saves the Spotify-generated snapshot ID in our database. This snapshot id can be used to see what happened during a given API request using the Spotify api. Which contains information of which tracks were added to the Spotify playlist. This is also used to know which playlists have already been added to Spotify.
-        1. POST `api/playlist/snapshot`
-
-7. Payment Page
-   - Rather than having a payment page, we have a page that lists all of the playlists that have been generated and a create playlist page. This serves as the mediary between creating a playlist and the Spotify functionality.
-   - For incorrect input, we have error messages that show for if a playlist doesn't have a valid name on playlist correction
-8. Place Order Action
-
-   - On playlist creation, the session playlist is added to the playlist table.
-
-     ![Project%202%20README/Screen_Shot_2020-04-27_at_8.04.57_PM.png](https://user-images.githubusercontent.com/13127625/80444521-c51aee00-88c6-11ea-8e10-9d7976a17b36.png)
-
-   - The "confirmation page" is the playlist page that have been generated. These show the image (we haven't implemented this yet, using a default one right now), name of the playlist, time it was generated, and an export to Spotify button.
-
-     ![Project%202%20README/Screen_Shot_2020-04-25_at_8.56.03_PM.png](https://user-images.githubusercontent.com/13127625/80444625-f4c9f600-88c6-11ea-8cc0-0aab71fbfb6c.png)
-
-9. Additional Performance Functionality
-   - All of the browsing pages for songs, albums, and artists have the cart available. This cart can be dropped down on any of these pages to view the information.
-   - The cart changes the numbers based on how many items are in the cart
-     1. `<Song Count>` - `<Album Count>`
-10. CSS Extra Credit
-    - Spent way too much time on this but it ended up looking pretty neat!
-
-## Substring Matching
-
-For substring matching, we used SQL syntax such as :
+**Tracks -** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/TrackService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/TrackService.java)
 
 ```
-WHERE track.name LIKE <name search string>
+GET track
+GET tracks
+GET track/meta
+POST track
 ```
 
-This adjusts what it is applied to based on what the user is searching for.
+**Albums -** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/AlbumService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/AlbumService.java)
+
+```
+GET album
+GET albums
+GET album/tracks
+POST album
+```
+
+**Artists -** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/ArtistService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/ArtistService.java)
+
+```
+GET artist
+GET artists
+POST artist
+```
+
+**Playlists -** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/PlaylistService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/PlaylistService.java)
+
+```
+GET playlis
+GET playlists
+POST playist (Uses session, not any body params)
+POST playlist/snapshot
+```
+
+**User -** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/UserService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/UserService.java)
+
+```
+GET user
+POST user
+```
+
+**Employee** [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/UserService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/src/main/java/com/cs122b/service/UserService.java)
+
+```
+GET employee
+POST employee
+```
+
+### Custom Domain Feature Substitutions
+
+1. Captchas
+    1. Captchas have been added to the login, sign up, and update account pages
+2. Prepared Statements
+    1. All queries requiring any form of input have been converted to prepared statements
+3. Employee Dashboard (Located under `app/_dashboard`)
+    1. Login to Dashboard with Employee Credentials
+        1. Employees can login using special employee credentials. These credentials are in a different table from the normal user accounts. They log in using the same page however on `app/account/login`, the test login you should use is:
+            1. Username/Email:
+            2. Password:
+    2. Show database metadata
+        1. Two elements of Dashboard metadata are located on the dashboard. At the top we see the numbers of how many rows are in each of the 3 main data element tables. At the bottom there is a card with all of the tables and their respective attributes/types pulled `GET database/meta` endpoint.
+    3. Add a new star/movie successfully
+        1. On the dashboard, on the right side of the page, there is a card listed "Spotify Songs". Using this search bar, you can search for Spotify songs to add to the database. Selecting a song will autofill the artist, album, and song fields. These fields can be individually added to the database, but in order to ensure data validity, they must be added in the order of artist → album → song, or else an error will show due to not having the correct valid foreign key order.
+        2. If an artist or album has already been added, the track or album can be added to the database normally.
+        3. This prevention of inserting values with invalid ID's ensures that our data is valid for creating Spotify playlists. Because we get our track images from album arts through table joins, the entire flow of data needs to be added at a time for our custom domain. Error handling happens for all invalid data.
+        4. All added values are accessible on the search view. To see immediate changes in the database numbers, look at the "Database Information" numbers above for row couunts.
+    4. Show Error Message for existing movie
+        1. Toasts will show up in the top right corner in a stack for any invalid/valid insertions of the data. Duplicate ID's for items are mentioned in the toasts.
+    5. Error Handling
+        1. All error handling happens through our Toast component, which is now a stack to handle multiple messages at a time, each takes 5s to disappear.
+4. XML Parsing
+    1. Main.xml
+        1. We created another 2 playlists of 10,000 songs to add to our database using the XML Parsing. Data collection code using the Spotify api (Python Scripts) can be found in `data/collection/creation` in the root directory of the project.
+        2. We parsed through and inserted the data similarly to how we would with the normal movies.xml database schema.
 
 ## Project Contributions
 
 ### Lasse Nordahl
 
-- Start React App
-- Do main css
-- Design song, artist, album list view
-- Create track_meta, album, track_in_album endpoints
-- Create album selection page
-- Add hyperlinks to single view pages
-- Add popularity sorting to album and song endpoint
 - Application routing for new pages
 - Cart/Playlist generation functionality for Songs and Albums (Front-end and Back-end)
 - Create Playlist Page
@@ -226,9 +167,15 @@ This adjusts what it is applied to based on what the user is searching for.
 - Playlist Endpoints
 - Playlist Session Endpoints
 - Spotify Integration
-  - Implicit Grant Flow on Front-End
-  - Create playlist functionality on playlist page
+    - Implicit Grant Flow on Front-End
+    - Create playlist functionality on playlist page
 - Spotify Snapshot SQL and Endpoints
+- ReCaptcha integration
+- Password Encruption
+- Prepared Statement Conversion
+- Dashboard Meta Endpoints
+- Insert Track/Artist/Album stored procedures and endpoints
+- Front-end of Dashboard
 
 ### Zachary Pinto
 
@@ -248,3 +195,8 @@ This adjusts what it is applied to based on what the user is searching for.
 - Update user
 - Login
 - Create user
+- HTTPS Conversion
+- Employee integration to Login
+- XML Creation
+- XML Parsing/Insertion/Optimization
+- Inconsistency report
