@@ -1,12 +1,38 @@
 package com.cs122b.client;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 
-public class SQLClient implements Config {
+public class SQLClient {
+    private String dbtype;
+    private String dbname;
+    private String username;
+    private String password;
     private Connection connection;
 
     public SQLClient() {
+
+        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
+
+            Properties prop = new Properties();
+
+            // load a properties file
+            prop.load(input);
+
+            this.dbtype = prop.getProperty("db.type");
+            this.dbname = prop.getProperty("db.name");
+            this.username = prop.getProperty("db.username");
+            this.password = prop.getProperty("db.password");
+
+        } catch (IOException ex) {
+            System.err.println("Insure that you have config file in src/resources/");
+            ex.printStackTrace();
+        }
+
         // Incorporate mySQL driver
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -18,11 +44,10 @@ public class SQLClient implements Config {
             e.printStackTrace();
         }
 
-        // Connect to the test database
+        // Connect to the database
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:" + Config.dbtype + ":///" + Config.dbname + "?autoReconnect=true", Config.username,
-                    Config.password); // &useSSL=false
+                    "jdbc:" + this.dbtype + ":///" + this.dbname + "?autoReconnect=true", this.username, this.password); // &useSSL=false
         } catch (SQLException e) {
             e.printStackTrace();
         }
