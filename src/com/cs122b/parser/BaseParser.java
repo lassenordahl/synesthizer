@@ -32,6 +32,8 @@ class BaseParser {
             this.report.append(toString + "\n");
             return true;
         }
+
+        this.dupSet.add(identifier);
         return false;
     }
 
@@ -53,7 +55,7 @@ class BaseParser {
     int getSuccessCount(int[] rows) {
         int success = 0;
         for (int row : rows) {
-            if (row == Statement.SUCCESS_NO_INFO)
+            if (row > Statement.EXECUTE_FAILED)
                 success++;
         }
         return success;

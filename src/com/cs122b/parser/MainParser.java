@@ -22,7 +22,7 @@ public class MainParser {
     TrackMetaParser trackMetaParser;
 
     public MainParser(String file) {
-        int optimizedFlag = 0;
+        int optimizedFlag = 1;
         fileName = file;
         artistParser = new ArtistParser(optimizedFlag);
         albumParser = new AlbumParser(optimizedFlag);
@@ -33,8 +33,6 @@ public class MainParser {
     public void run() {
         // parse the xml file and get the dom object
         parseXmlFile();
-
-        System.out.println("we are going to parse the Doc");
         // get each employee element and create a Employee object
         parseDocument();
     }
@@ -61,7 +59,6 @@ public class MainParser {
 
         NodeList artists = docEle.getElementsByTagName("artists");
         if (artists != null && artists.getLength() > 0) {
-            System.out.println("Found artists");
             // get artists element
             Element artistsElem = (Element) artists.item(0);
             artistParser.parseArtists(artistsElem);
@@ -75,7 +72,6 @@ public class MainParser {
 
         NodeList albums = docEle.getElementsByTagName("albums");
         if (albums != null && albums.getLength() > 0) {
-            System.out.println("Found albums");
             // get artists element
             Element albumsElem = (Element) albums.item(0);
             albumParser.parseAlbums(albumsElem);
@@ -88,7 +84,6 @@ public class MainParser {
 
         NodeList tracks = docEle.getElementsByTagName("tracks");
         if (tracks != null && tracks.getLength() > 0) {
-            System.out.println("Found tracks");
             // get artists element
             Element tracksElem = (Element) tracks.item(0);
             trackParser.parseTracks(tracksElem);
@@ -101,7 +96,6 @@ public class MainParser {
 
         NodeList tracks_meta = docEle.getElementsByTagName("track_metas");
         if (tracks_meta != null && tracks_meta.getLength() > 0) {
-            System.out.println("Found track_meta");
             // get artists element
             Element tracksMetaElem = (Element) tracks_meta.item(0);
             trackMetaParser.parseTrackMetas(tracksMetaElem);
@@ -118,6 +112,7 @@ public class MainParser {
         initLogging.append("--------------------------------------------\n");
         initLogging.append("-------------------Parsing------------------\n");
         initLogging.append("--------------------------------------------\n");
+        System.out.println(initLogging.toString());
 
         MainParser dpe = new MainParser(args[0]);
         dpe.run();

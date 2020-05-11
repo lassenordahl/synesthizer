@@ -72,7 +72,7 @@ class TrackParser extends BaseParser {
 
     private Boolean isValid(Track track) {
 
-        return !this.isDuplicate(track.getId(), track.toString()) && hasAllData(track);
+        return hasAllData(track) && !this.isDuplicate(track.getId(), track.toString());
     }
 
     private void validationFilter() throws SQLException {

@@ -64,7 +64,7 @@ class ArtistParser extends BaseParser {
 
     private Boolean isValid(Artist artist) {
 
-        return !this.isDuplicate(artist.getId(), artist.toString()) && hasAllData(artist);
+        return hasAllData(artist) && !this.isDuplicate(artist.getId(), artist.toString());
     }
 
     private void validationFilter() throws SQLException {
@@ -156,6 +156,11 @@ class ArtistParser extends BaseParser {
         } catch (BatchUpdateException e) {
             inserts = this.getSuccessCount(e.getUpdateCounts());
         }
+
+        // catch (SQLException e2) {
+        // e2.printStackTrace();
+        // System.out.println(e2.getMessage());
+        // }
 
         try {
             pstmt2.executeBatch();

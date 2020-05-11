@@ -193,7 +193,7 @@ public class TrackService {
         System.out.println(queryString.toString());
 
         String query = queryString.toString();
-        PreparedStatement statement = db.getConnection().prepareStatement(string, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
         ResultSet result = statement.executeQuery();
 

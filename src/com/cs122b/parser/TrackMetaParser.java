@@ -57,7 +57,7 @@ class TrackMetaParser extends BaseParser {
 
     private Boolean isValid(TrackMeta trackMeta) {
 
-        return !this.isDuplicate(trackMeta.getId(), trackMeta.toString()) && hasAllData(trackMeta);
+        return hasAllData(trackMeta) && !this.isDuplicate(trackMeta.getId(), trackMeta.toString());
     }
 
     private void validationFilter() throws SQLException {

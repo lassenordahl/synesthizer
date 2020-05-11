@@ -85,7 +85,7 @@ class AlbumParser extends BaseParser {
 
     private Boolean isValid(Album album) {
 
-        return !this.isDuplicate(album.getId(), album.toString()) && hasAllData(album);
+        return hasAllData(album) && !this.isDuplicate(album.getId(), album.toString());
     }
 
     private void validationFilter() throws SQLException {
