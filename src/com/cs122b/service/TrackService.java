@@ -188,18 +188,19 @@ public class TrackService {
         queryString.append("LEFT JOIN album ON track_in_album.album_id = album.id ");
 
         // WHERE
-        queryString.append("WHERE track.id = '" + id + "'");
+        queryString.append("WHERE track.id = ?");
 
         System.out.println(queryString.toString());
 
-        Query query = db.query(queryString.toString());
+        String query = queryString.toString();
+        PreparedStatement statement = db.getConnection().prepareStatement(string, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, id);
+        ResultSet result = statement.executeQuery();
 
-        ResultSet result = query.getResult();
         result.next();
         Track track = new Track();
         setTrackAttrs(db, track, result, false);
 
-        query.closeQuery();
         db.closeConnection();
         return track;
     }
