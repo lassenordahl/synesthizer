@@ -1,6 +1,5 @@
 package com.cs122b.service;
 
-import com.cs122b.client.Config;
 import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
@@ -12,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrackService implements Config {
+public class TrackService {
 
     static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException {
 
@@ -51,8 +50,10 @@ public class TrackService implements Config {
         track.setAlbum(album);
     }
 
-//    track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id VARCHAR(25), artist_id VARCHAR(25)
-    public static String insertTrack(String id, String name, int track_number, int duration_ms, String album_id, String artist_id) throws SQLException {
+    // track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id
+    // VARCHAR(25), artist_id VARCHAR(25)
+    public static String insertTrack(String id, String name, int track_number, int duration_ms, String album_id,
+            String artist_id) throws SQLException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_track(?, ?, ?, ?, ?, ?) as result";
