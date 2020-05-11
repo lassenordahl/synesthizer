@@ -256,7 +256,7 @@ function Dashboard() {
           });
           showSuccess("Album submitted to database");
         } else {
-          showError("Album already exists in database");
+          showError("Album already exists in database or artist was not added");
         }
         getDatabaseMeta();
       })
@@ -280,7 +280,7 @@ function Dashboard() {
           });
           showSuccess("Song submitted to database");
         } else {
-          showError("Song already exists in database");
+          showError("Song already exists in database or album was not added");
         }
         getDatabaseMeta();
       })
