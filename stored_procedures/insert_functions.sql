@@ -12,8 +12,8 @@ BEGIN
 
     -- If a track is not in the table we can insert it
     IF (track_in_table = 0) THEN
-        INSERT INTO track_meta(id, duration_ms) VALUES (track_id, duration_ms);
         INSERT INTO track (id, name, track_number) VALUES (track_id, name, track_number);
+        INSERT INTO track_meta(id, duration_ms) VALUES (track_id, duration_ms);
         INSERT INTO track_in_album (track_id, album_id) VALUES (track_id, album_id);
         INSERT INtO artist_in_track(track_id, artist_id) VALUES (track_id, artist_id);
         RETURN track_id;
