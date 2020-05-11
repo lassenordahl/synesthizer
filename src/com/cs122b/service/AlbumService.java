@@ -52,6 +52,8 @@ public class AlbumService {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
+        ArrayList<String> parameters = new ArrayList<String>();
+        ArrayList<String> paramTypes = new ArrayList<String>();
 
         // SELECT
         queryString
@@ -66,7 +68,9 @@ public class AlbumService {
 
         // WHERE
         if (name != null && name != "") {
-            queryString.append("WHERE album.name LIKE \"" + name + "%\" ");
+            queryString.append("WHERE album.name LIKE ? ");
+            parameters.add("%" + name + "%");
+            paramTypes.add("string");
         } else if (artist_id != null && artist_id != "") {
             queryString.append("WHERE artist.id LIKE \"" + artist_id + "\" ");
         } else if (searchMode != null && search != null) {
@@ -78,20 +82,31 @@ public class AlbumService {
                 searchMode = "artist.name";
             }
 
-            queryString.append("WHERE " + searchMode + " LIKE \"%" + search + "%\" ");
+            queryString.append("WHERE " + searchMode + " LIKE ? ");
+            parameters.add("%" + search + "%");
+            paramTypes.add("string");
         }
 
         // ORDER BY
         queryString.append("ORDER BY " + sortBy + " ");
 
         // LIMIT/OFFSET
-        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+        queryString.append("LIMIT ?,?");
+        parameters.add(Integer.toString(offset));
+        parameters.add(Integer.toString(limit));
+        paramTypes.add("int");
+        paramTypes.add("int");
 
-        System.out.println(queryString.toString());
-
-        Query query = db.query(queryString.toString());
-
-        ResultSet result = query.getResult();
+        String query = queryString.toString();
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        for (int i = 0; i < parameters.size(); i++) {
+            if (paramTypes.get(i).equalsIgnoreCase("string")) {
+                statement.setString(i + 1, parameters.get(i));
+            } else {
+                statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
+            }
+        }
+        ResultSet result = statement.executeQuery();
 
         List<Album> albums = new ArrayList<Album>();
 
@@ -101,7 +116,6 @@ public class AlbumService {
             albums.add(album);
         }
 
-        query.closeQuery();
         db.closeConnection();
         return albums;
     }
