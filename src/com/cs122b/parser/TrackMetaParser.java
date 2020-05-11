@@ -48,7 +48,7 @@ class TrackMetaParser extends BaseParser {
     }
 
     private Boolean hasAllData(TrackMeta trackMeta) {
-        if (trackMeta.getId() != null) {
+        if (trackMeta.getId() != null && trackMeta.getDuration_ms() != null) {
             return true;
         }
         this.addMissingData(trackMeta.toString());

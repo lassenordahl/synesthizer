@@ -8,11 +8,11 @@ public class Track {
     // Track
     private String id;
     private String name;
-    private int track_number;
+    private Integer track_number;
 
     // Track-Meta-Light
-    private int duration_ms;
-    private int popularity;
+    private Integer duration_ms;
+    private Integer popularity;
 
     // Track_to_artist
     private ArrayList<Artist> artists;
@@ -39,7 +39,7 @@ public class Track {
         this.name = name;
     }
 
-    public int getTrack_number() {
+    public Integer getTrack_number() {
         return track_number;
     }
 
@@ -47,7 +47,7 @@ public class Track {
         this.track_number = track_number;
     }
 
-    public int getDuration_ms() {
+    public Integer getDuration_ms() {
         return duration_ms;
     }
 
@@ -78,11 +78,15 @@ public class Track {
         this.album = album;
     }
 
-    public int getPopularity() {
+    public Integer getPopularity() {
         return popularity;
     }
 
     public void setPopularity(int popularity) {
         this.popularity = popularity;
+    }
+
+    public String toString() {
+        return String.format("-Track- id: %s name: %s track_number: %d", getId(), getName(), getTrack_number());
     }
 }

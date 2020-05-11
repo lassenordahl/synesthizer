@@ -25,8 +25,8 @@ public class MainParser {
         fileName = file;
         artistParser = new ArtistParser(1);
         albumParser = new AlbumParser(1);
-        trackParser = new TrackParser();
-        trackMetaParser = new TrackMetaParser();
+        trackParser = new TrackParser(1);
+        trackMetaParser = new TrackMetaParser(1);
     }
 
     public void run() {
