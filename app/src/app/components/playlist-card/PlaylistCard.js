@@ -53,11 +53,11 @@ function PlaylistCard(props) {
 
   function buildSpotifyRedirectString() {
     let redirect = "https://accounts.spotify.com/authorize";
-    redirect += "?client_id=bbcd6fe242784619a04a475fd0454c6f";
+    redirect += "?client_id=75c3c1ce9f164f319b0e8d827b6e1282";
     redirect += "&response_type=token";
     redirect +=
-      // "&redirect_uri=http://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/app/user/playlists";
-      "&redirect_uri=http://127.0.0.1:8080/unnamed/app/user/playlists";
+      "&redirect_uri=https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/app/user/playlists";
+    // "&redirect_uri=http://127.0.0.1:8080/unnamed/app/user/playlists";
     redirect += "&state=" + props.playlist.id;
     redirect += "&scope=playlist-modify-public";
 
