@@ -75,11 +75,9 @@ public class ArtistService {
             String name, String genre) throws SQLException {
         SQLClient db = new SQLClient();
 
-        // Query query = db.query("SELECT * FROM artist ORDER BY " + sortBy + " LIMIT "
-        // + Integer.toString(offset) + ","
-        // + Integer.toString(limit));
-
         StringBuilder queryString = new StringBuilder();
+        ArrayList<String> parameters = new ArrayList<String>();
+        ArrayList<String> paramTypes = new ArrayList<String>();
 
         // SELECT
         queryString.append("SELECT DISTINCT artist.id, artist.name, artist.image, ");
@@ -97,18 +95,24 @@ public class ArtistService {
                 searchMode = "artist.name";
             }
 
-            queryString.append("WHERE " + searchMode + " LIKE \"%" + search + "%\" ");
+            queryString.append("WHERE " + searchMode + " LIKE ? ");
+            parameters.add("%" + search + "%");
+            paramTypes.add("string");
         } else if (name != null && name != "" || genre != null && genre != "") {
             queryString.append("WHERE ");
             if (name != null && name != "") {
-                queryString.append("artist.name LIKE \"" + name + "%\" ");
+                queryString.append("artist.name LIKE ? ");
+                parameters.add("%" + name + "%");
+                paramTypes.add("string");
 
                 if (genre != null && genre != "") {
                     queryString.append("AND ");
                 }
             }
             if (genre != null && genre != "") {
-                queryString.append("artist_in_genre.genre LIKE \"" + genre + "\" ");
+                queryString.append("artist_in_genre.genre LIKE ? ");
+                parameters.add("%" + genre + "%");
+                paramTypes.add("string");
             }
         }
 
@@ -116,20 +120,29 @@ public class ArtistService {
         queryString.append("ORDER BY " + sortBy + " ");
 
         // LIMIT/OFFSET
-        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+        queryString.append("LIMIT ?,?");
+        parameters.add(Integer.toString(offset));
+        parameters.add(Integer.toString(limit));
+        paramTypes.add("int");
+        paramTypes.add("int");
 
-        System.out.println(queryString.toString());
-
-        Query query = db.query(queryString.toString());
+        String query = queryString.toString();
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        for (int i = 0; i < parameters.size(); i++) {
+            if (paramTypes.get(i).equalsIgnoreCase("string")) {
+                statement.setString(i + 1, parameters.get(i));
+            } else {
+                statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
+            }
+        }
+        ResultSet result = statement.executeQuery();
 
         List<Artist> artists = new ArrayList<Artist>();
-        ResultSet result = query.getResult();
         while (result.next()) {
             Artist artist = new Artist();
             setArtistAttrs(db, artist, result, true);
             artists.add(artist);
         }
-        query.closeQuery();
 
         db.closeConnection();
         return artists;

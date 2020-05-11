@@ -99,6 +99,8 @@ public class TrackService implements Config {
 
         SQLClient db = new SQLClient();
         StringBuilder queryString = new StringBuilder();
+        ArrayList<String> parameters = new ArrayList<String>();
+        ArrayList<String> paramTypes = new ArrayList<String>();
 
         // SELECT
         queryString.append("SELECT DISTINCT track.*, track_meta.*, ");
@@ -116,7 +118,9 @@ public class TrackService implements Config {
 
         // WHERE
         if (name != null && name != "") {
-            queryString.append("WHERE track.name LIKE \"" + name + "%\" ");
+            queryString.append("WHERE track.name LIKE ? ");
+            parameters.add("%" + name + "%");
+            paramTypes.add("string");
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {
                 searchMode = "track.name";
@@ -128,27 +132,40 @@ public class TrackService implements Config {
                 searchMode = "artist.name";
             }
 
-            queryString.append("WHERE " + searchMode + " LIKE \"%" + search + "%\" ");
+            queryString.append("WHERE " + searchMode + " LIKE ? ");
+            parameters.add("%" + search + "%");
+            paramTypes.add("string");
         }
 
         // ORDER BY
         queryString.append("ORDER BY " + sortBy + " ");
 
         // LIMIT/OFFSET
-        queryString.append("LIMIT " + Integer.toString(offset) + "," + Integer.toString(limit));
+        queryString.append("LIMIT ?,?");
+        parameters.add(Integer.toString(offset));
+        parameters.add(Integer.toString(limit));
+        paramTypes.add("int");
+        paramTypes.add("int");
 
-        System.out.println(queryString.toString());
-
-        Query query = db.query(queryString.toString());
+        String query = queryString.toString();
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        for (int i = 0; i < parameters.size(); i++) {
+            if (paramTypes.get(i).equalsIgnoreCase("string")) {
+                statement.setString(i + 1, parameters.get(i));
+            } else {
+                statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
+            }
+        }
+        ResultSet result = statement.executeQuery();
 
         List<Track> tracks = new ArrayList<Track>();
-        ResultSet result = query.getResult();
         while (result.next()) {
             Track track = new Track();
             setTrackAttrs(db, track, result, true);
             tracks.add(track);
         }
-        query.closeQuery();
+
+        statement.close();
         db.closeConnection();
         return tracks;
     }
@@ -171,9 +188,6 @@ public class TrackService implements Config {
 
         // WHERE
         queryString.append("WHERE track.id = '" + id + "'");
-
-        // Query query = db.query(String.format("SELECT track.* FROM track WHERE
-        // track.id = '%s'", id));
 
         System.out.println(queryString.toString());
 
