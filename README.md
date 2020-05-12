@@ -140,6 +140,10 @@ GET employee
 POST employee
 ```
 
+### Test Spotify Account for TA's:
+1. **Username:** [`cs122b.test.spotify@gmail.com`](mailto:cs122b.test.spotify@gmail.com)
+2. **Password:** `chenlics122b`
+
 ### Custom Domain Feature Substitutions
 
 1. Captchas
