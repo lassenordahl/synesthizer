@@ -9,7 +9,7 @@
     <TextView
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
-            android:text = "Fabflix"
+            android:text = "Synesthizer"
             android:id = "@+id/title"
             android:layout_centerHorizontal = "true"
             android:textColor = "@color/red"
