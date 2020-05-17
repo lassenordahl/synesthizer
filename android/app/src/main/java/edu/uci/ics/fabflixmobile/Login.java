@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
+import com.android.volley.*;
 import com.android.volley.toolbox.StringRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class Login extends ActionBarActivity {
          * In Android, localhost is the address of the device or the emulator.
          * To connect to your machine, you need to use the below IP address
          * **/
-        url = "http://10.0.2.2:8080/cs122b-spring20-project2-login-cart-example/api/";
+        url = "http://10.0.2.2:8080/unnamed/api/";
 
         //assign a listener to call a function to handle the user request when clicking a button
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -66,21 +66,41 @@ public class Login extends ActionBarActivity {
                 startActivity(listPage);
             }
         },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Log.d("login.error", error.toString());
-                    }
-                }) {
+new Response.ErrorListener()            {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // error
+                Log.d("login.error", error.toString());
+            }
+            }) {
             @Override
             protected Map<String, String> getParams() {
                 // Post request form data
                 final Map<String, String> params = new HashMap<>();
                 params.put("username", username.getText().toString());
                 params.put("password", password.getText().toString());
+                params.put("appType", "android");
 
                 return params;
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                JSONObject params = new JSONObject();
+                try {
+                    params.put("username", username.getText().toString());
+                    params.put("password", password.getText().toString());
+                    params.put("appType", "android");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+                try {
+                    return params == null ? null : params.toString().getBytes("utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
         };
 
