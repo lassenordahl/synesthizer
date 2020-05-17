@@ -309,7 +309,9 @@ function ContentView(props) {
     return (
       <Search
         key={match.params.contentType}
+        resource={match.params.contentType}
         searchModes={searchModes}
+        getAutoItems={() => [{ value: "stuff 1" }, { value: "stuff 2" }]}
         params={params}
         setParams={setParams}
       />

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Search.css";
 
+import { Autocomplete } from "react-autocomplete";
 import { beautifyString } from "../../../global/helper";
 import { Button } from "../index";
-import { useEffect } from "react";
 
 function Search(props) {
   const [searchMode, setSearchMode] = useState(
@@ -13,6 +13,15 @@ function Search(props) {
   );
   const [search, setSearch] = useState(
     props.params.search !== undefined ? props.params.search : ""
+  );
+
+  // localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
+  // localStorage.getItem("spotifyAuth")
+  // Should be set to local storage stuff
+  const [autoItems, setAutoItems] = useState(
+    localStorage.getItem(props.resource + props.searchMode)
+      ? localStorage.getItem(props.resource + props.searchMode)
+      : []
   );
 
   useEffect(() => {
@@ -51,12 +60,12 @@ function Search(props) {
           );
         })}
       </select>
-      <input
+      <Autocomplete
         key="search"
         placeholder="Search"
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}
-      ></input>
+      />
       <div style={{ width: "48px" }}></div>
       <Button type="submit" isPrimary={true} onClick={sendSearch}>
         Search
@@ -66,3 +75,10 @@ function Search(props) {
 }
 
 export default Search;
+
+/* <input
+        key="search"
+        placeholder="Search"
+        value={search}
+        onChange={(e) => setSearch(e.currentTarget.value)}
+      ></input> */
