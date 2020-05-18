@@ -65,12 +65,11 @@ public class Login extends ActionBarActivity {
                 //without starting the activity/page, nothing would happen
                 startActivity(listPage);
             }
-        },
-new Response.ErrorListener()            {
+        }, new Response.ErrorListener()            {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // error
                 Log.d("login.error", error.toString());
+                message.setText("Invalid Credentials");
             }
             }) {
             @Override
@@ -85,10 +84,10 @@ new Response.ErrorListener()            {
             }
 
             @Override
-            public byte[] getBody() throws AuthFailureError {
+            public byte[] getBody() {
                 JSONObject params = new JSONObject();
                 try {
-                    params.put("username", username.getText().toString());
+                    params.put("email", username.getText().toString());
                     params.put("password", password.getText().toString());
                     params.put("appType", "android");
                 } catch (JSONException e) {

@@ -16,22 +16,27 @@ public class SQLClient {
 
     public SQLClient() {
 
-        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
+//        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
+//
+//            Properties prop = new Properties();
+//
+//            // load a properties file
+//            prop.load(input);
+//
+//            this.dbtype = prop.getProperty("db.type");
+//            this.dbname = prop.getProperty("db.name");
+//            this.username = prop.getProperty("db.username");
+//            this.password = prop.getProperty("db.password");
+//
+//        } catch (IOException ex) {
+//            System.err.println("Insure that you have config file in src/resources/");
+//            ex.printStackTrace();
+//        }
 
-            Properties prop = new Properties();
-
-            // load a properties file
-            prop.load(input);
-
-            this.dbtype = prop.getProperty("db.type");
-            this.dbname = prop.getProperty("db.name");
-            this.username = prop.getProperty("db.username");
-            this.password = prop.getProperty("db.password");
-
-        } catch (IOException ex) {
-            System.err.println("Insure that you have config file in src/resources/");
-            ex.printStackTrace();
-        }
+        this.dbtype = "mysql";
+        this.dbname = "cs122b";
+        this.username = "cs122b";
+        this.password = "team53";
 
         // Incorporate mySQL driver
         try {
