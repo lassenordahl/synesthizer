@@ -7,9 +7,33 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin">
 
+    <EditText
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/searchText"
+            android:hint = "Track Title"
+            android:focusable = "true"
+            android:layout_marginTop = "46dp"
+            android:layout_below = "@+id/title"
+            android:layout_alignParentLeft = "true"
+            android:layout_alignParentStart = "true"
+            android:layout_alignParentRight = "true"
+            android:layout_alignParentEnd = "true" />
+
+    <Button
+            android:text="Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchButton"
+    />
+
     <ListView
             android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="598dp"
+            android:paddingTop="128dp"
+    >
+
+    </ListView>
 
 </RelativeLayout>
