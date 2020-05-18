@@ -112,7 +112,7 @@ function Search(props) {
                 }}
               >
                 <div className="search-bar-auto-item-art">
-                  <img alt="auto art" src={item.image} />
+                  <img alt="auto art" src={item.image || item.album.image} />
                 </div>
                 <div className="search-bar-auto-info">
                   <p>{item.name}</p>

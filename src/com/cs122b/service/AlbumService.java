@@ -5,6 +5,7 @@ import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
 import com.cs122b.model.Track;
+import com.cs122b.utils.StringUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -20,12 +21,9 @@ public class AlbumService {
         album.setImage(result.getString("image"));
         album.setRelease_date(result.getString("release_date"));
 
-
         // Add Artists to Album
-        String query = "SELECT * FROM artist_in_album " +
-                "NATURAL JOIN artist \n" +
-                "WHERE artist_id = id AND album_id = ?\n" +
-                "ORDER BY name;";
+        String query = "SELECT * FROM artist_in_album " + "NATURAL JOIN artist \n"
+                + "WHERE artist_id = id AND album_id = ?\n" + "ORDER BY name;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, album.getId());
         ResultSet artistsResult = statement.executeQuery();
@@ -69,14 +67,17 @@ public class AlbumService {
         // WHERE
         if (name != null && name != "") {
             queryString.append("WHERE album.name LIKE ? ");
-            parameters.add("%" + name + "%");
+            parameters.add(name + "%");
             paramTypes.add("string");
         } else if (artist_id != null && artist_id != "") {
             queryString.append("WHERE artist.id LIKE \"" + artist_id + "\" ");
+        } else if (searchMode != null && search != null && searchMode.equals("name")) {
+            searchMode = "album.name";
+            queryString.append("WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+            parameters.add(StringUtil.formatFullTextSearch(search));
+            paramTypes.add("string");
         } else if (searchMode != null && search != null) {
-            if (searchMode.equals("name")) {
-                searchMode = "album.name";
-            } else if (searchMode.equals("release_date")) {
+            if (searchMode.equals("release_date")) {
                 searchMode = "album.release_date";
             } else if (searchMode.equals("artist_name")) {
                 searchMode = "artist.name";
@@ -120,7 +121,8 @@ public class AlbumService {
         return albums;
     }
 
-    public static String insertAlbum(String id, String name, String image, String album_type, String release_date, String artist_id) throws SQLException {
+    public static String insertAlbum(String id, String name, String image, String album_type, String release_date,
+            String artist_id) throws SQLException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_album(?, ?, ?, ?, ?, ?) as result";
@@ -141,7 +143,6 @@ public class AlbumService {
         db.closeConnection();
         return response;
     }
-
 
     public static Album fetchAlbum(String id) throws SQLException {
 
