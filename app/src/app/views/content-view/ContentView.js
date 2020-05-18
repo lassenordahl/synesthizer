@@ -213,7 +213,12 @@ function ContentView(props) {
       });
   }
 
-  function getAutoItems(searchMode, search, setAutoCallBack) {
+  function getAutoItems(
+    searchMode,
+    search,
+    setAutoCallback,
+    cacheItemsCallback
+  ) {
     let url = "";
     if (match.params.contentType === "albums") {
       url = api.albums;
@@ -232,9 +237,10 @@ function ContentView(props) {
         },
       })
       .then(function (response) {
-        console.log(response);
         if (response.data[match.params.contentType] !== null) {
-          setAutoCallBack(response.data[match.params.contentType]);
+          console.log(response.data[match.params.contentType]);
+          setAutoCallback(response.data[match.params.contentType]);
+          cacheItemsCallback(search, response.data[match.params.contentType]);
         } else {
           showError("Error retrieving autocompletes");
         }
@@ -344,7 +350,6 @@ function ContentView(props) {
         resource={match.params.contentType}
         searchModes={searchModes}
         getAutoItems={getAutoItems}
-        selectAutoItem={(id) => console.log(id)}
         params={params}
         setParams={setParams}
       />

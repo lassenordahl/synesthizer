@@ -21,15 +21,12 @@ function Search(props) {
     props.params.search !== undefined ? props.params.search : ""
   );
 
-  // localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
-  // localStorage.getItem("spotifyAuth")
-  // Should be set to local storage stuff
+  const [autoItems, setAutoItems] = useState([]);
 
-  const [autoItems, setAutoItems] = useState(
-    localStorage.getItem(props.resource + props.searchMode)
-      ? localStorage.getItem(props.resource + props.searchMode)
-      : []
-  );
+  // should remove
+  useEffect(() => {
+    localStorage.setItem(props.resource + searchMode, JSON.stringify({}));
+  }, []);
 
   useEffect(() => {
     setSearchMode(
@@ -44,8 +41,31 @@ function Search(props) {
     getAutoItems();
   }, [search]);
 
+  function cacheItems(searchTerm, items) {
+    let cache = localStorage.getItem(props.resource + searchMode);
+    if (cache) {
+      cache = JSON.parse(cache);
+    }
+
+    localStorage.setItem(
+      props.resource + searchMode,
+      JSON.stringify({
+        ...cache,
+        [searchTerm]: items.map((item) => {
+          return {
+            name: item.name,
+            id: item.id,
+            image: item.image || item.album.image,
+            release_date:
+              item.release_date ||
+              (item.album ? item.album.release_date : undefined),
+          };
+        }),
+      })
+    );
+  }
+
   function sendSearch() {
-    console.log("sending search");
     if (search === "") {
       return;
     }
@@ -69,18 +89,27 @@ function Search(props) {
         return;
       }
 
-      console.log("not less than 3");
-
       if (curSearch !== search) {
         return;
       }
 
       console.log("Autocomplete Search Initialized");
       // Check the cache
-      // Send the request
-      // Print wether using cash or sending request
-      props.getAutoItems(searchMode, search, setAutoItems);
-      // Print the suggestion list
+      let cache = localStorage.getItem(props.resource + searchMode);
+      if (cache) {
+        cache = JSON.parse(cache);
+        console.log(cache);
+      }
+
+      if (cache.hasOwnProperty(search)) {
+        console.log("Autocomplete Items Cache");
+        setAutoItems(cache[search]);
+        return;
+      }
+
+      // Send network request
+      console.log("Autocomplete Items Server");
+      props.getAutoItems(searchMode, search, setAutoItems, cacheItems);
     }, 300);
   }
 
@@ -123,7 +152,10 @@ function Search(props) {
                 </div>
                 <div className="search-bar-auto-info">
                   <p>{item.name}</p>
-                  <p>{item.release_date}</p>
+                  <p>
+                    {item.release_date ||
+                      (item.album ? item.album.release_date : undefined)}
+                  </p>
                 </div>
               </div>
             );
@@ -142,7 +174,7 @@ function Search(props) {
           }}
           onSelect={(item) => {
             setSearch(item.value);
-            selectAuto();
+            selectAuto(item.id);
           }}
         />
       </div>
