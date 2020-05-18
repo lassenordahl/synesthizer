@@ -6,7 +6,8 @@ CREATE TABLE track (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(100) NOT NULL,
     track_number integer NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FULLTEXT(name)
 );
 
 CREATE TABLE track_meta (
@@ -39,7 +40,8 @@ CREATE TABLE album (
     album_type VARCHAR(25),
     image VARCHAR(200),
     release_date VARCHAR(40),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FULLTEXT(name)
 );
 
 CREATE TABLE track_in_album (
@@ -54,7 +56,8 @@ CREATE TABLE artist (
     id VARCHAR(25) NOT NULL,
     name VARCHAR(40) NOT NULL,
     image VARCHAR(200) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FULLTEXT(name)
 );
 
 CREATE TABLE artist_in_track (
