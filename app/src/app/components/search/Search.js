@@ -3,6 +3,8 @@ import "./Search.css";
 
 import Autocomplete from "react-autocomplete";
 import { Link, useHistory } from "react-router-dom";
+
+import { useAsyncState } from "../../../hooks";
 import { beautifyString } from "../../../global/helper";
 import { Button } from "../index";
 
@@ -22,7 +24,6 @@ function Search(props) {
   // localStorage.setItem("spotifyAuth", JSON.stringify(spotifyParams));
   // localStorage.getItem("spotifyAuth")
   // Should be set to local storage stuff
-  const [autoReqLock, setAutoReqLock] = useState(false);
 
   const [autoItems, setAutoItems] = useState(
     localStorage.getItem(props.resource + props.searchMode)
@@ -38,6 +39,10 @@ function Search(props) {
     );
     setSearch(props.params.search !== undefined ? props.params.search : "");
   }, [props.params]);
+
+  useEffect(() => {
+    getAutoItems();
+  }, [search]);
 
   function sendSearch() {
     console.log("sending search");
@@ -57,23 +62,25 @@ function Search(props) {
   }
 
   function getAutoItems() {
-    if (search.length < 3) {
-      return;
-    }
-
-    if (autoReqLock) {
-      return;
-    }
-
-    setAutoReqLock(true);
-    console.log("Autocomplete Search Initialized");
-    // Check the cache
-    // Send the request
-    // Print wether using cash or sending request
-    props.getAutoItems(searchMode, search, setAutoItems);
-    // Print the suggestion list
+    let curSearch = search;
     setTimeout(() => {
-      setAutoReqLock(false);
+      if (search.length < 3) {
+        setAutoItems([]);
+        return;
+      }
+
+      console.log("not less than 3");
+
+      if (curSearch !== search) {
+        return;
+      }
+
+      console.log("Autocomplete Search Initialized");
+      // Check the cache
+      // Send the request
+      // Print wether using cash or sending request
+      props.getAutoItems(searchMode, search, setAutoItems);
+      // Print the suggestion list
     }, 300);
   }
 
@@ -104,7 +111,7 @@ function Search(props) {
           renderItem={(item, isHighlighted) => {
             return (
               <div
-                key={item.value}
+                key={item.id}
                 className="search-bar-auto-item"
                 style={{
                   background: isHighlighted ? "#ff7668" : "white",
@@ -132,11 +139,10 @@ function Search(props) {
           }}
           onChange={(e) => {
             setSearch(e.currentTarget.value);
-            getAutoItems();
           }}
           onSelect={(item) => {
             setSearch(item.value);
-            selectAuto(item.id);
+            selectAuto();
           }}
         />
       </div>
