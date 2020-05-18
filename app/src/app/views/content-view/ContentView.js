@@ -213,6 +213,38 @@ function ContentView(props) {
       });
   }
 
+  function getAutoItems(searchMode, search, setAutoCallBack) {
+    let url = "";
+    if (match.params.contentType === "albums") {
+      url = api.albums;
+    } else if (match.params.contentType === "artists") {
+      url = api.artists;
+    } else if (match.params.contentType === "songs") {
+      url = api.songs;
+    }
+
+    axios
+      .get(url, {
+        params: {
+          searchMode,
+          search,
+          limit: 10,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        if (response.data[match.params.contentType] !== null) {
+          setAutoCallBack(response.data[match.params.contentType]);
+        } else {
+          showError("Error retrieving autocompletes");
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        showError("Error retrieving autocompletes");
+      });
+  }
+
   function selectCard(id) {
     setSelectedCardId(id);
   }
@@ -311,7 +343,8 @@ function ContentView(props) {
         key={match.params.contentType}
         resource={match.params.contentType}
         searchModes={searchModes}
-        getAutoItems={() => [{ value: "stuff 1" }, { value: "stuff 2" }]}
+        getAutoItems={getAutoItems}
+        selectAutoItem={(id) => console.log(id)}
         params={params}
         setParams={setParams}
       />
