@@ -15,6 +15,9 @@ import {
   Search,
   OptionToggle,
   Browse,
+  SongAutoItem,
+  ArtistAutoItem,
+  AlbumAutoItem,
 } from "../../components";
 import { Card } from "../../containers";
 import { useRouter, useToast } from "../../../hooks";
@@ -232,7 +235,7 @@ function ContentView(props) {
       .get(url, {
         params: {
           searchMode,
-          search,
+          search: search.trim(),
           limit: 10,
         },
       })
@@ -335,25 +338,75 @@ function ContentView(props) {
   }
 
   function renderSearch() {
-    let searchModes;
     if (match.params.contentType === "albums") {
-      searchModes = ["name", "release_date", "artist_name"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={AlbumAutoItem}
+          searchModes={["name", "release_date", "artist_name"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(album) => {
+            return {
+              id: album.id,
+              name: album.name,
+              image: album.image,
+              artists: album.artist
+                ? album.artists.map((artist) => {
+                    return {
+                      name: artist.name,
+                    };
+                  })
+                : undefined,
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     } else if (match.params.contentType === "artists") {
-      searchModes = ["name"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={ArtistAutoItem}
+          searchModes={["name"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(artist) => {
+            return {
+              id: artist.id,
+              name: artist.name,
+              image: artist.image,
+              genres: artist.genres,
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     } else if (match.params.contentType === "songs") {
-      searchModes = ["name", "album_name", "artist_name", "release_date"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={SongAutoItem}
+          searchModes={["name", "album_name", "artist_name", "release_date"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(song) => {
+            return {
+              id: song.id,
+              name: song.name,
+              album: {
+                name: song.album.name,
+                image: song.album.image,
+              },
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     }
-
-    return (
-      <Search
-        key={match.params.contentType}
-        resource={match.params.contentType}
-        searchModes={searchModes}
-        getAutoItems={getAutoItems}
-        params={params}
-        setParams={setParams}
-      />
-    );
   }
 
   function renderBrowse() {

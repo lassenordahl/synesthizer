@@ -8,7 +8,7 @@ import { useAsyncState } from "../../../hooks";
 import { beautifyString } from "../../../global/helper";
 import { Button } from "../index";
 
-function Search(props) {
+function Search({ AutoItem, cacheFilter, ...props }) {
   let history = useHistory();
 
   const [searchMode, setSearchMode] = useState(
@@ -51,16 +51,7 @@ function Search(props) {
       props.resource + searchMode,
       JSON.stringify({
         ...cache,
-        [searchTerm]: items.map((item) => {
-          return {
-            name: item.name,
-            id: item.id,
-            image: item.image || item.album.image,
-            release_date:
-              item.release_date ||
-              (item.album ? item.album.release_date : undefined),
-          };
-        }),
+        [searchTerm]: items.map((item) => cacheFilter(item)),
       })
     );
   }
@@ -147,16 +138,7 @@ function Search(props) {
                   color: isHighlighted ? "white" : "black",
                 }}
               >
-                <div className="search-bar-auto-item-art">
-                  <img alt="auto art" src={item.image || item.album.image} />
-                </div>
-                <div className="search-bar-auto-info">
-                  <p>{item.name}</p>
-                  <p>
-                    {item.release_date ||
-                      (item.album ? item.album.release_date : undefined)}
-                  </p>
-                </div>
+                <AutoItem item={item} />
               </div>
             );
           }}
@@ -194,3 +176,14 @@ export default Search;
         value={search}
         onChange={(e) => setSearch(e.currentTarget.value)}
       ></input> */
+
+// <div className="search-bar-auto-item-art">
+//             <img alt="auto art" src={item.image || item.album.image} />
+//           </div>
+//           <div className="search-bar-auto-info">
+//             <p>{item.name}</p>
+//             <p>
+//               {item.release_date ||
+//                 (item.album ? item.album.release_date : undefined)}
+//             </p>
+//           </div>
