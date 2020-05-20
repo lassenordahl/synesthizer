@@ -15,6 +15,9 @@ import {
   Search,
   OptionToggle,
   Browse,
+  SongAutoItem,
+  ArtistAutoItem,
+  AlbumAutoItem,
 } from "../../components";
 import { Card } from "../../containers";
 import { useRouter, useToast } from "../../../hooks";
@@ -213,6 +216,44 @@ function ContentView(props) {
       });
   }
 
+  function getAutoItems(
+    searchMode,
+    search,
+    setAutoCallback,
+    cacheItemsCallback
+  ) {
+    let url = "";
+    if (match.params.contentType === "albums") {
+      url = api.albums;
+    } else if (match.params.contentType === "artists") {
+      url = api.artists;
+    } else if (match.params.contentType === "songs") {
+      url = api.songs;
+    }
+
+    axios
+      .get(url, {
+        params: {
+          searchMode,
+          search: search.trim(),
+          limit: 10,
+        },
+      })
+      .then(function (response) {
+        if (response.data[match.params.contentType] !== null) {
+          console.log(response.data[match.params.contentType]);
+          setAutoCallback(response.data[match.params.contentType]);
+          cacheItemsCallback(search, response.data[match.params.contentType]);
+        } else {
+          showError("Error retrieving autocompletes");
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        showError("Error retrieving autocompletes");
+      });
+  }
+
   function selectCard(id) {
     setSelectedCardId(id);
   }
@@ -297,23 +338,75 @@ function ContentView(props) {
   }
 
   function renderSearch() {
-    let searchModes;
     if (match.params.contentType === "albums") {
-      searchModes = ["name", "release_date", "artist_name"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={AlbumAutoItem}
+          searchModes={["name", "release_date", "artist_name"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(album) => {
+            return {
+              id: album.id,
+              name: album.name,
+              image: album.image,
+              artists: album.artist
+                ? album.artists.map((artist) => {
+                    return {
+                      name: artist.name,
+                    };
+                  })
+                : undefined,
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     } else if (match.params.contentType === "artists") {
-      searchModes = ["name"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={ArtistAutoItem}
+          searchModes={["name"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(artist) => {
+            return {
+              id: artist.id,
+              name: artist.name,
+              image: artist.image,
+              genres: artist.genres,
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     } else if (match.params.contentType === "songs") {
-      searchModes = ["name", "album_name", "artist_name", "release_date"];
+      return (
+        <Search
+          key={match.params.contentType}
+          resource={match.params.contentType}
+          AutoItem={SongAutoItem}
+          searchModes={["name", "album_name", "artist_name", "release_date"]}
+          getAutoItems={getAutoItems}
+          cacheFilter={(song) => {
+            return {
+              id: song.id,
+              name: song.name,
+              album: {
+                name: song.album.name,
+                image: song.album.image,
+              },
+            };
+          }}
+          params={params}
+          setParams={setParams}
+        />
+      );
     }
-
-    return (
-      <Search
-        key={match.params.contentType}
-        searchModes={searchModes}
-        params={params}
-        setParams={setParams}
-      />
-    );
   }
 
   function renderBrowse() {

@@ -8,7 +8,6 @@ function useToast() {
   const [delay, setDelay] = useState(5000);
 
   useInterval(() => {
-    console.log('slicing');
     setToastStack(toastStack.slice(1));
   }, delay);
 

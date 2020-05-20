@@ -4,6 +4,7 @@ import com.cs122b.client.Query;
 import com.cs122b.client.SQLClient;
 import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
+import com.cs122b.utils.StringUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +26,8 @@ public class ArtistService {
         }
 
         String artistGenreQuery = "SELECT * FROM artist_in_genre WHERE artist_id = ? ORDER BY genre";
-        PreparedStatement statement = db.getConnection().prepareStatement(artistGenreQuery, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = db.getConnection().prepareStatement(artistGenreQuery,
+                Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, artist.getId());
         ResultSet genreResult = statement.executeQuery();
 
@@ -34,7 +36,8 @@ public class ArtistService {
         }
 
         String artistAlbumQuery = "SELECT * FROM artist_in_album NATURAL JOIN album WHERE album_id = id AND artist_id = ? ORDER BY name asc";
-        PreparedStatement albumsStatement = db.getConnection().prepareStatement(artistAlbumQuery, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement albumsStatement = db.getConnection().prepareStatement(artistAlbumQuery,
+                Statement.RETURN_GENERATED_KEYS);
         albumsStatement.setString(1, artist.getId());
         ResultSet albumResult = albumsStatement.executeQuery();
 
@@ -93,16 +96,15 @@ public class ArtistService {
         if (searchMode != null && search != null) {
             if (searchMode.equals("name")) {
                 searchMode = "artist.name";
+                queryString.append("WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+                parameters.add(StringUtil.formatFullTextSearch(search));
+                paramTypes.add("string");
             }
-
-            queryString.append("WHERE " + searchMode + " LIKE ? ");
-            parameters.add("%" + search + "%");
-            paramTypes.add("string");
         } else if (name != null && name != "" || genre != null && genre != "") {
             queryString.append("WHERE ");
             if (name != null && name != "") {
                 queryString.append("artist.name LIKE ? ");
-                parameters.add("%" + name + "%");
+                parameters.add(name + "%");
                 paramTypes.add("string");
 
                 if (genre != null && genre != "") {
@@ -111,7 +113,7 @@ public class ArtistService {
             }
             if (genre != null && genre != "") {
                 queryString.append("artist_in_genre.genre LIKE ? ");
-                parameters.add("%" + genre + "%");
+                parameters.add(genre);
                 paramTypes.add("string");
             }
         }

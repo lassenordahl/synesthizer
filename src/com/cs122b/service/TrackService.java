@@ -6,6 +6,7 @@ import com.cs122b.model.Album;
 import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
+import com.cs122b.utils.StringUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -120,12 +121,15 @@ public class TrackService {
         // WHERE
         if (name != null && name != "") {
             queryString.append("WHERE track.name LIKE ? ");
-            parameters.add("%" + name + "%");
+            parameters.add(name + "%");
+            paramTypes.add("string");
+        } else if (searchMode != null && search != null && searchMode.equals("name")) {
+            searchMode = "track.name";
+            queryString.append("WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+            parameters.add(StringUtil.formatFullTextSearch(search));
             paramTypes.add("string");
         } else if (searchMode != null && search != null) {
-            if (searchMode.equals("name")) {
-                searchMode = "track.name";
-            } else if (searchMode.equals("release_date")) {
+            if (searchMode.equals("release_date")) {
                 searchMode = "album.release_date";
             } else if (searchMode.equals("album_name")) {
                 searchMode = "album.name";
