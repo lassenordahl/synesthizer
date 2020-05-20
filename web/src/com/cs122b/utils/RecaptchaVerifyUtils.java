@@ -19,22 +19,22 @@ public class RecaptchaVerifyUtils {
 
     public static void verify(String gRecaptchaResponse) throws Exception {
 
-        String SECRET_KEY = null;
+        String SECRET_KEY = "6LecPfEUAAAAAF0dXtUXO7v1o4ePbyRokof5taJh";
 
-        try (InputStream input = RecaptchaVerifyUtils.class.getResourceAsStream("/config.properties")) {
-
-            Properties prop = new Properties();
-
-            // load a properties file
-            prop.load(input);
-
-            SECRET_KEY = prop.getProperty("recaptcha.secret");
-            System.out.println(SECRET_KEY);
-
-        } catch (IOException ex) {
-            System.err.println("Insure that you have config file in src/resources/");
-            ex.printStackTrace();
-        }
+//        try (InputStream input = RecaptchaVerifyUtils.class.getResourceAsStream("/config.properties")) {
+//
+//            Properties prop = new Properties();
+//
+//            // load a properties file
+//            prop.load(input);
+//
+//            SECRET_KEY = prop.getProperty("recaptcha.secret");
+//            System.out.println(SECRET_KEY);
+//
+//        } catch (IOException ex) {
+//            System.err.println("Insure that you have config file in src/resources/");
+//            ex.printStackTrace();
+//        }
 
         if (gRecaptchaResponse == null || gRecaptchaResponse.length() == 0) {
             throw new Exception("recaptcha verification failed: gRecaptchaResponse is null or empty");
