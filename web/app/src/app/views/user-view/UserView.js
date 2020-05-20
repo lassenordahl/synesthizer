@@ -85,6 +85,9 @@ function UserView({ props, match }) {
   }
 
   function login(form) {
+    // Change the form type to be web
+    form["appType"] = "web";
+    console.log(form);
     axios
       .post(api.login, form)
       .then(function (response) {
