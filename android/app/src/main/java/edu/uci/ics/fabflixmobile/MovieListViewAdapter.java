@@ -27,11 +27,19 @@ public class MovieListViewAdapter extends ArrayAdapter<Track> {
 
         Track track = tracks.get(position);
 
-        TextView titleView = view.findViewById(R.id.title);
-        TextView subtitleView = view.findViewById(R.id.subtitle);
+        TextView nameView = view.findViewById(R.id.name);
+        TextView artistNameView = view.findViewById(R.id.artistName);
+        TextView albumNameView = view.findViewById(R.id.albumName);
+        TextView popularityView = view.findViewById(R.id.popularity);
+        TextView trackNumberView = view.findViewById(R.id.trackNumber);
+//        TextView durationMsView = view.findViewById(R.id.durationMs);
 
-        titleView.setText(track.getName());
-        subtitleView.setText(track.getId() + "");// need to cast the year to a string to set the label
+        nameView.setText(track.getName());
+        artistNameView.setText(track.getArtists().get(0).getName());// need to cast the year to a string to set the label
+        albumNameView.setText(track.getAlbum().getName());
+        popularityView.setText("Popularity: " + track.getPopularity());
+        trackNumberView.setText("Track Number: " + track.getTrack_number());
+//        durationMsView.setText(track.getDuration_ms() + "");
 
         return view;
     }

@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListViewActivity"></activity>
+        <activity android:name=".SongSelectionActivity"></activity>
         <!--By default Android supports only HTTPS connection. To enable HTTP, the below line is needed-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
