@@ -8,6 +8,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:background="#252B38"
 >
 
     <LinearLayout
@@ -23,7 +24,7 @@
                 android:layout_marginLeft="4dp"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -33,7 +34,7 @@
                 android:layout_marginLeft="4dp"
                 android:textSize="12dp"
                 android:textStyle="italic"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -42,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:textSize="16dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:textSize="16dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -60,8 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="36dp"
-                android:textColor="@android:color/black"
-
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
 
         />
 
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
 
         />
 
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
 
         />
 
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
+                android:textColor="#fcfcfc"
 
         />
 
@@ -105,8 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
-
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -114,8 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
-
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -123,8 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
-
+                android:textColor="#fcfcfc"
         />
 
         <TextView
@@ -132,9 +129,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:textColor="@android:color/black"
-
+                android:textColor="#fcfcfc"
         />
+
     </LinearLayout>
 
 </RelativeLayout>
