@@ -2,20 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="150px"
+              android:layout_height="wrap_content"
               android:background="@android:color/darker_gray">
 
     <TextView
-            android:id="@+id/title"
+            android:id="@+id/name"
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
             android:textColor="@android:color/white"/>
 
     <TextView
-            android:id="@+id/subtitle"
+            android:id="@+id/artistName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"/>
+            android:layout_marginLeft="4dp"
+            android:textColor="@android:color/white"/>
+
+    <TextView
+            android:id="@+id/albumName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textColor="@android:color/white"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+    >
+
+        <TextView
+                android:id="@+id/popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:textColor="@android:color/white"/>
+
+        <TextView
+                android:id="@+id/trackNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:textColor="@android:color/white"/>
+
+<!--        <TextView-->
+<!--                android:id="@+id/durationMs"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="4dp"-->
+<!--                android:textColor="@android:color/white"/>-->
+    </LinearLayout>
 
 </LinearLayout>
