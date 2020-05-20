@@ -8,6 +8,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                android:background="#252B38"
 >
 
     <EditText
