@@ -96,7 +96,7 @@ public class TrackService {
     }
 
     public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search,
-            String name) throws SQLException {
+            String subMode, String name) throws SQLException {
         // Create an execute an SQL statement to select all of table tracks records
 
         SQLClient db = new SQLClient();
@@ -126,11 +126,20 @@ public class TrackService {
         } else if (searchMode != null && search != null && searchMode.equals("name")) {
             searchMode = "track.name";
             queryString.append(
-                    "WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE) OR fuzzy(" + searchMode + ", ?)");
+                    "WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+
+            if (subMode != null && subMode.equals("fuzzy")) {
+                queryString.append(
+                    " OR fuzzy("+ searchMode +", ?)");
+            }
+
             parameters.add(StringUtil.formatFullTextSearch(search));
             paramTypes.add("string");
-            parameters.add(search);
-            paramTypes.add("string");
+            
+            if (subMode != null && subMode.equals("fuzzy")) {
+                parameters.add(search);
+                paramTypes.add("string");
+            }
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("release_date")) {
                 searchMode = "album.release_date";
@@ -146,7 +155,14 @@ public class TrackService {
         }
 
         // ORDER BY
-        queryString.append("ORDER BY " + sortBy + " ");
+        if (subMode != null && subMode.equals("fuzzy")) {
+            queryString.append(
+                    "ORDER BY MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE) DESC ");
+            parameters.add(search);
+            paramTypes.add("string");
+        } else {
+            queryString.append("ORDER BY " + sortBy + " ");
+        }
 
         // LIMIT/OFFSET
         queryString.append("LIMIT ?,?");
