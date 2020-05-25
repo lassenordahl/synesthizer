@@ -3,8 +3,9 @@ import "./Search.css";
 
 import Autocomplete from "react-autocomplete";
 import { Link, useHistory } from "react-router-dom";
+import AwesomeDebouncePromise from "awesome-debounce-promise";
+import useConstant from "use-constant";
 
-import { useAsyncState } from "../../../hooks";
 import { beautifyString } from "../../../global/helper";
 import { Button } from "../index";
 
@@ -23,7 +24,15 @@ function Search({ AutoItem, cacheFilter, ...props }) {
 
   const [autoItems, setAutoItems] = useState([]);
 
-  // should remove
+  // Debounce the original search async function
+  const debouncedSearchFunction = useConstant(() =>
+    AwesomeDebouncePromise(
+      (search, searchMode) => getAutoItems(search, searchMode),
+      300
+    )
+  );
+
+  // should remove cache when page is reloaded
   useEffect(() => {
     localStorage.setItem(props.resource + searchMode, JSON.stringify({}));
   }, []);
@@ -38,7 +47,7 @@ function Search({ AutoItem, cacheFilter, ...props }) {
   }, [props.params]);
 
   useEffect(() => {
-    getAutoItems();
+    debouncedSearchFunction(search, searchMode);
   }, [search]);
 
   function cacheItems(searchTerm, items) {
@@ -72,37 +81,31 @@ function Search({ AutoItem, cacheFilter, ...props }) {
     history.push(`/app/explore/${props.resource}/${val}`);
   }
 
-  function getAutoItems() {
-    let curSearch = search;
-    setTimeout(() => {
-      if (search.length < 3) {
-        setAutoItems([]);
-        return;
-      }
+  const getAutoItems = (search, searchMode) => {
+    if (search.length < 3) {
+      setAutoItems([]);
+      return;
+    }
 
-      if (curSearch !== search) {
-        return;
-      }
+    console.log("Autocomplete Search Initialized");
+    // Check the cache
+    let cache = localStorage.getItem(props.resource + searchMode);
+    if (cache) {
+      cache = JSON.parse(cache);
+      console.log(cache);
+    }
 
-      console.log("Autocomplete Search Initialized");
-      // Check the cache
-      let cache = localStorage.getItem(props.resource + searchMode);
-      if (cache) {
-        cache = JSON.parse(cache);
-        console.log(cache);
-      }
+    if (cache.hasOwnProperty(search)) {
+      console.log("Autocomplete Items Cache");
+      console.log(cache);
+      setAutoItems(cache[search]);
+      return;
+    }
 
-      if (cache.hasOwnProperty(search)) {
-        console.log("Autocomplete Items Cache");
-        setAutoItems(cache[search]);
-        return;
-      }
-
-      // Send network request
-      console.log("Autocomplete Items Server");
-      props.getAutoItems(searchMode, search, setAutoItems, cacheItems);
-    }, 300);
-  }
+    // Send network request
+    console.log("Autocomplete Items Server");
+    props.getAutoItems(searchMode, search, setAutoItems, cacheItems);
+  };
 
   return (
     <div className="search">
@@ -155,7 +158,6 @@ function Search({ AutoItem, cacheFilter, ...props }) {
             setSearch(e.currentTarget.value);
           }}
           onSelect={(item) => {
-            setSearch(item.value);
             selectAuto(item.id);
           }}
         />

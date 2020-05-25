@@ -236,6 +236,7 @@ function ContentView(props) {
         params: {
           searchMode,
           search: search.trim(),
+          subMode: "fuzzy",
           limit: 10,
         },
       })
