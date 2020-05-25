@@ -132,7 +132,7 @@ public class TrackService {
                 queryString.append(
                     " OR fuzzy("+ searchMode +", ?)");
             }
-
+            
             parameters.add(StringUtil.formatFullTextSearch(search));
             paramTypes.add("string");
             
