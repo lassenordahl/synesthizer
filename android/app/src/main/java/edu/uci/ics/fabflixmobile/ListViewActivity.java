@@ -42,7 +42,7 @@ public class ListViewActivity extends Activity {
         nextButton = findViewById(R.id.nextButton);
         searchButton = findViewById(R.id.searchButton);
 
-        url = "https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/api/t";
+        url = "https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/api/";
 
         //this should be retrieved from the database and the backend server
         final ArrayList<Movie> movies = new ArrayList<>();
