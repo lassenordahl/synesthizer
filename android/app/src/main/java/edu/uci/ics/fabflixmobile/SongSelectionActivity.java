@@ -46,7 +46,7 @@ public class SongSelectionActivity extends Activity {
     }
 
     private void getTrackMeta(String trackId) {
-        String url = "http://10.0.2.2:8080/unnamed/api/track/meta?id=" + trackId;
+        String url = "https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/api/track/meta?id=" + trackId;
         final RequestQueue queue = NetworkManager.sharedManager(this).queue;
 
         final StringRequest metaRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
