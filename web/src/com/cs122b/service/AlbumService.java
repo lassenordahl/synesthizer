@@ -46,7 +46,7 @@ public class AlbumService {
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
-            String name, String artist_id) throws SQLException {
+            String subMode, String name, String artist_id) throws SQLException {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -74,8 +74,19 @@ public class AlbumService {
         } else if (searchMode != null && search != null && searchMode.equals("name")) {
             searchMode = "album.name";
             queryString.append("WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+            
+            if (subMode != null && subMode.equals("fuzzy")) {
+                queryString.append(
+                    " OR fuzzy("+ searchMode +", ?)");
+            }
+            
             parameters.add(StringUtil.formatFullTextSearch(search));
             paramTypes.add("string");
+
+            if (subMode != null && subMode.equals("fuzzy")) {
+                parameters.add(search);
+                paramTypes.add("string");
+            }
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("release_date")) {
                 searchMode = "album.release_date";
@@ -88,8 +99,15 @@ public class AlbumService {
             paramTypes.add("string");
         }
 
-        // ORDER BY
-        queryString.append("ORDER BY " + sortBy + " ");
+         // ORDER BY
+         if (subMode != null && subMode.equals("fuzzy")) {
+            queryString.append(
+                    "ORDER BY MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE) DESC ");
+            parameters.add(search);
+            paramTypes.add("string");
+        } else {
+            queryString.append("ORDER BY " + sortBy + " ");
+        }
 
         // LIMIT/OFFSET
         queryString.append("LIMIT ?,?");

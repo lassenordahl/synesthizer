@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class SQLClient {
+    private String url;
     private String dbtype;
     private String dbname;
     private String username;
@@ -23,6 +24,7 @@ public class SQLClient {
             // load a properties file
             prop.load(input);
 
+            this.url = prop.getProperty("db.url");
             this.dbtype = prop.getProperty("db.type");
             this.dbname = prop.getProperty("db.name");
             this.username = prop.getProperty("db.username");
@@ -47,7 +49,8 @@ public class SQLClient {
         // Connect to the database
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:" + this.dbtype + ":///" + this.dbname + "?autoReconnect=true", this.username, this.password); // &useSSL=false
+                    "jdbc:" + this.dbtype + "://" + this.url + "/" + this.dbname + "?autoReconnect=true", this.username,
+                    this.password); // &useSSL=false
         } catch (SQLException e) {
             e.printStackTrace();
         }
