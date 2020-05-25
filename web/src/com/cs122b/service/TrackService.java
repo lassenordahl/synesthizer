@@ -125,8 +125,11 @@ public class TrackService {
             paramTypes.add("string");
         } else if (searchMode != null && search != null && searchMode.equals("name")) {
             searchMode = "track.name";
-            queryString.append("WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE)");
+            queryString.append(
+                    "WHERE MATCH (" + searchMode + ") AGAINST (? IN BOOLEAN MODE) OR fuzzy(" + searchMode + ", ?)");
             parameters.add(StringUtil.formatFullTextSearch(search));
+            paramTypes.add("string");
+            parameters.add(search);
             paramTypes.add("string");
         } else if (searchMode != null && search != null) {
             if (searchMode.equals("release_date")) {
