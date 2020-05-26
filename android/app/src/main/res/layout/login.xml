@@ -1,0 +1,75 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+                xmlns:tools = "http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height = "match_parent" android:paddingLeft= "@dimen/activity_horizontal_margin"
+                android:paddingRight = "@dimen/activity_horizontal_margin"
+                android:paddingTop = "@dimen/activity_vertical_margin"
+                android:paddingBottom = "@dimen/activity_vertical_margin" tools:context = ".Login"
+                android:background="#252B38"
+                android:gravity="center"
+>
+
+    <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "Synesthizer"
+            android:id = "@+id/title"
+            android:layout_centerHorizontal = "true"
+            android:textColor="@android:color/white"
+            android:textSize = "35dp" />
+
+    <EditText
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:id = "@+id/username"
+            android:hint = "Username"
+            android:focusable = "true"
+            android:layout_marginTop = "46dp"
+            android:layout_below = "@+id/title"
+            android:layout_alignParentLeft = "true"
+            android:layout_alignParentStart = "true"
+            android:layout_alignParentRight = "true"
+            android:layout_alignParentEnd = "true"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+    />
+
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password"
+            android:layout_below="@+id/username"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/username"
+            android:layout_alignEnd="@+id/username"
+            android:hint="Password"
+            android:paddingBottom="16dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+    />
+    <Button
+            android:text="Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login"
+            android:layout_below="@+id/password"
+            android:textColor="@android:color/white"
+            android:background="#323A49"
+    />
+    <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/message"
+            android:layout_below="@+id/login"
+            android:layout_centerHorizontal = "true"
+            android:textSize = "25dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+    />
+
+</RelativeLayout>

@@ -1,0 +1,180 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml">
+<head>
+<title>UdfDoc - Chen Li -- Group - Trac</title>
+<style type="text/css">
+           @import url(media/trac.css);
+          </style>
+</head>
+<body>
+<p>
+<a href="index.html">Back to Index</a>
+</p>
+<hr/>
+<div class="wikipage">
+<div id="searchable">
+<div class="wiki-toc">
+<ol>
+<li>
+<a href="#UDFDocumentation" shape="rect">UDF Documentation</a>
+<ol>
+<li>
+<a href="#Compatibility" shape="rect">Compatibility</a>
+</li>
+<li>
+<a href="#MySQL" shape="rect">MySQL</a>
+<ol>
+<li>
+<a href="#EditDistance" shape="rect">Edit Distance</a>
+</li>
+<li>
+<a href="#CompilationandInstallation" shape="rect">Compilation and
+Installation</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="#Contributors" shape="rect">Contributors</a>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<h1 id="UDFDocumentation">UDF Documentation</h1>
+<p>This document describes the use of the <a class="ext-link" href="http://en.wikipedia.org/wiki/User_Defined_Function" shape="rect">
+<span class="icon">User Defined Functions</span>
+</a> (UDF) provided in the
+Flamingo Toolkit.</p>
+<h2 id="Compatibility">Compatibility</h2>
+<p>The code has been tested on <a class="ext-link" href="http://www.ubuntu.com/" shape="rect">
+<span class="icon">Ubuntu 8.04
+LTS</span>
+</a>.</p>
+<h2 id="MySQL">MySQL</h2>
+<p>The UDFs discussed bellow are provided for the <a class="ext-link" href="http://mysql.com/" shape="rect">
+<span class="icon">MySQL</span>
+</a> database software.</p>
+<h3 id="EditDistance">Edit Distance</h3>
+<p>The module provides the implementation of three UDF functions
+based on edit distance (aka <a class="ext-link" href="http://en.wikipedia.org/wiki/Levenstein_Distance" shape="rect">
+<span class="icon">Levenshtein distance</span>
+</a>) function:</p>
+<ul>
+<li>
+<strong>
+<tt>ed</tt>
+</strong>: <tt>integer ed(string s1, string
+s1)</tt>: returns the edit distance between <tt>s1</tt> and
+<tt>s2</tt>. The function assumes that the strings have the same
+case (i.e., both strings are lower case or both are upper
+case).</li>
+<li>
+<strong>
+<tt>edth</tt>
+</strong>: <tt>boolean edth(string s1,
+string s1, integer th)</tt>: returns true if the edit distance
+between <tt>s1</tt> and <tt>s2</tt> is smaller or equal than
+<tt>th</tt>. This function might be slightly faster than
+<tt>ed</tt> as it can stop as soon as the edit distance goes above
+the threshold. The function assumes that the strings have the same
+case (i.e., both strings are lower case or both are upper
+case).</li>
+<li>
+<strong>
+<tt>edrec</tt>
+</strong>: <tt>boolean edrec(string s,
+string rec, integer th)</tt>: returns true if there is a token in
+<tt>rec</tt> that has an edit distance from <tt>s</tt> smaller or
+equal to <tt>th</tt>. The string in <tt>rec</tt> is tokenized using
+the following separators: " " (white space), "," (comma), and "."
+(dot). The function assumes that the query string is in lower
+case.</li>
+</ul>
+<p>Bellow there is one SQL examples for each function:</p>
+<pre class="wiki" xml:space="preserve">
+mysql&gt; SELECT ed('abc', 'ad');
+2
+mysql&gt; SELECT edth('abc', 'abcd', 1);
+1
+mysql&gt; SELECT edrec('ab', 'xx ad xx', 1);
+1
+</pre>
+<p>The boolean values are returned as 0 and 1.</p>
+<p>The implementations are in C language and are according to the
+UDF specifications for the MySQL database software. Each function
+is defined in a separate file called
+<i>
+<tt>function_name</tt>
+</i>
+<tt>.c</tt>. Besides the actual
+functions there are additional helper functions defined (some of
+them required by the MySQL UDF specification). For each function
+there is an <i>
+<tt>function_name</tt>
+</i>
+<tt>.sql</tt> file which
+shows how to <i>CREATE</i> and <i>DROP</i> the function from MySQL
+and plenty of examples of using that function.</p>
+<h3 id="CompilationandInstallation">Compilation and
+Installation</h3>
+<p>The following packages are needed for compiling the code: gcc,
+make, mysql-server, and libmysqlclient-dev. They can be installed
+using:</p>
+<pre class="wiki" xml:space="preserve">
+&gt; sudo apt-get install gcc make mysql-server libmysqlclient-dev
+</pre>
+<p>A <a class="ext-link" href="http://en.wikipedia.org/wiki/Makefile" shape="rect">
+<span class="icon">Makefile</span>
+</a> is provided for compiling and testing
+the code. To compile the code do the following:</p>
+<pre class="wiki" xml:space="preserve">
+&gt; cd toolkit/src/udf/mysql/ed
+toolkit/src/udf/mysql/ed&gt; make
+gcc -Wall -O3 -I/usr/include/mysql -shared -o libed.so ed.c
+gcc -Wall -O3 -I/usr/include/mysql -shared -o libedth.so edth.c
+gcc -Wall -O3 -I/usr/include/mysql -shared -o libedrec.so edrec.c
+toolkit/src/udf/mysql/ed&gt;
+</pre>
+<p>The Makefile creates a shared library file for each function.
+Now the libraries need to be copied in <tt>/usr/lib/mysql/plugin/</tt> so that
+MySQL sees then and MySQL needs to be restarted:</p>
+<pre class="wiki" xml:space="preserve">
+toolkit/src/udf/mysql/ed&gt; sudo cp libed*.so /usr/lib/mysql/plugin/
+toolkit/src/udf/mysql/ed&gt; sudo /etc/init.d/mysql restart
+ * Stopping MySQL database server mysqld                                 [ OK ] 
+ * Starting MySQL database server mysqld                                 [ OK ] 
+ * Checking for corrupt, not cleanly closed and upgrade needing tables.
+</pre>
+<p>Now we can add the functions to MySQL and test them. To do that
+we can connect to MySQL and Copy-and-Paste the SQL statements
+provided for each function in their respective <tt>.sql</tt> file.
+Alternatively, we can use:</p>
+<pre class="wiki" xml:space="preserve">
+toolkit/src/udf/mysql/ed&gt; make test
+cat ed.sql edth.sql edrec.sql | mysql --database=mysql --password
+Enter password:
+</pre>
+<p>By default we can type ENTER when prompted for MySQL password.
+In case the current user is not a valid MySQL user or it does not
+have privileges to install UDFs, you can add <tt>--user=root</tt>
+to the <tt>mysql</tt> line and provide the MySQL root password. The
+output will show what function was called, which parameters were
+used, and, on the next line, the returned value of the
+function.</p>
+<p>For more details about the UDFs in MySQL see <a class="ext-link" href="http://dev.mysql.com/doc/refman/5.0/en/adding-functions.html" shape="rect">
+<span class="icon">
+MySQL Manual - 20.2. Adding New Functions to MySQL</span>
+</a>.</p>
+<h2 id="Contributors">Contributors</h2>
+<ul>
+<li>Rares Vernica</li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<hr/>
+<p>
+<a href="index.html">Back to Index</a>
+</p>
+</div>
+</body>
+</html>

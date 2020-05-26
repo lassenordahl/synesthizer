@@ -1,0 +1,19 @@
+Table Counts Post XML Parsing
+
+
+SELECT COUNT(*) FROM track;
+26481
+SELECT COUNT(*) FROM track_meta;
+26407
+SELECT COUNT(*) FROM album;
+11222
+SELECT COUNT(*) FROM track_in_album;
+25729
+SELECT COUNT(*) FROM artist;
+5149
+SELECT COUNT(*) FROM artist_in_track;
+29310
+SELECT COUNT(*) FROM artist_in_album;
+11859
+COUNT(*)SELECT COUNT(*) FROM artist_in_genre;
+17963

@@ -1,0 +1,942 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.cs122b.team53:songs >-----------------------
+[INFO] Building songs 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ songs ---
+--------------------------------------------
+-------------------Parsing------------------
+--------------------------------------------
+
+[Duplicate] -Artist- id: 3r1XkJ7vCs8kHBSzGvPLdP name: slowthai image: https://i.scdn.co/image/a727573581735ae57f000d38a3239cf1f0f666f3
+[Duplicate] -Artist- id: 3vbKDsSS70ZX9D2OcvbZmS name: Beck image: https://i.scdn.co/image/6a94cd813eaa96d2fc83cb178b010449251b2cfa
+[Duplicate] -Artist- id: 2iE18Oxc8YSumAU232n4rW name: The Jackson 5 image: https://i.scdn.co/image/19f768d93f6c80f7d4ca5b906e1c0376a3704389
+[Duplicate] -Artist- id: 7rewR1TVjhisjI6gauUamf name: The Crystals image: https://i.scdn.co/image/ce8e36caccc0fe528b69eae944e3a200ff46a788
+[Duplicate] -Artist- id: 1aSxMhuvixZ8h9dK9jIDwL name: Kate Bush image: https://i.scdn.co/image/3b2db6840f31b367518f97b1a5d6bea653ea56ae
+[Duplicate] -Artist- id: 3wyVrVrFCkukjdVIdirGVY name: Lil Pump image: https://i.scdn.co/image/aafa5a282b9af40a1a683c8fc20af99d7cd9fbdd
+[Duplicate] -Artist- id: 0C0XlULifJtAgn6ZNCW2eu name: The Killers image: https://i.scdn.co/image/c85f1ea9f92dc0cc43965a0c727c4a1cdd1c2540
+[Duplicate] -Artist- id: 1iNqsUDUraNWrj00bqssQG name: Dreamville image: https://i.scdn.co/image/a18511aae6029596c9dfca3b9d38fb8383386d0e
+[Duplicate] -Artist- id: 4K9OTkRXEFL6NDXFTqVmq9 name: Elina image: https://i.scdn.co/image/66bc2ed4edc374c9c8d2876ac47fff68ae17a87f
+[Duplicate] -Artist- id: 6Sa4YbwEdGlfVSJMF1Lp67 name: Roy Blair image: https://i.scdn.co/image/14d5680992929457853e278eb43643c50f31c8f0
+[Duplicate] -Artist- id: 6i392l38cR3uBPF0DbNs7S name: Quality Control image: https://i.scdn.co/image/3b35185826b88db643ad2221efcfb10fc8b9645f
+[Duplicate] -Artist- id: 2kQnsbKnIiMahOetwlfcaS name: Raveena image: https://i.scdn.co/image/80c33d60eb7ecb82913b04bec9c6038994724dd1
+[Duplicate] -Artist- id: 0iEtIxbK0KxaSlF7G42ZOp name: Metro Boomin image: https://i.scdn.co/image/8986705c72b71411c261c0f9eb65b6a2c04cfe90
+[Duplicate] -Artist- id: 6oMuImdp5ZcFhWP0ESe6mG name: Migos image: https://i.scdn.co/image/32aabfa226518266c1af603267e4405edd8c9c2d
+[Duplicate] -Artist- id: 2IvkS5MXK0vPGnwyJsrEyV name: Eric Church image: https://i.scdn.co/image/f052d17f87d18447b42ddf9c31b8721461c30d44
+[Duplicate] -Artist- id: 03r4iKL2g2442PT9n2UKsx name: Beastie Boys image: https://i.scdn.co/image/705bcd56dc5dbf9ebc578a3ba8094e6d622862c2
+[Duplicate] -Artist- id: 3fmMaLC5jjf2N4EC2kTx0u name: Hermitude image: https://i.scdn.co/image/254bffe84c27e92a2044e28b80976d35b2ed145f
+[Duplicate] -Artist- id: 3MZsBdqDrRTJihTHQrO6Dq name: Joji image: https://i.scdn.co/image/e34cd7fa36d1be67204f5bd83a8a0ef09bd89a7d
+[Duplicate] -Artist- id: 2hWs22BmQkK4czFtDLnar2 name: Rob $tone image: https://i.scdn.co/image/3fd81e5b6f20a61623f72f301754b236aa16a07c
+[Duplicate] -Artist- id: 1xU878Z1QtBldR7ru9owdU name: Phoenix image: https://i.scdn.co/image/4547d3204aad5959d55d8cc73ddcedfef4865671
+[Duplicate] -Artist- id: 7n2wHs1TKAczGzO7Dd2rGr name: Shawn Mendes image: https://i.scdn.co/image/6bd59cfbd3e1e6394af710bddcd62999aae31c6f
+[Duplicate] -Artist- id: 5UaAbLKpBsJ9gh7FthqfW5 name: OTHERLiiNE image: https://i.scdn.co/image/ab67616d0000b2738296c6b17a79d938123cbb2b
+[Duplicate] -Artist- id: 3v4feUQnU3VEUqFrjmtekL name: Faces image: https://i.scdn.co/image/016b5ccee6aae8ff1701a3ba8ff183161a51f504
+[Duplicate] -Artist- id: 14gSyhJmT6Vl9e4vJCxF5J name: 12dust image: https://i.scdn.co/image/ab67616d0000b2731e7f5ad5c0d9a993ff77185e
+[Duplicate] -Artist- id: 0hDjKSKjl1DC7ovYTDJHe8 name: Bruno Major image: https://i.scdn.co/image/48cd2786eb17683c880f4a5f1b72d6084492bff9
+[Missing Data] -Artist- id: 7cHhV0SW05Govc7bmy5UtS name: Sidney Bechet/Fernand Bonifay/Maria Bua image: null
+[Duplicate] -Artist- id: 0Ttph0pOZiPNTD3y2wUUb6 name: Shanice image: https://i.scdn.co/image/6f04253704c08e9fb0b7681bdac688bb8d0f077d
+[Duplicate] -Artist- id: 3MCjwjfIor5FkK3h639qkW name: Rufus image: https://i.scdn.co/image/4a36e06de8d3b2378a1e614fa610a6795008bf5a
+[Duplicate] -Artist- id: 3pFCERyEiP5xeN2EsPXhjI name: Joe Cocker image: https://i.scdn.co/image/ee38cfbef7a14bad2ecb0631f73d5b703cf0d35d
+[Duplicate] -Artist- id: 0bBrsS9ufPAmeFQgDNG54O name: cehryl image: https://i.scdn.co/image/6d7d43f58ddec0abfa01d4fe559b17858365b9ea
+[Duplicate] -Artist- id: 2i1IdHG5w0wiSmJGoqAGlj name: Minnie Riperton image: https://i.scdn.co/image/80230921f3d0c8bd777b39133506f3e103317539
+[Duplicate] -Artist- id: 6LuN9FCkKOj5PcnpouEgny name: Khalid image: https://i.scdn.co/image/05da6a798c59e8ab7102d77c8deb79d67a1360ed
+[Duplicate] -Artist- id: 6nxWCVXbOlEVRexSbLsTer name: Flume image: https://i.scdn.co/image/0436e3871c9f88b8f83559a70fd8d2f22cb3fd01
+[Duplicate] -Artist- id: 2Sqr0DXoaYABbjBo9HaMkM name: Sara Bareilles image: https://i.scdn.co/image/333d1b33bafec00016243092cf24de4847c25291
+[Duplicate] -Artist- id: 2qFr8w5sWUITRlzZ9kZotF name: Jefferson Airplane image: https://i.scdn.co/image/a9ae31801b767795dd3060e5529478e534b02c16
+[Duplicate] -Artist- id: 5aIqB5nVVvmFsvSdExz408 name: Johann Sebastian Bach image: https://i.scdn.co/image/a2ec08fe69ecec2748fbc764aede8f1b03ae8f88
+[Duplicate] -Artist- id: 4lC8Q0azW5ij2e1skZo377 name: Stonebank image: https://i.scdn.co/image/ff9b9b72bba15d48b8cfd7d4c398df49091dfdf0
+[Duplicate] -Artist- id: 62GnBjssWSXBlKvQohT2Bk name: The Chordettes image: https://i.scdn.co/image/ab67616d0000b2731286af266e9e7452eec6cc57
+[Duplicate] -Artist- id: 0QJIPDAEDILuo8AIq3pMuU name: M.I.A. image: https://i.scdn.co/image/31ef1aaf80f623deaeda9c8d5a4074b7f8b34516
+[Duplicate] -Artist- id: 19ra5tSw0tWufvUp8GotLo name: George Michael image: https://i.scdn.co/image/3c6625e90191fcdffadb0ff5c613f4662a2e4b82
+[Duplicate] -Artist- id: 47zz7sob9NUcODy0BTDvKx name: Sade image: https://i.scdn.co/image/91c07d86986b1dc3ee7bf900a62b55260c070951
+[Duplicate] -Artist- id: 1Cs0zKBU1kc0i8ypK3B9ai name: David Guetta image: https://i.scdn.co/image/3a8476a71714e7718a41a1157c40f93abb8cc750
+[Duplicate] -Artist- id: 6Ha4aES39QiVjR0L2lwuwq name: Yo Gotti image: https://i.scdn.co/image/0e1015748e671a4e4568d2a34313d8cdaddabce7
+[Duplicate] -Artist- id: 2pdvghEHZJtgSXZ7cvNLou name: Crosby, Stills & Nash image: https://i.scdn.co/image/b9c086901cca94cab20e8fcdc35bd79c7b39526a
+[Duplicate] -Artist- id: 4NJhFmfw43RLBLjQvxDuRS name: Wolfgang Amadeus Mozart image: https://i.scdn.co/image/46b70854d3c80da2c247267866fadb0e7c3839d2
+[Duplicate] -Artist- id: 61UT1Zj9dFgPAjZfwnsqsb name: Teena Marie image: https://i.scdn.co/image/a9b9bec541637d4391f0f418c16354d60781d18a
+[Duplicate] -Artist- id: 6icQOAFXDZKsumw3YXyusw name: Lil Yachty image: https://i.scdn.co/image/3d778ad69828b36218507721f3dc24e58cc2c8ee
+[Missing Data] -Artist- id: 4ReGa958KkarPY33MqU6Y4 name: 坂本洋子 image: null
+[Duplicate] -Artist- id: 52MMXmgPC7kDNIYUxCeh8d name: Becky and the Birds image: https://i.scdn.co/image/cebb15ae9277875801d69ac2e84b0ca5d19e77fd
+[Duplicate] -Artist- id: 34Y0ldeyUv7jBvukWOGASO name: Bobby Shmurda image: https://i.scdn.co/image/5317e07d7271035084c02bc5aed5a3293e44f1df
+[Duplicate] -Artist- id: 3jK9MiCrA42lLAdMGUZpwa name: Anderson .Paak image: https://i.scdn.co/image/4f7b3e759d12f5c996f07b6b9d082ff35ced0031
+[Duplicate] -Artist- id: 2JSjCHK79gdaiPWdKiNUNp name: Dionne Warwick image: https://i.scdn.co/image/8a08468bbe0df0e93b4f5b97d10ffa8bca962602
+[Duplicate] -Artist- id: 5EvFsr3kj42KNv97ZEnqij name: Shaggy image: https://i.scdn.co/image/32372372c13368e205dd625930d2bc02c143c666
+[Duplicate] -Artist- id: 4frXpPxQQZwbCu3eTGnZEw name: Thundercat image: https://i.scdn.co/image/2de0565d544c3cbdd2517b724930bb0dcee6a1c8
+[Duplicate] -Artist- id: 73sIBHcqh3Z3NyqHKZ7FOL name: Childish Gambino image: https://i.scdn.co/image/2e1d974c14fb66eb5050bf3526c84c4f6e2f47ae
+[Duplicate] -Artist- id: 4QAp87iZerUP9PKxtLhmW1 name: Oliver Nelson image: https://i.scdn.co/image/7610cd1827cd86220ff42a01e179c6c487d57005
+[Duplicate] -Artist- id: 5uLkZ7FWMTBUg1corQqdkR name: Lund image: https://i.scdn.co/image/fcafb883dd97b4dde3148882446f609e54640b89
+[Duplicate] -Artist- id: 0a1gHP0HAqALbEyxaD5Ngn name: Rascal Flatts image: https://i.scdn.co/image/0e1a0ac507aba697f5562bd772ca1d411cbb31dc
+[Duplicate] -Artist- id: 2kucQ9jQwuD8jWdtR9Ef38 name: Sam Hunt image: https://i.scdn.co/image/27cbfa04b239981387f38375e542eef2058f3d21
+[Duplicate] -Artist- id: 28COj84KB3mitRVXZkNW4N name: Rand Aldo image: https://i.scdn.co/image/085fba48c2472dc861036e4d57918d19c4db639b
+[Duplicate] -Artist- id: 0Lpr5wXzWLtDWm1SjNbpPb name: Todd Rundgren image: https://i.scdn.co/image/8d470f070465fe4cdc07c98f64809b49769dd1b8
+[Duplicate] -Artist- id: 6JA76EJW25d9MGVwGCmX1z name: Evan Michael Brown image: https://i.scdn.co/image/212942def059b9f85568e00a01cdc97ea54fe30e
+[Duplicate] -Artist- id: 79hrYiudVcFyyxyJW0ipTy name: The Paper Kites image: https://i.scdn.co/image/6a7975931d596a13d263b8b5d65832a2b9d5afde
+[Duplicate] -Artist- id: 5dHt1vcEm9qb8fCyLcB3HL name: A$AP Ferg image: https://i.scdn.co/image/ea08ae0c9e60a0a416f18b02b35bb6591f62d171
+[Duplicate] -Artist- id: 1i8SpTcr7yvPOmcqrbnVXY name: Ozuna image: https://i.scdn.co/image/eb96dd68df597004997e541278651eda54bcc00d
+[Duplicate] -Artist- id: 5aYyPjAsLj7UzANzdupwnS name: Good Charlotte image: https://i.scdn.co/image/38af2109756d003c2882238f701a015f0c935e32
+[Duplicate] -Artist- id: 6xrCU6zdcSTsG2hLrojpmI name: José González image: https://i.scdn.co/image/1c5b835d83fb7451c409afba6867d069a8acf596
+[Duplicate] -Artist- id: 6y5amJcTjeDgLXIjtQLMst name: SAYGRACE image: https://i.scdn.co/image/6c69a1ffb376fb07adfd3ac81bd32d4f716a1421
+[Duplicate] -Artist- id: 4iMO20EPodreIaEl8qW66y name: Still Woozy image: https://i.scdn.co/image/86c32e84aab6272165902fdb2752ba0f99b26591
+[Duplicate] -Artist- id: 70cRZdQywnSFp9pnc2WTCE name: Simon & Garfunkel image: https://i.scdn.co/image/afde2fdd14f8c8ca23393f257e3a369a234a24b6
+[Duplicate] -Artist- id: 1CoZyIx7UvdxT5c8UkMzHd name: Jorja Smith image: https://i.scdn.co/image/a781161f9e412f54e7b2a9d2fdc07a32cb75b42b
+[Duplicate] -Artist- id: 436sYg6CZhNefQJogaXeK0 name: Camille Saint-Saëns image: https://i.scdn.co/image/f565d81f8dcfdec438207f6d8b34689f3489232a
+[Duplicate] -Artist- id: 05YVYeV4HxYp5rrWalvuE1 name: Grover Washington, Jr. image: https://i.scdn.co/image/40f39e48362c76c3c794a28466922e0f405d7b4a
+[Duplicate] -Artist- id: 7A8S43ryYdbWpJKeHRZRcq name: JACKBOYS image: https://i.scdn.co/image/6ff70bad6cce3e82af9d6ad0c18734cbb53ede85
+[Duplicate] -Artist- id: 6u11Qbko2N2hP4lTBYjX86 name: Peter Bjorn and John image: https://i.scdn.co/image/be95574b5ff5e3789d7e8d1eefc21235245ae574
+[Duplicate] -Artist- id: 31TPClRtHm23RisEBtV3X7 name: Justin Timberlake image: https://i.scdn.co/image/5b73ff32952c810c98bd5fbe8860ca99414ad6aa
+[Duplicate] -Artist- id: 6aq8T2RcspxVOGgMrTzjWc name: Soft Cell image: https://i.scdn.co/image/26ca8bc7a913fa1702eb4b3a734041eeaf9f0552
+[Duplicate] -Artist- id: 4j56EQDQu5XnL7R3E9iFJT name: Young the Giant image: https://i.scdn.co/image/5754aa3578199f83f26fbede03c923f937a9b525
+[Duplicate] -Artist- id: 5Pwc4xIPtQLFEnJriah9YJ name: OneRepublic image: https://i.scdn.co/image/5d3c1ba4fe1c8bf44591864e725d7b0f98e46755
+[Duplicate] -Artist- id: 1385hLNbrnbCJGokfH2ac2 name: Franz Liszt image: https://i.scdn.co/image/9ec531e3712e68c72ae3cf06f17e4055a615c4bf
+[Duplicate] -Artist- id: 6P7H3ai06vU1sGvdpBwDmE name: Steely Dan image: https://i.scdn.co/image/9d01e4e9aac39b891d684d3d1a5b3a451d7c72bd
+[Duplicate] -Artist- id: 6f4XkbvYlXMH0QgVRzW0sM name: Waka Flocka Flame image: https://i.scdn.co/image/41801ac40576d7c377c90c9fd5d20f548d7ecd1a
+[Duplicate] -Artist- id: 1Uff91EOsvd99rtAupatMP name: Claude Debussy image: https://i.scdn.co/image/5e1155c852578ddf5d2cfea94ccb3a8a65efa882
+[Duplicate] -Artist- id: 187xgSpsFH8mMbAcoCW0zE name: Billy Paul image: https://i.scdn.co/image/08bc23bb63e610d08b7ade97348930e0e2225ce3
+[Duplicate] -Artist- id: 6TLwD7HPWuiOzvXEa3oCNe name: Oliver Tree image: https://i.scdn.co/image/69f69a9999ab51bf7e732c2184268c892cc63500
+[Duplicate] -Artist- id: 7HkdQ0gt53LP4zmHsL0nap name: Ella Mai image: https://i.scdn.co/image/575a623d09d4b40a0c1e956ced7e7b0378e0e58a
+[Duplicate] -Artist- id: 3IpQziA6YwD53PQ5xbwgLF name: Jóhann Jóhannsson image: https://i.scdn.co/image/0d77c93e37174dcc8740fcfd9961cb9623aecfe1
+[Duplicate] -Artist- id: 5HNWBc46bpwk0Aa5klthkQ name: Bon Vie image: https://i.scdn.co/image/7cb6ae34a54ed914eed6d68b8164f0c293b0df85
+[Duplicate] -Artist- id: 0q8eApZJs5WDBxayY9769C name: Jeshi image: https://i.scdn.co/image/e467e59551d1ad1654a5822b89b9ba3086cd811a
+[Duplicate] -Artist- id: 7jefIIksOi1EazgRTfW2Pk name: Electric Light Orchestra image: https://i.scdn.co/image/5a5b295b9cc24c4e45b881e7ca9bcd2a05546bc0
+[Duplicate] -Artist- id: 5IDs1CK15HegSAhGEbSYXo name: Billy Ocean image: https://i.scdn.co/image/c71e40591ecd321eb8226bb16f3ca795e8e8df34
+[Duplicate] -Artist- id: 5gqhueRUZEa7VDnQt4HODp name: Nils Frahm image: https://i.scdn.co/image/7647ce1e446ff233a91f2ef5e96196109ab4f6ca
+[Duplicate] -Artist- id: 0YinUQ50QDB7ZxSCLyQ40k name: Mustard image: https://i.scdn.co/image/4dcf713a3bc309590381ecf718be7d5b1b8f0f61
+[Duplicate] -Artist- id: 5BcZ22XONcRoLhTbZRuME1 name: The Moody Blues image: https://i.scdn.co/image/8dd1f75c8acf41b509b19caf0690796ec7f410ba
+[Duplicate] -Artist- id: 6WkUZyqghQei2G809wMKuZ name: Yung Bans image: https://i.scdn.co/image/bbcb9f2b044fc9f20fc8fca4c82c2a3ced7e53f2
+[Duplicate] -Artist- id: 15iVAtD3s3FsQR4w1v6M0P name: Chief Keef image: https://i.scdn.co/image/d34c02a8afd67b8120cbdf6eefdac99e0179eec0
+[Duplicate] -Artist- id: 2NjfBq1NflQcKSeiDooVjY name: Tones And I image: https://i.scdn.co/image/182e3f8f59a51783fe181f823c56f0565198c921
+[Duplicate] -Artist- id: 7f5Zgnp2spUuuzKplmRkt7 name: Lost Frequencies image: https://i.scdn.co/image/f1939ac538352cc77c43f24db2d9ce5fa1ac0e3b
+[Duplicate] -Artist- id: 3nf2EaHj8HikLNdaiW3v73 name: Injury Reserve image: https://i.scdn.co/image/2bac654da5c4a7071c0c2eb85be4e879ec1b2b60
+[Duplicate] -Artist- id: 0W498bDDNlJIrYMKXdpLHA name: Roberta Flack image: https://i.scdn.co/image/d3b80d0493e0b44c1879fefff018b0a224d62468
+[Duplicate] -Artist- id: 55fhWPvDiMpLnE4ZzNXZyW name: Noah Cyrus image: https://i.scdn.co/image/9cf2980973fa0944032f9bc9a11f0fe57332f319
+[Duplicate] -Artist- id: 4sTQVOfp9vEMCemLw50sbu name: Galantis image: https://i.scdn.co/image/2df5fb887384d10f117938d67e09d955b7291821
+[Duplicate] -Artist- id: 1AhjOkOLkbHUfcHDSErXQs name: 88rising image: https://i.scdn.co/image/f8b4c9e52ea2c464eba15d7090b6a1ada55345be
+[Duplicate] -Artist- id: 4EukMPjtYsdi87lkU1hIxN name: Manila Killa image: https://i.scdn.co/image/0f756fbf2d9c6b2bfd0841efb24ca9983c29d98f
+[Duplicate] -Artist- id: 2NPduAUeLVsfIauhRwuft1 name: Nightwish image: https://i.scdn.co/image/8285da2750c7b65f63332ccbab00b93b0c43866c
+[Duplicate] -Artist- id: 2JyWXPbkqI5ZJa3gwqVa0c name: Craig David image: https://i.scdn.co/image/390c1cf4a6765c3f15ee6c67770c32fb62bcab0d
+[Duplicate] -Artist- id: 5ivCbtrcD5N4rD337xIb2z name: MisterWives image: https://i.scdn.co/image/8373915766338d8299cc2c049261e86d7b57ea70
+[Duplicate] -Artist- id: 1dfeR4HaWDbWqFHLkxsg1d name: Queen image: https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982
+[Duplicate] -Artist- id: 04LIHk1SobiQwt2tlupoAV name: Leo Sayer image: https://i.scdn.co/image/e3347cf1d8fc3e0ec65b86aa8ffabb738f3b015d
+[Duplicate] -Artist- id: 3dz0NnIZhtKKeXZxLOxCam name: Porter Robinson image: https://i.scdn.co/image/b35548da90adec80caae768cb6ec5a75638f9368
+[Duplicate] -Artist- id: 0Q7gK5T29pJT5TXXRdt2pP name: Kris Yute image: https://i.scdn.co/image/d7c003be675f4336f6269b39656bc5e9b37aab3a
+[Duplicate] -Artist- id: 2VZNmg4vCnew4Pavo8zDdW name: Max Richter image: https://i.scdn.co/image/53e841412764074925455282462e1cb1dfb1eae0
+[Duplicate] -Artist- id: 0bfrSmQCGtBLJMYUNCODry name: Eli Way image: https://i.scdn.co/image/8647d3b641d23029166bf870252de12b3afb3335
+[Duplicate] -Artist- id: 1vCWHaC5f2uS3yhpwWbIA6 name: Avicii image: https://i.scdn.co/image/81b19a403109c4fe528ee3972137127b85be9519
+[Duplicate] -Artist- id: 12Zk1DFhCbHY6v3xep2ZjI name: 070 Shake image: https://i.scdn.co/image/61cafbff53412524e546de0fa5c51e80631be55e
+[Duplicate] -Artist- id: 5BcAKTbp20cv7tC5VqPFoC name: Macklemore & Ryan Lewis image: https://i.scdn.co/image/aa77c545af000003e22621637813e2e7c65c4203
+[Duplicate] -Artist- id: 2kXJ68O899XvWOBdpzlXgs name: Nikolai Rimsky-Korsakov image: https://i.scdn.co/image/93e1a6107946160e8308aafd91de512cf458d443
+[Duplicate] -Artist- id: 3tJoFztHeIJkJWMrx0td2f name: Moneybagg Yo image: https://i.scdn.co/image/4310cff807dc0bd66a1753c366c02c1eeb4c64ba
+[Duplicate] -Artist- id: 7daSp9zXk1dmqNxwKFkL35 name: Kupla image: https://i.scdn.co/image/2b3ed8ef6fa77e3924f76cbcbe66f7d926f85162
+[Duplicate] -Artist- id: 1bj5GrcLom5gZFF5t949Xl name: Martin Solveig image: https://i.scdn.co/image/da3f8c4933a8ec02db2d97546660a12059cacded
+[Duplicate] -Artist- id: 2yrbLiuBmc9j81lTX3XUuI name: The Jacksons image: https://i.scdn.co/image/f322b7ce89cc321a00f926af0104418351f58800
+[Duplicate] -Artist- id: 1PCZpxHJz7WAMF8EEq8bfc name: The Byrds image: https://i.scdn.co/image/f1cf7faba3223b4be7a0734f7c5cccaa39630570
+[Duplicate] -Artist- id: 6ogn9necmbUdCppmNnGOdi name: Alanis Morissette image: https://i.scdn.co/image/ab6772690000c46ce8cb0dc811f7064ac07180ae
+[Duplicate] -Artist- id: 776Uo845nYHJpNaStv1Ds4 name: Jimi Hendrix image: https://i.scdn.co/image/14ce65949a921e76421a0164c17f9ebe0a8d76e8
+[Missing Data] -Artist- id: 3MkGbWOM7lb49LNZViHwxG name: Mavis John image: null
+[Duplicate] -Artist- id: 3K2Srho6NCF3o9MswGR76H name: Bakar image: https://i.scdn.co/image/c237be6781d7a532191419a72a21df677d113ead
+[Duplicate] -Artist- id: 2y8Jo9CKhJvtfeKOsYzRdT name: Rod Stewart image: https://i.scdn.co/image/3ca37b557da4d1d62000919ee1cac217894ca7f1
+[Duplicate] -Artist- id: 73eAAfRkS2Vi4hx68oTJJE name: John K image: https://i.scdn.co/image/ca1fac130f365aaa122f04629de676a694698595
+[Duplicate] -Artist- id: 6dn6x1XOng3LOAnfTjUn77 name: AJ Mitchell image: https://i.scdn.co/image/02b7ef87a372767bfc2625c07a355c1e2c3f89b1
+[Duplicate] -Artist- id: 1tqZaCwM57UFKjWoYwMLrw name: The Cardigans image: https://i.scdn.co/image/6b0b8b24424033aac921f37c51917d8533622613
+[Duplicate] -Artist- id: 0oSGxfWSnnOXhD2fKuz2Gy name: David Bowie image: https://i.scdn.co/image/0dfa45563119fd98226ec0d5cd35a80473502469
+[Duplicate] -Artist- id: 3We2SFbH59mXg6D42TPhWJ name: Lama House image: https://i.scdn.co/image/ab67616d0000b27311bf55982f35749fbb0a2e5f
+[Duplicate] -Artist- id: 6CwfuxIqcltXDGjfZsMd9A name: MARINA image: https://i.scdn.co/image/7c46de40f1ff014f4224344025bd453237e28b48
+[Duplicate] -Artist- id: 2RmEoDzAVo3AKLolGZ1Uss name: Spirits Of Our Dreams image: https://i.scdn.co/image/ab67616d0000b2736b06b0b7df73d95e5dc31ced
+[Duplicate] -Artist- id: 0Kekt6CKSo0m5mivKcoH51 name: Sergei Rachmaninoff image: https://i.scdn.co/image/463e3c5c3e814761532f554913cf2af456bcba59
+[Duplicate] -Artist- id: 7eCmccnRwPmRnWPw61x6jM name: SHY Martin image: https://i.scdn.co/image/42d72b68d646c86d2ad2c8f4072ba15e0f1c3bdb
+[Duplicate] -Artist- id: 2gClsBep1tt1rv1CN210SO name: Gabriel Fauré image: https://i.scdn.co/image/965d539c15af1d86ec4875f05ec21d32414c3e64
+[Duplicate] -Artist- id: 6O4EGCCb6DoIiR6B1QCQgp name: Toro y Moi image: https://i.scdn.co/image/c1f1235e25a75f9f575c448cfe9240a88ffa96e5
+[Duplicate] -Artist- id: 3ScY9CQxNLQei8Umvpx5g6 name: Fat Joe image: https://i.scdn.co/image/43b2c59d9442d43ab76577226b399000239ada51
+[Duplicate] -Artist- id: 0gxyHStUsqpMadRV0Di1Qt name: Rick Astley image: https://i.scdn.co/image/123732b665ec9be0bc8d0d55283aa2ba579304d5
+[Duplicate] -Artist- id: 5borNkYeud0HRvJWIdG3aM name: Paul Dennehy image: https://i.scdn.co/image/ab67616d0000b273985aa25af1826d809572c821
+[Duplicate] -Artist- id: 4iiQabGKtS2RtTKpVkrVTw name: Smallpools image: https://i.scdn.co/image/9326311a6724852f8698be794288f54434354a02
+[Duplicate] -Artist- id: 7gZfnEnfiaHzxARJ2LeXrf name: 6ix9ine image: https://i.scdn.co/image/cb2fa696eab4e8295ed211d1a051027145afa10a
+[Duplicate] -Artist- id: 2EMAnMvWE2eb56ToJVfCWs name: Bryson Tiller image: https://i.scdn.co/image/17cb13828da84ff2e33f86b6984dab07b7ae66b6
+[Duplicate] -Artist- id: 5iNrZmtVMtYev5M9yoWpEq name: Seeb image: https://i.scdn.co/image/81e1943fcc841b32618a0a992303aafb9b7c16be
+[Duplicate] -Artist- id: 3RMHexittaAZkf8zukkZB8 name: Trevor Hall image: https://i.scdn.co/image/be7dbee57b5061bf04939f490b0626634559d3fd
+[Duplicate] -Artist- id: 2WzaAvm2bBCf4pEhyuDgCY name: Ruth B. image: https://i.scdn.co/image/f23154cc88248a5d6308e2276097b2a7ab18b375
+[Duplicate] -Artist- id: 5MX2l6ewjOaeWn1lYNhzlO name: Bobby Vee image: https://i.scdn.co/image/b7b3441a818ee3b20644e656b721b7fc251e7744
+[Missing Data] -Artist- id: 0jm1mMtcfq0OAUbzy9egqE name: Direct Drive image: null
+[Duplicate] -Artist- id: 6eJa3zG1QZLRB3xgRuyxbm name: Dayglow image: https://i.scdn.co/image/36caf53da2055842b061c5481e5f9580fab3543e
+[Duplicate] -Artist- id: 2eogQKWWoohI3BSnoG7E2U name: Donna Summer image: https://i.scdn.co/image/34c3513ef98084a71829f6b93ac04ce0aa66b07d
+[Duplicate] -Artist- id: 0UZ1nu3kcdNlCoiKRjmSSY name: Peking Duk image: https://i.scdn.co/image/cfb9226d48f19026c4066894bb14fc14c5b32178
+[Duplicate] -Artist- id: 3TVXtAsR1Inumwj472S9r4 name: Drake image: https://i.scdn.co/image/60cfab40c6bb160a1906be45276829d430058005
+[Duplicate] -Artist- id: 6pSQcy8935ABNiK2qOpOlK name: Lambert image: https://i.scdn.co/image/b5a6889ee71f952baf17d057b19af57c4f50ed10
+[Duplicate] -Artist- id: 2FXC3k01G6Gw61bmprjgqS name: Hozier image: https://i.scdn.co/image/2e4114631a20bd71903bc335b88f872afdce9a33
+[Duplicate] -Artist- id: 0BvkDsjIUla7X0k6CSWh1I name: Luke Bryan image: https://i.scdn.co/image/7d0807400f9076bd4c16d05ccec24c4ae1675e16
+[Duplicate] -Artist- id: 5qRSs6mvI17zrkJpOHkCoM name: iKON image: https://i.scdn.co/image/4959e1b95f946705d2b695c99d76173f186b1258
+[Duplicate] -Artist- id: 2wUjUUtkb5lvLKcGKsKqsR name: Alessia Cara image: https://i.scdn.co/image/56dcc0e8f919ea86b139b4ccd084439e10a8704e
+[Duplicate] -Artist- id: 4oUHIQIBe0LHzYfvXNW4QM name: Morgan Wallen image: https://i.scdn.co/image/283d70b5ad864786e52fbe6e59a28ff8a533d7e3
+[Duplicate] -Artist- id: 1qDDkysTxJvFandHwP9CMx name: Noah Schnacky image: https://i.scdn.co/image/42d4ad7ca30e1249f8ad158103ed5940e27924d7
+[Duplicate] -Artist- id: 7o95ZoZt5ZYn31e9z1Hc0a name: Natasha Bedingfield image: https://i.scdn.co/image/980befa9b0f49cfdf4eb9a4b891039d26a35afda
+[Duplicate] -Artist- id: 29WzbAQtDnBJF09es0uddn name: Corinne Bailey Rae image: https://i.scdn.co/image/914ae1ce7fb065cfb0c89794e5e41c6eca758df3
+[Duplicate] -Artist- id: 0WOxhx4hikIsyF3CRPLC8W name: Famous Dex image: https://i.scdn.co/image/e5a6d1f14768080849db378c2f074e73ee7f8145
+[Missing Data] -Artist- id: 2LpjQ4zxDJVN5ec3mm9Dwm name: The Hollywood Symphony image: null
+[Duplicate] -Artist- id: 6l3HvQ5sa6mXTsMTB19rO5 name: J. Cole image: https://i.scdn.co/image/1e9eeefb2c94579150fc37916e8319b975ec8a52
+[Duplicate] -Artist- id: 6qqNVTkY8uBg9cP3Jd7DAH name: Billie Eilish image: https://i.scdn.co/image/2622edec99d68d1d141886be593c88cbe509f6d8
+[Duplicate] -Artist- id: 5tTsrGPwQRWUsHR2Xf7Ke9 name: Natalie Cole image: https://i.scdn.co/image/a3201f2fbdfa1bfd894e509bd3fbf3faf7da0a00
+[Duplicate] -Artist- id: 5ypxebeHEIXjMtJb17uJlI name: Jet image: https://i.scdn.co/image/94f3f0804a447559866696493de025a5e6a79d02
+[Duplicate] -Artist- id: 3ycxRkcZ67ALN3GQJ57Vig name: Masego image: https://i.scdn.co/image/9c05def932129f13e864c25805995eae69c22f63
+[Duplicate] -Artist- id: 3mIj9lX2MWuHmhNCA7LSCW name: The 1975 image: https://i.scdn.co/image/94dd2feca73bdfb7e1c12751b499ec0a46024866
+[Duplicate] -Artist- id: 5fMUXHkw8R8eOP2RNVYEZX name: Diplo image: https://i.scdn.co/image/f6bfca4361dea3a63d73a7134bfed185efceef5c
+[Duplicate] -Artist- id: 7sOR7gk6XUlGnxj3p9F54k name: half•alive image: https://i.scdn.co/image/5d2e7c6fb3307e37ac7faea44f12f3dbe505ac87
+[Duplicate] -Artist- id: 6TeBxtluBMQixZcKkJ3ZrB name: HM Surf image: https://i.scdn.co/image/5af650f95d5c94d8618e027aea49becc14dba41b
+[Duplicate] -Artist- id: 5MouCg6ta7zAxsfMEbc1uh name: OMI image: https://i.scdn.co/image/2777a98213ec412317ea177edc8615e2fdee8be5
+[Duplicate] -Artist- id: 20JZFwl6HVl6yg8a4H3ZqK name: Panic! At The Disco image: https://i.scdn.co/image/58518a04cdd1f20a24cf0545838f3a7b775f8080
+[Duplicate] -Artist- id: 5jLbQGcvxehi2Z6qkUP9Rh name: zack villere image: https://i.scdn.co/image/d7e260220edf7b22d45adc2d9dda4bbd8bb41502
+[Duplicate] -Artist- id: 1vkJFCwstOoJO7yQ4lTtLK name: Paris Hilton image: https://i.scdn.co/image/9bee01e23e359043891d152ce99e7994d3316a7b
+[Missing Data] -Artist- id: 5902rskmjElGFGpd3xOhdk name: Camille image: null
+[Duplicate] -Artist- id: 0GM7qgcRCORpGnfcN2tCiB name: Tainy image: https://i.scdn.co/image/0b541d6015aa1a78adc8aee5e1760bff32ea8fdf
+[Duplicate] -Artist- id: 2seiab24QmTzU4XTr1rjhV name: Isobel Belano image: https://i.scdn.co/image/ab67616d0000b27372a636758317d617367b467d
+[Duplicate] -Artist- id: 6PAt558ZEZl0DmdXlnjMgD name: Eric Clapton image: https://i.scdn.co/image/4848283fa07f0846bd312fa9d49dae7ef6da3fff
+[Duplicate] -Artist- id: 2fg5h5pzleqI4RjFopWroj name: Georg Philipp Telemann image: https://i.scdn.co/image/1bfb64dffe1596f4efda1384007d15338e255446
+[Duplicate] -Artist- id: 3eqjTLE0HfPfh78zjh6TqT name: Bruce Springsteen image: https://i.scdn.co/image/3c09e1a1dfefa33f99b78b1ce09024656c394b76
+[Duplicate] -Artist- id: 4GITZM5LCR2KcdlgEOrNLD name: The Foundations image: https://i.scdn.co/image/ab67616d0000b27331b91c19af54c58c86d331fb
+[Duplicate] -Artist- id: 1GAS0rb4L8VTPvizAx2O9J name: Atmosphere image: https://i.scdn.co/image/407284c308c6f06f3e58756038940ea961c44a4f
+[Duplicate] -Artist- id: 7rkW85dBwwrJtlHRDkJDAC name: NAV image: https://i.scdn.co/image/e0f3324c861ef74bc480238db078d91cd384e311
+[Duplicate] -Artist- id: 45eNHdiiabvmbp4erw26rg name: ILLENIUM image: https://i.scdn.co/image/13f93bc1aa54c82eb6deed1637b5049150cc9379
+[Duplicate] -Artist- id: 3koiLjNrgRTNbOwViDipeA name: Marvin Gaye image: https://i.scdn.co/image/cf79bd3e5c787e2ec152eeb1ea5538b0d4cf1434
+[Duplicate] -Artist- id: 4DdkRBBYG6Yk9Ka8tdJ9BW name: Offset image: https://i.scdn.co/image/d718d632faa01221dd271f4e60a421596718fda0
+[Duplicate] -Artist- id: 2ySHS7UojGu20XfUPaBlyu name: Devin Dawson image: https://i.scdn.co/image/0cb1fb5e8bd1afb371b40e84b904bed593e66f90
+[Duplicate] -Artist- id: 37uLId6Z5ZXCx19vuruvv5 name: Hot Chip image: https://i.scdn.co/image/74c59113051e700e10077f26698d8a1f612454a7
+[Duplicate] -Artist- id: 4GvEc3ANtPPjt1ZJllr5Zl name: Bazzi image: https://i.scdn.co/image/e459da538d58981518003fdc70d2568a7bc8a4e6
+[Duplicate] -Artist- id: 1GLtl8uqKmnyCWxHmw9tL4 name: The Kooks image: https://i.scdn.co/image/0a3dfed5bce0e6d14703011ec52a42ae719c0d4b
+[Duplicate] -Artist- id: 1KP6TWI40m7p3QBTU6u2xo name: BØRNS image: https://i.scdn.co/image/1581dd782c16fb2b56b4b7397549fa98eea91b07
+[Missing Data] -Artist- id: 2dBR2aSvDYdWziZvQSrEPz name: 藤岡藤巻と大橋のぞみ image: null
+[Duplicate] -Artist- id: 7CyeXFnOrfC1N6z4naIpgo name: The Ronettes image: https://i.scdn.co/image/64fbb4886bfb9b34c5319f59d1b599a7bfedcd22
+[Duplicate] -Artist- id: 0QHgL1lAIqAw0HtD7YldmP name: DJ Khaled image: https://i.scdn.co/image/94e2383b16d3a8f0af23b45ab9edd767b4107bbf
+[Duplicate] -Artist- id: 7ie36YytMoKtPiL7tUvmoE name: Igor Stravinsky image: https://i.scdn.co/image/49da328b0629313b2c452bf35d8c50d013274f5b
+[Duplicate] -Artist- id: 2wOqMjp9TyABvtHdOSOTUS name: Ludwig van Beethoven image: https://i.scdn.co/image/db022999443da6f89e250086329d98b17399b346
+[Duplicate] -Artist- id: 3wcj11K77LjEY1PkEazffa name: Burna Boy image: https://i.scdn.co/image/5088f12f445be6ae4fe3e51e952c95b08242539e
+[Duplicate] -Artist- id: 60d24wfXkVzDSfLS6hyCjZ name: Martin Garrix image: https://i.scdn.co/image/19b193e731a99776449d2b06742942e1e1f58fb2
+[Duplicate] -Artist- id: 4wLXwxDeWQ8mtUIRPxGiD6 name: Marc Anthony image: https://i.scdn.co/image/41b370647dcdf6ca1b561f8196ca1426da5648ac
+[Duplicate] -Artist- id: 0vqJkZ0RpLZixt3lTmD8vP name: Whethan image: https://i.scdn.co/image/3a0e0601e74b03141762370fc88314ced8106be0
+[Duplicate] -Artist- id: 4NgfOZCL9Ml67xzM0xzIvC name: Janis Joplin image: https://i.scdn.co/image/f3f55519d6fc2a6fd2bed247b9dc9fdc72365272
+[Duplicate] -Artist- id: 4596e2d3KmYzAeVenjCxfj name: Free Nationals image: https://i.scdn.co/image/3de4b6089a25512c5d00d56ef0701aa94f23b84b
+[Duplicate] -Artist- id: 5W10uJRsbt9bROJDKoI1Wn name: Moses Sumney image: https://i.scdn.co/image/51b0915b9a275d75dcf4aec96a51f60f2bfbdb2b
+[Duplicate] -Artist- id: 3KV3p5EY4AvKxOlhGHORLg name: Jeremih image: https://i.scdn.co/image/48e38236955edc0ac5dbe291992dbf82a90e6d6d
+[Duplicate] -Artist- id: 28ExwzUQsvgJooOI0X1mr3 name: Jay Rock image: https://i.scdn.co/image/774454e054a4f45cfa4f74907caa45649c5d521d
+[Duplicate] -Artist- id: 6oBm8HB0yfrIc9IHbxs6in name: Lykke Li image: https://i.scdn.co/image/eebaf06a86ea9b59f8701fc95c5d39e1b441608c
+[Duplicate] -Artist- id: 4cPHsZM98sKzmV26wlwD2W name: Brenda Lee image: https://i.scdn.co/image/2873f90f994289db10fcbbab0c5a789ab6670a0f
+[Duplicate] -Artist- id: 53QzNeFpzAaXYnrDBbDrIp name: The Isley Brothers image: https://i.scdn.co/image/23133832f41aa7fad9571a708dfde782e4fab71a
+[Duplicate] -Artist- id: 13ubrt8QOOCPljQ2FL1Kca name: A$AP Rocky image: https://i.scdn.co/image/cce607c4d975ae49d68b484eaef51a6413fa73b1
+[Duplicate] -Artist- id: 6MDME20pz9RveH9rEXvrOM name: Clean Bandit image: https://i.scdn.co/image/08a4e4c0edda46a1ab4c9ee851f8fa567741d7e6
+[Duplicate] -Artist- id: 3oDbviiivRWhXwIE8hxkVV name: The Beach Boys image: https://i.scdn.co/image/21d36613eec63c86c1babec16fdfa8635ee63625
+[Duplicate] -Artist- id: 7uaIm6Pw7xplS8Dy06V6pT name: Trevor Daniel image: https://i.scdn.co/image/42dce8deb4dae01e1b39964981d099c92dff1902
+[Duplicate] -Artist- id: 4yiQZ8tQPux8cPriYMWUFP name: Gwen Stefani image: https://i.scdn.co/image/5e97075f4f0f5b9ab433277f1e81711937831af9
+[Duplicate] -Artist- id: 5cj0lLjcoR7YOSnhnX0Po5 name: Doja Cat image: https://i.scdn.co/image/c0492ddbdf41c4595ee1334d3f896ea786005fe9
+[Missing Data] -Artist- id: 3Lc81GbBibzWQCXkPeHp7F name: 寺嶋民哉／手嶌葵 image: null
+[Duplicate] -Artist- id: 39T6qqI0jDtSWWioX8eGJz name: The Doobie Brothers image: https://i.scdn.co/image/3d4563f7b976ee051a9e96a35ad739e2f6f310dd
+[Duplicate] -Artist- id: 0RpddSzUHfncUWNJXKOsjy name: Neon Trees image: https://i.scdn.co/image/4c0ae9d4a2a29dbdedf82f6b4116583f8cc41207
+[Duplicate] -Artist- id: 07EcmJpfAday8xGkslfanE name: Kevin Abstract image: https://i.scdn.co/image/e64fcf7fe112187074845a9047b79bde2bcb9939
+[Duplicate] -Artist- id: 7xGGqA85UIWX1GoTVM4itC name: The Staple Singers image: https://i.scdn.co/image/9de56ba0f97bd8a1cc7a42756dc58978c4f9962f
+[Duplicate] -Artist- id: 0LyfQWJT6nXafLPZqxe9Of name: Various Artists image: https://i.scdn.co/image/8987540724d78afbf9f9249638eefcef38c0853b
+[Duplicate] -Artist- id: 7pbDxGE6nQSZVfiFdq9lOL name: Rex Orange County image: https://i.scdn.co/image/e85ed2c96c618b12433c7e6126ccb7771b469f3e
+[Duplicate] -Artist- id: 1cNDP5yjU5vjeR8qMf4grg name: YNW Melly image: https://i.scdn.co/image/030819be90d9cd2438d122215868eb46ed880ebf
+[Duplicate] -Artist- id: 1A92IAcd7A6npCA33oGM5i name: The Proclaimers image: https://i.scdn.co/image/26d588b576d36787913dde0b5faccf75ea1bb494
+[Missing Data] -Artist- id: 6asl0WT3L7PbD69X4qiD5m name: DJ Blade Tha 1st & Big Trubble image: null
+[Duplicate] -Artist- id: 2xe8IXgCTpwHE3eA9hTs4n name: BANKS image: https://i.scdn.co/image/18b753a034aae665dfd164c8ee8e8e81ba5f5e47
+[Duplicate] -Artist- id: 3xs0LEzcPXtgNfMNcHzLIP name: Rockwell image: https://i.scdn.co/image/ab67616d0000b273944b04c4a34ba595dcd9ad14
+[Duplicate] -Artist- id: 5y2Xq6xcjJb2jVM54GHK3t name: John Legend image: https://i.scdn.co/image/2bcc50240e556e832fde021700fdca5629d31440
+[Duplicate] -Artist- id: 7dGJo4pcD2V6oG8kP0tJRR name: Eminem image: https://i.scdn.co/image/56f4762485066b4ef867b96e16775f2b5b4db277
+[Duplicate] -Artist- id: 4V8LLVI7PbaPR0K2TGSxFF name: Tyler, The Creator image: https://i.scdn.co/image/fe839f5bd121774e64f377b5eead237c69a01711
+[Missing Data] -Artist- id: 0Wh3tHYRwqZqRZVITM5z12 name: Mike Shannon, Brett Johnson image: null
+[Duplicate] -Artist- id: 3WIjOR36QpKStT6hfxguh5 name: Rannar Sillard image: https://i.scdn.co/image/ef430e0afa9839cddd8e55a83845eba45b629ba4
+[Duplicate] -Artist- id: 6KImCVD70vtIoJWnq6nGn3 name: Harry Styles image: https://i.scdn.co/image/b2163e7456f3d618a0e2a4e32bc892d6b11ce673
+[Duplicate] -Artist- id: 7wNkISK49lKeXuRaZcQVFe name: Ralph Vaughan Williams image: https://i.scdn.co/image/e02258d61a598dbf7087fc71123536ae454a9d83
+[Duplicate] -Artist- id: 10exVja0key0uqUkk6LJRT name: Vance Joy image: https://i.scdn.co/image/7d186c3a80955b82a8cc46fe86bdf305478629e8
+[Duplicate] -Artist- id: 1hzfo8twXdOegF3xireCYs name: Milky Chance image: https://i.scdn.co/image/a2a8efafec6cc807b8bafc1e71ab27214551c850
+[Duplicate] -Artist- id: 3FfvYsEGaIb52QPXhg4DcH name: Jason Aldean image: https://i.scdn.co/image/444faa613370092987253ac10d35433c96223295
+[Duplicate] -Artist- id: 77tT1kLj6mCWtFNqiOmP9H name: Daryl Hall & John Oates image: https://i.scdn.co/image/cf1520ee06b1c8f139df15ae21f253af4421f153
+[Duplicate] -Artist- id: 04HqRx07Bv9gh7rsrMTqs7 name: Miss Li image: https://i.scdn.co/image/8a6d65d484e2f58764ce99b2999e4373528191d1
+[Duplicate] -Artist- id: 4tpUmLEVLCGFr93o8hFFIB name: Blondie image: https://i.scdn.co/image/dbd371b220a054a542279f499fc024044bece495
+[Duplicate] -Artist- id: 77SW9BnxLY8rJ0RciFqkHh name: The Neighbourhood image: https://i.scdn.co/image/7880e6831c1b83030a4c261f46386b04003b0a97
+[Duplicate] -Artist- id: 31W5EY0aAly4Qieq6OFu6I name: A Boogie Wit da Hoodie image: https://i.scdn.co/image/c5624d93f38067845f2454189b0248cc0b4e69cf
+[Duplicate] -Artist- id: 1g1yxsNVPhMUl9GrMjEb2o name: Plain White T's image: https://i.scdn.co/image/a889bfd56066100596b2f3a42956d8c4dea475c3
+[Duplicate] -Artist- id: 7tjbDPvrdvDshcpEMXKRVb name: Gerry Rafferty image: https://i.scdn.co/image/c1db78b05e1647ae079e23fd7f20ceac0936c8c8
+[Duplicate] -Artist- id: 4qwGe91Bz9K2T8jXTZ815W name: Janet Jackson image: https://i.scdn.co/image/0f14833db64cd305f1d4a16322902c93764c8282
+[Duplicate] -Artist- id: 3AHFDfqhSqPBecjQDIOIJA name: U.S. Girls image: https://i.scdn.co/image/46983fded9b02431963ca679f210e96f7d14223c
+[Duplicate] -Artist- id: 6WY7D3jk8zTrHtmkqqo5GI name: Maren Morris image: https://i.scdn.co/image/3102d2ca428bcc5c098aeda664b116e4846afe5e
+[Duplicate] -Artist- id: 0jNDKefhfSbLR9sFvcPLHo name: San Holo image: https://i.scdn.co/image/6469320d75d068f0f5060bb61c3bbae71e8c3701
+[Duplicate] -Artist- id: 77kULmXAQ6vWer7IIHdGzI name: Jordan Davis image: https://i.scdn.co/image/f528754222ad862b08b0e088770ec8f695f0f482
+[Duplicate] -Artist- id: 2D7RkvtKKb6E5UmbjQM1Jd name: Georges Bizet image: https://i.scdn.co/image/4a640bd1a558a58cc4dc3b8effec7747ae55ce17
+[Duplicate] -Artist- id: 2R21vXR83lH98kGeO99Y66 name: Anuel AA image: https://i.scdn.co/image/bc2b13d70b3528655d496dff4dbe2c971a64b2e5
+[Duplicate] -Artist- id: 5dQtzw5YaP9ZCMv0GWymws name: Cooper Sams image: https://i.scdn.co/image/d7adcd00c6d8025c9050dc16caded632d108477d
+[Duplicate] -Artist- id: 0E1GrT0XtW2bcQvEuu7ajV name: Estado De Calma image: https://i.scdn.co/image/ab67616d0000b273ea09cd8f70b588f207332ad5
+[Duplicate] -Artist- id: 2NmK5FyrQ18HOPXq1UBzqa name: SWV image: https://i.scdn.co/image/3f0a799ccbddbeb012c61d1ceb9958dabad127b5
+[Duplicate] -Artist- id: 0ZED1XzwlLHW4ZaG4lOT6m name: Julia Michaels image: https://i.scdn.co/image/4a629c160228c0bd5295b064437b01a078aef157
+[Duplicate] -Artist- id: 5Y9xEAGW4GwGJgbiI6W85P name: Ritchie Valens image: https://i.scdn.co/image/c0797b7eeb72ffd9760fa5a026641d14b3fd547a
+[Duplicate] -Artist- id: 7fIvjotigTGWqjIz6EP1i4 name: Four Tops image: https://i.scdn.co/image/b4cebe6215c58efaf06407961a99c458e537050a
+[Duplicate] -Artist- id: 5fbhwqYYh4YwUoEs582mq5 name: The Spinners image: https://i.scdn.co/image/9c5f33797bb3d476c471ee218409b54caccd7c7e
+[Duplicate] -Artist- id: 6O74knDqdv3XaWtkII7Xjp name: Boyz II Men image: https://i.scdn.co/image/c8b0d67be35852171d04d7309c2cfe1992a8a4eb
+[Duplicate] -Artist- id: 4Ui2kfOqGujY81UcPrb5KE name: HAIM image: https://i.scdn.co/image/89f4d643a8eae22f667288c4510bc43bb3c5cb1e
+[Duplicate] -Artist- id: 2hKQc001G7ggs3ZyxMdkGq name: Patoranking image: https://i.scdn.co/image/e95d5a120a346be21380049026f1d782a48a00c5
+[Duplicate] -Artist- id: 2FwDTncULUnmANIh7qKa5z name: FKJ image: https://i.scdn.co/image/7a03434a7f4a4176d7104e245321099c67952d6c
+[Duplicate] -Artist- id: 3tlXnStJ1fFhdScmQeLpuG name: Brent Faiyaz image: https://i.scdn.co/image/e4764966d264261551611ffcd01371b2b3e6999e
+[Duplicate] -Artist- id: 1nJvji2KIlWSseXRSlNYsC name: The Velvet Underground image: https://i.scdn.co/image/d69c2cf10323bf08443c7d122f3a1824a760ab57
+[Duplicate] -Artist- id: 70gP6Ry4Uo0Yx6uzPIdaiJ name: Bas image: https://i.scdn.co/image/075ff5eb9d2627090d3fec104bf574f679d90182
+[Duplicate] -Artist- id: 7wg1qvie3KqDNQbAkTdbX0 name: Louis The Child image: https://i.scdn.co/image/21821ae7fd8d4a61a8aec1fe3bffb1c574330e5c
+[Duplicate] -Artist- id: 360IAlyVv4PCEVjgyMZrxK name: Miguel image: https://i.scdn.co/image/b3dc491decb5b3e054935375acf7ed60c139ddf2
+[Duplicate] -Artist- id: 163tK9Wjr9P9DmM0AVK7lm name: Lorde image: https://i.scdn.co/image/d25fc756cd04c8b3ea196b7c07c6d057685cc405
+[Duplicate] -Artist- id: 1JOQXgYdQV2yfrhewqx96o name: Giuseppe Verdi image: https://i.scdn.co/image/29dcc5fb26df65b722073e5246c6a430e9968aa7
+[Duplicate] -Artist- id: 10gzBoINW3cLJfZUka8Zoe name: Above & Beyond image: https://i.scdn.co/image/57d1c3dd53b1593f3463c605548f46076002e36a
+[Duplicate] -Artist- id: 4lxfqrEsLX6N1N4OCSkILp name: Phil Collins image: https://i.scdn.co/image/31fbe64783eb5d493161640bd599dceafc615c6d
+[Missing Data] -Artist- id: 4BcDuGHvT60W3sT21f2Pm9 name: 藤沢 麻衣 image: null
+[Duplicate] -Artist- id: 1G9G7WwrXka3Z1r7aIDjI7 name: OutKast image: https://i.scdn.co/image/cf78e460a538b48dec7ef55064cdc76042511a07
+[Duplicate] -Artist- id: 4njdEjTnLfcGImKZu1iSrz name: AWOLNATION image: https://i.scdn.co/image/74741794b5824e8c80d6ec0473e2a610b04650bc
+[Duplicate] -Artist- id: 0iOVhN3tnSvgDbcg25JoJb name: Etta James image: https://i.scdn.co/image/4cf0ce631f5c4b189648a4fde4f95a986be27580
+[Duplicate] -Artist- id: 1xkxEEm60IyknT2Eh469mX name: Fyfe image: https://i.scdn.co/image/eca8828b5316848c5e3ba2e8d4af73b915ef18b0
+[Duplicate] -Artist- id: 4MCBfE4596Uoi2O4DtmEMz name: Juice WRLD image: https://i.scdn.co/image/d8e62447a338a882b490460da20e90aac6d60ae7
+[Duplicate] -Artist- id: 5bLGj9jAzmBqGwjB2UbjOC name: Beau Projet image: https://i.scdn.co/image/ab67616d0000b273dbd432a1007954f75d8043a6
+[Duplicate] -Artist- id: 5VsOThWOagH8C8gCvIy13k name: Penguin Prison image: https://i.scdn.co/image/f7ddb47dee8c53b1d7c64d821fdf1f78b54353db
+[Duplicate] -Artist- id: 6yJ6QQ3Y5l0s0tn7b0arrO name: JPEGMAFIA image: https://i.scdn.co/image/603a36972edb587caf070934c6525f2a6c47719c
+[Duplicate] -Artist- id: 0vRvGUQVUjytro0xpb26bs name: Arizona Zervas image: https://i.scdn.co/image/d549aadbb8b3a254fdc8e5ac93535a706463dce6
+[Duplicate] -Artist- id: 4Ge8xMJNwt6EEXOzVXju9a name: Caroline Polachek image: https://i.scdn.co/image/ce89c8ee12a88042426f127815130b92c70858b3
+[Duplicate] -Artist- id: 5FHwr1FymaS5kutIEK6e2y name: King Harvest image: https://i.scdn.co/image/3bb0a5781684911065d236f811f00be14a6247aa
+[Duplicate] -Artist- id: 3RP50pmG8Wz1mhNCidQj68 name: RITUAL image: https://i.scdn.co/image/c75beac447c338b1e997630991d77314365a05b6
+[Duplicate] -Artist- id: 3Y3xIwWyq5wnNHPp5gPjOW name: Kenny Loggins image: https://i.scdn.co/image/9fff0f365d90fd652a3c53f9f962676a4c2edbe3
+[Duplicate] -Artist- id: 3Nrfpe0tUJi4K4DXYWgMUX name: BTS image: https://i.scdn.co/image/0c9057cb30520f9f883a220051260fc66a2f3ffa
+[Duplicate] -Artist- id: 4QTVePrFu1xuGM9K0kNXkk name: Dexys Midnight Runners image: https://i.scdn.co/image/2bc23758fcd44ea5545d3227b2a2dce1d71d29ae
+[Duplicate] -Artist- id: 2VIoWte1HPDbZ2WqHd2La7 name: The Turtles image: https://i.scdn.co/image/1065764f6bfae289f03651c9927dbd84eabae766
+[Duplicate] -Artist- id: 5Rr15NSbi1Xjno1AEP9u21 name: Dan Croll image: https://i.scdn.co/image/6e0a9881bf418221f751793b35d23556742e3053
+[Duplicate] -Artist- id: 1nIUhcKHnK6iyumRyoV68C name: Ennio Morricone image: https://i.scdn.co/image/188ad70938b86cefd8447545a16306483070447f
+[Duplicate] -Artist- id: 5ypIMlORxA9iDgQdJXi0ZO name: New Navy image: https://i.scdn.co/image/0aa845af476d96f66fd70a5bd7d9fb4b8ae20ff2
+[Duplicate] -Artist- id: 20s0P9QLxGqKuCsGwFsp7w name: Mario image: https://i.scdn.co/image/bddf9d80fb1d1729ec5aaa7084e1eaf7f581cdbd
+[Duplicate] -Artist- id: 4UNnRb4LN2hGtbtMfPzMhg name: MUZZ image: https://i.scdn.co/image/2ba2b6b119255da58d20e9147feabefe19680478
+[Missing Data] -Artist- id: 2LAqcqAQ8KPTsl1HBgBrqM name: Michelle Williams image: null
+[Duplicate] -Artist- id: 5DChGYPOwgULNzFMzw0TIb name: Elvar Arngrimsson image: https://i.scdn.co/image/ab67616d0000b273d2ec8134bbb0aee1a037cb1a
+[Duplicate] -Artist- id: 7z5WFjZAIYejWy0NI5lv4T name: Dan + Shay image: https://i.scdn.co/image/ff4a12b96c4cd11472c7058a2468c5b609999ccf
+[Duplicate] -Artist- id: 5jAMCwdNHWr7JThxtMuEyy name: NOTD image: https://i.scdn.co/image/d5adf11173d9cd55bedbe0efb2e3c5f6aaf079df
+[Duplicate] -Artist- id: 0KPX4Ucy9dk82uj4GpKesn name: Dalex image: https://i.scdn.co/image/e3261a34c3a97ec3d257e03e580f1b36157bbecf
+[Duplicate] -Artist- id: 3WrFJ7ztbogyGnTHbHJFl2 name: The Beatles image: https://i.scdn.co/image/6b2a709752ef9c7aaf0d270344157f6cd2e0f1a7
+[Duplicate] -Artist- id: 5oqbogYQRxno77NT1FFrt5 name: Benjamin Martins image: https://i.scdn.co/image/ab67616d0000b273ad391c5b17b1203444b55a3d
+[Duplicate] -Artist- id: 68kEuyFKyqrdQQLLsmiatm name: Vince Staples image: https://i.scdn.co/image/b5928a2fad6cc160bf4b37d8d393d401db61e6c2
+[Missing Data] -Artist- id: 7fCHpHhmsR63ED27xzptHF name: Ronnie Taylor image: null
+[Duplicate] -Artist- id: 6Ib0Di9b3kMxw9yD0DAyAC name: Victor Internet image: https://i.scdn.co/image/fb89fdcb4e27a3c22f449792382f3068ad8823ba
+[Duplicate] -Artist- id: 0imE3buPhAowREqCrr4CYe name: Peach Tree Rascals image: https://i.scdn.co/image/d68e84b005e6dc187cc539f57e742dbeaab7874f
+[Duplicate] -Artist- id: 1anyVhU62p31KFi8MEzkbf name: Chance the Rapper image: https://i.scdn.co/image/0433f521b1fadf1d839b6e70c3914021f122901f
+[Duplicate] -Artist- id: 0Z3GVEGMJYq0nTdZNJAx4V name: The Tides image: https://i.scdn.co/image/ab67616d0000b273bb9577a54a38c6f917c401d4
+[Duplicate] -Artist- id: 4LZ4De2MoO3lP6QaNCfvcu name: Said the Sky image: https://i.scdn.co/image/e441da55edc98fc84f34daa91700c7654fea2153
+[Duplicate] -Artist- id: 5oOhM2DFWab8XhSdQiITry name: Tycho image: https://i.scdn.co/image/460f8dd62e2cfb4df17e05bf97471a596a28eeda
+[Missing Data] -Artist- id: 0pCkXt8gOHOxZSnjREbeRH name: 井上あずみ、杉並児童合唱団 image: null
+[Duplicate] -Artist- id: 1Hsdzj7Dlq2I7tHP7501T4 name: Niall Horan image: https://i.scdn.co/image/a4686e5325963338133068128683d274dc2d645d
+[Duplicate] -Artist- id: 0ECwFtbIWEVNwjlrfc6xoL name: Eagles image: https://i.scdn.co/image/6b215464b769958ef1d7d9f163e3f49ebacf8842
+[Duplicate] -Artist- id: 3fMbdgg4jU18AjLCKBhRSm name: Michael Jackson image: https://i.scdn.co/image/51dad9aaabe5643818840207a9a8957c2ad91bf2
+[Duplicate] -Artist- id: 1z7b1Pr1rSlvWRzsW3HOrS name: Russ image: https://i.scdn.co/image/39f7238f7128a193bb90884525a02d9380bc4b15
+[Duplicate] -Artist- id: 4qBgvVog0wzW75IQ48mU7v name: KYLE image: https://i.scdn.co/image/0707ece93a02b41461ab72a1c583462e2937e26f
+[Duplicate] -Artist- id: 45dkTj5sMRSjrmBSBeiHym name: Tate McRae image: https://i.scdn.co/image/87f4ad0e75a7e33f6c6c320906abc6c8fdbb88ec
+[Duplicate] -Artist- id: 7FIoB5PHdrMZVC3q2HE5MS name: George Harrison image: https://i.scdn.co/image/8d1b36f226245c6c6d5f9fa1d020f95a5e0d3253
+[Duplicate] -Artist- id: 5XQRfs0gXs30aWUn1Umves name: Choker image: https://i.scdn.co/image/49cd7754ec246cfeb8d8c6d5a7f8173514005bee
+[Duplicate] -Artist- id: 7vXDAI8JwjW531ouMGbfcp name: TINI image: https://i.scdn.co/image/522ae3bf48a76dac19e0e79184da459f8f774001
+[Duplicate] -Artist- id: 1uNFoZAHBGtllmzznpCI3s name: Justin Bieber image: https://i.scdn.co/image/d745628f6659a715f0f69eed1508805849796e5e
+[Duplicate] -Artist- id: 2cBh5lVMg222FFuRU7EfDE name: Sophie Ellis-Bextor image: https://i.scdn.co/image/f8d19766b0b25df00e474382b188bf2a79986ad9
+[Duplicate] -Artist- id: 0qu422H5MOoQxGjd4IzHbS name: Yves Tumor image: https://i.scdn.co/image/fe1f620edb7c35cad3fb19fa40a6fe0b0dee3d95
+[Duplicate] -Artist- id: 2h93pZq0e7k5yf4dywlkpM name: Frank Ocean image: https://i.scdn.co/image/7db34c8aace6feb91f38601bb75e6b3301b4657a
+[Duplicate] -Artist- id: 7tYKF4w9nC0nq9CsPZTHyP name: SZA image: https://i.scdn.co/image/e1e46c441024525643a19402b3a12188de219420
+[Duplicate] -Artist- id: 4TsHKU8l8Wq7n7OPVikirn name: Jidenna image: https://i.scdn.co/image/debb0d42c2a626cdb1a6c1ea40f750c2ab438ffd
+[Duplicate] -Artist- id: 3XHO7cRUPCLOr6jwp8vsx5 name: alt-J image: https://i.scdn.co/image/7ac54cbec2f1b3f5f1b7f6fc23acb9d00c70fb51
+[Duplicate] -Artist- id: 2lolQgalUvZDfp5vvVtTYV name: Tony Bennett image: https://i.scdn.co/image/cdc8a7ef4d569d7519c12758067715f5833bd4c9
+[Missing Data] -Artist- id: 6GwGjApO5BIdafJUMazVN3 name: Yumi Kimura image: null
+[Missing Data] -Artist- id: 3XV0lFzNs8BCTwhJTcMiBr name: Blue Ivy image: null
+[Duplicate] -Artist- id: 3OKg7YbOIatODzkRIbLJR4 name: TheFatRat image: https://i.scdn.co/image/db09d9957adaca9659e7c3cefb0e5dada3cb9b58
+[Duplicate] -Artist- id: 1pPmIToKXyGdsCF6LmqLmI name: Rich The Kid image: https://i.scdn.co/image/d985318181090736aa5b9fc7e0b3a39a4ccfb080
+[Duplicate] -Artist- id: 718COspgdWOnwOFpJHRZHS name: Luke Combs image: https://i.scdn.co/image/ea98cb1e9fb4ffcee63d580107d77d9d790c3f3c
+[Duplicate] -Artist- id: 2lRH2dgU5Kk4Bc5phmII4T name: LANCO image: https://i.scdn.co/image/e5069b65db94b06a7542771b3e639faabd69a42d
+[Duplicate] -Artist- id: 1ThoqLcyIYvZn7iWbj8fsj name: Bill Withers image: https://i.scdn.co/image/96b85aec6907206572527e1eeec6569d5e977a38
+[Duplicate] -Artist- id: 5bgAHbDkNceLzoE0bFMeVr name: Lucas Delphy image: https://i.scdn.co/image/ab67616d0000b2730d92c9947c8a697177e6c539
+[Duplicate] -Artist- id: 66CXWjxzNUsdJxJ2JdwvnR name: Ariana Grande image: https://i.scdn.co/image/b1dfbe843b0b9f54ab2e588f33e7637d2dab065a
+[Duplicate] -Artist- id: 39NR3AUhpbbqKM33vWn2fp name: Brothers Osborne image: https://i.scdn.co/image/a155dad129488d3a7b6ab980e12c53de1215bb8c
+[Duplicate] -Artist- id: 4l1cKWYW591xnwEGxpUg3J name: Miike Snow image: https://i.scdn.co/image/b3944378d08ba28b16c494cc7f63703175169251
+[Duplicate] -Artist- id: 1eEfMU2AhEo7XnKgL7c304 name: Carpenters image: https://i.scdn.co/image/ed45f575339b044d7168780a15ff457b85be851a
+[Duplicate] -Artist- id: 7gjAu1qr5C2grXeQFFOGeh name: Passion Pit image: https://i.scdn.co/image/826334ff992eda0e2acffb33c10ef567dfa755fb
+[Duplicate] -Artist- id: 7bXgB6jMjp9ATFy66eO08Z name: Chris Brown image: https://i.scdn.co/image/e153d6448b17ce97b2a79da70d64b89230c67053
+[Duplicate] -Artist- id: 2sSGPbdZJkaSE2AbcGOACx name: The Marías image: https://i.scdn.co/image/37b536abf0cde78190b112e2cf220687a8d69012
+[Duplicate] -Artist- id: 0q4NrXqJnc367PieejuROJ name: Vice image: https://i.scdn.co/image/67b2b3ff21d2e0bb68472a68548d9bedcce27e48
+[Duplicate] -Artist- id: 0yb46jwm7gqbZXVXZQ8Z1e name: Bishop Briggs image: https://i.scdn.co/image/0e29a7e368d3cd370cc5806104b8fd8bea5dcff8
+[Duplicate] -Artist- id: 1N9n8MSxrr4Emhb566493b name: Morgan Page image: https://i.scdn.co/image/88cb3d2bd053b6d7ef9262efff73c2dde4496a41
+[Duplicate] -Artist- id: 4ehtJnVumNf6xzSCDk8aLB name: Martin Jensen image: https://i.scdn.co/image/aa7eacb7370cb7d8dfbf054d3e9bfb3f8926d65d
+[Duplicate] -Artist- id: 5bgfj5zUoWpyeVatGDjn6H name: K CAMP image: https://i.scdn.co/image/9c3a69fa2f24f98d936b9faec0b84be1aeda827e
+[Duplicate] -Artist- id: 1mmehjf7eHA10uHMisZGJg name: !!! image: https://i.scdn.co/image/8aa56fbcabbb9ff38fe9b218fdce38d039c2d667
+[Duplicate] -Artist- id: 4bthk9UfsYUYdcFyqxmSUU name: Tears For Fears image: https://i.scdn.co/image/bc544c27be5e8b1f6b555ee3e9ad14e4be972a18
+[Duplicate] -Artist- id: 2X97ZAqRKRMYFIDqtvGgGc name: Silk City image: https://i.scdn.co/image/451880acb4a647648b78bd23ce0b3294003c4f37
+[Duplicate] -Artist- id: 4Gso3d4CscCijv0lmajZWs name: Don Toliver image: https://i.scdn.co/image/2303addfefa7fa8702c8b9145e6b2902d1e4738b
+[Duplicate] -Artist- id: 7CCjtD0hCK005Bvg2WG1a7 name: Carnage image: https://i.scdn.co/image/47017bb5c5d0123f22f6d66d0ecbf142461ae2d3
+[Duplicate] -Artist- id: 56oDRnqbIiwx4mymNEv7dS name: Lizzo image: https://i.scdn.co/image/e33e4245fe5901ed940ba95070bb8d56679b6fe0
+[Duplicate] -Artist- id: 15UsOTVnJzReFVN1VCnxy4 name: XXXTENTACION image: https://i.scdn.co/image/942afa81f0a2298ead0c154fb7b4b606de48d9e6
+[Duplicate] -Artist- id: 5ZsFI1h6hIdQRw2ti0hz81 name: ZAYN image: https://i.scdn.co/image/90e30d448412c75b896da19a68db1da01ed99133
+[Duplicate] -Artist- id: 0knGpCTbmG4ctl1wzYRZs4 name: Dijon image: https://i.scdn.co/image/8df08b360f180f3753927eb19d82d940dd27aff6
+[Duplicate] -Artist- id: 69GGBxA162lTqCwzJG5jLp name: The Chainsmokers image: https://i.scdn.co/image/960547a625bc2eb742bb3dd170cbc049d2e94cf9
+[Duplicate] -Artist- id: 4ETSs924pXMzjIeD6E9b4u name: Surfaces image: https://i.scdn.co/image/0d125e224948b5e4716239384839230205832084
+[Duplicate] -Artist- id: 1IueXOQyABrMOprrzwQJWN name: Sigala image: https://i.scdn.co/image/a695b7c23e8f6ab695129491ed18d0fe6c6c1846
+[Duplicate] -Artist- id: 26dSoYclwsYLMAKD3tpOr4 name: Britney Spears image: https://i.scdn.co/image/f19b6ebb7ea955bfdc0fdd5ae54dd604ac774b27
+[Duplicate] -Artist- id: 4vpDg7Y7fU982Ds30zawDA name: The Band image: https://i.scdn.co/image/750c386b0ca07258347328b68e171bfcc1addead
+[Duplicate] -Artist- id: 5K4W6rqBFWDnAN6FQUkS6x name: Kanye West image: https://i.scdn.co/image/bd1c6fdf3705cf9b7d0c8ac8e7bbed98e31a1559
+[Missing Data] -Artist- id: 0HQzmMSCvRin114eQIS6kV name: Fritz Reiner, Chicago Symphony Orchestra image: null
+[Duplicate] -Artist- id: 08GQAI4eElDnROBrJRGE0X name: Fleetwood Mac image: https://i.scdn.co/image/8976b6b0aacba6f7859b1f0ab7bc0adcd6ea7444
+[Duplicate] -Artist- id: 5XenQ7XfcvQdfIbpLEFaKQ name: GoldLink image: https://i.scdn.co/image/a4975629239a874084fad802fc7d5c2ba9c82179
+[Duplicate] -Artist- id: 6bOYtKnpLPQSfMpS2ilotK name: Bobby Vinton image: https://i.scdn.co/image/84a23af9ce6d6dcaf761e4cdd7833a4785d691bf
+[Duplicate] -Artist- id: 0EodhzA6yW1bIdD5B4tcmJ name: Bobby Darin image: https://i.scdn.co/image/ae8a8b9d9b6a35f00b87fdae31f46db6a13fcd0e
+[Duplicate] -Artist- id: 7jzR5qj8vFnSu5JHaXgFEr name: Jean Sibelius image: https://i.scdn.co/image/9bd18051343041184db5c72f965dc81c5f061dc1
+[Missing Data] -Artist- id: 3xEHBPfpYeBzV8ZUEhWofS name: Kovacs image: null
+[Duplicate] -Artist- id: 2kCcBybjl3SAtIcwdWpUe3 name: Lil Peep image: https://i.scdn.co/image/78e5cfd1a377b3d820d452c6b9e964f2e29c6430
+[Duplicate] -Artist- id: 1sXbwvCQLGZnaH0Jp2HTVc name: Linda Ronstadt image: https://i.scdn.co/image/b5fa3addb38ab2d59787201d9f4e2eb2d2cd41e1
+[Duplicate] -Artist- id: 7lDVEkjIURPMyUYwoQRrpw name: Ryan Hurd image: https://i.scdn.co/image/48a846e8d6ad24bea1407e9175ad8c35d69061dd
+[Duplicate] -Artist- id: 7jVv8c5Fj3E9VhNjxT4snq name: Lil Nas X image: https://i.scdn.co/image/12d5ab979779aa41e697ce823328d527e643e4cf
+[Duplicate] -Artist- id: 2dIgFjalVxs4ThymZ67YCE name: Stray Kids image: https://i.scdn.co/image/5d00a3a5ecf06c34209866f5b5ad8e1af8bb1d25
+[Duplicate] -Artist- id: 0vn7UBvSQECKJm2817Yf1P name: James Taylor image: https://i.scdn.co/image/44733cccadc8a5045e35f638c6f852ceb581e13b
+[Duplicate] -Artist- id: 3PhoLpVuITZKcymswpck5b name: Elton John image: https://i.scdn.co/image/f50ae3e5cf3637c5f486b6205468c245644be36e
+[Duplicate] -Artist- id: 3fhOTtm0LBJ3Ojn4hIljLo name: Roxy Music image: https://i.scdn.co/image/00a2066e2104137e034dd55f05ee8a8887d98728
+[Duplicate] -Artist- id: 7mEIug7XUlQHikrFxjTWes name: Neil Diamond image: https://i.scdn.co/image/f4d0fb18cb338eddee6b482779d946183a743b12
+[Duplicate] -Artist- id: 2hl0xAkS2AIRAu23TVMBG1 name: Kansas image: https://i.scdn.co/image/12759caf08f52bafa60586c1d3509c75d73817ed
+[Duplicate] -Artist- id: 2oX42qP5ineK3hrhBECLmj name: Andy Grammer image: https://i.scdn.co/image/a8660c4ae74a883067345f1bc0095b2c291d2e3c
+[Duplicate] -Artist- id: 4NHQUGzhtTLFvgF5SZesLK name: Tove Lo image: https://i.scdn.co/image/d478a4f9c29d18d3a715426c04c9e742a0fa2efd
+[Duplicate] -Artist- id: 6vWDO969PvNqNYHIOW5v0m name: Beyoncé image: https://i.scdn.co/image/9fef2047e4e3f05031807d5fa9e121b7862ba259
+[Duplicate] -Artist- id: 6FDOmi6UcqTevNjdwQfpsD name: Wolfgang Snow image: https://i.scdn.co/image/ab67616d0000b2730f93e3b67c954dbe8b06f99d
+[Duplicate] -Artist- id: 1ybINI1qPiFbwDXamRtwxD name: Smino image: https://i.scdn.co/image/efdde58683bcedfb2c9cb2bbb3fc87177879cda7
+[Duplicate] -Artist- id: 4dwdTW1Lfiq0cM8nBAqIIz name: Of Monsters and Men image: https://i.scdn.co/image/3e38d07dccf32d6b32c1b7768263041ebe5e50c5
+[Duplicate] -Artist- id: 4SqTiwOEdYrNayaGMkc7ia name: LÉON image: https://i.scdn.co/image/bd74213cefaeb392beb3393fc38f3cb6d1b5a1ab
+[Duplicate] -Artist- id: 5fmvGUlMVgmnCn45f1he7d name: Andrew Gold image: https://i.scdn.co/image/f44ef43ea4d4909fe77e71ab04b695b7458ea844
+[Duplicate] -Artist- id: 2CXaub1yYrSk6ruDtOx6LZ name: Astronauts, etc. image: https://i.scdn.co/image/ad03a599339492fe094bddff3f92dd3c2c8d5a79
+[Duplicate] -Artist- id: 6VuMaDnrHyPL1p4EHjYLi7 name: Charlie Puth image: https://i.scdn.co/image/6402030b18deb0ba5d7cdbf2e6727a1f36c86030
+[Duplicate] -Artist- id: 5pKCCKE2ajJHZ9KAiaK11H name: Rihanna image: https://i.scdn.co/image/1fc2f537d678d701d7d143a8fd4f0c2f29fbde22
+[Duplicate] -Artist- id: 4Q6nIcaBED8qUel8bBx6Cr name: Jax Jones image: https://i.scdn.co/image/f712bc671f130035f9653d21574e3965dc3c56f6
+[Duplicate] -Artist- id: 3hv9jJF3adDNsBSIQDqcjp name: Mark Ronson image: https://i.scdn.co/image/d91845f215e0a90b0d4b03bf930221fdf2316b97
+[Duplicate] -Artist- id: 1sBkRIssrMs1AbVkOJbc7a name: Rick Ross image: https://i.scdn.co/image/d385491147314cbbe2826da3a379902891f97213
+[Duplicate] -Artist- id: 1HY2Jd0NmPuamShAr6KMms name: Lady Gaga image: https://i.scdn.co/image/5c40cb9dc570181bd5ff5a1d1c773cc3436cae5c
+[Duplicate] -Artist- id: 1QDrz3DMMaz3TB1cm0PGDu name: Justin Jesso image: https://i.scdn.co/image/c7f73b4269639341aae72ab7b3267b855b019a98
+[Duplicate] -Artist- id: 2jw70GZXlAI8QzWeY2bgRc name: Nelly Furtado image: https://i.scdn.co/image/84893281888b8f84b1580f477dbcc7bbaa5a1712
+[Duplicate] -Artist- id: 2QOIawHpSlOwXDvSqQ9YJR name: Antonio Vivaldi image: https://i.scdn.co/image/9785700bae86f991f78183076861c7342a4bcf90
+[Duplicate] -Artist- id: 6lay1nwbE6hTx1jivysUAL name: Princess Nokia image: https://i.scdn.co/image/017dd2cb4be7ded45076a720bc4fe4612016a483
+[Duplicate] -Artist- id: 4phGZZrJZRo4ElhRtViYdl name: Jason Mraz image: https://i.scdn.co/image/71c566f8ddb1c137fd9ae6b7f8bcc9e41322d2db
+[Duplicate] -Artist- id: 3tMLo1k3iUo82coMLWXzxq name: Henry Purcell image: https://i.scdn.co/image/b1e56021e0af6da7c4dad6e677318c716f66a4c3
+[Duplicate] -Artist- id: 5IcR3N7QB1j6KBL8eImZ8m name: ScHoolboy Q image: https://i.scdn.co/image/16e1c84dcb5ab6b682f113a048ed172ca3ca2ef6
+[Duplicate] -Artist- id: 0c173mlxpT3dSFRgMO8XPh name: Big Sean image: https://i.scdn.co/image/ace48339c5cdca66a84a780aa0e6420b35b638c3
+[Duplicate] -Artist- id: 1pgtr4nhBQjp9oCUBPyYWh name: Fountains Of Wayne image: https://i.scdn.co/image/fe75e6f4ba0b2e75e97e3505f9daa112a606977f
+[Duplicate] -Artist- id: 3GBPw9NK25X1Wt2OUvOwY3 name: Jack Johnson image: https://i.scdn.co/image/71f76e2a7c52cabc26ed9af7acc664724d5e0023
+[Duplicate] -Artist- id: 5gCRApTajqwbnHHPbr2Fpi name: Juicy J image: https://i.scdn.co/image/8019b0f1b2166f1ef1d45027ec07cffd13cbf814
+[Duplicate] -Artist- id: 5yPzzu25VzEk8qrGTLIrE1 name: Young Nudy image: https://i.scdn.co/image/ae8ef6c685aaf8c9c2749de0062488d6f9df9e69
+[Duplicate] -Artist- id: 0u2FHSq3ln94y5Q57xazwf name: Keith Urban image: https://i.scdn.co/image/7c3954e6c88355a8cd5b41e1131765aa1b7afbce
+[Duplicate] -Artist- id: 5jJN1nmKXzRjodMl1THQeI name: Looking Glass image: https://i.scdn.co/image/ab67616d0000b2734c95b7cf28c3015c914218e4
+[Duplicate] -Artist- id: 7nwUJBm0HE4ZxD3f5cy5ok name: Aretha Franklin image: https://i.scdn.co/image/c5662abce23781f86275ea6540c6e299845f8d82
+[Duplicate] -Artist- id: 2QsynagSdAqZj3U9HgDzjD name: Bob Marley & The Wailers image: https://i.scdn.co/image/b5aae2067db80f694a980e596e7f49618c1206c9
+[Duplicate] -Artist- id: 7sKxqpSqbIzphAKAhrqvlf name: Walker Hayes image: https://i.scdn.co/image/a15330c36a713b33e7590f8a381479698b07df25
+[Duplicate] -Artist- id: 1Mxqyy3pSjf8kZZL4QVxS0 name: Frank Sinatra image: https://i.scdn.co/image/fc4e0f474fb4c4cb83617aa884dc9fd9822d4411
+[Duplicate] -Artist- id: 5Q81rlcTFh3k6DQJXPdsot name: Mura Masa image: https://i.scdn.co/image/f8d7504b196ac2a1a4369283d1ca6e35cec3b1f3
+[Duplicate] -Artist- id: 7EQ0qTo7fWT7DPxmxtSYEc name: Bastille image: https://i.scdn.co/image/7fd538c4aa21542d840e17773e6c8802196d1c4d
+[Duplicate] -Artist- id: 0OzxPXyowUEQ532c9AmHUR name: Giacomo Puccini image: https://i.scdn.co/image/98aef2b83b0148a90f9c60a163e08197f9d8606b
+[Duplicate] -Artist- id: 1R6Hx1tJ2VOUyodEpC12xM name: Jim Croce image: https://i.scdn.co/image/9f9b40704e3361c93ea8a8b7a86a5d9ee755466e
+[Duplicate] -Artist- id: 6S2OmqARrzebs0tKUEyXyp name: Demi Lovato image: https://i.scdn.co/image/51e7125964a144d5720af2a4c693255bed18443e
+[Duplicate] -Artist- id: 2UqjDAXnDxejEyE0CzfUrZ name: Robert Schumann image: https://i.scdn.co/image/795f15e4d860456a306055ccc995075c5dad9fa6
+[Duplicate] -Artist- id: 2uNpV18izVIP7DNusoWbT5 name: Bobby Hebb image: https://i.scdn.co/image/ab67616d0000b273104dd939c10a2ef4fde1f1df
+[Duplicate] -Artist- id: 1gPhS1zisyXr5dHTYZyiMe name: Kevin Gates image: https://i.scdn.co/image/f5faf3cd4c88cb79a3052ebd475e33c0d8c63083
+[Duplicate] -Artist- id: 4gHcu2JoaXJ0mV4aNPCd7N name: Benny Sings image: https://i.scdn.co/image/f06b584294854d290d70ba641b2c1181e6b8eccb
+[Duplicate] -Artist- id: 2YZyLoL8N0Wb9xBt1NhZWg name: Kendrick Lamar image: https://i.scdn.co/image/3a836196bfb341f736c7fe2704fb75de53f8dfbb
+[Duplicate] -Artist- id: 5Rl15oVamLq7FbSb0NNBNy name: 5 Seconds of Summer image: https://i.scdn.co/image/8ef3c09019477060d8fb06ecac36a79b5ed1b730
+[Duplicate] -Artist- id: 4F7KfJQw9lIXvFydi4TOyi name: Thomas Adès image: https://i.scdn.co/image/162b4e76a4c59b98b6a1c1e1b322252408e8a426
+[Duplicate] -Artist- id: 4gwpcMTbLWtBUlOijbVpuu name: Capital Cities image: https://i.scdn.co/image/20ff4095012395a58d4a925bd1b5bb87e6fbf8d9
+[Missing Data] -Artist- id: 0XMRyj3cCavK1cbqKWQuN6 name: David Majzlin Quartet image: null
+[Duplicate] -Artist- id: 41MozSoPIsD1dJM0CLPjZF name: BLACKPINK image: https://i.scdn.co/image/254b0e0fc1d4cf39de56960ed983c1ff7e3dff00
+[Duplicate] -Artist- id: 2o5jDhtHVPhrJdv3cEQ99Z name: Tiësto image: https://i.scdn.co/image/75b06fb7f4eef88d06067ad277840ccfec3eb1b1
+[Duplicate] -Artist- id: 6TqQLejnHXMGr7KcegxUND name: The Miracles image: https://i.scdn.co/image/b978fdfb21744014b4288eeb7f5b609d6272bf31
+[Duplicate] -Artist- id: 181bsRPaVXVlUKXrxwZfHK name: Megan Thee Stallion image: https://i.scdn.co/image/2214102a17a9a3df52fc812d43b58f57b386613a
+[Duplicate] -Artist- id: 2DlGxzQSjYe5N6G9nkYghR name: Jennifer Lopez image: https://i.scdn.co/image/6ae2a9eef263be601f3d02f47b2f4b8912dde429
+[Duplicate] -Artist- id: 7guDJrEfX3qb6FEbdPA5qi name: Stevie Wonder image: https://i.scdn.co/image/c59faacbed7aa770266bad048660810eca204108
+[Duplicate] -Artist- id: 1Xyo4u8uXC1ZmMpatF05PJ name: The Weeknd image: https://i.scdn.co/image/d9a875c37277c35b94c60c00d2cd256db098505d
+[Duplicate] -Artist- id: 78eqps3BavCqe2q7GCU1VK name: Tyler Rich image: https://i.scdn.co/image/96b4bca871942bd4f47d3d37b011ba4d51a9e9e9
+[Duplicate] -Artist- id: 44IvvHRk2XF243QLA2VOa8 name: Stunna 4 Vegas image: https://i.scdn.co/image/551bfa0348842ae18d5fae072e414551f5296979
+[Duplicate] -Artist- id: 30FDJPN3RtwJZ20g5YGCRX name: Yung Bae image: https://i.scdn.co/image/01153e1661ddadb5559f865cebbd6d8f49489694
+[Duplicate] -Artist- id: 1o2NpYGqHiCq7FoiYdyd1x name: Bea Miller image: https://i.scdn.co/image/0ef0267a573389d4e1345fbf76b634f26b5b6a47
+[Duplicate] -Artist- id: 38h03gA85YYPeDPd9ER9rT name: The O'Jays image: https://i.scdn.co/image/a085cd08a23c38cb812b949465df54cee2b9d909
+[Duplicate] -Artist- id: 5lpH0xAS4fVfLkACg9DAuM name: Wham! image: https://i.scdn.co/image/028bf41acbd7858a4a8acf688a392d4ee9e369ef
+[Duplicate] -Artist- id: 5nCi3BB41mBaMH9gfr6Su0 name: fun. image: https://i.scdn.co/image/37bc85c957e17d3463ae40da1c8ade6bb5ecd546
+[Duplicate] -Artist- id: 3oSJ7TBVCWMDMiYjXNiCKE name: Kane Brown image: https://i.scdn.co/image/c1c4dca1973a866b372b642f10486ca952b7e211
+[Duplicate] -Artist- id: 4UXqAaa6dQYAk18Lv7PEgX name: Fall Out Boy image: https://i.scdn.co/image/078a111caaad88290dfa51d1aebf76f305f63dbf
+[Duplicate] -Artist- id: 6jJ0s89eD6GaHleKKya26X name: Katy Perry image: https://i.scdn.co/image/1f7e93fb9ef379d511f94ebd832bf336d41926c6
+[Duplicate] -Artist- id: 0ErzCpIMyLcjPiwT4elrtZ name: NLE Choppa image: https://i.scdn.co/image/18f6660210b96dce05a13e032c7149a272add4fe
+[Duplicate] -Artist- id: 74oJ4qxwOZvX6oSsu1DGnw name: Cream image: https://i.scdn.co/image/aab6a0a0e9ca2ab17460b0451e59ba507cc5802a
+[Duplicate] -Artist- id: 0IVapwlnM3dEOiMsHXsghT name: Nosaj Thing image: https://i.scdn.co/image/1059b0fe3f270ea4ebd6c0ae2610ffa094584de5
+[Duplicate] -Artist- id: 37394IP6uhnjIpsawpMu4l name: Killswitch Engage image: https://i.scdn.co/image/a23e3fe0791bb71cb6320065c8bac7b2243fc925
+[Duplicate] -Artist- id: 6VD4UEUPvtsemqD3mmTqCR name: Deorro image: https://i.scdn.co/image/9f30524b41467b291ec7f087b6aeaa11093f5567
+[Duplicate] -Artist- id: 4LLpKhyESsyAXpc4laK94U name: Mac Miller image: https://i.scdn.co/image/ed63d93ec5348edc9cdf85c97179bbc78cd57292
+[Duplicate] -Artist- id: 0LsTFjEB1IIrh7IlTxs1GY name: Phantom Planet image: https://i.scdn.co/image/58820dcd07f8293a84730681697e7510597968eb
+[Duplicate] -Artist- id: 5T0MSzX9RC5NA6gAI6irSn name: Estelle image: https://i.scdn.co/image/096472d14e73f69c619f5d580a9518c68a302677
+[Duplicate] -Artist- id: 7sfl4Xt5KmfyDs2T3SVSMK name: Lil Jon image: https://i.scdn.co/image/5c35fe3e2d2c28f88940a7c48c4241528726c0c3
+[Duplicate] -Artist- id: 4xFUf1FHVy696Q1JQZMTRj name: Carrie Underwood image: https://i.scdn.co/image/8483a22c7df8b3a0473e798f29617b6d11739ca9
+[Duplicate] -Artist- id: 4rTv3Ejc7hKMtmoBOK1B4T name: Ali Gatie image: https://i.scdn.co/image/3869620cf6bf907833f9489675079ac8ad7728cf
+[Duplicate] -Artist- id: 2VZTNKYLnhbnV3FwGJlp3K name: Jakob Ahlbom image: https://i.scdn.co/image/a6bf782f41e7452cd94ea7d0ee9acc5794e80652
+[Duplicate] -Artist- id: 4r63FhuTkUYltbVAg5TQnk name: DaBaby image: https://i.scdn.co/image/f68192e6516d89a77a2b16904725a77b75b42056
+[Duplicate] -Artist- id: 6hnWRPzGGKiapVX1UCdEAC name: Sam Cooke image: https://i.scdn.co/image/521b86ef5851b6ab74b72dba604cccab928f75a3
+[Duplicate] -Artist- id: 2m62cc253Xvd9qYQ8d2X3d name: The Alan Parsons Project image: https://i.scdn.co/image/3e90d18b7375a0e78340d23f72822646c4cc3b70
+[Duplicate] -Artist- id: 2iPiEjvpiyVOYH7JSRgqfW name: MVS image: https://i.scdn.co/image/ab67616d0000b273078b2b0fd19ecfa89b1fa6a0
+[Duplicate] -Artist- id: 0hEurMDQu99nJRq8pTxO14 name: John Mayer image: https://i.scdn.co/image/093f63fe03e52d014286eb6e0afa9a099214cf65
+[Duplicate] -Artist- id: 6qgnBH6iDM91ipVXv28OMu name: KAYTRANADA image: https://i.scdn.co/image/438d3d8b6dd3b5544407bc9b95121750799b4eb2
+[Duplicate] -Artist- id: 32aFdXARUiqP81SXqIPD4w name: Yael Naim image: https://i.scdn.co/image/9a28c362e81d1ee52d30ad6617709fd4a05c0978
+[Duplicate] -Artist- id: 4qIVPF0s71ZYW3qzhu5GkF name: Kina image: https://i.scdn.co/image/b94b31a2fa825319d0f9ef1812b6ec2163add35e
+[Missing Data] -Artist- id: 3Wi0jWFgODuHv7saFZRzEO name: Manto Watanobe image: null
+[Duplicate] -Artist- id: 6nS5roXSAGhTGr34W6n7Et name: Disclosure image: https://i.scdn.co/image/cde64861a67aa8de5e33c5290d30cf40b4caa36e
+[Duplicate] -Artist- id: 6ZLTlhejhndI4Rh53vYhrY name: Ozzy Osbourne image: https://i.scdn.co/image/59cb2a9f548a1e53e91f90fe6bcf9d7aef4f5856
+[Duplicate] -Artist- id: 0NGAZxHanS9e0iNHpR8f2W name: Alok image: https://i.scdn.co/image/339b4f2b8fa072d2130ad69cd603919e6279258e
+[Duplicate] -Artist- id: 4PDpGtF16XpqvXxsrFwQnN name: Thelonious Monk image: https://i.scdn.co/image/2a7045eb39ab27c73287686898f72ffe63f415fa
+[Duplicate] -Artist- id: 7oPgCQqMMXEXrNau5vxYZP name: Tracy Chapman image: https://i.scdn.co/image/965060777aeacb43659097cddc16b741785a508f
+[Duplicate] -Artist- id: 5m8H6zSadhu1j9Yi04VLqD name: Sly & The Family Stone image: https://i.scdn.co/image/9aef578389c4a9d27e15a627acb784c41094e79d
+[Duplicate] -Artist- id: 6jGMq4yGs7aQzuGsMgVgZR name: Lil Tjay image: https://i.scdn.co/image/db9945fd5985316262acb98c17b0a15ed5a65c8c
+[Duplicate] -Artist- id: 7mDU6nMUJnOSY2Hkjz5oqM name: Roy Woods image: https://i.scdn.co/image/839ba8f35caf371d22816a106eef60d581a58fc6
+[Duplicate] -Artist- id: 3gGUMEwIX6XodWsYEvKSal name: YBN Nahmir image: https://i.scdn.co/image/24a3ef2db365d1ef0737aabeb674e0b2761618aa
+[Duplicate] -Artist- id: 2efrqekWSHlvhATD50AG3m name: Orion Sun image: https://i.scdn.co/image/830ad9834528d8c2ae8ec763635d511190b941eb
+[Duplicate] -Artist- id: 2q3GG88dVwuQPF4FmySr9I name: The Score image: https://i.scdn.co/image/234287517385e6db043f11ad6316138e473c00aa
+[Duplicate] -Artist- id: 3FUY2gzHeIiaesXtOAdB7A name: Train image: https://i.scdn.co/image/f0757afdaaccc60dcf993b5331479335c2f4945b
+[Duplicate] -Artist- id: 4MERAVAHX04B50JOnasmWf name: Renaissance image: https://i.scdn.co/image/ab67616d0000b273093baf59cd868ea3f06217fd
+[Duplicate] -Artist- id: 6DIS6PRrLS3wbnZsf7vYic name: WALK THE MOON image: https://i.scdn.co/image/0b69b8f5e80d58a9124b32af61a25b6adad57910
+[Duplicate] -Artist- id: 1bqxdqvUtPWZri43cKHac8 name: MAX image: https://i.scdn.co/image/d495c6d7cd7b8f3ea10ec750250e0a3009c27d16
+[Duplicate] -Artist- id: 7slfeZO9LsJbWgpkIoXBUJ name: Ricky Martin image: https://i.scdn.co/image/76390c7321e976a63a5124124915765a784de36b
+[Duplicate] -Artist- id: 4csQIMQm6vI2A2SCVDuM2z name: Hayden James image: https://i.scdn.co/image/9b31f618bb49598f9e21aca9f87f372e707f11e9
+[Duplicate] -Artist- id: 6cEuCEZu7PAE9ZSzLLc2oQ name: R3HAB image: https://i.scdn.co/image/a157c6e13ffffd135f1465d18103c774d20d053b
+[Duplicate] -Artist- id: 20sxb77xiYeusSH8cVdatc name: Meek Mill image: https://i.scdn.co/image/2c9ec5abeb91b41b6fac18ec974c7a2b85319c5d
+[Duplicate] -Artist- id: 6TvjXbopXg71XRM9OZWqUc name: Arin Ray image: https://i.scdn.co/image/dd0ba94737f8661364c5185421eb302ec111af3b
+[Duplicate] -Artist- id: 0w7HLMvZOHatWVbAKee1zF name: Redbone image: https://i.scdn.co/image/300f8be021997fedd811bccf25a9e92f95f4d7bf
+[Duplicate] -Artist- id: 2l35CQqtYRh3d8ZIiBep4v name: MKTO image: https://i.scdn.co/image/23ce63b04f7edb4d337e3213336aed9f3a1d0b4c
+[Duplicate] -Artist- id: 1MIVXf74SZHmTIp4V4paH4 name: Mabel image: https://i.scdn.co/image/c7045030d8c544d8211dc4a918928ba6cacbbb46
+[Duplicate] -Artist- id: 5a2EaR3hamoenG9rDuVn8j name: Prince image: https://i.scdn.co/image/0040a9952a800042a6e85b2ea3c3b9cb6a077edf
+[Duplicate] -Artist- id: 2yEwvVSSSUkcLeSTNyHKh8 name: TOOL image: https://i.scdn.co/image/c23701238e46876969ea3b694e9b42b8db133b91
+[Duplicate] -Artist- id: 0EmeFodog0BfCgMzAIvKQp name: Shakira image: https://i.scdn.co/image/234f86923486e8ba3860def8518c01d5054aac1f
+[Duplicate] -Artist- id: 16rCzZOMQX7P8Kmn5YKexI name: Mahalia image: https://i.scdn.co/image/9e16194bb88feea671247b10818f3d34d42ffb37
+[Duplicate] -Artist- id: 0IF46mUS8NXjgHabxk2MCM name: Kelis image: https://i.scdn.co/image/977668064535a289d35377405b81673d22355411
+[Duplicate] -Artist- id: 3MKCzCnpzw3TjUYs2v7vDA name: Pyotr Ilyich Tchaikovsky image: https://i.scdn.co/image/9a7c31f43e22a95f6d3c57baf4f87a3a9d2b93e0
+[Duplicate] -Artist- id: 7LiVklVR1325BIOqD9kykr name: CLMD image: https://i.scdn.co/image/03ea55dc479151f53db175b6934c1e5d88b9aff4
+[Duplicate] -Artist- id: 7FY5V3XMwlNBPitEjXowHQ name: Darius Rucker image: https://i.scdn.co/image/ff980d04733dc5ac8e399cddce9dfa74478ade47
+[Duplicate] -Artist- id: 23fqKkggKUBHNkbKtXEls4 name: Kygo image: https://i.scdn.co/image/eee84c026e93f6d970fdc82c5010c45219530577
+[Duplicate] -Artist- id: 2HPaUgqeutzr3jx5a9WyDV name: PARTYNEXTDOOR image: https://i.scdn.co/image/797276c2f8da713f0534e012de4d144f338e1664
+[Duplicate] -Artist- id: 0LcJLqbBmaGUft1e9Mm8HV name: ABBA image: https://i.scdn.co/image/733e98edfdc11feea07914532603c080fa432159
+[Duplicate] -Artist- id: 0SwO7SWeDHJijQ3XNS7xEE name: MGMT image: https://i.scdn.co/image/0760c3acca24fe81e9d217dd922ab36081383897
+[Duplicate] -Artist- id: 2GwKduchNwbFP10LgIV7y4 name: 369 image: https://i.scdn.co/image/ab67616d0000b2734008f7fddea8e99b3fc69504
+[Duplicate] -Artist- id: 0xOeVMOz2fVg5BJY3N6akT name: Jaden image: https://i.scdn.co/image/64829357ce5ba7e8e7d1aebf19fbde50a36cf885
+[Duplicate] -Artist- id: 6fxyWrfmjcbj5d12gXeiNV name: Denzel Curry image: https://i.scdn.co/image/d8bf59d44a24524ebec33b2de335cf4e81491883
+[Duplicate] -Artist- id: 6mcrZQmgzFGRWf7C0SObou name: Frankie Valli & The Four Seasons image: https://i.scdn.co/image/72535b76d374d1009e76af5659f48716461e478b
+[Duplicate] -Artist- id: 57bUPid8xztkieZfS7OlEV name: The Supremes image: https://i.scdn.co/image/5c5dc3f7b4569a7727a63a44513c7a602b72da44
+[Duplicate] -Artist- id: 3kVUvbeRdcrqQ3oHk5hPdx name: Grouplove image: https://i.scdn.co/image/6e147746b6202304413579610e03c4c9233f3bd1
+[Duplicate] -Artist- id: 7xYcJfhrRx9Iv8smhoEibc name: Ephixa image: https://i.scdn.co/image/ad8469a8110edb35da9cb4b39bae1a96b2c8d892
+[Duplicate] -Artist- id: 0cGUm45nv7Z6M6qdXYQGTX name: Kehlani image: https://i.scdn.co/image/369b4e33305fb4bbd6485e0bb51b5526d6d0aa8c
+[Duplicate] -Artist- id: 1n2pb9Tsfe4SwAjmUac6YT name: Jake Owen image: https://i.scdn.co/image/670f1d25e41ea254ec9baed5a686af14fea8548a
+[Duplicate] -Artist- id: 3YQKmKGau1PzlVlkL1iodx name: Twenty One Pilots image: https://i.scdn.co/image/19e8f3bc875b7a4b9cf0041a5ee696c4be5478aa
+[Duplicate] -Artist- id: 699OTQXzgjhIYAHMy9RyPD name: Playboi Carti image: https://i.scdn.co/image/a47ceed38754e29c1b2c0cb381b005030cbf1ced
+[Duplicate] -Artist- id: 2kreKea2n96dXjcyAU9j5N name: The Pointer Sisters image: https://i.scdn.co/image/ffc34b0525b4d1a1d098881f7f0272d183db19a2
+[Duplicate] -Artist- id: 1SQRv42e4PjEYfPhS0Tk9E name: The Kinks image: https://i.scdn.co/image/b2e933a1a7ae670aa2e217c79710fe2f18ebad3d
+[Duplicate] -Artist- id: 4TEJudQY2pXxVHPE3gD2EU name: BlocBoy JB image: https://i.scdn.co/image/ab67616d0000b27355cad990bc1ce5808367fa0e
+[Duplicate] -Artist- id: 6Q192DXotxtaysaqNPy5yR name: Amy Winehouse image: https://i.scdn.co/image/19278c375c5a1bedc0718a8f6c486989db352ea5
+[Duplicate] -Artist- id: 3vDUJHQtqT3jFRZ2ECXDTi name: Lloyd Banks image: https://i.scdn.co/image/bddfaa525577e34cbb05993dee547af166266929
+[Duplicate] -Artist- id: 7AC976RDJzL2asmZuz7qil name: Yes image: https://i.scdn.co/image/22c7d5f100015ec96964a2e9f0da126b097f7a7c
+[Duplicate] -Artist- id: 0Wwji82sLA0Hcvtuak3omb name: AUDREY NUNA image: https://i.scdn.co/image/bda5a2742539d2610fde286030004e25428b8332
+[Duplicate] -Artist- id: 6LqNN22kT3074XbTVUrhzX name: Kesha image: https://i.scdn.co/image/282055081bba71c1f715c6459de13d12fb4373d5
+[Duplicate] -Artist- id: 5Y5TRrQiqgUO4S36tzjIRZ name: Timbaland image: https://i.scdn.co/image/71e2c7a1026d3a2397ae7ee08797a95d9a16c19f
+[Duplicate] -Artist- id: 5he5w2lnU9x7JFhnwcekXX name: Skrillex image: https://i.scdn.co/image/850a7d9f00b4ab7198b2c1c8c71f4bc7227072fd
+[Duplicate] -Artist- id: 4nDoRrQiYLoBzwC5BhVJzF name: Camila Cabello image: https://i.scdn.co/image/667daebca4856db3f4cbe8f51a4881091e62c401
+[Duplicate] -Artist- id: 2feDdbD5araYcm6JhFHHw7 name: Labrinth image: https://i.scdn.co/image/d9a7e54f8df26abde79fd1be03f40d4e8569f590
+[Duplicate] -Artist- id: 3RNrq3jvMZxD9ZyoOZbQOD name: Korn image: https://i.scdn.co/image/2277b8f0ae9316fd9572830763df39531fd224b8
+[Duplicate] -Artist- id: 55FRGLGEoc58o9fNM6gEdf name: Amparo image: https://i.scdn.co/image/6d98bdbfb56844fe1c42c485cbdb1b5363398004
+[Duplicate] -Artist- id: 5CCwRZC6euC8Odo6y9X8jr name: Rita Ora image: https://i.scdn.co/image/ccac2f7381ac773987322dd45922bd35a2886056
+[Duplicate] -Artist- id: 02kJSzxNuaWGqwubyUba0Z name: G-Eazy image: https://i.scdn.co/image/b4dfaf1b5b665aa533ba970e282ced4d26036274
+[Duplicate] -Artist- id: 6iWuBN32BqCJAeXW6o3nil name: Cautious Clay image: https://i.scdn.co/image/66f0d4316f7e1d92716e537b26eb65069ed8203d
+[Duplicate] -Artist- id: 5v8jlSmAQfrkTjAlpUfWtu name: Perry Como image: https://i.scdn.co/image/67994599f4a13b71c23e0fdfc2ffbf9ab94bb513
+[Missing Data] -Artist- id: 3bu7Ens6NHwiiAhAojqMKo name: Kit Connor image: null
+[Duplicate] -Artist- id: 1moxjboGR7GNWYIMWsRjgG name: Florence + The Machine image: https://i.scdn.co/image/0cc0c2edddf3830194d55292cb43e6a72ac7247b
+[Missing Data] -Artist- id: 1ZfTuv9XlWT2CaIsIZPm52 name: Cast image: null
+[Duplicate] -Artist- id: 1mcTU81TzQhprhouKaTkpq name: Rauw Alejandro image: https://i.scdn.co/image/a7d7f547bd026af653b776c7f2a730acfe9bc261
+[Duplicate] -Artist- id: 3e7awlrlDSwF3iM0WBjGMp name: Little Mix image: https://i.scdn.co/image/5734f0304545846d01f729670014a16574f3d486
+[Duplicate] -Artist- id: 4JbmXqez7WvTggoxn3UpVT name: Ghost Town DJs image: https://i.scdn.co/image/ab67616d0000b273db060eca4487746c7307a965
+[Duplicate] -Artist- id: 17LlecIqr0KpoiUMya3KEO name: William Keats image: https://i.scdn.co/image/ab67616d0000b2737a151e8f469e7fefd8535cba
+[Duplicate] -Artist- id: 6Xgp2XMz1fhVYe7i6yNAax name: Trippie Redd image: https://i.scdn.co/image/955a9b53451b9c97a6571202eccfe0b2b94a9e50
+[Duplicate] -Artist- id: 6L1XC7NrmgWRlwAeLJvVtA name: Sam Fischer image: https://i.scdn.co/image/e93ae9e7ff78c95e573b4c3346fe087774c63c69
+[Duplicate] -Artist- id: 0H39MdGGX6dbnnQPt6NQkZ name: SAINt JHN image: https://i.scdn.co/image/ec30ea9bc3d2007f775a91a428101b4a831ac64a
+[Duplicate] -Artist- id: 22bE4uQ6baNwSHPVcDxLCe name: The Rolling Stones image: https://i.scdn.co/image/85d9cb252ab4d8410d31820be40214c59f2597a1
+[Duplicate] -Artist- id: 137W8MRPWKqSmrBGDBFSop name: Wiz Khalifa image: https://i.scdn.co/image/119b0e8f0ddd4cfc13945e69205e201750b6006c
+[Duplicate] -Artist- id: 5t28BP42x2axFnqOOMg3CM name: Five Finger Death Punch image: https://i.scdn.co/image/e99baa55cac88306f3a89d6a7836a343ad3530ce
+[Duplicate] -Artist- id: 4VnomLtKTm9Ahe1tZfmZju name: Jackie Wilson image: https://i.scdn.co/image/0032ddb8574deeda87d1b518b625b32a0d4da517
+[Duplicate] -Artist- id: 1LeVJ5GPeYDOVUjxx1y7Rp name: Unknown Mortal Orchestra image: https://i.scdn.co/image/a8ca1855ebcd08dc6203d67560c76a37110c9fc3
+[Duplicate] -Artist- id: 7c0XG5cIJTrrAgEC3ULPiq name: Ty Dolla $ign image: https://i.scdn.co/image/6d0222ada3a614c277aaff64fb1d7eb84a34644b
+[Duplicate] -Artist- id: 1yxSLGMDHlW21z4YXirZDS name: Black Eyed Peas image: https://i.scdn.co/image/3d934fff9a8f4acd4232a109fd1845786718dda5
+[Duplicate] -Artist- id: 77AiFEVeAVj2ORpC85QVJs name: Steve Aoki image: https://i.scdn.co/image/bd878e687c252c80424d3dfd3758032f59447211
+[Duplicate] -Artist- id: 7vk5e3vY1uw9plTHJAMwjN name: Alan Walker image: https://i.scdn.co/image/c5c098af718b187525fb2f78527ebf89ea1b0466
+[Missing Data] -Artist- id: 3R0ekmWSuro9KoKiy1MDkR name: Les Chaud Lapins image: null
+[Duplicate] -Artist- id: 3RwQ26hR2tJtA8F9p2n7jG name: The Temptations image: https://i.scdn.co/image/ac427bc9167df8cb823cd93a54156001fbf6f9a2
+[Duplicate] -Artist- id: 1vyhD5VmyZ7KMfW5gqLgo5 name: J Balvin image: https://i.scdn.co/image/ae3600b01af301d517ac1426cccd4e613f335545
+[Duplicate] -Artist- id: 1W7FNibLa0O0b572tB2w7t name: Pink Sweat$ image: https://i.scdn.co/image/ac6e05da85a973206798a4f5d31a8aa0bbeb3a6a
+[Duplicate] -Artist- id: 7v4imS0moSyGdXyLgVTIV7 name: Nat King Cole image: https://i.scdn.co/image/a4c0918f13b67aa8d9f4ea1d64bdba44c51fb1d2
+[Duplicate] -Artist- id: 6M2wZ9GZgrQXHCFfjv46we name: Dua Lipa image: https://i.scdn.co/image/330f9806621bc0fe67f5c06f2f1f8df53d011b4e
+[Duplicate] -Artist- id: 3x3jSlhyv5CiCZDZlaTq0M name: Pi’erre Bourne image: https://i.scdn.co/image/ab67616d0000b27346fe2968c4c6f8f82ab4eb5b
+[Missing Data] -Artist- id: 2cQr2KbzdRtIFlfbHGnNsL name: Ziv Zaifman image: null
+[Duplicate] -Artist- id: 1ti0u37FfK0AO8cM2n7Ncr name: Iris Temple image: https://i.scdn.co/image/a3ecb485f616ac6856eb568c50e15e962f2feb25
+[Duplicate] -Artist- id: 2I9SLklAOG0vdMiUUMNxRl name: 88GLAM image: https://i.scdn.co/image/163890c802f7c776e72e39050d3f0c927af833dc
+[Duplicate] -Artist- id: 1SupJlEpv7RS2tPNRaHViT name: Nicky Jam image: https://i.scdn.co/image/e2cc83fdb16667b0cc6c011da4747adedc759185
+[Duplicate] -Artist- id: 1RyvyyTE3xzB2ZywiAwp0i name: Future image: https://i.scdn.co/image/287c505d7b76d3971a8c5b2fbb3935f9b2dbc3ce
+[Duplicate] -Artist- id: 35U9lQaRWSQISxQAB94Meo name: America image: https://i.scdn.co/image/185231175df036c1c337231e855b18a63a30b794
+[Duplicate] -Artist- id: 4Cjsh7anKDaMnQ3YHB1Xwq name: Panama Wedding image: https://i.scdn.co/image/5841b2fbfcae626d081197b845038342f3527d82
+[Duplicate] -Artist- id: 4GNC7GD6oZMSxPGyXy4MNB name: Lewis Capaldi image: https://i.scdn.co/image/5ed13d249e562fea4e296aaeb745ce06d27ec88f
+[Duplicate] -Artist- id: 2AV6XDIs32ofIJhkkDevjm name: Curtis Mayfield image: https://i.scdn.co/image/95c6d44385167a064c530e21c11153b3f162143c
+[Duplicate] -Artist- id: 757aE44tKEUQEqRuT6GnEB name: Roddy Ricch image: https://i.scdn.co/image/020e997fb003cf666859a90b57ca0519df769d30
+[Duplicate] -Artist- id: 0Y5tJX1MQlPlqiwlOH1tJY name: Travis Scott image: https://i.scdn.co/image/fec51156ed94b7ee30fbd4c7fd29b4a840e7daec
+[Duplicate] -Artist- id: 738wLrAtLtCtFOLvQBXOXp name: Major Lazer image: https://i.scdn.co/image/093b23f613441e9b90070939795f3109386edbb4
+[Duplicate] -Artist- id: 1xHQO9GJIW9OXHxGBISYc5 name: Marian Hill image: https://i.scdn.co/image/0282fb73918aef66b36cabfee1f7e3f26aa0f31a
+[Duplicate] -Artist- id: 1LB8qB5BPb3MHQrfkvifXU name: Cheap Trick image: https://i.scdn.co/image/ebb323f7c72924bd0ceb98e69d50373b99ccf3ac
+[Duplicate] -Artist- id: 14CHVeJGrR5xgUGQFV5BVM name: Fivio Foreign image: https://i.scdn.co/image/144563c39b0194827eef1c9f4827a1a81bdf3186
+[Duplicate] -Artist- id: 2cWZOOzeOm4WmBJRnD5R7I name: Normani image: https://i.scdn.co/image/eaef9743235fa95f1cb777fb690747c2fbd7e01d
+[Duplicate] -Artist- id: 4u5smJBskI6Adzv08PuiUP name: Kiiara image: https://i.scdn.co/image/ae180a269ec2b4dc811abe134628115ffb2a828b
+[Duplicate] -Artist- id: 55VydwMyCuGcavwPuhutPL name: The Used image: https://i.scdn.co/image/0f476171f283207656e95e1005cea7040be475d7
+[Duplicate] -Artist- id: 3iOvXCl6edW5Um0fXEBRXy name: The xx image: https://i.scdn.co/image/922163afa546eca372c27be4513a481de06e9481
+[Duplicate] -Artist- id: 7y97mc3bZRFXzT2szRM4L4 name: Frédéric Chopin image: https://i.scdn.co/image/07cf202095ed50c07fbba18245b060bd6e381774
+[Duplicate] -Artist- id: 7iZtZyCzp3LItcw1wtPI3D name: Rae Sremmurd image: https://i.scdn.co/image/7d6e7fa3946448178d50c8e3e42c517a6dd06aa1
+[Duplicate] -Artist- id: 32WkQRZEVKSzVAAYqukAEA name: Lady Antebellum image: https://i.scdn.co/image/1c56e7ca36810c54aab6f0d9d05f59379c008150
+[Duplicate] -Artist- id: 4ScCswdRlyA23odg9thgIO name: Jess Glynne image: https://i.scdn.co/image/7b8bcd3c4f4c044e2b330d3f79adae16c2dec8de
+[Duplicate] -Artist- id: 0TF2NxkJZPQoX1H53rEFM1 name: Gladys Knight & The Pips image: https://i.scdn.co/image/17992d522bd50efb63c2a353d2baf7d6957fb6ca
+[Duplicate] -Artist- id: 74CcYmmNeHKe5PrZaISk8e name: Hope Tala image: https://i.scdn.co/image/3055a90cd111549729d0748fcc0802a872eeeb75
+[Duplicate] -Artist- id: 2CIMQHirSU0MQqyYHq0eOx name: deadmau5 image: https://i.scdn.co/image/9effaa1fae5b51804692a309651083437c8f29fd
+[Duplicate] -Artist- id: 6MF58APd3YV72Ln2eVg710 name: Felix Mendelssohn image: https://i.scdn.co/image/32bf53aa73dbb81c615a91324efea0bcfff4b440
+[Duplicate] -Artist- id: 0fiWOxhsBsQQvFDtxUQWo0 name: Brett Young image: https://i.scdn.co/image/0cb3c81ecb89fd34900f7e2cfe7fcc780f44f809
+[Duplicate] -Artist- id: 1Gt39QnTBTndeyiJ5SO04q name: Amaranth Cove image: https://i.scdn.co/image/ab67616d0000b27361cb41224d1cc9dd052a5dba
+[Duplicate] -Artist- id: 6ra4GIOgCZQZMOaUECftGN name: Frank Zappa image: https://i.scdn.co/image/e1c04d8144371d6a6ac39c7f15a1c2a9f67a0c50
+[Duplicate] -Artist- id: 4iRZAbYvBqnxrbs6K25aJ7 name: The Dave Brubeck Quartet image: https://i.scdn.co/image/b6f7dc3c16f95e6df120af205d4007f518b01e0e
+[Duplicate] -Artist- id: 6nB0iY1cjSY1KyhYyuIIKH name: FKA twigs image: https://i.scdn.co/image/ad1c495a3cbe17d254e3929ab5742eb7154dc387
+[Duplicate] -Artist- id: 3grHWM9bx2E9vwJCdlRv9O name: Kenny Chesney image: https://i.scdn.co/image/3062555a3ee95a02e3b082fed602e09a97b38b62
+[Duplicate] -Artist- id: 5XJDexmWFLWOkjOEjOVX3e name: Eladio Carrion image: https://i.scdn.co/image/a9b692865d822c076df1ef7d34cde1e11326ae11
+[Duplicate] -Artist- id: 4VqBNQRr0nDN0trNUOn0co name: WRLD image: https://i.scdn.co/image/91408c493665f27989462c28ae8e3505ee0e38d7
+[Duplicate] -Artist- id: 2Vhc7Y0Kc6HzMC6glKM4h6 name: Holy Ghost! image: https://i.scdn.co/image/c427a337a78206317fe7ab42f44e2fbc194f52bd
+[Duplicate] -Artist- id: 0YCL71Clky5els6NireSBP name: Liv.e image: https://i.scdn.co/image/539e96b0f66c44aa19857895e7c5e29a44fd1125
+[Duplicate] -Artist- id: 4pcfFC9isxezJyTwbV1nIp name: Melanie Faye image: https://i.scdn.co/image/d75508491b8fcae06947201dd13dbe876db7ee82
+[Duplicate] -Artist- id: 13y7CgLHjMVRMDqxdx0Xdo name: Gucci Mane image: https://i.scdn.co/image/666097bb14996636cf7e106ca712a36fb39f8774
+[Duplicate] -Artist- id: 4AK6F7OLvEQ5QYCBNiQWHq name: One Direction image: https://i.scdn.co/image/5bb443424a1ad71603c43d67f5af1a04da6bb3c8
+[Duplicate] -Artist- id: 4BxCuXFJrSWGi1KHcVqaU4 name: Kodaline image: https://i.scdn.co/image/09b8d9b95ef677ec6c10aff296371dceb58057b9
+[Duplicate] -Artist- id: 55Aa2cqylxrFIXC767Z865 name: Lil Wayne image: https://i.scdn.co/image/df959d3993ded32689c465c1e6d0e96b612c1404
+[Duplicate] -Artist- id: 1Bl6wpkWCQ4KVgnASpvzzA name: BROCKHAMPTON image: https://i.scdn.co/image/c5d8db5b41cdf04a63ab8dc30c4f92a9b9005263
+[Duplicate] -Artist- id: 246dkjvS1zLTtiykXe5h60 name: Post Malone image: https://i.scdn.co/image/93fec27f9aac86526b9010e882037afbda4e3d5f
+[Duplicate] -Artist- id: 0FL2d6iFFNAV3yBUbXjZ1U name: Wafia image: https://i.scdn.co/image/42f7770058d33dd65167c0cdaa58c2815ed970d8
+[Duplicate] -Artist- id: 4bw2Am3p9ji3mYsXNXtQcd name: Piso 21 image: https://i.scdn.co/image/edc3bb11256d6bc3fd690eb92309daf1e9b32ff8
+[Duplicate] -Artist- id: 74ASZWbe4lXaubB36ztrGX name: Bob Dylan image: https://i.scdn.co/image/e8b81b4850f3374ecfc5c45eff323d17213dc6e4
+[Duplicate] -Artist- id: 2CvCyf1gEVhI0mX6aFXmVI name: Paul Simon image: https://i.scdn.co/image/c6d1d398bb24bfa534ed57920ab373995659a83b
+[Duplicate] -Artist- id: 1XhhO2dTs2fKyhILj0aam6 name: Phil Vassar image: https://i.scdn.co/image/63d217c793263983982021ee92b7292eca63295d
+[Duplicate] -Artist- id: 1E2AEtxaFaJtH0lO7kgNKw name: Russell Dickerson image: https://i.scdn.co/image/6d5b235fc94890cd9fbc309c8f1780f7845a8efc
+[Duplicate] -Artist- id: 1n8hLoV90OhFCYXLtCD659 name: Deaton Chris Anthony image: https://i.scdn.co/image/67b21868a50de79fdbc09a458e1df091a3110584
+[Duplicate] -Artist- id: 3qBKjEOanahMxlRojwCzhI name: Zacari image: https://i.scdn.co/image/819cb567c2f11aeeaaf1c609f8bcb83f63de27b5
+[Duplicate] -Artist- id: 2RqrWplViWHSGLzlhmDcbt name: Yaeji image: https://i.scdn.co/image/3ae43b32e247aa666b29971a42d892f41a7cf072
+[Duplicate] -Artist- id: 3Isy6kedDrgPYoTS1dazA9 name: Sean Paul image: https://i.scdn.co/image/e15025ccdfab6e62b9c2b391e4e5f44bac36a3db
+[Duplicate] -Artist- id: 33ScadVnbm2X8kkUqOkC6Z name: Don Omar image: https://i.scdn.co/image/043aa595a838e80632c902d8397cb3232f299566
+[Duplicate] -Artist- id: 6eUKZXaKkcviH0Ku9w2n3V name: Ed Sheeran image: https://i.scdn.co/image/f55cab0739390cf3b2c2f773b9c779b2f0ae8a99
+[Duplicate] -Artist- id: 0Z5pcmXDCKTrFWLnDChC37 name: Miami Horror image: https://i.scdn.co/image/795508fb8be3069401acc3fb299ac808189e8202
+[Duplicate] -Artist- id: 3QryVD03gGZOLQQXjy3EoA name: Getter image: https://i.scdn.co/image/2e867e402b769b90ad5993c3f72928eafaf0c7de
+[Duplicate] -Artist- id: 3QTDHixorJelOLxoxcjqGx name: SiR image: https://i.scdn.co/image/ebb405d155a76d5a29704eb4c29235ffdcaf0e20
+[Duplicate] -Artist- id: 1uiEZYehlNivdK3iQyAbye name: Tom Misch image: https://i.scdn.co/image/fad839d0564bf98f27a0b0fa048d7b0ec0033651
+[Duplicate] -Artist- id: 0PFtn5NtBbbUNbU9EAmIWF name: TOTO image: https://i.scdn.co/image/a47fe4b4087afd805a6e40730023b5d182423990
+[Missing Data] -Artist- id: 7F08KBndC92LlEFcpyJjyD name: DJ Blade Tha 1st & Bodlz image: null
+[Missing Data] -Artist- id: 18AMiSNJIMtdNIT0CT936H name: Luca D'Alberto; Howard Bernstein image: null
+[Duplicate] -Artist- id: 0xRXCcSX89eobfrshSVdyu name: MEDUZA image: https://i.scdn.co/image/f1dc8347ce1fd49e13f3e799175290a36e02b52d
+[Duplicate] -Artist- id: 6n7nd5iceYpXVwcx8VPpxF name: Antonín Dvořák image: https://i.scdn.co/image/f1cd0eea7fb3b75bfad16a10af1dc0dd0763efba
+[Missing Data] -Artist- id: 6Y20PijIkUoCtuvtkz37dO name: Austyn Johnson image: null
+[Duplicate] -Artist- id: 587PA35pRGL1JwQr6idJbb name: NEIL FRANCES image: https://i.scdn.co/image/f08ae1b54a0b91436eb28d0bfa014d9d783985f5
+[Duplicate] -Artist- id: 5hW4L92KnC6dX9t7tYM4Ve name: Joni Mitchell image: https://i.scdn.co/image/68cfb061951dbd44c95422a54cb70baec0722ca3
+[Duplicate] -Artist- id: 3Ao4LdOPmNHIsDq8Y5gTmh name: Mondbery image: https://i.scdn.co/image/ab67616d0000b27313a73d83d05d5e97ca7fb8f9
+[Duplicate] -Artist- id: 1l2NYhptmHjo64MDOcej1x name: LOVA image: https://i.scdn.co/image/65a51594584c918227789f577f8d04b30cd12488
+[Duplicate] -Artist- id: 6TQj5BFPooTa08A7pk8AQ1 name: Kaskade image: https://i.scdn.co/image/97d416a8ffb59ec86022434ce323ee01f5c8e265
+[Duplicate] -Artist- id: 30U8fYtiNpeA5KH6H87QUV name: Dead Kennedys image: https://i.scdn.co/image/725a76a15036422522a106bf153471a273e5e93f
+[Duplicate] -Artist- id: 0fTav4sBLmYOAzKuJw0grL name: Mac Ayres image: https://i.scdn.co/image/134396b82070c3f6b3b1c6648d25f03f7f50f4af
+[Duplicate] -Artist- id: 68abRTdO4meYReMWHvBYb0 name: Chris Lane image: https://i.scdn.co/image/8c329370b13513bb6e9733c3c9e065cdfdb2c6bd
+[Duplicate] -Artist- id: 7e1ICztHM2Sc4JNLxeMXYl name: dvsn image: https://i.scdn.co/image/9d32e06225a48304366ab0c8521389155958c56b
+[Duplicate] -Artist- id: 6EPlBSH2RSiettczlz7ihV name: Sleepy Hallow image: https://i.scdn.co/image/ab67616d0000b273591dcafbc08bbcab629a7442
+[Duplicate] -Artist- id: 2jgPkn6LuUazBoBk6vvjh5 name: The Zombies image: https://i.scdn.co/image/0cbe3a2c20fd93a28b74cbe7ee89c833818af93f
+[Duplicate] -Artist- id: 0du5cEVh5yTK9QJze8zA0C name: Bruno Mars image: https://i.scdn.co/image/aa32d6d4ca2467974403518dd3ebfe8831c5ced1
+[Duplicate] -Artist- id: 5M0lbkGluOPXLeFjApw8r8 name: DRAM image: https://i.scdn.co/image/c94ec5198cc3233e2598efa7130626bbb1549dfb
+[Missing Data] -Artist- id: 3VbprQmATEsilJkF5SH4dL name: Kyle Cook image: null
+[Duplicate] -Artist- id: 6olE6TJLqED3rqDCT0FyPh name: Nirvana image: https://i.scdn.co/image/84282c28d851a700132356381fcfbadc67ff498b
+[Duplicate] -Artist- id: 3iDD7bnsjL9J4fO298r0L0 name: Chicago image: https://i.scdn.co/image/498ebe5ab9da858cef77abebfce5933ddd23d384
+[Duplicate] -Artist- id: 29Oq9Nv8zLgu3IvX1tIpbm name: Matt Champion image: https://i.scdn.co/image/ab67616d0000b2739a3ab81a114f5a519c2feb75
+[Duplicate] -Artist- id: 64KEffDW9EtZ1y2vBYgq8T name: Marshmello image: https://i.scdn.co/image/b378853a6838299aeb068851850dfa8f5d18832a
+[Duplicate] -Artist- id: 0hirZ8kPPdM9pzXpoagB4w name: Marlena Shaw image: https://i.scdn.co/image/b870b6eeb93b649a25fa92e4affcd7b10f2e38d1
+[Duplicate] -Artist- id: 0blbVefuxOGltDBa00dspv name: LiSA image: https://i.scdn.co/image/2c297bc72fc48f1c1cfe7131d145550ff90d5455
+[Duplicate] -Artist- id: 3rWZHrfrsPBxVy692yAIxF name: WILLOW image: https://i.scdn.co/image/09a320c87e69ced87bb1b0989e9131a10a1066f2
+[Duplicate] -Artist- id: 7gAppWoH7pcYmphCVTXkzs name: The Vamps image: https://i.scdn.co/image/01ada1d729326cbabc3094ec9f46265d776284da
+[Duplicate] -Artist- id: 7290H8m1Dwt8G7jm1y9CQx name: Chris Isaak image: https://i.scdn.co/image/77557bd787b931e19c19243d495c377cf73b2224
+[Duplicate] -Artist- id: 3AA28KZvwAUcZuOKwyblJQ name: Gorillaz image: https://i.scdn.co/image/68826fdbd15a937639a83f7d2ffa6d6e5640fb3b
+[Duplicate] -Artist- id: 06HL4z0CvFAxyc27GXpf02 name: Taylor Swift image: https://i.scdn.co/image/62b33d12e2b9a033cf77585f6e3d4b2c6b3a63a1
+[Duplicate] -Artist- id: 3sFhA6G1N0gG1pszb6kk1m name: Wings image: https://i.scdn.co/image/826d206c73f95f1353383c17f27f22aeb628369a
+[Duplicate] -Artist- id: 0hCNtLu0JehylgoiP8L4Gh name: Nicki Minaj image: https://i.scdn.co/image/1a6476028ced225730a1fe889af3b963dd260259
+[Duplicate] -Artist- id: 6eVWXmKBW7Iltub01D9R1c name: Valerie Broussard image: https://i.scdn.co/image/c550b6899bdad85066741db4a3854eda68262a8f
+[Duplicate] -Artist- id: 57vWImR43h4CaDao012Ofp name: Steve Lacy image: https://i.scdn.co/image/294326648c2377dbd96bce61cbb1421a91e39dda
+[Duplicate] -Artist- id: 7ebBg3BuRFa2satTcY8whC name: Billy Lemos image: https://i.scdn.co/image/969b9758d6e8e8f33f19e1270fd84c013775fbb6
+[Missing Data] -Artist- id: 5UFihAkpw93nMRu3uavD1r name: The Hailey Rutledge Ensemble image: null
+[Duplicate] -Artist- id: 6tbjWDEIzxoDsBA1FuhfPW name: Madonna image: https://i.scdn.co/image/96b4818a65820e91e0e17fcf55a4d2213b019ad4
+[Duplicate] -Artist- id: 53KwLdlmrlCelAZMaLVZqU name: James Blake image: https://i.scdn.co/image/e13f57a5bd0b78242ed78935cece93eb97456c6f
+[Duplicate] -Artist- id: 0C8ZW7ezQVs4URX5aX7Kqx name: Selena Gomez image: https://i.scdn.co/image/dc6dd5ccdccee8c947b41af13e3b60ce0a235708
+[Duplicate] -Artist- id: 50JJSqHUf2RQ9xsHs0KMHg name: Jon Bellion image: https://i.scdn.co/image/c130cf4ab4e8a9b8046153102bccedae5ad6d8ed
+[Duplicate] -Artist- id: 1w5Kfo2jwwIPruYS2UWh56 name: Pearl Jam image: https://i.scdn.co/image/8a7775f16a99af5d353d4eb31ec0ccf908a6a6d1
+[Duplicate] -Artist- id: 4kYSro6naA4h99UJvo89HB name: Cardi B image: https://i.scdn.co/image/85145039b32b56e911bd2ad39f28f96277aea9f3
+[Duplicate] -Artist- id: 21mKp7DqtSNHhCAU2ugvUw name: ODESZA image: https://i.scdn.co/image/2d45e04208b55f434f31c6a46ee33e1693d23a9b
+[Duplicate] -Artist- id: 1mG23iQeR29Ojhq89D5gbh name: DJ Jazzy Jeff & The Fresh Prince image: https://i.scdn.co/image/3194246bd54b76c376e2be5a21a61dd7b93aeeb9
+[Duplicate] -Artist- id: 57LYzLEk2LcFghVwuWbcuS name: Summer Walker image: https://i.scdn.co/image/a38579606746ef34c38c349f4cdb250784f3aee8
+[Duplicate] -Artist- id: 1l8Fu6IkuTP0U5QetQJ5Xt name: Fifth Harmony image: https://i.scdn.co/image/c5e2e813755c107d8f4b068ec1001ea0f91409f1
+[Duplicate] -Artist- id: 4IVAbR2w4JJNJDDRFP3E83 name: 6LACK image: https://i.scdn.co/image/b7b33aaeac1367b35d9c74a53fc9cfbd38f79fee
+[Duplicate] -Artist- id: 2thIq9dFmnfUClzXEjDIMr name: Ebb & Flod image: https://i.scdn.co/image/ab67616d0000b273f587fcfcbda844807056c490
+[Duplicate] -Artist- id: 6yJCxee7QumYr820xdIsjo name: Zac Brown Band image: https://i.scdn.co/image/bf54264f6ec314da07a3ea157ab881c8134b9922
+[Duplicate] -Artist- id: 3r17AfJCCUqC9Lf0OAc73G name: Fergie image: https://i.scdn.co/image/8f3351450c30b08da0fcfc9a7c317570b6bb291d
+[Duplicate] -Artist- id: 7nDsS0l5ZAzMedVRKPP8F1 name: Ella Henderson image: https://i.scdn.co/image/33258f6f1d118b66d2e00f1351a451df47726a12
+[Duplicate] -Artist- id: 0TnOYISbd1XYRBk9myaseg name: Pitbull image: https://i.scdn.co/image/1353990534aef10c946cf3a47865ac22471be5c4
+[Duplicate] -Artist- id: 1Pe5hlKMCTULjosqZ6KanP name: Martha Reeves & The Vandellas image: https://i.scdn.co/image/b73ee3ca9b41ce90e95b94018fb342dd1ac58622
+[Duplicate] -Artist- id: 3uJ54ctF087JwTAxL783il name: Galvic image: https://i.scdn.co/image/ab67616d0000b2731fca8f1dd39d4da133960284
+[Duplicate] -Artist- id: 4IWBUUAFIplrNtaOHcJPRM name: James Arthur image: https://i.scdn.co/image/dd8ceb41c23ec3352cfc19df178e7f243d6182e4
+[Duplicate] -Artist- id: 3c4jBYA9Q6SFvKxMBTACgg name: Ceilidh image: https://i.scdn.co/image/f1d89e99965d036b00fbf557ccdccd8b2d86598c
+[Duplicate] -Artist- id: 6ueGR6SWhUJfvEhqkvMsVs name: Janelle Monáe image: https://i.scdn.co/image/01725ba396132ac8166d89d5c5d9b4afc3b83229
+[Duplicate] -Artist- id: 5q8HGNo0BjLWaTAhRtbwxa name: Brantley Gilbert image: https://i.scdn.co/image/c1b40745e2e28761d1f2b6129368d3b0ccbcc41f
+[Duplicate] -Artist- id: 7nqlScm2smydSRl13eaP8E name: Nea image: https://i.scdn.co/image/dd886abec5bb674b1e91a33fa6d249d7d6afb30c
+[Duplicate] -Artist- id: 3nFkdlSjzX9mRTtwJOzDYB name: JAY-Z image: https://i.scdn.co/image/4912d27d6b01dd790313d8ef76586be6b100550f
+[Duplicate] -Artist- id: 3DiDSECUqqY1AuBP8qtaIa name: Alicia Keys image: https://i.scdn.co/image/e22dcb4ff37667bf1cd605639ec393d1e5dce1db
+[Duplicate] -Artist- id: 5xkAtLTf309LAGZTbvULBn name: Ruel image: https://i.scdn.co/image/d40a05c7b208996978c08f1e193d0192a649086e
+[Duplicate] -Artist- id: 3u579Gdap91lMptBSdXTpf name: Kash Doll image: https://i.scdn.co/image/faecbd52ace8118b7009177d7876079eb43495b7
+[Duplicate] -Artist- id: 2cFrymmkijnjDg9SS92EPM name: blackbear image: https://i.scdn.co/image/fc4e26fa446d3370789e927bacbcfa40fb648f5c
+[Missing Data] -Artist- id: 1BtHSC6HWHCrterN5N6i0M name: Kantata image: null
+[Duplicate] -Artist- id: 64CuUOOirKmdAYLQSfaOyr name: The Emotions image: https://i.scdn.co/image/47abbf144c6523f1a14b1e3c4920f0fd55e4e0cd
+[Duplicate] -Artist- id: 3Y7RZ31TRPVadSFVy1o8os name: H.E.R. image: https://i.scdn.co/image/db35f97fba5e334b8a1a10285e8bc462c8b89f12
+[Duplicate] -Artist- id: 2kxP07DLgs4xlWz8YHlvfh name: NIKI image: https://i.scdn.co/image/754813da52352d800786ff70623658a0885b107d
+[Duplicate] -Artist- id: 0HthCchcL0kVLHTr113Vk1 name: mxmtoon image: https://i.scdn.co/image/94d1c36a8987fca538786bc54b7bde811deb3f7e
+[Duplicate] -Artist- id: 6beUvFUlKliUYJdLOXNj9C name: King Princess image: https://i.scdn.co/image/3b9cfea984f97873b45a501d2b1c878cc51aa251
+[Duplicate] -Artist- id: 2RDOrhPqAM4jzTRCEb19qX name: Sheck Wes image: https://i.scdn.co/image/c0f2b79210f155ffbc25a5a3900d3918566cec6b
+[Duplicate] -Artist- id: 4AcHt3JxKy59IX7JNNlZn4 name: Fitz and The Tantrums image: https://i.scdn.co/image/2ff6eed0fef07d0d6a70bfbb5e9f9f6c9e68224c
+[Duplicate] -Artist- id: 6AyATGg7mDgBlZ4N5uNog0 name: SYML image: https://i.scdn.co/image/778bec4e739bff44bbd17ef1e2d5b7b7f8d93529
+[Duplicate] -Artist- id: 4NZvixzsSefsNiIqXn0NDe name: Maggie Rogers image: https://i.scdn.co/image/db9637ae0d647218a33e66c95d838d0630cf97bb
+[Duplicate] -Artist- id: 2auiVi8sUZo17dLy1HwrTU name: Solange image: https://i.scdn.co/image/fd28a30af0dbb314121e507b2f3a30bd6e28daf5
+[Missing Data] -Artist- id: 2cHxxmqUJnm5Rc4FqqU1Hy name: Rodolfo y su Típica RA7 image: null
+[Missing Data] -Artist- id: 3xImmgUNsZsnqBpbgQOhKa name: Luca D'Alberto; Gilles Aiken image: null
+[Duplicate] -Artist- id: 46SHBwWsqBkxI7EeeBEQG7 name: Kodak Black image: https://i.scdn.co/image/7e3b329829c210144d51035a91b92ce3f55d79fb
+[Duplicate] -Artist- id: 2wIVse2owClT7go1WT98tk name: Missy Elliott image: https://i.scdn.co/image/ccbbf5f1d3023fd27ddbb84872853148f12e5687
+[Duplicate] -Artist- id: 4QQgXkCYTt3BlENzhyNETg name: Earth, Wind & Fire image: https://i.scdn.co/image/9fd0a9822140cce668ee15263e1f73730152dff0
+[Duplicate] -Artist- id: 7IfculRW2WXyzNQ8djX8WX name: Erykah Badu image: https://i.scdn.co/image/31d09b036bb398388e442714f838e5e27cb89ed3
+[Duplicate] -Artist- id: 0EFisYRi20PTADoJrifHrz name: Jhay Cortez image: https://i.scdn.co/image/ba2f538ff2202489f3f94b768f8121410293b524
+[Duplicate] -Artist- id: 4kIwETcbpuFgRukE8o7Opx name: Arlo Parks image: https://i.scdn.co/image/32bad082df3bb6cfb0eadb4f5cb906b785e4d2f2
+[Duplicate] -Artist- id: 3MdG05syQeRYPPcClLaUGl name: Diana Ross image: https://i.scdn.co/image/5e4a4550958951f0610f37307ab9a5dd6316a9e7
+[Duplicate] -Artist- id: 698hF4vcwHwPy8ltmXermq name: Far East Movement image: https://i.scdn.co/image/93b2785adf676fad08b852122e6e48753c3d966b
+[Duplicate] -Artist- id: 1Xylc3o4UrD53lo9CvFvVg name: Zara Larsson image: https://i.scdn.co/image/4335f7f59f44a02afd4a94fed0bee7615414c88b
+[Duplicate] -Artist- id: 6jTnHxhb6cDCaCu4rdvsQ0 name: Hot Chelle Rae image: https://i.scdn.co/image/3d4f1f69332b73b6e9bd4f38f701ea7a1a793dc2
+[Duplicate] -Artist- id: 7gvbCoLA8lJUktp8G2xIRR name: Peachy! image: https://i.scdn.co/image/4d0e45c6dfa18c731c025b2d646f99d38dd5a448
+[Duplicate] -Artist- id: 656RXuyw7CE0dtjdPgjJV6 name: Franz Joseph Haydn image: https://i.scdn.co/image/e9a9521ffd11cf06717c699acc48c32ec6ac7d21
+[Duplicate] -Artist- id: 4FtSnMlCVxCswABUmdhwpm name: Carly Simon image: https://i.scdn.co/image/2408d4187db84c9f53fd5789be1f674dd3b5cfbf
+[Duplicate] -Artist- id: 60NNvDqsif0u40CXMV6jDQ name: Ryan Beatty image: https://i.scdn.co/image/ecdb9caf205c2f02ca8accaea8d064c3e20e98af
+[Missing Data] -Artist- id: 6Sjyx1ilVnUtyFWOPTPKFc name: 本名陽子 image: null
+[Duplicate] -Artist- id: 3EXdLajEO02ziZ90P90bSW name: Lil Xan image: https://i.scdn.co/image/192f69059be132f9cac303c7f7c4b808e9c64c7b
+[Duplicate] -Artist- id: 1Goe2NezNnym45kco2xTk6 name: Nick Hakim image: https://i.scdn.co/image/ac6889998c4fedd2df6abc51f4ff9a756e024179
+[Duplicate] -Artist- id: 4O15NlyKLIASxsJ0PrXPfz name: Lil Uzi Vert image: https://i.scdn.co/image/271c672ac7a84a95f3c557177a29b8936923d152
+[Duplicate] -Artist- id: 1zuJe6b1roixEKMOtyrEak name: Tina Turner image: https://i.scdn.co/image/cf860c0e880d74dafe187f732c0093af95fda142
+[Duplicate] -Artist- id: 04gDigrS5kc9YWfZHwBETP name: Maroon 5 image: https://i.scdn.co/image/608c7b23420c9556a7eabd9097f7e171a91d3871
+[Duplicate] -Artist- id: 6UcJxoeHWWWyT5HZP064om name: Chet Faker image: https://i.scdn.co/image/70b47b529f7cdbc43925acaf2c7d5f7274213e69
+[Duplicate] -Artist- id: 2FwJwEswyIUAljqgjNSHgP name: Snakehips image: https://i.scdn.co/image/4d061bd31780c168314ca34ff9abdd59dd094989
+[Duplicate] -Artist- id: 053q0ukIDRgzwTr4vNSwab name: Grimes image: https://i.scdn.co/image/40023d857fb2f0735ffd743b28cf4f6ea2b627f1
+[Duplicate] -Artist- id: 6USv9qhCn6zfxlBQIYJ9qs name: Dominic Fike image: https://i.scdn.co/image/2303aa760ec7107cdbf70c5221fd0f50d625d69a
+[Duplicate] -Artist- id: 7z2avKuuiMAT4XZJFv8Rvh name: Tom Walker image: https://i.scdn.co/image/4111a1834db44fb140ca37d1fe5119b16fc2e41c
+[Duplicate] -Artist- id: 20gsENnposVs2I4rQ5kvrf name: Sam Feldt image: https://i.scdn.co/image/7d85234afc83df9951394e9d6cb76d1fe983e0fb
+[Duplicate] -Artist- id: 6QtGlUje9TIkLrgPZrESuk name: Steve Miller Band image: https://i.scdn.co/image/3ce0d684c68941157eeac95f3a0916c3200fc541
+[Duplicate] -Artist- id: 1dWEYMPtNmvSVaDNLgB6NV name: Saint Motel image: https://i.scdn.co/image/342f9161a526f6ea2bf428421e0b8bd469d11eab
+[Duplicate] -Artist- id: 2YqJwmohaNjg9lg51flSax name: Chiiild image: https://i.scdn.co/image/1629ac42a8e788f89c1173ad5565dc8354e5b81b
+[Duplicate] -Artist- id: 0IwlY33zbBXN7zlS9DP2Cj name: Nico image: https://i.scdn.co/image/677676052b80931c35666be501d1f0d5c97397c9
+[Duplicate] -Artist- id: 2eDGCAUPtznGnGKQ2uP3GZ name: Daniel Kadawatha image: https://i.scdn.co/image/aa2e013c451cac35d42f35b05b41eaae571ea598
+[Duplicate] -Artist- id: 0ONHkAv9pCAFxb0zJwDNTy name: Pusha T image: https://i.scdn.co/image/9af694963c6fea22c1f1ec23771b9c39fd13c281
+[Duplicate] -Artist- id: 7BEfMxbaqx6dOpbtlEqScm name: Captain & Tennille image: https://i.scdn.co/image/3a01eb4ab84de08dd5d380ea9201c9dc8dbc6cdf
+[Duplicate] -Artist- id: 6XpaIBNiVzIetEPCWDvAFP name: Whitney Houston image: https://i.scdn.co/image/9cd1d09d5a351ca65c2f45246703614748ea9fed
+[Duplicate] -Artist- id: 5f7VJjfbwm532GiveGC0ZK name: Lil Baby image: https://i.scdn.co/image/8228781d8e7fa97831a42525c831063148736e87
+[Duplicate] -Artist- id: 20DZAfCuP1TKZl5KcY7z3Q name: SLANDER image: https://i.scdn.co/image/e8b64102ee7b4fde6dded0e16be6e099d9a874a4
+[Missing Data] -Artist- id: 7uiCJETSDngDoup4cNzBd7 name: Denise Darlington image: null
+[Duplicate] -Artist- id: 67hb7towEyKvt5Z8Bx306c name: Empire of the Sun image: https://i.scdn.co/image/1787956aee7c20f6a99f26552e19eed2b550ff61
+[Duplicate] -Artist- id: 0NWbwDZY1VkRqFafuQm6wk name: Mike WiLL Made-It image: https://i.scdn.co/image/37778e4f9ef5a5fc4f745aaf4b5339df4ed0aa7c
+[Duplicate] -Artist- id: 6NwzoAF59ghN7JuBvwHVex name: Elise Magnefold image: https://i.scdn.co/image/ab67616d0000b273d5edfb0fd5c9393c671413db
+[Duplicate] -Artist- id: 26VFTg2z8YR0cCuwLzESi2 name: Halsey image: https://i.scdn.co/image/1ccc88afcd13131dc35a1bd028922dbc748a55fb
+[Duplicate] -Artist- id: 09hVIj6vWgoCDtT03h8ZCa name: A Tribe Called Quest image: https://i.scdn.co/image/6f987ab74c72f0c50b19b05ea775bc4033c57706
+[Duplicate] -Artist- id: 1Q2mS59tFYLm2KGFoCgWN4 name: Samm Henshaw image: https://i.scdn.co/image/59bb4044c366fb50ecfde497951f7a85a106e936
+[Duplicate] -Artist- id: 2ANtgfhQkKpsW6EYSDqldz name: Gustav Mahler image: https://i.scdn.co/image/269aaec4775a72c6574dc856fc1f3f4a84c3d023
+[Duplicate] -Artist- id: 6extd4B6hl8VTmnlhpl2bY name: Huncho Jack image: https://i.scdn.co/image/ab67616d0000b2737a110ff20489fcf899d724c7
+[Duplicate] -Artist- id: 7CajNmpbOovFoOoasH2HaY name: Calvin Harris image: https://i.scdn.co/image/1fd90cd274102d458ec3a9243ced32e659738133
+[Duplicate] -Artist- id: 4S9EykWXhStSc15wEx8QFK name: Céline Dion image: https://i.scdn.co/image/3d579310822dcb55dc814b7bde9cd40c9c203fb3
+[Duplicate] -Artist- id: 7G1GBhoKtEPnP86X2PvEYO name: Nina Simone image: https://i.scdn.co/image/4fc7c2ed92b3abc1f8c08ec3e8d70caf630ce1ce
+[Duplicate] -Artist- id: 6i6WlGzQtXtz7GcC5H5st5 name: 10cc image: https://i.scdn.co/image/bd85e05d8bb8ad24515a232174cbe20925048566
+[Duplicate] -Artist- id: 7pFeBzX627ff0VnN6bxPR4 name: Desiigner image: https://i.scdn.co/image/e285c8f623c9a7c18bb523f1415b007f132792d1
+[Duplicate] -Artist- id: 5YGY8feqx7naU7z4HrwZM6 name: Miley Cyrus image: https://i.scdn.co/image/b5079187578650ea27fba00480ddf80182777fda
+[Duplicate] -Artist- id: 0X2BH1fck6amBIoJhDVmmJ name: Ellie Goulding image: https://i.scdn.co/image/b5d856551bc814e8c6af463e1bf37f853dec6d83
+[Duplicate] -Artist- id: 7hJcb9fa4alzcOq3EaNPoG name: Snoop Dogg image: https://i.scdn.co/image/11208d65843456cf3854717b8e411ef8fede7141
+[Duplicate] -Artist- id: 1LZEQNv7sE11VDY3SdxQeN name: Bee Gees image: https://i.scdn.co/image/1d5a05673975ba0c378cd280344e000b0b865620
+[Duplicate] -Artist- id: 6NgYKD0TKGjwtRFqTyyqKF name: Monsune image: https://i.scdn.co/image/b344695963694c4d85ee0d2d1a3d37cfdf7f2855
+[Duplicate] -Artist- id: 0MlOPi3zIDMVrfA9R04Fe3 name: American Authors image: https://i.scdn.co/image/4838c1c1b0d440234ed21fcd3856e7846fb1d408
+[Duplicate] -Artist- id: 5LHRHt1k9lMyONurDHEdrp name: Tyga image: https://i.scdn.co/image/67c4bd718cbf584ba2d297ccbb1e6e62a9772d0a
+[Duplicate] -Artist- id: 00FQb4jTyendYWaN8pK0wa name: Lana Del Rey image: https://i.scdn.co/image/6e8dc460cfb6b89d7970302259febd0aa73b38c6
+[Duplicate] -Artist- id: 4xRYI6VqpkE3UwrDrAZL8L name: Logic image: https://i.scdn.co/image/efa0b73c2cdaf40b1767b4b1e1254b1cfc5b51db
+[Duplicate] -Artist- id: 7A0awCXkE1FtSU8B0qwOJQ name: Jamie xx image: https://i.scdn.co/image/0f3e2bba969cf51ab4dcde8adf70af197803eceb
+[Duplicate] -Artist- id: 36QJpDe2go2KgaRleHCDTp name: Led Zeppelin image: https://i.scdn.co/image/207803ce008388d3427a685254f9de6a8f61dc2e
+[Duplicate] -Artist- id: 5IH6FPUwQTxPSXurCrcIov name: Alec Benjamin image: https://i.scdn.co/image/3456c9584254a3269549795b0bd63e841a86e974
+[Duplicate] -Artist- id: 6FBDaR13swtiWwGhX1WQsP name: blink-182 image: https://i.scdn.co/image/345f0de2b6bdadd50e7b5236324e9d2d1253a7d1
+[Missing Data] -Artist- id: 06he43CXS0x3kuXeKf017i name: Clarence Murray image: null
+[Duplicate] -Artist- id: 3X458ddYA2YcVWuVIGGOYe name: Toni Braxton image: https://i.scdn.co/image/613245bb9646ebb2eb167c2c12dfc72e7fc675f7
+[Duplicate] -Artist- id: 49e4v89VmlDcFCMyDv9wQ9 name: Dean Martin image: https://i.scdn.co/image/492d4ece2bf7c87952be47359f038182fbf15d9d
+[Duplicate] -Artist- id: 5JZ7CnR6gTvEMKX4g70Amv name: Lauv image: https://i.scdn.co/image/d763de4ee1f230d55719b5fcccd76984fcc2d290
+[Duplicate] -Artist- id: 46njgd2Rq9tZc4ZjeQMgbh name: Boz Scaggs image: https://i.scdn.co/image/48de6c1b84963e2cc0fec1788b58b545680b2336
+[Duplicate] -Artist- id: 2U2PV9orIaYatgMdTcB6eN name: Dhyana Thomas image: https://i.scdn.co/image/ab67616d0000b27310502c1ff58b790880398db5
+[Duplicate] -Artist- id: 5XMyhVhi5ZN2pi0Qwi1zXS name: Joy Crookes image: https://i.scdn.co/image/88db25b03663a78ee382880439b3b1c1df125601
+[Duplicate] -Artist- id: 1U1el3k54VvEUzo3ybLPlM name: Kali Uchis image: https://i.scdn.co/image/3fc24e54951329e7afb9b69e1ccd0ccaac0ec1e4
+[Duplicate] -Artist- id: 26T3LtbuGT1Fu9m0eRq5X3 name: Cage The Elephant image: https://i.scdn.co/image/3f50bb245648f81ff86ac941e01b9912f5d9713d
+[Duplicate] -Artist- id: 5Zq7R5qmi58ByYyBQTlNuk name: Lee Brice image: https://i.scdn.co/image/825ab69889237f8f8d6cce8eb8a1a57e381edba7
+[Duplicate] -Artist- id: 6I3MElirhT5t6Kf7p0hGk9 name: Duckwrth image: https://i.scdn.co/image/700a4836b868c2e3f4a21be3d783cedb6c3ed1bf
+[Duplicate] -Artist- id: 32vWCbZh0xZ4o9gkz4PsEU name: Dolly Parton image: https://i.scdn.co/image/bbd7aa224755d601336e56f72efd0fe6b138d96f
+[Duplicate] -Artist- id: 20PdOyVym0ZZrOB1rfcvCR name: Spencer. image: https://i.scdn.co/image/badc89ad5ede479f5a16c04e56d23d0586660553
+[Duplicate] -Artist- id: 5Mq7iqCWBzofK39FBqblNc name: Jessie Ware image: https://i.scdn.co/image/c15496a7c2af8ca3a4d704bae47ced8c0889eb01
+[Duplicate] -Artist- id: 6twIAGnYuIT1pncMAsXnEm name: Commodores image: https://i.scdn.co/image/69a3f6aa5bd88cf3e5148b46eb4bed70c7c11c75
+[Duplicate] -Artist- id: 17hR0sYHpx7VYTMRfFUOmY name: Maurice Ravel image: https://i.scdn.co/image/0d8f2b3e9ab748e7767fd31ff9386e06e5834e2b
+[Duplicate] -Artist- id: 16oZKvXb6WkQlVAjwo2Wbg name: The Lumineers image: https://i.scdn.co/image/81bc6a0807ec258fc05f5cdd70fa8c4066bd91db
+[Duplicate] -Artist- id: 43ZHCT0cAZBISjO8DG9PnE name: Elvis Presley image: https://i.scdn.co/image/5629fbf1c4e0bc4155eca3e08a2b98065eedd305
+[Duplicate] -Artist- id: 0TImkz4nPqjegtVSMZnMRq name: TLC image: https://i.scdn.co/image/0a92641cc8acb39e4aee7e959cb2a42287ea4801
+[Duplicate] -Artist- id: 6vXTefBL93Dj5IqAWq6OTv name: French Montana image: https://i.scdn.co/image/14443f9c4ab806e91aee7feaad4f90b91f29f7b6
+[Duplicate] -Artist- id: 2D4FOOOtWycb3Aw9nY5n3c name: Declan McKenna image: https://i.scdn.co/image/f5d6134fd136c452fc065d96883e9d65f47076c8
+[Duplicate] -Artist- id: 762310PdDnwsDxAQxzQkfX name: Depeche Mode image: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+[Duplicate] -Artist- id: 28Ky95tmlHktB96DBUoB0g name: Tristam image: https://i.scdn.co/image/7e3a4a35fb368ced23ce4851a088fd525009e23f
+[Duplicate] -Artist- id: 1BAdSa5cdtCNLbvT7gWmtJ name: Conro image: https://i.scdn.co/image/fb706339a97ad0679ce21c4ac7b733b1f9958023
+[Duplicate] -Artist- id: 6PXS4YHDkKvl1wkIl4V8DL name: Fetty Wap image: https://i.scdn.co/image/345ba48efb55e88a86e7421e992794e551570bdb
+[Duplicate] -Artist- id: 7gP3bB2nilZXLfPHJhMdvc name: Foster The People image: https://i.scdn.co/image/82babf927d68d75373df483836b21aa4bf9446d0
+[Duplicate] -Artist- id: 319yZVtYM9MBGqmSQnMyY6 name: Carole King image: https://i.scdn.co/image/813fde33623cbfd065053789cf1ffb22b55efd4a
+[Duplicate] -Artist- id: 0z4gvV4rjIZ9wHck67ucSV name: Akon image: https://i.scdn.co/image/20745ad5adc438c4aec164ca3cc2e04ed3abcb99
+[Duplicate] -Artist- id: 4STHEaNw4mPZ2tzheohgXB name: Paul McCartney image: https://i.scdn.co/image/2e9e61aa45f32c8d6c35a7e407d50ce1256df210
+[Duplicate] -Artist- id: 07YUOmWljBTXwIseAUd9TW name: Sebastian Yatra image: https://i.scdn.co/image/86d2fd482b221baa126bf3df38e0757aeca193d6
+[Duplicate] -Artist- id: 7wyBxBXLVLaiF2jxHCpvTe name: Koop image: https://i.scdn.co/image/58e693e8e2809796340d1d8b0fac2690cd3b260f
+[Missing Data] -Artist- id: 1VzoddvJMPZYKgEfefelIG name: Capella Strumentale Del Duomo Di Novara image: null
+[Duplicate] -Artist- id: 6LEeAFiJF8OuPx747e1wxR name: Blood Orange image: https://i.scdn.co/image/b28cc2c93be5abb0765e30df21dd2c44446292bb
+[Duplicate] -Artist- id: 1XkoF8ryArs86LZvFOkbyr name: Mary J. Blige image: https://i.scdn.co/image/571753934f6679837e4f74ffc597484204542145
+[Duplicate] -Artist- id: 6UE7nl9mha6s8z0wFQFIZ2 name: Robyn image: https://i.scdn.co/image/ef9263000b485e9c0c44d435ed8a61b61242aae3
+[Duplicate] -Artist- id: 4iHNK0tOyZPYnBU7nGAgpQ name: Mariah Carey image: https://i.scdn.co/image/0c68c052a574cffff7a6a09cbd801adb9b79219c
+[Duplicate] -Artist- id: 0vR2qb8m9WHeZ5ByCbimq2 name: Reik image: https://i.scdn.co/image/4527ee5f764813d9e9784211b1264e39907449de
+[Duplicate] -Artist- id: 3CDKmzJu6uwEGnPLLZffpD name: Frankie Valli image: https://i.scdn.co/image/1f7c3860146e9289a934c5af32cd53ff12581948
+[Duplicate] -Artist- id: 2qxJFvFYMEDqd7ui6kSAcq name: Zedd image: https://i.scdn.co/image/a9c923d081963c77dec430fb842b493724187dcc
+[Duplicate] -Artist- id: 6bmlMHgSheBauioMgKv2tn name: Powfu image: https://i.scdn.co/image/caa3b241ab7d11af43bfed13fa536747a4cc38f8
+[Duplicate] -Artist- id: 08F3Y3SctIlsOEmKd6dnH8 name: Yusuf / Cat Stevens image: https://i.scdn.co/image/8bdb38f358b7e7773a41520d1c8ad15f2b1d9867
+[Duplicate] -Artist- id: 25uiPmTg16RbhZWAqwLBy5 name: Charli XCX image: https://i.scdn.co/image/5b2888c77aafc7f868e619291f71890145f6688b
+[Duplicate] -Artist- id: 2GW7BMmmFwI0cDvop6sOWg name: Cora Zea image: https://i.scdn.co/image/56c361e8e6a7f4e8ea8253f1a9069d1122c5313c
+[Duplicate] -Artist- id: 50co4Is1HCEo8bhOyUWKpn name: Young Thug image: https://i.scdn.co/image/10ea494021e8341a2b5a8fcc8cd3b9a000cbc878
+[Duplicate] -Artist- id: 2J0JN7EFN10G1Tty6hX0AN name: DJ ESCO image: https://i.scdn.co/image/91430db28d093edd805fe42bbcb5232f52306dee
+[Duplicate] -Artist- id: 3VwKSHAfgzV1DOHV0aANCI name: TOKiMONSTA image: https://i.scdn.co/image/1c0b3d565f381f25bf0f8f9507dde77c6a8b8bb3
+[Duplicate] -Artist- id: 0epOFNiUfyON9EYx7Tpr6V name: The Strokes image: https://i.scdn.co/image/0dd6b94b32c9ec5400d5f8dd4d8be075a6627862
+[Duplicate] -Artist- id: 6u6AbTVrbabv27DLcSrF8i name: Serena Isioma image: https://i.scdn.co/image/282896486e95e8e8f1e28d73601bba8640ab677d
+[Duplicate] -Artist- id: 2SQs5lwQifKBBhMDYnPZy8 name: Ghost Of Summer image: https://i.scdn.co/image/ab67616d0000b273ab8beab65fcc77b9d300feeb
+[Duplicate] -Artist- id: 1dXrVDV7evHGSp1JVjBucF name: Wilhelm Tell Me image: https://i.scdn.co/image/a7f86d7b74a715b4ed09808886cf3e71201bb2f8
+[Duplicate] -Artist- id: 2jku7tDXc6XoB6MO2hFuqg name: Tory Lanez image: https://i.scdn.co/image/c7c42058e2d7ff9c5d45d8fd2aada04e09c4476d
+[Duplicate] -Artist- id: 4F7Q5NV6h5TSwCainz8S5A name: Duke Ellington image: https://i.scdn.co/image/1e24691a352233bbe989a311d921f17e7892a87e
+[Duplicate] -Artist- id: 0jnsk9HBra6NMjO2oANoPY name: Flo Rida image: https://i.scdn.co/image/2d0b5f483c7ed95b7c3c63147c3d38f9366b2c21
+[Duplicate] -Artist- id: 5WUlDfRSoLAfcVSX1WnrxN name: Sia image: https://i.scdn.co/image/652b6bb0dfaf8aa444f4414ee018699260e74306
+[Duplicate] -Artist- id: 6pBNfggcZZDCmb0p92OnGn name: Chase Rice image: https://i.scdn.co/image/96f331905724c6cf7caf473c51b9eddac98dc7c0
+[Duplicate] -Artist- id: 5me0Irg2ANcsgc93uaYrpb name: The Notorious B.I.G. image: https://i.scdn.co/image/1b4858fbd24046a81cace5ee18d19c868262b91f
+[Duplicate] -Artist- id: 4W48hZAnAHVOC2c8WH8pcq name: The Temper Trap image: https://i.scdn.co/image/3e415fd89d2aad51b9be6eb2cd0d94ed9c9e7a5b
+[Duplicate] -Artist- id: 1VBflYyxBhnDc9uVib98rw name: Icona Pop image: https://i.scdn.co/image/30ea1d461c1614d8f02fa2a02bd22b9d067816c1
+[Duplicate] -Artist- id: 19eLuQmk9aCobbVDHc6eek name: Louis Armstrong image: https://i.scdn.co/image/99f7f6998cda59a87fff6c7e27019605c783714e
+[Duplicate] -Artist- id: 5JMLG56F1X5mFmWNmS0iAp name: Chelsea Cutler image: https://i.scdn.co/image/149c1ea6da304f25f13226679955e442237537a6
+[Duplicate] -Artist- id: 6zFYqv1mOsgBRQbae3JJ9e name: Billy Joel image: https://i.scdn.co/image/0488b8c02bc9249ddf858e359dee66f206b1eb4f
+[Duplicate] -Artist- id: 3ESG6pj6a0LvUKklENalT6 name: Doris Day image: https://i.scdn.co/image/177e8ea19a5da187ddc33cc76d6d65b764fdf277
+[Duplicate] -Artist- id: 4FcZfItjVIsfO9TynErl7X name: Jubël image: https://i.scdn.co/image/3aa3768288d19b43ebda58af404594cd49706180
+[Missing Data] -Artist- id: 7uemAeTVgxwhXphGmy1Zu4 name: Luca D'Alberto; Richard Dorfmeister; Stefan Obermaier image: null
+[Duplicate] -Artist- id: 2UZMlIwnkgAEDBsw1Rejkn name: Tom Petty image: https://i.scdn.co/image/334e67339c294b6e99a35082cc4bee39bfd3db1c
+[Duplicate] -Artist- id: 2pTCZ9C1fXdaVlv6d5EIXM name: Chrome Sparks image: https://i.scdn.co/image/86bfdfb05b11fbadb2feb7e4b97e9521d136c55b
+[Duplicate] -Artist- id: 7d5SfGXKpgS3JK8BFIq59h name: William Black image: https://i.scdn.co/image/bee0e7b16adbcfed23a2504bf18c2579a0a4a6cf
+[Duplicate] -Artist- id: 4q3ewBCX7sLwd24euuV69X name: Bad Bunny image: https://i.scdn.co/image/23009960c33ef08d5973440cca17985a6c70a515
+[Duplicate] -Artist- id: 7Ln80lUS6He07XvHI8qqHH name: Arctic Monkeys image: https://i.scdn.co/image/ed0552e9746ed2bbf04ae4bcb5525700ca31522d
+[Duplicate] -Artist- id: 23zg3TcAtWQy7J6upgbUnj name: Usher image: https://i.scdn.co/image/59790a2ffc64b4e3823a3758c622af25bc794d23
+[Duplicate] -Artist- id: 37M5pPGs6V1fchFJSgCguX name: FINNEAS image: https://i.scdn.co/image/ad505018528acc37ede505959717125aeb27f587
+[Duplicate] -Artist- id: 4D75GcNG95ebPtNvoNVXhz name: Afrojack image: https://i.scdn.co/image/903c3b850a41b7b8bfaa47625ea1d6477875f984
+[Duplicate] -Artist- id: 4VivsO1n4n2Mi2Btyb5gfL name: Cosmo's Midnight image: https://i.scdn.co/image/634aa613b62bbe29a5e711e5b86a8c2fba02d395
+[Duplicate] -Artist- id: 2IDLDx25HU1nQMKde4n61a name: Rich Brian image: https://i.scdn.co/image/21fd020702814141806d6ef2548a51fde7a5d256
+[Duplicate] -Artist- id: 790FomKkXshlbRYZFtlgla name: KAROL G image: https://i.scdn.co/image/f051a956ab76980862481bce3bb9a1e545d08a86
+[Duplicate] -Artist- id: 6sHCvZe1PHrOAuYlwTLNH4 name: Gus Dapperton image: https://i.scdn.co/image/72f62d76b69c06cb192193ccfab07dfe7a2d565e
+[Duplicate] -Artist- id: 3o2dn2O0FCVsWDFSh8qxgG name: Sabaton image: https://i.scdn.co/image/75edd507eff2593d450c94684c2554f2abd02aed
+[Duplicate] -Artist- id: 536BYVgOnRky0xjsPT96zl name: Two Door Cinema Club image: https://i.scdn.co/image/cf4b5c4129059163149e43ea3466557e8e05642f
+[Duplicate] -Artist- id: 4yvcSjfu4PC0CYQyLy4wSq name: Glass Animals image: https://i.scdn.co/image/f282504561b0c2b2ec74925793bbf132982e9098
+[Duplicate] -Artist- id: 0Cp8WN4V8Tu4QJQwCN5Md4 name: BENEE image: https://i.scdn.co/image/abd8e6961a652fef88762676b74b6e7eaa876613
+[Duplicate] -Artist- id: 3tQx1LPXbsYjE9VwN1Peaa name: Marc E. Bassy image: https://i.scdn.co/image/8e7706101db46f8be0226cefa7ccfa1dd86b0206
+[Duplicate] -Artist- id: 60df5JBRRPcnSpsIMxxwQm name: Otis Redding image: https://i.scdn.co/image/4ad89c805aff0fb76b01b6b62b39e21fcd8943c3
+[Duplicate] -Artist- id: 3IZrrNonYELubLPJmqOci2 name: Nancy Sinatra image: https://i.scdn.co/image/7a735f3cc039cfa4499b5dd4569d93312baf123c
+[Duplicate] -Artist- id: 2x7EATekOPhFGRx3syMGEC name: The Knocks image: https://i.scdn.co/image/4abe77ed305c53a3d55a46ad1ea4bb8c7259867b
+[Duplicate] -Artist- id: 3alW3LYQS8K29z8C8NSLIX name: Barry Manilow image: https://i.scdn.co/image/c7fb58ab3e227c2ed40d763fe81003aa381d8cdb
+[Duplicate] -Artist- id: 3ApUX1o6oSz321MMECyIYd name: Quinn XCII image: https://i.scdn.co/image/41121173d8b2a69f7bac764ce6bf72aa004a8b1e
+[Duplicate] -Artist- id: 3CjlHNtplJyTf9npxaPl5w name: CHVRCHES image: https://i.scdn.co/image/e6c530da12f920f3b8d2d57be7782f9d49af16c3
+[Duplicate] -Artist- id: 7fKO99ryLDo8VocdtVvwZW name: Yemi Alade image: https://i.scdn.co/image/13d8eda7ed50ff9deb8ece2f3b25a0ae9a065857
+[Duplicate] -Artist- id: 5H6xmHXjsq98NLbEjuE29f name: NEIKED image: https://i.scdn.co/image/5fc4858cefa0936a13cfe6e276ef2a503dc9af75
+[Duplicate] -Artist- id: 5INjqkS1o8h1imAzPqGZBb name: Tame Impala image: https://i.scdn.co/image/a7cb9fc6df8b68fdb071156add87284c3c941a04
+[Duplicate] -Artist- id: 4F84IBURUo98rz4r61KF70 name: The White Stripes image: https://i.scdn.co/image/189146ab2ecdc0263ac26a01fefa8da86195abfb
+[Duplicate] -Artist- id: 5vBSrE1xujD2FXYRarbAXc name: Years & Years image: https://i.scdn.co/image/9a445dec27434045ae435c15dba76457f6f4f24c
+[Duplicate] -Artist- id: 1URnnhqYAYcrqrcwql10ft name: 21 Savage image: https://i.scdn.co/image/cfd6e47fbe4446750ec209dfa37bc919cb55c86f
+[Duplicate] -Artist- id: 1Zwtu3gCjyYVvEZZXbzucG name: Light Bin image: https://i.scdn.co/image/ab67616d0000b2733988ba13a0fec4cac1943604
+[Duplicate] -Artist- id: 4MSMDY0ClgWqXApU53I1L1 name: Matt and Kim image: https://i.scdn.co/image/70b38f0803fa39ec57f22c20ea923d2664147fde
+[Duplicate] -Artist- id: 4x1nvY2FN8jxqAFA0DA02H name: John Lennon image: https://i.scdn.co/image/13092b01405a296117fc923f8b132659364b739f
+[Duplicate] -Artist- id: 1Y8cdNmUJH7yBTd9yOvr5i name: Destiny's Child image: https://i.scdn.co/image/9c5f885d075e811cc9efa77d0f6c367701c5553e
+[Duplicate] -Artist- id: 7bPU7cvfoD20ixGD9Qnqki name: Stealers Wheel image: https://i.scdn.co/image/a209aa8215c4c91a321b5293bc6dcb64eff1ed29
+[Duplicate] -Artist- id: 0iiDqBBNToKJG4YoyESrBf name: Always Never image: https://i.scdn.co/image/607ae881dcba68102563d65147e254321370105b
+[Duplicate] -Artist- id: 2mxe0TnaNL039ysAj51xPQ name: R. Kelly image: https://i.scdn.co/image/b81390065f0c65c26270a4ca1d2ceae3e30efed6
+[Duplicate] -Artist- id: 7d3WFRME3vBY2cgoP38RDo name: Lil Skies image: https://i.scdn.co/image/635f58611cdfc3f94742f0899225625bcf61f79a
+[Duplicate] -Artist- id: 4tX2TplrkIP4v05BNC903e name: Tom Petty and the Heartbreakers image: https://i.scdn.co/image/b3c930705d502022b13f9c7134db8ae84a8ae71f
+[Duplicate] -Artist- id: 0roWUeP7Ac4yK4VN6L2gF4 name: Gioachino Rossini image: https://i.scdn.co/image/48200a929742e954caa5552179de10478d10753a
+[Duplicate] -Artist- id: 7hAolICGSgXJuM6DUpK5rp name: Chairlift image: https://i.scdn.co/image/103c030de25759eb1a4c7d092d4c57b119141a58
+[Duplicate] -Artist- id: 2x9SpqnPi8rlE9pjHBwmSC name: Talking Heads image: https://i.scdn.co/image/e4c5b04fce8706c87663357b1f78522a3a5c641b
+[Duplicate] -Artist- id: 24V5UY0nChKpnb1TBPJhCw name: Jai Wolf image: https://i.scdn.co/image/d6221b39ca6a79d909a59ccb02a2652611b00cdb
+[Duplicate] -Artist- id: 22WZ7M8sxp5THdruNY3gXt name: The Doors image: https://i.scdn.co/image/b8c3d75acf2d800defb05b8515445e6d064c97d5
+[Duplicate] -Artist- id: 4TMHGUX5WI7OOm53PqSDAT name: Grateful Dead image: https://i.scdn.co/image/bba340d0c2aa4c9cbcbab0a4c3259d8f8e27f0d7
+[Duplicate] -Artist- id: 17lzZA2AlOHwCwFALHttmp name: 2 Chainz image: https://i.scdn.co/image/080a4a7e0ae0d7941278572033bfaf639ef9e698
+[Duplicate] -Artist- id: 19y5MFBH7gohEdGwKM7QsP name: Luther Vandross image: https://i.scdn.co/image/b56207f77a5f193dd195b32ef2e0448845ee354c
+[Duplicate] -Artist- id: 20wkVLutqVOYrc0kxFs7rA name: Daniel Caesar image: https://i.scdn.co/image/f9dbecfbec79585821a0058c96fde9a57b9c106c
+[Missing Data] -Artist- id: null name: Julien Thorsen image: https://i.scdn.co/image/ab67616d0000b273cca0c7f89b40eefb758542a6
+[Duplicate] -Artist- id: 4HzKw8XcD0piJmDrrPRCYk name: Majid Jordan image: https://i.scdn.co/image/4c10227529102df709721a466314d28ff17a097d
+[Duplicate] -Artist- id: 39FC9x5PaTNYHp5hwlaY4q name: Niccolò Paganini image: https://i.scdn.co/image/ce53589936d5094e156198f0fb316d7efa788020
+[Duplicate] -Artist- id: 05oH07COxkXKIMt6mIPRee name: Brandy image: https://i.scdn.co/image/783792fe8f8a91c62685a3d686c8aa03366dc505
+[Duplicate] -Artist- id: 2JzhQYGos3RqV7MT5fWeek name: Porches image: https://i.scdn.co/image/5c063dac1c2d57b5a9785571ce4158c4c71adc67
+[Duplicate] -Artist- id: 0MponVSpW81oLvJZ53vYZH name: The Marvelettes image: https://i.scdn.co/image/6c35aa5919baa5acc3700d65087963e5c5c784b8
+[Duplicate] -Artist- id: 1UTPBmNbXNTittyMJrNkvw name: Blake Shelton image: https://i.scdn.co/image/0ca896cd5d9ecba06f93c20ddc3c09417a363d83
+[Duplicate] -Artist- id: 4oJsWKOJCNMfUbIpR2jk8Z name: Tora image: https://i.scdn.co/image/cd9bf5588c67f94480ad3f338a51927531e9f9bb
+[Duplicate] -Artist- id: 5aMIbwZQvP2MHPMVC5zCGj name: ODIE image: https://i.scdn.co/image/a21c20c30b55b31aff3f6aa84a6e7156f25363e7
+[Duplicate] -Artist- id: 2WuwBckoWivO9e7DgRFt6F name: Chymeris image: https://i.scdn.co/image/ab67616d0000b2731bf68b9bccd326c5a0b97784
+[Duplicate] -Artist- id: 0lawSNBxNgJFQYJnQzLH8c name: khai dreams image: https://i.scdn.co/image/9dd725cb4aeaff9df712f2dd1fe4a962e1189735
+[Duplicate] -Artist- id: 5z9wLR0RGBcWMXr4fCZW0K name: Greentea Peng image: https://i.scdn.co/image/9788df7da6ee429a7e53d3f1f3e9f3e8a5dfe70d
+[Duplicate] -Artist- id: 16GcWuvvybAoaHr0NqT8Eh name: Alabama Shakes image: https://i.scdn.co/image/cf307b565c69fe3861b88e1cc2178a47b1db0431
+[Duplicate] -Artist- id: 0uFa64czAQ5cVJa3V0PfRq name: Domani image: https://i.scdn.co/image/a82b60ac04f37032b57765ad40a47d3adbc5b5ad
+[Duplicate] -Artist- id: 2wY79sveU1sp5g7SokKOiI name: Sam Smith image: https://i.scdn.co/image/f9c59fff374544fb32293622bd8fce042c2756b4
+[Duplicate] -Artist- id: 3VJTtTgub426X1NuzcyAOb name: Rence image: https://i.scdn.co/image/c006242a5bd6aaad0de1dd2cf9afac6989b9def8
+[Duplicate] -Artist- id: 0huGjMyP507tBCARyzSkrv name: YBN Cordae image: https://i.scdn.co/image/00e6df3101796044c8d89b7c8e57ede911828ab6
+[Duplicate] -Artist- id: 540vIaP2JwjQb9dm3aArA4 name: DJ Snake image: https://i.scdn.co/image/3b232935a2d2dc1fcc3bfd8db2d6be58292b2317
+[Duplicate] -Artist- id: 6x2LnllRG5uGarZMsD4iO8 name: Thomas Rhett image: https://i.scdn.co/image/ae406c9213a87f7ae2db5851285afa2e9867ff50
+[Missing Data] -Artist- id: 4wyNyxs74Ux8UIDopNjIai name: null image: https://i.scdn.co/image/69fb04c9a7d9d4c9470e62445c4075e6838aa6c9
+[Duplicate] -Artist- id: 7t0rwkOPGlDPEhaOcVtOt9 name: The Cranberries image: https://i.scdn.co/image/143c01f407ed64a4b3bcbc92d24c05ef80981251
+[Duplicate] -Artist- id: 530Sdm7eqqzWBdDmILMgnu name: Robert Palmer image: https://i.scdn.co/image/d0f9136003814386988d37964be13b1da0b1c6e1
+[Duplicate] -Artist- id: 2ZRQcIgzPCVaT9XKhXZIzh name: Gryffin image: https://i.scdn.co/image/4d581cbbac339906b4de7580064f0cd38ad5cc12
+[Duplicate] -Artist- id: 28gNT5KBp7IjEOQoevXf9N name: Camilo image: https://i.scdn.co/image/45b0c6653fcf2911e72d3e021bc1f575e05363fe
+[Duplicate] -Artist- id: 6mK0vAO13gT8jWYANyoXAl name: Young Franco image: https://i.scdn.co/image/76d00d0d2b1d585b56826fd3407c20ac10374746
+[Duplicate] -Artist- id: 6Tyzp9KzpiZ04DABQoedps name: Little Dragon image: https://i.scdn.co/image/2ab99177dac7d5f67c3596f9c941c8ee834de005
+[Duplicate] -Artist- id: 66W9LaWS0DPdL7Sz8iYGYe name: JP Saxe image: https://i.scdn.co/image/e079a1ce6d71b9141a1ba68aeef7fafcd7a34807
+[Duplicate] -Artist- id: 0NIIxcxNHmOoyBx03SfTCD name: Tinashe image: https://i.scdn.co/image/d3dce253bfa66403e9cb2a3aa4a6d33775cd43c7
+[Duplicate] -Artist- id: 6gkWznnJkdkwRPVcmnrays name: Sister Sledge image: https://i.scdn.co/image/f166e5a03b893755811bf7f0040bc089338f04e9
+[Duplicate] -Artist- id: 3vAaWhdBR38Q02ohXqaNHT name: The All-American Rejects image: https://i.scdn.co/image/62c79a93a1e6c795ce335996ccde270b6488f90c
+[Duplicate] -Artist- id: 0PGB0xsAyDqHHlvNQcgq5S name: POWERS image: https://i.scdn.co/image/44ff71462dc4fd56eaf607dc04a3570ef4c7f206
+[Duplicate] -Artist- id: 2Mu5NfyYm8n5iTomuKAEHl name: Ms. Lauryn Hill image: https://i.scdn.co/image/ccb108f19352e88d6e69b1093d75a2be5efa1c99
+[Duplicate] -Artist- id: 5ZS223C6JyBfXasXxrRqOk name: Jhené Aiko image: https://i.scdn.co/image/f677fc21079ba4985debb4d1b3b4eb9cd7554ec8
+[Duplicate] -Artist- id: 4sD9znwiVFx9cgRPZ42aQ1 name: Sinéad O'Connor image: https://i.scdn.co/image/01302e48d0723ef0bb11af123826d7016585995d
+[Duplicate] -Artist- id: 7ltDVBr6mKbRvohxheJ9h1 name: ROSALÍA image: https://i.scdn.co/image/00abe038055e7c4d35617bea9b355fbe320b9881
+[Missing Data] -Artist- id: null name: Kelly Lee Owens image: https://i.scdn.co/image/2d9a177bf89862b65ca0da0f5db291a3d24aaa76
+[Duplicate] -Artist- id: 3jOstUTkEu2JkjvRdBA5Gu name: Weezer image: https://i.scdn.co/image/6b6289ebd6f1b70f65a7ea0b0d83af8e9dda5859
+[Duplicate] -Artist- id: 7gOdHgIoIKoe4i9Tta6qdD name: Jonas Brothers image: https://i.scdn.co/image/222e5cef31428bb734e1cb1eea2295ca495468d9
+[Duplicate] -Artist- id: 2hPgGN4uhvXAxiXQBIXOmE name: KIDS SEE GHOSTS image: https://i.scdn.co/image/e7df5661e0e360ebbeb065a9b4fde3db73823729
+[Duplicate] -Artist- id: 6s22t5Y3prQHyaHWUN1R1C name: AJR image: https://i.scdn.co/image/ce07af97cf3c49b36eb3a5f7a27d59be35e971eb
+[Duplicate] -Artist- id: 3qnGvpP8Yth1AqSBMqON5x name: Leon Bridges image: https://i.scdn.co/image/2ef080e352a66846b67fc5c57701e33d4942eae2
+[Duplicate] -Artist- id: 3RqBeV12Tt7A8xH3zBDDUF name: Kelsea Ballerini image: https://i.scdn.co/image/3b987e0f3d9f94b40b33cc673b96971cde05da83
+[Duplicate] -Artist- id: 44NX2ffIYHr6D4n7RaZF7A name: Van Morrison image: https://i.scdn.co/image/f849f47dd12c6ad44c69cdad9dda089d54b70664
+[Duplicate] -Artist- id: 0GbqW5TJr7n4is453VOY4C name: Procol Harum image: https://i.scdn.co/image/78ebadcdfb88efeda235ad9e6f49ce8a72e197d5
+[Duplicate] -Artist- id: 2p0UyoPfYfI76PCStuXfOP name: Franz Schubert image: https://i.scdn.co/image/ffd1ed5399935c49e9c34ba3681a899104998299
+[Missing Data] -Artist- id: 5tPS5f7Gu3Sa name: null image: https://i.scdn.co/image/ab67616d0000b273c43b819df1f42d233b925b30
+[Duplicate] -Artist- id: 6y8XlgIV8BLlIg1tT1R10i name: Old Dominion image: https://i.scdn.co/image/6141dbd07bf49a1eae7e847718de009238e380c7
+--------------------------------------------
+-----------------Statistics-----------------
+--------------------------------------------
+Artists Parsed: 2689
+Artists Inserted: 1772
+Artists Duplicates: 873
+Artists Missing Data: 41
+--------------------------------------------
+
+7.89s user 0.80s system 195% cpu 6.032 total
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.997 s
+[INFO] Finished at: 2020-05-11T03:10:04-07:00
+[INFO] ------------------------------------------------------------------------
