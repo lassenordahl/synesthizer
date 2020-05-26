@@ -19,7 +19,7 @@ public class RecaptchaVerifyUtils {
 
     public static void verify(String gRecaptchaResponse) throws Exception {
 
-        String SECRET_KEY;
+        String SECRET_KEY = "";
 
         try (InputStream input = RecaptchaVerifyUtils.class.getResourceAsStream("/config.properties")) {
 
