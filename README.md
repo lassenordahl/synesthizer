@@ -63,6 +63,55 @@ On the android end, the content shown on the selected items is changed. Below li
 - 3 Stars → Popularity
 - All information about the movie → Track Meta we have collected from Spotify. This includes metrics like danceability, wordiness, etc
 
+## Fuzzy Search Implementation
+
+- Used the provided example to create `edrec` UDF and used that in stored procedure to implement fuzzy search on name column for track, artist, and album tables
+
+Examples of use:
+
+- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java]
+- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java]
+- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java]
+
+```
+USE cs122b;
+
+DROP FUNCTION IF EXISTS fuzzy;
+DROP FUNCTION IF EXISTS SPLIT_STR;
+
+CREATE FUNCTION SPLIT_STR(
+  x VARCHAR(255),
+  delim VARCHAR(12),
+  pos INT
+)
+RETURNS VARCHAR(255)
+RETURN REPLACE(SUBSTRING(SUBSTRING_INDEX(x, delim, pos),
+       LENGTH(SUBSTRING_INDEX(x, delim, pos -1)) + 1),
+       delim, '');
+
+DELIMITER $$
+
+CREATE FUNCTION fuzzy(name VARCHAR(1000), search VARCHAR(1000))
+        RETURNS INT
+BEGIN
+        DECLARE pass_count INT DEFAULT 0;
+    DECLARE i INT Default 0;
+        DECLARE search_sub VARCHAR(255);
+        search_loop: LOOP
+                SET i = i + 1;
+                SET search_sub=SPLIT_STR(search, " ", i);
+                IF search_sub = '' THEN
+                        LEAVE search_loop;
+                END IF;
+        IF edrec(search_sub,name,2) THEN
+                        SET pass_count = pass_count + 1;
+                END IF;
+        END LOOP search_loop;
+        RETURN pass_count = i - 1;
+END
+$$
+```
+
 ## Project Contributions
 
 ### Lasse Nordahl
@@ -109,6 +158,8 @@ On the android end, the content shown on the selected items is changed. Below li
 - XML Creation
 - XML Parsing/Insertion/Optimization
 - Inconsistency report
+- Full Text Search
+- Fuzzy Search
 
 ## Deployment / Demo, kept from Project 3
 
@@ -200,15 +251,15 @@ mkdir xml_creation
 cp xml_creation/ cs122b/data_collection_creation/xml_creation
 
 #artists
-mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/artists.xml" 
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/artists.xml"
 
 #albums
-mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/albums.xml" 
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/albums.xml"
 #track
-mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/tracks.xml" 
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/tracks.xml"
 
 #track_metas
-mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/track_metas.xml" 
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/track_metas.xml"
 
 #search things inserted from xml
 Searchable Artists
@@ -234,9 +285,12 @@ When You Come Back Down
 When You Come Back Down
 - The UVM Top Cats
 ```
+
 ## Fuzzy Search Implementation
 
-```bash
+- Used the provided example to create `edrec` UDF and used that in stored procedure to implement fuzzy search on name column for track, artist, and album tables
+
+```
 USE cs122b;
 
 DROP FUNCTION IF EXISTS fuzzy;
