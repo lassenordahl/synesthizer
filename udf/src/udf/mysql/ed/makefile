@@ -12,9 +12,9 @@
 
 CC=gcc
 # on ubuntu
-# CFLAGS=-fPIC -Wall -O3 -I/usr/include/mysql
+CFLAGS=-fPIC -Wall -O3 -I/usr/include/mysql
 # on mac
-CFLAGS=-fPIC -Wall -O3 -I/usr/local/include/mysql
+# CFLAGS=-fPIC -Wall -O3 -I/usr/local/include/mysql
 LDFLAGS=-L. -ledrec
 
 all: libed.so libedth.so libedrec.so
