@@ -69,9 +69,9 @@ On the android end, the content shown on the selected items is changed. Below li
 
 Examples of use:
 
-- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java]
-- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java]
-- (https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java)[https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java]
+- [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/AlbumService.java)
+- [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/TrackService.java)
+- [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/service/ArtistService.java)
 
 ```
 USE cs122b;
