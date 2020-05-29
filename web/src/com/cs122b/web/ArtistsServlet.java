@@ -3,6 +3,7 @@ package com.cs122b.web;
 import com.cs122b.model.Artist;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +45,8 @@ public class ArtistsServlet extends HttpServlet {
                     search != null && search != "" ? search : null, subMode != null && subMode != "" ? subMode : null, name != null && name != "" ? name : null,
                     genre != null && genre != "" ? genre : null);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

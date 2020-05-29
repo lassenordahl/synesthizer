@@ -6,6 +6,8 @@ import com.cs122b.utils.JsonParse;
 import com.cs122b.utils.RecaptchaVerifyUtils;
 
 import com.google.gson.*;
+
+import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.sql.SQLException;
@@ -40,6 +42,8 @@ public class UserServlet extends HttpServlet {
             response.setStatus(400);
             out.write("{ \"message\": \"resource not created\"}");
             return;
+        } catch (NamingException e) {
+            e.printStackTrace();
         }
 
         if (user == null) {
@@ -85,6 +89,8 @@ public class UserServlet extends HttpServlet {
             response.setStatus(400);
             out.write("{ \"message\": \"resource not updated\"}");
             return;
+        } catch (NamingException e) {
+            e.printStackTrace();
         }
 
         if (user == null) {
@@ -107,6 +113,8 @@ public class UserServlet extends HttpServlet {
         try {
             user = UserService.fetchUser(user_id);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

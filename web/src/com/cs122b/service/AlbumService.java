@@ -7,6 +7,7 @@ import com.cs122b.model.Artist;
 import com.cs122b.model.Track;
 import com.cs122b.utils.StringUtil;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class AlbumService {
 
     public static void setAlbumAttrs(SQLClient db, Album album, ResultSet result, boolean addPopularity)
-            throws SQLException {
+            throws SQLException, NamingException {
         album.setId(result.getString("id"));
         album.setName(result.getString("name"));
         album.setAlbum_type(result.getString("album_type"));
@@ -46,7 +47,7 @@ public class AlbumService {
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name, String artist_id) throws SQLException {
+            String subMode, String name, String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -140,7 +141,7 @@ public class AlbumService {
     }
 
     public static String insertAlbum(String id, String name, String image, String album_type, String release_date,
-            String artist_id) throws SQLException {
+            String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_album(?, ?, ?, ?, ?, ?) as result";
@@ -162,7 +163,7 @@ public class AlbumService {
         return response;
     }
 
-    public static Album fetchAlbum(String id) throws SQLException {
+    public static Album fetchAlbum(String id) throws SQLException, NamingException {
 
         SQLClient db = new SQLClient();
 
@@ -184,7 +185,7 @@ public class AlbumService {
         return album;
     }
 
-    public static List<Track> fetchTracksForAlbum(String id) throws SQLException {
+    public static List<Track> fetchTracksForAlbum(String id) throws SQLException, NamingException {
 
         SQLClient db = new SQLClient();
         List<Track> tracksForAlbum = new ArrayList<Track>();

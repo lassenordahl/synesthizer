@@ -8,13 +8,14 @@ import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
 import com.cs122b.utils.StringUtil;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrackService {
 
-    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException {
+    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException, NamingException {
 
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
@@ -54,7 +55,7 @@ public class TrackService {
     // track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id
     // VARCHAR(25), artist_id VARCHAR(25)
     public static String insertTrack(String id, String name, int track_number, int duration_ms, String album_id,
-            String artist_id) throws SQLException {
+            String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_track(?, ?, ?, ?, ?, ?) as result";
@@ -76,7 +77,7 @@ public class TrackService {
         return response;
     }
 
-    private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException {
+    private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException, NamingException {
         trackMeta.setAcousticness(result.getFloat("acousticness"));
         trackMeta.setAnalysis_url(result.getString("analysis_url"));
         trackMeta.setDanceability(result.getFloat("danceability"));
@@ -96,7 +97,7 @@ public class TrackService {
     }
 
     public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name) throws SQLException {
+            String subMode, String name) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
         SQLClient db = new SQLClient();
@@ -194,7 +195,7 @@ public class TrackService {
         return tracks;
     }
 
-    public static Track fetchTrack(String id) throws SQLException {
+    public static Track fetchTrack(String id) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
         SQLClient db = new SQLClient();
@@ -228,7 +229,7 @@ public class TrackService {
         return track;
     }
 
-    public static TrackMeta fetchTrackMeta(String id) throws SQLException {
+    public static TrackMeta fetchTrackMeta(String id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         TrackMeta trackMeta = new TrackMeta();
 

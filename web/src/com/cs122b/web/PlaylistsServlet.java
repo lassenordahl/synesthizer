@@ -3,6 +3,7 @@ package com.cs122b.web;
 import com.cs122b.model.Playlist;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +39,8 @@ public class PlaylistsServlet extends HttpServlet {
 //            playlists = PlaylistService.fetchPlaylists(userId, offset != null ? Integer.parseInt(offset) : 0,
 //                    limit != null ? Integer.parseInt(limit) : 30);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

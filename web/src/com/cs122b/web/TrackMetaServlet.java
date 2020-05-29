@@ -4,6 +4,7 @@ import com.cs122b.model.TrackMeta;
 import com.cs122b.service.TrackService;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,8 @@ public class TrackMetaServlet extends HttpServlet {
         try {
             trackMeta = fetchTrackMeta(request.getParameter("id"));
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

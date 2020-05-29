@@ -5,6 +5,8 @@ import com.cs122b.model.Playlist;
 import com.cs122b.utils.JsonParse;
 
 import com.google.gson.*;
+
+import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +44,11 @@ public class PlaylistServlet extends HttpServlet {
             response.setStatus(400);
             out.write("{ \"message\": \"resource not created\"}");
             return;
+        } catch (NamingException e) {
+            e.printStackTrace();
+            response.setStatus(400);
+            out.write("{ \"message\": \"resource not created\"}");
+            return;
         }
 
         String userResponse = this.gson.toJson(playlist);
@@ -61,6 +68,8 @@ public class PlaylistServlet extends HttpServlet {
 //            user = PlaylistService.fetchPlaylist(playlistId, 100);
             user = PlaylistService.fetchPlaylist(playlistId, userId);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

@@ -7,11 +7,12 @@ import com.google.gson.JsonObject;
 import org.jasypt.util.password.PasswordEncryptor;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 
+import javax.naming.NamingException;
 import java.sql.*;
 
 public class EmployeeService {
 
-    private static void setEmployeeAttrs(Employee employee, ResultSet result) throws SQLException {
+    private static void setEmployeeAttrs(Employee employee, ResultSet result) throws SQLException, NamingException {
         employee.setId(result.getInt("id"));
         employee.setFirst_name(result.getString("first_name"));
         employee.setLast_name(result.getString("last_name"));
@@ -19,7 +20,7 @@ public class EmployeeService {
         employee.setPassword(result.getString("password"));
     }
 
-    private static void insertEmployee(SQLClient db, Employee employee) throws SQLException {
+    private static void insertEmployee(SQLClient db, Employee employee) throws SQLException, NamingException {
         String insertQuery = "INSERT INTO employee(id, first_name, last_name, email, password) "
                 + "VALUES(DEFAULT,?,?,?,?);";
 
@@ -43,7 +44,7 @@ public class EmployeeService {
         pstmt.close();
     }
 
-    public static Employee createEmployee(JsonObject employeeJson) throws SQLException {
+    public static Employee createEmployee(JsonObject employeeJson) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String email = employeeJson.get("email").getAsString();
@@ -85,7 +86,7 @@ public class EmployeeService {
         return employee;
     }
 
-    public static Employee authenticateEmployee(String email, String password) throws SQLException {
+    public static Employee authenticateEmployee(String email, String password) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         PasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
@@ -118,7 +119,7 @@ public class EmployeeService {
         return employee;
     }
 
-    public static Employee fetchEmployee(int id) throws SQLException {
+    public static Employee fetchEmployee(int id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT * FROM employee WHERE id=?";

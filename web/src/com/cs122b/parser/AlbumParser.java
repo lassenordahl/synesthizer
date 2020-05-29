@@ -7,6 +7,7 @@ import com.cs122b.model.Artist;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.naming.NamingException;
 import java.sql.BatchUpdateException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,7 +89,7 @@ class AlbumParser extends BaseParser {
         return hasAllData(album) && !this.isDuplicate(album.getId(), album.toString());
     }
 
-    private void validationFilter() throws SQLException {
+    private void validationFilter() throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         // get all ids in db and add to dupSet
 
@@ -139,7 +140,7 @@ class AlbumParser extends BaseParser {
         unfilteredCount = albums.size();
     }
 
-    void commitAlbums() throws SQLException {
+    void commitAlbums() throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         db.getConnection().setAutoCommit(false);

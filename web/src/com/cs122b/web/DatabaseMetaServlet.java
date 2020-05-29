@@ -2,6 +2,7 @@ package com.cs122b.web;
 
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
