@@ -9,6 +9,7 @@ import com.cs122b.model.Album;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 public class PlaylistService {
 
     static void setPlaylistTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity)
-            throws SQLException {
+            throws SQLException, NamingException {
 
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
@@ -60,7 +61,7 @@ public class PlaylistService {
         track.setAlbum(album);
     }
 
-    private static void setPlaylistAttrs(SQLClient db, Playlist playlist, ResultSet result) throws SQLException {
+    private static void setPlaylistAttrs(SQLClient db, Playlist playlist, ResultSet result) throws SQLException, NamingException {
 
         playlist.setId(result.getInt("id"));
         playlist.setName(result.getString("name"));
@@ -83,7 +84,7 @@ public class PlaylistService {
         }
     }
 
-    private static void insertPlaylist(SQLClient db, Playlist playlist, int userId) throws SQLException {
+    private static void insertPlaylist(SQLClient db, Playlist playlist, int userId) throws SQLException, NamingException {
 
         String insertQuery = "INSERT INTO playlist(id, name, image, creation_date) " + "VALUES(DEFAULT,?,?,DEFAULT);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -119,7 +120,7 @@ public class PlaylistService {
         relationPstmt.close();
     }
 
-    public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException {
+    public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String insertQuery = "INSERT INTO playlist_spotify_snapshot(playlist_id, snapshot_id) VALUES (?, ?);";
@@ -131,7 +132,7 @@ public class PlaylistService {
         db.closeConnection();
     }
 
-    public static Playlist createPlaylist(JsonObject playlistJson, int userId) throws SQLException {
+    public static Playlist createPlaylist(JsonObject playlistJson, int userId) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         String name = playlistJson.get("name").getAsString();
 
@@ -167,7 +168,7 @@ public class PlaylistService {
         return playlist;
     }
 
-    public static Playlist fetchPlaylist(int id, int userId) throws SQLException {
+    public static Playlist fetchPlaylist(int id, int userId) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         Playlist playlist = new Playlist();
 
@@ -190,7 +191,7 @@ public class PlaylistService {
         return playlist;
     }
 
-    public static List<Playlist> fetchPlaylists(int userId, int offset, int limit) throws SQLException {
+    public static List<Playlist> fetchPlaylists(int userId, int offset, int limit) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         List<Playlist> playlists = new ArrayList<Playlist>();
 

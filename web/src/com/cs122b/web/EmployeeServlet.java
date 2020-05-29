@@ -5,6 +5,8 @@ import com.cs122b.model.Employee;
 import com.cs122b.utils.JsonParse;
 
 import com.google.gson.*;
+
+import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.sql.SQLException;
@@ -31,6 +33,11 @@ public class EmployeeServlet extends HttpServlet {
             response.setStatus(400);
             out.write("{ \"message\": \"resource not created\"}");
             return;
+        } catch (NamingException e) {
+            e.printStackTrace();
+            response.setStatus(400);
+            out.write("{ \"message\": \"resource not created\"}");
+            return;
         }
 
         if (employee == null) {
@@ -53,6 +60,8 @@ public class EmployeeServlet extends HttpServlet {
         try {
             employee = EmployeeService.fetchEmployee(employee_id);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

@@ -5,13 +5,14 @@ import com.cs122b.client.SQLClient;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GenreService {
 
-    public static List<String> fetchGenres() throws SQLException {
+    public static List<String> fetchGenres() throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         // Don't need to

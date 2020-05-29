@@ -3,6 +3,7 @@ package com.cs122b.parser;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.naming.NamingException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -66,8 +67,9 @@ public class MainParser {
                 artistParser.commitArtists();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (NamingException e) {
+                e.printStackTrace();
             }
-
         }
 
         NodeList albums = docEle.getElementsByTagName("albums");
@@ -78,6 +80,8 @@ public class MainParser {
             try {
                 albumParser.commitAlbums();
             } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (NamingException e) {
                 e.printStackTrace();
             }
         }
@@ -91,6 +95,8 @@ public class MainParser {
                 trackParser.commitTracks();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (NamingException e) {
+                e.printStackTrace();
             }
         }
 
@@ -102,6 +108,8 @@ public class MainParser {
             try {
                 trackMetaParser.commitTrackMetas();
             } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (NamingException e) {
                 e.printStackTrace();
             }
         }
