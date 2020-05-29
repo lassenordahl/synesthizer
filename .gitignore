@@ -1,5 +1,6 @@
 apache-tomcat-8.5.53
 .idea
+.classpath
 web/.idea
 web/.class
 web/.classpath
