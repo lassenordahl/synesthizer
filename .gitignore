@@ -25,6 +25,7 @@ web/data_collection_creation/xml_creation/
 web/data_collection_creation/__pycache__
 web/data_collection_creation/.cache-lassenordahl
 web/src/resources/config.properties
+web/src/resources/config.production.properties
 web/pom.xml.tag
 web/pom.xml.releaseBackup
 web/pom.xml.versionsBackup
