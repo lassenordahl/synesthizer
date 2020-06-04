@@ -26,13 +26,13 @@ public class UserServlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        try {
-            RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
-        } catch (Exception e) {
-            response.setStatus(400);
-            out.write("{\"message\": \"No captcha provided or invalid captcha\"}");
-            return;
-        }
+//        try {
+//            RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
+//        } catch (Exception e) {
+//            response.setStatus(400);
+//            out.write("{\"message\": \"No captcha provided or invalid captcha\"}");
+//            return;
+//        }
 
         User user = null;
         try {
