@@ -30,7 +30,16 @@ public class TrackService {
         String queryArtist = "SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = ? ORDER BY name;";
         PreparedStatement statement = db.getConnection().prepareStatement(queryArtist, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, track.getId());
-        ResultSet artistsResult = statement.executeQuery();
+
+        ResultSet artistsResult;
+        try {
+            artistsResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -74,6 +83,7 @@ public class TrackService {
 
         String response = result.getString("result");
 
+        result.close();
         pstmt.close();
         db.closeConnection();
         return response;
@@ -191,12 +201,22 @@ public class TrackService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
+
         long endTime = System.nanoTime();
         long elapsedTime = endTime - startTime; // elapsed time in nano seconds. Note: print the values in nano seconds 
 
         if (logTime != null) {
-            MyLogger.log(String.format("[%s]: Tj: %s", logTime, Long.toString(elapsedTime)));
+            MyLogger.log(String.format("[%s]Tj:%s", logTime, Long.toString(elapsedTime)));
         }
 
 
@@ -207,6 +227,7 @@ public class TrackService {
             tracks.add(track);
         }
 
+        result.close();
         statement.close();
         db.closeConnection();
         return tracks;
@@ -236,12 +257,23 @@ public class TrackService {
         String query = queryString.toString();
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         Track track = new Track();
         setTrackAttrs(db, track, result, false);
 
+        result.close();
+        statement.close();
         db.closeConnection();
         return track;
     }
@@ -253,11 +285,22 @@ public class TrackService {
         String query = "SELECT * FROM track_meta WHERE track_meta.id = ?;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         setTrackMeta(trackMeta, result);
 
+        result.close();
+        statement.close();
         db.closeConnection();
         return trackMeta;
     }

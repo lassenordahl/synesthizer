@@ -28,7 +28,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -78,21 +78,21 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">Master_Single-Instance_Case_1:_HTTP/1_thread</stringProp>
+                <stringProp name="Argument.value">Master_Single-Instance_Case_1_HTTP/1_thread</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
               </elementProp>
               <elementProp name="pooling" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">false</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">pooling</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.domain">ec2-35-153-83-30.compute-1.amazonaws.com</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -105,7 +105,6 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">ec2-35-153-83-30.compute-1.amazonaws.com</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Results Tree" enabled="true">
@@ -260,7 +259,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">AWS_Scaled-Version_Case_1:_HTTP/1_thread</stringProp>
+                <stringProp name="Argument.value">AWS_Scaled-Version_Case_1_HTTP/1_thread</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -456,7 +455,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">Slave_Single-Instance_Case_2:_HTTP/10_threads</stringProp>
+                <stringProp name="Argument.value">Slave_Single-Instance_Case_2_HTTP/10_threads</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -637,7 +636,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">Orig_Single-Instance_Case_3:_HTTPS/10_threads</stringProp>
+                <stringProp name="Argument.value">Orig_Single-Instance_Case_3_HTTPS/10_threads</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -818,7 +817,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">Master_Single-Instance_Case_4:_HTTP/10_threads/No_connection_pooling</stringProp>
+                <stringProp name="Argument.value">Master_Single-Instance_Case_4_HTTP/10_threads/No_connection_pooling</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -999,7 +998,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">AWS_Scaled-Version_Case_2:_HTTP/10_threads</stringProp>
+                <stringProp name="Argument.value">AWS_Scaled-Version_Case_2_HTTP/10_threads</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -1180,7 +1179,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">GCP_Scaled-Version_Case_2:_HTTP/10_threads</stringProp>
+                <stringProp name="Argument.value">GCP_Scaled-Version_Case_2_HTTP/10_threads</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>
@@ -1361,7 +1360,7 @@
               </elementProp>
               <elementProp name="logTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                <stringProp name="Argument.value">AWS_Scaled-Version_Case_3:_HTTP/10_threads/No_connection_pooling</stringProp>
+                <stringProp name="Argument.value">AWS_Scaled-Version_Case_3_HTTP/10_threads/No_connection_pooling</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">logTime</stringProp>

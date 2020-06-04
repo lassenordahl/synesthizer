@@ -30,7 +30,16 @@ public class PlaylistService {
         String artistTrackQuery = "SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = ?;";
         PreparedStatement statement = db.getConnection().prepareStatement(artistTrackQuery, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, track.getId());
-        ResultSet artistsResult = statement.executeQuery();
+
+        ResultSet artistsResult;
+        try {
+            artistsResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -47,7 +56,16 @@ public class PlaylistService {
         String trackArtistQuery = "SELECT * FROM track_in_album NATURAL JOIN album WHERE album_id = id AND track_id = ?;";
         statement = db.getConnection().prepareStatement(trackArtistQuery, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, track.getId());
-        ResultSet albumResult = statement.executeQuery();
+
+        ResultSet albumResult;
+        try {
+            albumResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         albumResult.next();
 
@@ -75,7 +93,16 @@ public class PlaylistService {
                 + "LEFT JOIN track_meta ON track_meta.id = track.id\n" + "WHERE track_in_playlist.playlist_id = ?;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, playlist.getId());
-        ResultSet resultTracks = statement.executeQuery();
+
+        ResultSet resultTracks;
+        try {
+            resultTracks = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (resultTracks.next()) {
             Track track = new Track();
@@ -141,7 +168,16 @@ public class PlaylistService {
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, name);
         statement.setInt(2, userId);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         if (result.next() != false) {
             db.closeConnection();
@@ -179,7 +215,16 @@ public class PlaylistService {
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, id);
         statement.setInt(2, userId);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         if (result.next() == false) {
             db.closeConnection();
@@ -201,7 +246,16 @@ public class PlaylistService {
                         + "WHERE playlist_to_user.user_id=? ORDER BY creation_date DESC LIMIT 10";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, userId);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (result.next()) {
             Playlist playlist = new Playlist();

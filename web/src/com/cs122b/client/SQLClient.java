@@ -21,34 +21,34 @@ public class SQLClient {
 
     public SQLClient() throws NamingException, SQLException {
 
-       try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
+    //    try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
 
-           Properties prop = new Properties();
+    //        Properties prop = new Properties();
 
-           // load a properties file
-           prop.load(input);
+    //        // load a properties file
+    //        prop.load(input);
 
-           this.url = prop.getProperty("db.url");
-           this.dbtype = prop.getProperty("db.type");
-           this.dbname = prop.getProperty("db.name");
-           this.username = prop.getProperty("db.username");
-           this.password = prop.getProperty("db.password");
+    //        this.url = prop.getProperty("db.url");
+    //        this.dbtype = prop.getProperty("db.type");
+    //        this.dbname = prop.getProperty("db.name");
+    //        this.username = prop.getProperty("db.username");
+    //        this.password = prop.getProperty("db.password");
 
-       } catch (IOException ex) {
-           System.err.println("Insure that you have config file in src/resources/");
-           ex.printStackTrace();
-       }
+    //    } catch (IOException ex) {
+    //        System.err.println("Insure that you have config file in src/resources/");
+    //        ex.printStackTrace();
+    //    }
 
-        // Incorporate mySQL driver
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    //     // Incorporate mySQL driver
+    //     try {
+    //         Class.forName("com.mysql.jdbc.Driver").newInstance();
+    //     } catch (InstantiationException e) {
+    //         e.printStackTrace();
+    //     } catch (IllegalAccessException e) {
+    //         e.printStackTrace();
+    //     } catch (ClassNotFoundException e) {
+    //         e.printStackTrace();
+    //     }
 
         // Connect to the database
         try {
@@ -95,7 +95,7 @@ public class SQLClient {
         // Connect to the database
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:" + this.dbtype + "://" + this.url + "/" + this.dbname + "?autoReconnect=true", this.username,
+                    "jdbc:" + this.dbtype + "://" + this.url + "/" + this.dbname + "?autoReconnect=true&amp;useSSL=false&amp;cachePrepStmts=true", this.username,
                     this.password); // &useSSL=false
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,6 +108,7 @@ public class SQLClient {
 
     public void closeConnection() throws SQLException {
         connection.close();
+        connection = null;
     }
 
     public ArrayList<String> getTables() throws SQLException {
