@@ -8,6 +8,7 @@ import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
 import com.cs122b.utils.StringUtil;
 import com.google.gson.internal.bind.SqlDateTypeAdapter;
+import com.cs122b.utils.MyLogger;
 
 import javax.naming.NamingException;
 import java.sql.*;
@@ -98,12 +99,12 @@ public class TrackService {
     }
 
     public static List<Track> fetchTracks(boolean pooling, int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name) throws SQLException, NamingException {
+            String subMode, String name, String logTime) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
 
         SQLClient db;
-        if (!pooling) {
+        if (pooling == false) {
             db = new SQLClient(false);
         } else {
             db = new SQLClient();
@@ -180,10 +181,9 @@ public class TrackService {
         paramTypes.add("int");
         paramTypes.add("int");
 
+        long startTime = System.nanoTime();
         String query = queryString.toString();
-
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-
         for (int i = 0; i < parameters.size(); i++) {
             if (paramTypes.get(i).equalsIgnoreCase("string")) {
                 statement.setString(i + 1, parameters.get(i));
@@ -192,6 +192,13 @@ public class TrackService {
             }
         }
         ResultSet result = statement.executeQuery();
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime; // elapsed time in nano seconds. Note: print the values in nano seconds 
+
+        if (logTime != null) {
+            MyLogger.log(String.format("[%s]: Tj: %s", logTime, Long.toString(elapsedTime)));
+        }
+
 
         List<Track> tracks = new ArrayList<Track>();
         while (result.next()) {
