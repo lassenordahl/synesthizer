@@ -7,6 +7,7 @@ import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
 import com.cs122b.utils.StringUtil;
+import com.google.gson.internal.bind.SqlDateTypeAdapter;
 
 import javax.naming.NamingException;
 import java.sql.*;
@@ -100,7 +101,14 @@ public class TrackService {
             String subMode, String name) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
-        SQLClient db = new SQLClient();
+
+        SQLClient db;
+        if (!pooling) {
+            db = new SQLClient(false);
+        } else {
+            db = new SQLClient();
+        }
+
         StringBuilder queryString = new StringBuilder();
         ArrayList<String> parameters = new ArrayList<String>();
         ArrayList<String> paramTypes = new ArrayList<String>();
@@ -173,13 +181,8 @@ public class TrackService {
         paramTypes.add("int");
 
         String query = queryString.toString();
-        PreparedStatement statement = null;
 
-        if (pooling) {
-            statement = db.getConnection(true).prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        } else {
-            statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        }
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         for (int i = 0; i < parameters.size(); i++) {
             if (paramTypes.get(i).equalsIgnoreCase("string")) {

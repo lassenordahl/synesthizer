@@ -29,6 +29,8 @@ public class DatabaseMetaServlet extends HttpServlet {
             dbMeta = DatabaseService.getDatabaseMeta();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NamingException e) {
+            e.printStackTrace();
         }
 
         PrintWriter out = response.getWriter();

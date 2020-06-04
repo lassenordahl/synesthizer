@@ -41,7 +41,7 @@ public class TracksServlet extends HttpServlet {
         if (poolingString == null) {
             pooling = false;
         } else {
-            pooling = poolingString.equalsIgnoreCase("true");
+            pooling = !poolingString.equalsIgnoreCase("false");
         }
 
         List<Track> tracks = null;

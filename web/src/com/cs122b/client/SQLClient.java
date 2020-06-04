@@ -19,7 +19,7 @@ public class SQLClient {
     private String password;
     private Connection connection;
 
-    public SQLClient() {
+    public SQLClient() throws NamingException, SQLException {
 
        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
 
@@ -38,6 +38,48 @@ public class SQLClient {
            System.err.println("Insure that you have config file in src/resources/");
            ex.printStackTrace();
        }
+
+        // Incorporate mySQL driver
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // Connect to the database
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/synesthizer");
+            connection = ds.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public SQLClient(boolean notPooling) {
+
+        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
+
+            Properties prop = new Properties();
+
+            // load a properties file
+            prop.load(input);
+
+            this.url = prop.getProperty("db.url");
+            this.dbtype = prop.getProperty("db.type");
+            this.dbname = prop.getProperty("db.name");
+            this.username = prop.getProperty("db.username");
+            this.password = prop.getProperty("db.password");
+
+        } catch (IOException ex) {
+            System.err.println("Insure that you have config file in src/resources/");
+            ex.printStackTrace();
+        }
 
         // Incorporate mySQL driver
         try {
@@ -88,15 +130,7 @@ public class SQLClient {
         return attributes;
     }
 
-    public Connection getConnection() {
-       return this.connection;
-    }
-
-    public Connection getConnection(boolean usePooling) throws NamingException, SQLException {
-        Context initContext = new InitialContext();
-        Context envContext = (Context) initContext.lookup("java:/comp/env");
-        DataSource ds = (DataSource) envContext.lookup("jdbc/synesthizer");
-        Connection dbcon = ds.getConnection();
-        return dbcon;
+    public Connection getConnection() throws NamingException, SQLException {
+        return this.connection;
     }
 }
