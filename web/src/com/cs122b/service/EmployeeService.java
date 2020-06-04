@@ -45,7 +45,7 @@ public class EmployeeService {
     }
 
     public static Employee createEmployee(JsonObject employeeJson) throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         String email = employeeJson.get("email").getAsString();
         // Check if exists (return null if exists)

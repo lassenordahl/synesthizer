@@ -47,7 +47,7 @@ public class UserService {
     }
 
     public static User createUser(JsonObject userJson) throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         String email = userJson.get("email").getAsString();
 
