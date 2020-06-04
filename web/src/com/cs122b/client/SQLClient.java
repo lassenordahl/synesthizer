@@ -12,6 +12,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class SQLClient {
+    
     private String url;
     private String dbtype;
     private String dbname;
