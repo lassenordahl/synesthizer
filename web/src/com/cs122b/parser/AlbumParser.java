@@ -141,7 +141,7 @@ class AlbumParser extends BaseParser {
     }
 
     void commitAlbums() throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 

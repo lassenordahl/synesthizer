@@ -129,7 +129,7 @@ class TrackParser extends BaseParser {
     }
 
     void commitTracks() throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 
