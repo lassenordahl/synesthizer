@@ -21,29 +21,23 @@ public class SQLClient {
 
     public SQLClient() {
 
-//        try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
-//
-//            Properties prop = new Properties();
-//
-//            // load a properties file
-//            prop.load(input);
-//
-//            this.url = prop.getProperty("db.url");
-//            this.dbtype = prop.getProperty("db.type");
-//            this.dbname = prop.getProperty("db.name");
-//            this.username = prop.getProperty("db.username");
-//            this.password = prop.getProperty("db.password");
-//
-//        } catch (IOException ex) {
-//            System.err.println("Insure that you have config file in src/resources/");
-//            ex.printStackTrace();
-//        }
+       try (InputStream input = getClass().getResourceAsStream("/config.properties")) {
 
-        this.url = "";
-        this.dbtype = "mysql";
-        this.dbname ="cs122b";
-        this.username="cs122b";
-        this.password="team53";
+           Properties prop = new Properties();
+
+           // load a properties file
+           prop.load(input);
+
+           this.url = prop.getProperty("db.url");
+           this.dbtype = prop.getProperty("db.type");
+           this.dbname = prop.getProperty("db.name");
+           this.username = prop.getProperty("db.username");
+           this.password = prop.getProperty("db.password");
+
+       } catch (IOException ex) {
+           System.err.println("Insure that you have config file in src/resources/");
+           ex.printStackTrace();
+       }
 
         // Incorporate mySQL driver
         try {
@@ -69,10 +63,6 @@ public class SQLClient {
     public Query query(String query) throws SQLException {
         return new Query(connection.createStatement(), query);
     }
-
-//    public Connection getConnection() {
-//        return this.connection;
-//    }
 
     public void closeConnection() throws SQLException {
         connection.close();
