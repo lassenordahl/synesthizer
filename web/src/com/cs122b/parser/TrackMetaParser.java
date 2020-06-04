@@ -113,7 +113,7 @@ class TrackMetaParser extends BaseParser {
     }
 
     void commitTrackMetas() throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 

@@ -121,7 +121,7 @@ public class PlaylistService {
     }
 
     public static void insertSnapshot(String playlist_id, String snapshot_id) throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         String insertQuery = "INSERT INTO playlist_spotify_snapshot(playlist_id, snapshot_id) VALUES (?, ?);";
         PreparedStatement pstmt = db.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -133,7 +133,7 @@ public class PlaylistService {
     }
 
     public static Playlist createPlaylist(JsonObject playlistJson, int userId) throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
         String name = playlistJson.get("name").getAsString();
 
         // Check if exists (return null if exists)

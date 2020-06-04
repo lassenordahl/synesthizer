@@ -120,7 +120,7 @@ class ArtistParser extends BaseParser {
     }
 
     void commitArtists() throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 
