@@ -35,10 +35,18 @@ public class TracksServlet extends HttpServlet {
         String search = request.getParameter("search");
         String subMode = request.getParameter("subMode");
         String name = request.getParameter("name");
+        String poolingString = request.getParameter("pooling");
+
+        Boolean pooling = null;
+        if (poolingString == null) {
+            pooling = false;
+        } else {
+            pooling = poolingString.equalsIgnoreCase("true");
+        }
 
         List<Track> tracks = null;
         try {
-            tracks = fetchTracks(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+            tracks = fetchTracks(pooling, offset != null && offset != "" ? Integer.parseInt(offset) : 0,
                     limit != null && limit != "" ? Integer.parseInt(limit) : 20,
                     sortBy != null && sortBy != "" ? sortBy : "popularity desc",
                     searchMode != null && searchMode != "" ? searchMode : null,

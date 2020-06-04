@@ -96,7 +96,7 @@ public class TrackService {
         trackMeta.setValence(result.getFloat("valence"));
     }
 
-    public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search,
+    public static List<Track> fetchTracks(boolean pooling, int offset, int limit, String sortBy, String searchMode, String search,
             String subMode, String name) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
@@ -173,7 +173,14 @@ public class TrackService {
         paramTypes.add("int");
 
         String query = queryString.toString();
-        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = null;
+
+        if (pooling) {
+            statement = db.getConnection(true).prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        } else {
+            statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        }
+
         for (int i = 0; i < parameters.size(); i++) {
             if (paramTypes.get(i).equalsIgnoreCase("string")) {
                 statement.setString(i + 1, parameters.get(i));

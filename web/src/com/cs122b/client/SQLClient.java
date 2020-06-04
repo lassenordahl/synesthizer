@@ -88,7 +88,11 @@ public class SQLClient {
         return attributes;
     }
 
-    public Connection getConnection() throws NamingException, SQLException {
+    public Connection getConnection() {
+       return this.connection;
+    }
+
+    public Connection getConnection(boolean usePooling) throws NamingException, SQLException {
         Context initContext = new InitialContext();
         Context envContext = (Context) initContext.lookup("java:/comp/env");
         DataSource ds = (DataSource) envContext.lookup("jdbc/synesthizer");
