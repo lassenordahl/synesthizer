@@ -133,12 +133,4 @@ public class SQLClient {
     public Connection getConnection() throws NamingException, SQLException {
         return this.connection;
     }
-
-    public Connection getConnection(boolean pooling) throws NamingException, SQLException {
-        if (pooling == false) {
-            return this.connection;
-        }
-
-        return getConnection();
-    }
 }

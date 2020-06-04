@@ -104,7 +104,7 @@ public class TrackService {
 
 
         SQLClient db;
-        if (!pooling) {
+        if (pooling == false) {
             db = new SQLClient(false);
         } else {
             db = new SQLClient();
@@ -183,7 +183,7 @@ public class TrackService {
 
         long startTime = System.nanoTime();
         String query = queryString.toString();
-        PreparedStatement statement = db.getConnection(pooling).prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         for (int i = 0; i < parameters.size(); i++) {
             if (paramTypes.get(i).equalsIgnoreCase("string")) {
                 statement.setString(i + 1, parameters.get(i));

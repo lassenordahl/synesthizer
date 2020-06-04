@@ -40,10 +40,8 @@ public class TracksServlet extends HttpServlet {
         String name = request.getParameter("name");
         String poolingString = request.getParameter("pooling");
 
-        Boolean pooling = null;
-        if (poolingString == null) {
-            pooling = false;
-        } else {
+        Boolean pooling = true;
+        if (poolingString != null) {
             pooling = !poolingString.equalsIgnoreCase("false");
         }
         String logTime = request.getParameter("logTime");
