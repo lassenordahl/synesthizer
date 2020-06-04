@@ -8,6 +8,7 @@ import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
 import com.cs122b.utils.StringUtil;
 import com.google.gson.internal.bind.SqlDateTypeAdapter;
+import com.cs122b.utils.MyLogger;
 
 import javax.naming.NamingException;
 import java.sql.*;
@@ -180,6 +181,7 @@ public class TrackService {
         paramTypes.add("int");
         paramTypes.add("int");
 
+        long startTime = System.nanoTime();
         String query = queryString.toString();
         PreparedStatement statement = db.getConnection(pooling).prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         for (int i = 0; i < parameters.size(); i++) {
@@ -190,6 +192,13 @@ public class TrackService {
             }
         }
         ResultSet result = statement.executeQuery();
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime; // elapsed time in nano seconds. Note: print the values in nano seconds 
+
+        if (logTime != null) {
+            MyLogger.log(String.format("[%s]: Tj: %s", logTime, Long.toString(elapsedTime)));
+        }
+
 
         List<Track> tracks = new ArrayList<Track>();
         while (result.next()) {

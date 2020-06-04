@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static com.cs122b.service.TrackService.*;
+import com.cs122b.utils.MyLogger;
 
 @WebServlet(name = "TrackServlet", urlPatterns = { "/tracks" })
 public class TracksServlet extends HttpServlet {
@@ -24,6 +25,8 @@ public class TracksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        long startTime = System.nanoTime();
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -65,5 +68,12 @@ public class TracksServlet extends HttpServlet {
 
         String tracksResponse = this.gson.toJson(tracks);
         out.print("{ \"songs\": " + tracksResponse + " }");
+
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime;
+
+        if (logTime != null) {
+            MyLogger.log(String.format("[%s]: Ts: %s", logTime, Long.toString(elapsedTime)));
+        }
     }
 }
