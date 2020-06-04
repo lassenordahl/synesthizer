@@ -30,9 +30,9 @@ public class LoginServlet extends HttpServlet {
         User user = null;
 
         try {
-            if (!appType.equalsIgnoreCase("android")) {
-                RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
-            }
+//            if (!appType.equalsIgnoreCase("android")) {
+//                RecaptchaVerifyUtils.verify(jsonRequestBody.get("captcha").getAsString());
+//            }
 
             try {
                 user = UserService.authenticateUser(email, password);

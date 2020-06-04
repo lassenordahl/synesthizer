@@ -7,11 +7,12 @@ import com.google.gson.JsonObject;
 import org.jasypt.util.password.PasswordEncryptor;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 
+import javax.naming.NamingException;
 import java.sql.*;
 
 public class UserService {
 
-    private static void setUserAttrs(User user, ResultSet result) throws SQLException {
+    private static void setUserAttrs(User user, ResultSet result) throws SQLException, NamingException {
         user.setId(result.getInt("id"));
         user.setFirst_name(result.getString("first_name"));
         user.setLast_name(result.getString("last_name"));
@@ -20,7 +21,7 @@ public class UserService {
         user.setPassword(result.getString("password"));
     }
 
-    private static void insertUser(SQLClient db, User user) throws SQLException {
+    private static void insertUser(SQLClient db, User user) throws SQLException, NamingException {
         String insertQuery = "INSERT INTO user(id, first_name, last_name, address, email, password) "
                 + "VALUES(DEFAULT,?,?,?,?,?);";
 
@@ -45,7 +46,7 @@ public class UserService {
         pstmt.close();
     }
 
-    public static User createUser(JsonObject userJson) throws SQLException {
+    public static User createUser(JsonObject userJson) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String email = userJson.get("email").getAsString();
@@ -88,7 +89,7 @@ public class UserService {
         return user;
     }
 
-    public static User updateUser(JsonObject userJson) throws SQLException {
+    public static User updateUser(JsonObject userJson) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         // Create user object
@@ -160,7 +161,7 @@ public class UserService {
         return user;
     }
 
-    public static User authenticateUser(String email, String password) throws SQLException {
+    public static User authenticateUser(String email, String password) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         // Need to authenticate for encrypted passwords now, (no previous passwords will
@@ -193,7 +194,7 @@ public class UserService {
         return user;
     }
 
-    public static User fetchUser(int id) throws SQLException {
+    public static User fetchUser(int id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT * FROM user WHERE id=?";

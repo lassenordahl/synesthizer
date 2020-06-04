@@ -6,6 +6,7 @@ import com.cs122b.model.Artist;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.LinkedList;
 
@@ -67,7 +68,7 @@ class ArtistParser extends BaseParser {
         return hasAllData(artist) && !this.isDuplicate(artist.getId(), artist.toString());
     }
 
-    private void validationFilter() throws SQLException {
+    private void validationFilter() throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         // get all ids in db and add to dupSet
 
@@ -118,7 +119,7 @@ class ArtistParser extends BaseParser {
         unfilteredCount = artists.size();
     }
 
-    void commitArtists() throws SQLException {
+    void commitArtists() throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         db.getConnection().setAutoCommit(false);

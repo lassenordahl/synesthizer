@@ -4,6 +4,7 @@ import com.cs122b.model.Track;
 import com.cs122b.service.AlbumService;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class TracksForAlbumServlet extends HttpServlet {
         try {
             tracksForAlbum = AlbumService.fetchTracksForAlbum(albumId);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

@@ -4,6 +4,7 @@ import com.cs122b.model.Track;
 import com.cs122b.service.TrackService;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,8 @@ public class TracksServlet extends HttpServlet {
                     searchMode != null && searchMode != "" ? searchMode : null,
                     search != null && search != "" ? search : null, subMode != null && subMode != "" ? subMode : null, name != null && name != "" ? name : null);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 

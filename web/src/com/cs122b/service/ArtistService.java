@@ -6,6 +6,7 @@ import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
 import com.cs122b.utils.StringUtil;
 
+import javax.naming.NamingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ArtistService {
 
     private static void setArtistAttrs(SQLClient db, Artist artist, ResultSet query, Boolean setPopularity)
-            throws SQLException {
+            throws SQLException, NamingException {
         artist.setId(query.getString("id"));
         artist.setName(query.getString("name"));
         artist.setImage(query.getString("image"));
@@ -55,7 +56,7 @@ public class ArtistService {
         albumsStatement.close();
     }
 
-    public static String insertArtist(String id, String name, String image) throws SQLException {
+    public static String insertArtist(String id, String name, String image) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_artist(?, ?, ?) as result";
@@ -75,7 +76,7 @@ public class ArtistService {
     }
 
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name, String genre) throws SQLException {
+            String subMode, String name, String genre) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -168,7 +169,7 @@ public class ArtistService {
         return artists;
     }
 
-    public static Artist fetchArtist(String id) throws SQLException {
+    public static Artist fetchArtist(String id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT * FROM artist WHERE id = ?";
