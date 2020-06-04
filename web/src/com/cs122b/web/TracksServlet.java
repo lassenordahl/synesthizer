@@ -43,6 +43,7 @@ public class TracksServlet extends HttpServlet {
         } else {
             pooling = !poolingString.equalsIgnoreCase("false");
         }
+        String logTime = request.getParameter("logTime");
 
         List<Track> tracks = null;
         try {
@@ -50,7 +51,10 @@ public class TracksServlet extends HttpServlet {
                     limit != null && limit != "" ? Integer.parseInt(limit) : 20,
                     sortBy != null && sortBy != "" ? sortBy : "popularity desc",
                     searchMode != null && searchMode != "" ? searchMode : null,
-                    search != null && search != "" ? search : null, subMode != null && subMode != "" ? subMode : null, name != null && name != "" ? name : null);
+                    search != null && search != "" ? search : null, 
+                    subMode != null && subMode != "" ? subMode : null, 
+                    name != null && name != "" ? name : null,
+                    logTime != null && logTime != "" ? logTime : null);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NamingException e) {
