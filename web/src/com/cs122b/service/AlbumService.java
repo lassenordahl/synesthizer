@@ -27,7 +27,16 @@ public class AlbumService {
                 + "WHERE artist_id = id AND album_id = ?\n" + "ORDER BY name;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, album.getId());
-        ResultSet artistsResult = statement.executeQuery();
+         
+        ResultSet artistsResult;
+        try {
+            artistsResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -126,7 +135,16 @@ public class AlbumService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         List<Album> albums = new ArrayList<Album>();
 
@@ -174,7 +192,16 @@ public class AlbumService {
 
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
 
@@ -197,7 +224,16 @@ public class AlbumService {
                 + "ORDER BY track.track_number;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (result.next()) {
             Track track = new Track();

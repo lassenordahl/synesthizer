@@ -30,7 +30,16 @@ public class ArtistService {
         PreparedStatement statement = db.getConnection().prepareStatement(artistGenreQuery,
                 Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, artist.getId());
-        ResultSet genreResult = statement.executeQuery();
+
+        ResultSet genreResult;
+        try {
+            genreResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (genreResult.next()) {
             artist.addGenre(genreResult.getString("genre"));
@@ -40,7 +49,16 @@ public class ArtistService {
         PreparedStatement albumsStatement = db.getConnection().prepareStatement(artistAlbumQuery,
                 Statement.RETURN_GENERATED_KEYS);
         albumsStatement.setString(1, artist.getId());
-        ResultSet albumResult = albumsStatement.executeQuery();
+
+        ResultSet albumResult;
+        try {
+            albumResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (albumResult.next()) {
             Album album = new Album();
@@ -156,7 +174,16 @@ public class ArtistService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         List<Artist> artists = new ArrayList<Artist>();
         while (result.next()) {
@@ -175,7 +202,16 @@ public class ArtistService {
         String query = "SELECT * FROM artist WHERE id = ?";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         Artist artist = new Artist();

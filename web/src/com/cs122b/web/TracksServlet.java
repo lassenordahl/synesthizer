@@ -71,7 +71,7 @@ public class TracksServlet extends HttpServlet {
         long elapsedTime = endTime - startTime;
 
         if (logTime != null) {
-            MyLogger.log(String.format("[%s]: Ts: %s", logTime, Long.toString(elapsedTime)));
+            MyLogger.log(String.format("[%s]Ts:%s", logTime, Long.toString(elapsedTime)));
         }
     }
 }
