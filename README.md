@@ -7,7 +7,7 @@
   - #### Project 5 Video Demo Link:
 
   - #### Instruction of deployment:
-  
+
 ```
 ## Deployment Instructions
 
@@ -116,8 +116,8 @@ When You Come Back Down
 - The UVM Top Cats
 ```
 
-  - #### Collaborations and Work Distribution:
-  
+- #### Collaborations and Work Distribution:
+
 ### Lasse Nordahl
 
 - Application routing for new pages
@@ -166,47 +166,82 @@ When You Come Back Down
 - Inconsistency report
 - Full Text Search
 - Fuzzy Search
+- Jmeter Tests
+- Jmeter Graphs
+- Ts/Tj Logs
+- log_processing.py
+- AWS and GCP Load Balancer
 
 * # Connection Pooling
 
   - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
+
   * The connection code is handled in an abstracted object utilized in every endpoint that accesses the database
   * SQLClient: [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java)
   * Services utilizing SQLClient: [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/tree/master/web/src/com/cs122b/service](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/tree/master/web/src/com/cs122b/service)
 
   - #### Explain how Connection Pooling is utilized in the Fabflix code.
+
   * Reference for how we handled our design from a Piazza post: [https://piazza.com/class/k8d7td08e9b1sx?cid=1313](https://piazza.com/class/k8d7td08e9b1sx?cid=1313)
   * In our application, when creating a SQLClient object, a connection is created using the pooling configuration defined in context.xml ([https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/web/META-INF/context.xml](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/web/META-INF/context.xml)). This resource has a max connection pool of 100 connections available. We also only allow a maximum of 30 connections to become idle at any point in time. The length of time allowed for timeouts is 10000. In terms of how our SQL connection is used throughout the application, all endpoints accessing the database create a SQLClient object that utilize our pooling connection. After the prepared statements are executed, the database connection is terminated with the SQLClient method `void closeConnection()`. This abstracts database connection away from everything else and keeps the code easy to edit through the changing of resource files.
 
   - #### Explain how Connection Pooling works with two backend SQL.
+
   * Answer comes from: [https://www.mssqltips.com/sqlservertip/5630/understanding-sql-server-connection-pooling-in-adonet/](https://www.mssqltips.com/sqlservertip/5630/understanding-sql-server-connection-pooling-in-adonet/)
   * When we create connection pools for multiple database instances on the backend, it will pool together connections to the same database together. So, if you have a slave and master instance connection opened, then if you try to create a new slave connection, it will connect that connection to the slave pool. This lets the program pool together multiple different connections but have them separated by database. For our implementation, because we have the tomcat instances reading from their local databases, there isn't any handling to worry about this though. Write commands are hardcoded to be sent to the master IP as described in the lecture and Piazza post. In terms of our implementation, a better description can be found in the master/slave section below.
 
 - # Master/Slave
 
   - #### Include the filename/path of all code/configuration files in GitHub of routing queries to Master/Slave SQL.
+
   * We did not have any code/configuration files for routing queries as we did not use the mysql router. Code for utilizing different servers can be found in the SQLClient object below.
   * SQLClient: [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java)
+
 - #### How read/write requests were routed to Master/Slave SQL?
-  * We based our architecture based on the piazza post listed here: [https://piazza.com/class/k8d7td08e9b1sx?cid=1313](https://piazza.com/class/k8d7td08e9b1sx?cid=1313)
-  * For our project, we made each Tomcat instance access the local SQL server, and the write access will always access the master instance through the public IP (Security groups are defined, it uses the public IP because we had our VM's on different AWS accounts so we couldn't use the inner AWS IP). When write requests are made on the master instance, they are replicated on the slave instance. This means that all requests on either Tomcat instance will be acting with the same set of data, but be distributed across multiple instances.
-  * In general, under a different backend configuration, we would set up mysql-router to be used for distributing requests across the Master/Slave instances. This would list a series of slave instances as readonly under a specific port on the local machine (Say 7000), and when a connection is created, it will pick the next valid slave instance defined in the router. We would also list master instances under a read/write port (Say 7001), and when we create a connection for write requests, it will pick the next available master mysql instance. We decided not to utilize this for our project as we still had to configure our backend to utilize a different URL for write requests anyway. With more master/slave mysql instances we would utilize this.
-  
-* # JMeter TS/TJ Time Logs
-  - #### Instructions of how to use the `log_processing.*` script to process the JMeter logs.
+
+  - We based our architecture based on the piazza post listed here: [https://piazza.com/class/k8d7td08e9b1sx?cid=1313](https://piazza.com/class/k8d7td08e9b1sx?cid=1313)
+  - For our project, we made each Tomcat instance access the local SQL server, and the write access will always access the master instance through the public IP (Security groups are defined, it uses the public IP because we had our VM's on different AWS accounts so we couldn't use the inner AWS IP). When write requests are made on the master instance, they are replicated on the slave instance. This means that all requests on either Tomcat instance will be acting with the same set of data, but be distributed across multiple instances.
+  - In general, under a different backend configuration, we would set up mysql-router to be used for distributing requests across the Master/Slave instances. This would list a series of slave instances as readonly under a specific port on the local machine (Say 7000), and when a connection is created, it will pick the next valid slave instance defined in the router. We would also list master instances under a read/write port (Say 7001), and when we create a connection for write requests, it will pick the next available master mysql instance. We decided not to utilize this for our project as we still had to configure our backend to utilize a different URL for write requests anyway. With more master/slave mysql instances we would utilize this.
+
+* # JMeter TS/TJ Time Logs ![Log File](/web/jmeter/logs) ![log_processing.py](/web/jmeter/log_processing.py)
+  - If you were to run this server the, the logs would be written in the directory where the server was started from.
+  - The logger implementation can be found in ![MyLogger.java](web/src/com/cs122b/utils/MyLogger.java)
+    - This logger is globally available and is called in the servlets and the service functions called by the servlets.
+    - They write logs in the format of `[test_name]:<Ts or Tj>:<time>`
+  - log_processing.py will read `tstjlogs.log` and generate a report that lists each type of test along with its time.
+    - Parses through each line which is one log
+  - To Run:
+    - Place log file named `tstjlogs.log` in the directory
+    - Run `python3 log_processing.py`
+    - Report is generated in nano seconds
 
 - # JMeter TS/TJ Time Measurement Report
 
-| **Single-instance Version Test Plan**       | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
-| ------------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
-| Case 1: HTTP/1 thread (Master)              | ![](path to image in img/)   | 236                        | 6.1885944453069869908               | 3.3740147004424780874     | ??           |
-| Case 2: HTTP/10 threads (Slave)             | ![](path to image in img/)   | 301                        | 5.7474654747474751559               | 3.075768626               | ??           |
-| Case 3: HTTPS/10 threads (Orig)             | ![](path to image in img/)   | 523                        | 6.188594445306979885                | 3.374014700442470094      | ??           |
-| Case 4: HTTP/10 threads/No pooling (Master) | ![](path to image in img/)   | 323                        | 47.220282155840003                  | 5.1260523264977884139     | ??           |
+| **Single-instance Version Test Plan**       | **Graph Results Screenshot**                                                                                 | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- | ----------------------------------- | ------------------------- |
+| Case 1: HTTP/1 thread (Master)              | ![Case 1 (Master)](/web/jmeter/graphs/Master_Single-Instance_Case_1_HTTP1_thread.png)                        | 236                        | 6.1885944453069869908               | 3.3740147004424780874     |
+| Case 2: HTTP/10 threads (Slave)             | ![Case 2 (Slave)](/web/jmeter/graphs/Slave_Single-Instance_Case_2_HTTP10_threads.png)                        | 301                        | 5.7474654747474751559               | 3.075768626               |
+| Case 3: HTTPS/10 threads (Orig)             | ![Case 3 (Orig)](/web/jmeter/graphs/Orig_Single-Instance_Case_3_HTTPS10_threads.png)                         | 523                        | 6.188594445306979885                | 3.374014700442470094      |
+| Case 4: HTTP/10 threads/No pooling (Master) | ![Case 4 (Master)](/web/jmeter/graphs/Master_Single-Instance_Case_4_HTTP10_threadsNo_connection_pooling.png) | 323                        | 47.220282155840003                  | 5.1260523264977884139     |
 
-| **Scaled Version Test Plan**             | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
-| ---------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
-| Case 1: HTTP/1 thread (AWS)              | ![](path to image in img/)   | 239                        | 3.2250253038548755136               | 1.8114671325648417088     | ??           |
-| Case 2: HTTP/10 threads (AWS)            | ![](path to image in img/)   | 287                        | 3.74075282245549978                 | 2.1926598448863634516     | ??           |
-| Case 2: HTTP/10 threads (GCP)            | ![](path to image in img/)   | 247                        | 3.468074322267619802                | 2.0890288903225808781     | ??           |
-| Case 3: HTTP/10 threads/No pooling (AWS) | ![](path to image in img/)   | 316                        | 32.264295990851515228               | 5.0170719070175442411     | ??           |
+| **Scaled Version Test Plan**             | **Graph Results Screenshot**                                                                          | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------- | ------------------------- |
+| Case 1: HTTP/1 thread (AWS)              | ![Case 1 (AWS)](/web/jmeter/graphs/AWS_Scaled-Version_Case_1_HTTP1_thread.png)                        | 239                        | 3.2250253038548755136               | 1.8114671325648417088     |
+| Case 2: HTTP/10 threads (AWS)            | ![Case 2 (AWS)](/web/jmeter/graphs/AWS_Scaled-Version_Case_2_HTTP10_threads.png)                      | 287                        | 3.74075282245549978                 | 2.1926598448863634516     |
+| Case 2: HTTP/10 threads (GCP)            | ![Case 2 (GCP)](/web/jmeter/graphs/GCP_Scaled-Version_Case_2_HTTP10_threads.png)                      | 247                        | 3.468074322267619802                | 2.0890288903225808781     |
+| Case 3: HTTP/10 threads/No pooling (AWS) | ![Case 3 (AWS)](/web/jmeter/graphs/AWS_Scaled-Version_Case_3_HTTP10_threadsNo_connection_pooling.png) | 316                        | 32.264295990851515228               | 5.0170719070175442411     |
+
+## Pooling
+
+- Based on the results of our tests, it seems that pooling is significantly more efficient when it comes to reading from the database.
+- This will allows faster response time and increases throughput.
+
+## Load Balancing
+
+- While load balancing did not necessarily reduce the time for each request, It did allow for higher through put which is equally as important as response time.
+- One reason that it may have been slightly slower may stem from the fact that the load balancer is under a different AWS account to reduce the chances of being charged for multiple instances. This means that it cannot use the private network inside AWS.
+
+## Extra
+
+- It seems that the original instance of Synthesizer performed poorly compared to the others.
+- This may have been due to some kind of memory leak in tomcat, since this instance of tomcat has been running longer than the others.
