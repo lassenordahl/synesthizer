@@ -117,6 +117,55 @@ When You Come Back Down
 ```
 
   - #### Collaborations and Work Distribution:
+  
+### Lasse Nordahl
+
+- Application routing for new pages
+- Cart/Playlist generation functionality for Songs and Albums (Front-end and Back-end)
+- Create Playlist Page
+- Playlists page
+- Playlist Endpoints
+- Playlist Session Endpoints
+- Spotify Integration
+- Create playlist functionality on playlist page
+- Implicit Grant Flow on Front-End for Spotify
+- Spotify Snapshot SQL and Endpoints
+- ReCaptcha integration
+- Password Encruption
+- Prepared Statement Conversion
+- Dashboard Meta Endpoints
+- Insert Track/Artist/Album stored procedures and endpoints
+- Front-end of Dashboard
+- Created android app
+- Edited backend endpoints for android integration
+- Connection pooling
+- Set up Master/Slave instances
+
+### Zachary Pinto
+
+- Write SQL schema
+- Write scripts to generate sample data
+- Create song selection and artist selection pages
+- Create tracks, track, artist, and artists endpoint
+- Create SQLClient class
+- Connect the API to list views
+- Configure for deployment
+- Deploy to AWS
+- Sorting for albums, artists, songs
+- Searching for albums, artists, songs
+- Browse by title and genre
+- Links genres from artists
+- Add query params to URL
+- Update user
+- Login
+- Create user
+- HTTPS Conversion
+- Employee integration to Login
+- XML Creation
+- XML Parsing/Insertion/Optimization
+- Inconsistency report
+- Full Text Search
+- Fuzzy Search
 
 * # Connection Pooling
   - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
