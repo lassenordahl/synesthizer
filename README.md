@@ -203,9 +203,9 @@ When You Come Back Down
   - For our project, we made each Tomcat instance access the local SQL server, and the write access will always access the master instance through the public IP (Security groups are defined, it uses the public IP because we had our VM's on different AWS accounts so we couldn't use the inner AWS IP). When write requests are made on the master instance, they are replicated on the slave instance. This means that all requests on either Tomcat instance will be acting with the same set of data, but be distributed across multiple instances.
   - In general, under a different backend configuration, we would set up mysql-router to be used for distributing requests across the Master/Slave instances. This would list a series of slave instances as readonly under a specific port on the local machine (Say 7000), and when a connection is created, it will pick the next valid slave instance defined in the router. We would also list master instances under a read/write port (Say 7001), and when we create a connection for write requests, it will pick the next available master mysql instance. We decided not to utilize this for our project as we still had to configure our backend to utilize a different URL for write requests anyway. With more master/slave mysql instances we would utilize this.
 
-* # JMeter TS/TJ Time Logs ![Log File](/web/jmeter/logs) ![log_processing.py](/web/jmeter/log_processing.py)
+* # JMeter TS/TJ Time Logs [Log File](/web/jmeter/logs) [log_processing.py](/web/jmeter/log_processing.py)
   - If you were to run this server the, the logs would be written in the directory where the server was started from.
-  - The logger implementation can be found in ![MyLogger.java](web/src/com/cs122b/utils/MyLogger.java)
+  - The logger implementation can be found in [MyLogger.java](web/src/com/cs122b/utils/MyLogger.java)
     - This logger is globally available and is called in the servlets and the service functions called by the servlets.
     - They write logs in the format of `[test_name]:<Ts or Tj>:<time>`
   - log_processing.py will read `tstjlogs.log` and generate a report that lists each type of test along with its time.
