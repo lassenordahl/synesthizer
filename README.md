@@ -7,6 +7,114 @@
   - #### Project 5 Video Demo Link:
 
   - #### Instruction of deployment:
+  
+  ```
+  ## Deployment Instructions
+
+#start tomcat server
+source /home/ubuntu/tomcat/bin/startup.sh
+
+#Database Setup
+mysql -u cs122b -p --database=cs122b < sql_creation/CreationInsertion.sql
+
+#Encrypt Passwords
+cd cs122b-spring20-project3-encryption-example/
+mvn exec:java -Dexec.mainClass="UpdateSecurePassword"
+
+#add employee creds
+"classta@email.edu" and password "classta"
+
+git clone https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53.git
+
+cd cs122b-spring20-team53
+
+git log
+
+cd src/resources
+vim config.properties
+
+# Show DB
+mysql -u cs122b -p -e "use cs122b;select count(*) from artist;select count(*) from album;select count(*) from track;select count(*) from track_meta;"
+
+mysql -u cs122b -p -e "use cs122b; select * from user;"
+
+# check the currently deployed apps
+ls -lah /home/ubuntu/tomcat/webapps
+
+# run react app build
+cd cs122b-spring20-team-53/app
+# run one of the following
+# for HTTPS
+REACT_APP_API_URL=https://ec2-3-94-82-6.compute-1.amazonaws.com:8443/unnamed/api npm run-script build
+# for HTTP
+REACT_APP_API_URL=http://ec2-3-94-82-6.compute-1.amazonaws.com:8080/unnamed/api npm run-script build
+
+# copy build to web dir
+npm run-script predeploy
+
+# build artifact
+cd ..
+mvn package
+
+#start tomcat
+starttomcat
+
+# run parser here
+commands are below
+cd ..
+mkdir xml_creation
+cp xml_creation/ cs122b/data_collection_creation/xml_creation
+
+# put artifact in deployable dir
+cp target/unnamed.war ~/tomcat/webapps
+
+# check currently deployed apps
+ls -lah /home/ubuntu/tomcat/webapps
+
+# execute parser
+
+#add employee creds
+"classta@email.edu" and password "classta"
+
+cd ..
+mkdir xml_creation
+cp xml_creation/ cs122b/data_collection_creation/xml_creation
+
+#artists
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/artists.xml"
+
+#albums
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/albums.xml"
+#track
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/tracks.xml"
+
+#track_metas
+mvn exec:java -Dexec.mainClass="com.cs122b.parser.MainParser" -Dexec.cleanupDaemonThreads=false -Dexec.args="data_collection_creation/xml_creation/track_metas.xml"
+
+#search things inserted from xml
+Searchable Artists
+- Guitar Duo
+- L’Orchestra Cinematique
+
+Searchable Albums
+- In'terview in Concert
+- Midnight Mushrumps
+
+Searchable Tracks
+- Missed Calls (feat. Hayley Kiyoko)
+- Good In Goodbye
+
+# dashboard demo
+Songs To Add From Dashboard
+When You Come Back Down
+- N~~ickel Creek~~
+
+When You Come Back Down
+- Kina Grannis
+
+When You Come Back Down
+- The UVM Top Cats
+  ```
 
   - #### Collaborations and Work Distribution:
 
