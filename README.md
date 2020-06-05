@@ -4,7 +4,7 @@
 
   - #### Names: Zachary Pinto and Lasse Nordahl
 
-  - #### Project 5 Video Demo Link:
+  - #### Project 5 Video Demo Link: https://youtu.be/Vc3a1Zv7PRo
 
   - #### Instruction of deployment:
 
