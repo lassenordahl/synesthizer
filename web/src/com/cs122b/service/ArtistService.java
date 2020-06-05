@@ -52,7 +52,7 @@ public class ArtistService {
 
         ResultSet albumResult;
         try {
-            albumResult = statement.executeQuery();
+            albumResult = albumsStatement.executeQuery();
         } catch(SQLException e) {
             statement.close();
             db.closeConnection();
