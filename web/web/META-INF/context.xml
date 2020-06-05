@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/">
+    <Resource name="jdbc/synesthizer"
+               auth="Container"
+               driverClassName="com.mysql.jdbc.Driver"
+               factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+               type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="cs122b"
+               password="team53"
+               url="jdbc:mysql://localhost:3306/cs122b?autoReconnect=true&amp;useSSL=false"/>
+
 </Context>
+

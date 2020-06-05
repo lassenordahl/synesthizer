@@ -5,12 +5,13 @@ import com.cs122b.client.Query;
 import com.cs122b.model.DatabaseMeta;
 import com.cs122b.model.DatabaseTable;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseService {
 
-    public static DatabaseMeta getDatabaseMeta() throws SQLException {
+    public static DatabaseMeta getDatabaseMeta() throws NamingException, SQLException {
         SQLClient db = new SQLClient();
         DatabaseMeta databaseMeta = new DatabaseMeta();
 

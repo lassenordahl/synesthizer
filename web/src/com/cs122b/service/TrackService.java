@@ -7,14 +7,17 @@ import com.cs122b.model.Track;
 import com.cs122b.model.Artist;
 import com.cs122b.model.TrackMeta;
 import com.cs122b.utils.StringUtil;
+import com.google.gson.internal.bind.SqlDateTypeAdapter;
+import com.cs122b.utils.MyLogger;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrackService {
 
-    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException {
+    static void setTrackAttrs(SQLClient db, Track track, ResultSet query, boolean addPopularity) throws SQLException, NamingException {
 
         track.setId(query.getString("id"));
         track.setName(query.getString("name"));
@@ -27,7 +30,16 @@ public class TrackService {
         String queryArtist = "SELECT * FROM artist_in_track NATURAL JOIN artist WHERE artist_id = id AND track_id = ? ORDER BY name;";
         PreparedStatement statement = db.getConnection().prepareStatement(queryArtist, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, track.getId());
-        ResultSet artistsResult = statement.executeQuery();
+
+        ResultSet artistsResult;
+        try {
+            artistsResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -54,7 +66,7 @@ public class TrackService {
     // track_id VARCHAR(25), name VARCHAR(100), track_number INT, album_id
     // VARCHAR(25), artist_id VARCHAR(25)
     public static String insertTrack(String id, String name, int track_number, int duration_ms, String album_id,
-            String artist_id) throws SQLException {
+            String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_track(?, ?, ?, ?, ?, ?) as result";
@@ -71,12 +83,13 @@ public class TrackService {
 
         String response = result.getString("result");
 
+        result.close();
         pstmt.close();
         db.closeConnection();
         return response;
     }
 
-    private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException {
+    private static void setTrackMeta(TrackMeta trackMeta, ResultSet result) throws SQLException, NamingException {
         trackMeta.setAcousticness(result.getFloat("acousticness"));
         trackMeta.setAnalysis_url(result.getString("analysis_url"));
         trackMeta.setDanceability(result.getFloat("danceability"));
@@ -95,11 +108,18 @@ public class TrackService {
         trackMeta.setValence(result.getFloat("valence"));
     }
 
-    public static List<Track> fetchTracks(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name) throws SQLException {
+    public static List<Track> fetchTracks(boolean pooling, int offset, int limit, String sortBy, String searchMode, String search,
+            String subMode, String name, String logTime) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
-        SQLClient db = new SQLClient();
+
+        SQLClient db;
+        if (pooling == false) {
+            db = new SQLClient(false);
+        } else {
+            db = new SQLClient();
+        }
+
         StringBuilder queryString = new StringBuilder();
         ArrayList<String> parameters = new ArrayList<String>();
         ArrayList<String> paramTypes = new ArrayList<String>();
@@ -171,6 +191,7 @@ public class TrackService {
         paramTypes.add("int");
         paramTypes.add("int");
 
+        long startTime = System.nanoTime();
         String query = queryString.toString();
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         for (int i = 0; i < parameters.size(); i++) {
@@ -180,7 +201,24 @@ public class TrackService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
+
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime; // elapsed time in nano seconds. Note: print the values in nano seconds 
+
+        if (logTime != null) {
+            MyLogger.log(String.format("[%s]Tj:%s", logTime, Long.toString(elapsedTime)));
+        }
+
 
         List<Track> tracks = new ArrayList<Track>();
         while (result.next()) {
@@ -189,12 +227,13 @@ public class TrackService {
             tracks.add(track);
         }
 
+        result.close();
         statement.close();
         db.closeConnection();
         return tracks;
     }
 
-    public static Track fetchTrack(String id) throws SQLException {
+    public static Track fetchTrack(String id) throws SQLException, NamingException {
         // Create an execute an SQL statement to select all of table tracks records
 
         SQLClient db = new SQLClient();
@@ -218,28 +257,50 @@ public class TrackService {
         String query = queryString.toString();
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         Track track = new Track();
         setTrackAttrs(db, track, result, false);
 
+        result.close();
+        statement.close();
         db.closeConnection();
         return track;
     }
 
-    public static TrackMeta fetchTrackMeta(String id) throws SQLException {
+    public static TrackMeta fetchTrackMeta(String id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
         TrackMeta trackMeta = new TrackMeta();
 
         String query = "SELECT * FROM track_meta WHERE track_meta.id = ?;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         setTrackMeta(trackMeta, result);
 
+        result.close();
+        statement.close();
         db.closeConnection();
         return trackMeta;
     }

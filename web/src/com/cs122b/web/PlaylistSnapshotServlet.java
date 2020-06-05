@@ -5,6 +5,7 @@ import com.cs122b.service.PlaylistService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,10 @@ public class PlaylistSnapshotServlet extends HttpServlet {
             response.setStatus(200);
             out.print("{ \"message\": \"Snapshot added to playlist\"}");
         } catch (SQLException e) {
+            e.printStackTrace();
+            response.setStatus(404);
+            out.print("{ \"message\": \"Resource could not be added\"}");
+        } catch (NamingException e) {
             e.printStackTrace();
             response.setStatus(404);
             out.print("{ \"message\": \"Resource could not be added\"}");

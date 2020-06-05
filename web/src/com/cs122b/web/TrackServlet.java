@@ -6,6 +6,7 @@ import com.cs122b.utils.JsonParse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,8 @@ public class TrackServlet extends HttpServlet {
         try {
             track = fetchTrack(request.getParameter("id"));
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 
@@ -70,6 +73,8 @@ public class TrackServlet extends HttpServlet {
             e.printStackTrace();
             response.setStatus(404);
             out.print("{ \"message\": \"A SQL Error has occured\"}");
+        } catch (NamingException e) {
+            e.printStackTrace();
         }
 
         if (insertionResponse.equalsIgnoreCase("duplicate id")) {

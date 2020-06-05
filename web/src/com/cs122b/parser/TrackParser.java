@@ -12,6 +12,7 @@ import com.mysql.jdbc.Statement;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.naming.NamingException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -75,8 +76,8 @@ class TrackParser extends BaseParser {
         return hasAllData(track) && !this.isDuplicate(track.getId(), track.toString());
     }
 
-    private void validationFilter() throws SQLException {
-        SQLClient db = new SQLClient();
+    private void validationFilter() throws SQLException, NamingException {
+        SQLClient db = new SQLClient(true);
         // get all ids in db and add to dupSet
 
         String query = "SELECT id FROM track;";
@@ -127,8 +128,8 @@ class TrackParser extends BaseParser {
         unfilteredCount = tracks.size();
     }
 
-    void commitTracks() throws SQLException {
-        SQLClient db = new SQLClient();
+    void commitTracks() throws SQLException, NamingException {
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 

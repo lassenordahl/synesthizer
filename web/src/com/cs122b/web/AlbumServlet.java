@@ -7,6 +7,7 @@ import com.cs122b.utils.JsonParse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.rmi.Naming;
 import java.sql.SQLException;
 
 @WebServlet(name = "AlbumServlet", urlPatterns = {"/albums"})
@@ -34,6 +36,8 @@ public class AlbumServlet extends HttpServlet {
         try {
             album = AlbumService.fetchAlbum(albumId);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 
@@ -66,6 +70,8 @@ public class AlbumServlet extends HttpServlet {
             e.printStackTrace();
             response.setStatus(404);
             out.print("{ \"message\": \"A SQL Error has occured\"}");
+        } catch (NamingException e) {
+            e.printStackTrace();
         }
 
         if (insertionResponse.equalsIgnoreCase("duplicate id")) {

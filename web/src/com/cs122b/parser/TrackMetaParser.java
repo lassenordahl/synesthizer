@@ -6,6 +6,7 @@ import com.cs122b.model.TrackMeta;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.LinkedList;
 
@@ -60,8 +61,8 @@ class TrackMetaParser extends BaseParser {
         return hasAllData(trackMeta) && !this.isDuplicate(trackMeta.getId(), trackMeta.toString());
     }
 
-    private void validationFilter() throws SQLException {
-        SQLClient db = new SQLClient();
+    private void validationFilter() throws SQLException, NamingException {
+        SQLClient db = new SQLClient(true);
         // get all ids in db and add to dupSet
 
         String query = "SELECT id FROM track_meta;";
@@ -111,8 +112,8 @@ class TrackMetaParser extends BaseParser {
         unfilteredCount = trackMetas.size();
     }
 
-    void commitTrackMetas() throws SQLException {
-        SQLClient db = new SQLClient();
+    void commitTrackMetas() throws SQLException, NamingException {
+        SQLClient db = new SQLClient(true);
 
         db.getConnection().setAutoCommit(false);
 

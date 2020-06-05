@@ -6,6 +6,7 @@ import com.cs122b.model.Album;
 import com.cs122b.model.Artist;
 import com.cs122b.utils.StringUtil;
 
+import javax.naming.NamingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ArtistService {
 
     private static void setArtistAttrs(SQLClient db, Artist artist, ResultSet query, Boolean setPopularity)
-            throws SQLException {
+            throws SQLException, NamingException {
         artist.setId(query.getString("id"));
         artist.setName(query.getString("name"));
         artist.setImage(query.getString("image"));
@@ -29,7 +30,16 @@ public class ArtistService {
         PreparedStatement statement = db.getConnection().prepareStatement(artistGenreQuery,
                 Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, artist.getId());
-        ResultSet genreResult = statement.executeQuery();
+
+        ResultSet genreResult;
+        try {
+            genreResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (genreResult.next()) {
             artist.addGenre(genreResult.getString("genre"));
@@ -39,7 +49,16 @@ public class ArtistService {
         PreparedStatement albumsStatement = db.getConnection().prepareStatement(artistAlbumQuery,
                 Statement.RETURN_GENERATED_KEYS);
         albumsStatement.setString(1, artist.getId());
-        ResultSet albumResult = albumsStatement.executeQuery();
+
+        ResultSet albumResult;
+        try {
+            albumResult = albumsStatement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (albumResult.next()) {
             Album album = new Album();
@@ -55,7 +74,7 @@ public class ArtistService {
         albumsStatement.close();
     }
 
-    public static String insertArtist(String id, String name, String image) throws SQLException {
+    public static String insertArtist(String id, String name, String image) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_artist(?, ?, ?) as result";
@@ -75,7 +94,7 @@ public class ArtistService {
     }
 
     public static List<Artist> fetchArtists(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name, String genre) throws SQLException {
+            String subMode, String name, String genre) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -155,7 +174,16 @@ public class ArtistService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         List<Artist> artists = new ArrayList<Artist>();
         while (result.next()) {
@@ -168,13 +196,22 @@ public class ArtistService {
         return artists;
     }
 
-    public static Artist fetchArtist(String id) throws SQLException {
+    public static Artist fetchArtist(String id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT * FROM artist WHERE id = ?";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
         Artist artist = new Artist();

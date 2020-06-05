@@ -7,6 +7,7 @@ import com.cs122b.model.Artist;
 import com.cs122b.model.Track;
 import com.cs122b.utils.StringUtil;
 
+import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class AlbumService {
 
     public static void setAlbumAttrs(SQLClient db, Album album, ResultSet result, boolean addPopularity)
-            throws SQLException {
+            throws SQLException, NamingException {
         album.setId(result.getString("id"));
         album.setName(result.getString("name"));
         album.setAlbum_type(result.getString("album_type"));
@@ -26,7 +27,16 @@ public class AlbumService {
                 + "WHERE artist_id = id AND album_id = ?\n" + "ORDER BY name;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, album.getId());
-        ResultSet artistsResult = statement.executeQuery();
+         
+        ResultSet artistsResult;
+        try {
+            artistsResult = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (artistsResult.next()) {
             if (artistsResult == null) {
@@ -46,7 +56,7 @@ public class AlbumService {
     }
 
     public static List<Album> fetchAlbums(int offset, int limit, String sortBy, String searchMode, String search,
-            String subMode, String name, String artist_id) throws SQLException {
+            String subMode, String name, String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         StringBuilder queryString = new StringBuilder();
@@ -125,7 +135,16 @@ public class AlbumService {
                 statement.setInt(i + 1, Integer.parseInt(parameters.get(i)));
             }
         }
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         List<Album> albums = new ArrayList<Album>();
 
@@ -140,7 +159,7 @@ public class AlbumService {
     }
 
     public static String insertAlbum(String id, String name, String image, String album_type, String release_date,
-            String artist_id) throws SQLException {
+            String artist_id) throws SQLException, NamingException {
         SQLClient db = new SQLClient();
 
         String query = "SELECT insert_album(?, ?, ?, ?, ?, ?) as result";
@@ -162,7 +181,7 @@ public class AlbumService {
         return response;
     }
 
-    public static Album fetchAlbum(String id) throws SQLException {
+    public static Album fetchAlbum(String id) throws SQLException, NamingException {
 
         SQLClient db = new SQLClient();
 
@@ -173,7 +192,16 @@ public class AlbumService {
 
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         result.next();
 
@@ -184,7 +212,7 @@ public class AlbumService {
         return album;
     }
 
-    public static List<Track> fetchTracksForAlbum(String id) throws SQLException {
+    public static List<Track> fetchTracksForAlbum(String id) throws SQLException, NamingException {
 
         SQLClient db = new SQLClient();
         List<Track> tracksForAlbum = new ArrayList<Track>();
@@ -196,7 +224,16 @@ public class AlbumService {
                 + "ORDER BY track.track_number;";
         PreparedStatement statement = db.getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, id);
-        ResultSet result = statement.executeQuery();
+        
+        ResultSet result;
+        try {
+            result = statement.executeQuery();
+        } catch(SQLException e) {
+            statement.close();
+            db.closeConnection();
+            e.printStackTrace();
+            throw e;
+        }
 
         while (result.next()) {
             Track track = new Track();

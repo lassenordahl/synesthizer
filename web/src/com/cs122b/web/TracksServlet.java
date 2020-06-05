@@ -4,6 +4,7 @@ import com.cs122b.model.Track;
 import com.cs122b.service.TrackService;
 import com.google.gson.Gson;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static com.cs122b.service.TrackService.*;
+import com.cs122b.utils.MyLogger;
 
 @WebServlet(name = "TrackServlet", urlPatterns = { "/tracks" })
 public class TracksServlet extends HttpServlet {
@@ -23,6 +25,8 @@ public class TracksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        long startTime = System.nanoTime();
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
@@ -34,15 +38,27 @@ public class TracksServlet extends HttpServlet {
         String search = request.getParameter("search");
         String subMode = request.getParameter("subMode");
         String name = request.getParameter("name");
+        String poolingString = request.getParameter("pooling");
+
+        Boolean pooling = true;
+        if (poolingString != null) {
+            pooling = !poolingString.equalsIgnoreCase("false");
+        }
+        String logTime = request.getParameter("logTime");
 
         List<Track> tracks = null;
         try {
-            tracks = fetchTracks(offset != null && offset != "" ? Integer.parseInt(offset) : 0,
+            tracks = fetchTracks(pooling, offset != null && offset != "" ? Integer.parseInt(offset) : 0,
                     limit != null && limit != "" ? Integer.parseInt(limit) : 20,
                     sortBy != null && sortBy != "" ? sortBy : "popularity desc",
                     searchMode != null && searchMode != "" ? searchMode : null,
-                    search != null && search != "" ? search : null, subMode != null && subMode != "" ? subMode : null, name != null && name != "" ? name : null);
+                    search != null && search != "" ? search : null, 
+                    subMode != null && subMode != "" ? subMode : null, 
+                    name != null && name != "" ? name : null,
+                    logTime != null && logTime != "" ? logTime : null);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 
@@ -50,5 +66,12 @@ public class TracksServlet extends HttpServlet {
 
         String tracksResponse = this.gson.toJson(tracks);
         out.print("{ \"songs\": " + tracksResponse + " }");
+
+        long endTime = System.nanoTime();
+        long elapsedTime = endTime - startTime;
+
+        if (logTime != null) {
+            MyLogger.log(String.format("[%s]Ts:%s", logTime, Long.toString(elapsedTime)));
+        }
     }
 }

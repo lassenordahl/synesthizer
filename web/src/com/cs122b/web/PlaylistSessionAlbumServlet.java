@@ -6,6 +6,7 @@ import com.cs122b.service.AlbumService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class PlaylistSessionAlbumServlet extends HttpServlet {
         try {
             album = AlbumService.fetchAlbum(jsonRequestBody.get("id").getAsString());
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
 
