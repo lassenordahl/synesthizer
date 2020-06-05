@@ -62,7 +62,7 @@ class TrackMetaParser extends BaseParser {
     }
 
     private void validationFilter() throws SQLException, NamingException {
-        SQLClient db = new SQLClient();
+        SQLClient db = new SQLClient(true);
         // get all ids in db and add to dupSet
 
         String query = "SELECT id FROM track_meta;";
