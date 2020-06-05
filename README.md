@@ -8,8 +8,8 @@
 
   - #### Instruction of deployment:
   
-  ```
-  ## Deployment Instructions
+```
+## Deployment Instructions
 
 #start tomcat server
 source /home/ubuntu/tomcat/bin/startup.sh
@@ -114,7 +114,7 @@ When You Come Back Down
 
 When You Come Back Down
 - The UVM Top Cats
-  ```
+```
 
   - #### Collaborations and Work Distribution:
 
