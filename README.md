@@ -168,6 +168,7 @@ When You Come Back Down
 - Fuzzy Search
 
 * # Connection Pooling
+
   - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
   * The connection code is handled in an abstracted object utilized in every endpoint that accesses the database
   * SQLClient: [https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java](https://github.com/UCI-Chenli-teaching/cs122b-spring20-team-53/blob/master/web/src/com/cs122b/client/SQLClient.java)
@@ -196,15 +197,16 @@ When You Come Back Down
 
 - # JMeter TS/TJ Time Measurement Report
 
-| **Single-instance Version Test Plan**         | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
-| --------------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
-| Case 1: HTTP/1 thread                         | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 2: HTTP/10 threads                       | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 3: HTTPS/10 threads                      | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 4: HTTP/10 threads/No connection pooling | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
+| **Single-instance Version Test Plan**       | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
+| ------------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
+| Case 1: HTTP/1 thread (Master)              | ![](path to image in img/)   | 236                        | 6.1885944453069869908               | 3.3740147004424780874     | ??           |
+| Case 2: HTTP/10 threads (Slave)             | ![](path to image in img/)   | 301                        | 5.7474654747474751559               | 3.075768626               | ??           |
+| Case 3: HTTPS/10 threads (Orig)             | ![](path to image in img/)   | 523                        | 6.188594445306979885                | 3.374014700442470094      | ??           |
+| Case 4: HTTP/10 threads/No pooling (Master) | ![](path to image in img/)   | 323                        | 47.220282155840003                  | 5.1260523264977884139     | ??           |
 
-| **Scaled Version Test Plan**                  | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
-| --------------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
-| Case 1: HTTP/1 thread                         | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 2: HTTP/10 threads                       | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
-| Case 3: HTTP/10 threads/No connection pooling | ![](path to image in img/)   | ??                         | ??                                  | ??                        | ??           |
+| **Scaled Version Test Plan**             | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
+| ---------------------------------------- | ---------------------------- | -------------------------- | ----------------------------------- | ------------------------- | ------------ |
+| Case 1: HTTP/1 thread (AWS)              | ![](path to image in img/)   | 239                        | 3.2250253038548755136               | 1.8114671325648417088     | ??           |
+| Case 2: HTTP/10 threads (AWS)            | ![](path to image in img/)   | 287                        | 3.74075282245549978                 | 2.1926598448863634516     | ??           |
+| Case 2: HTTP/10 threads (GCP)            | ![](path to image in img/)   | 247                        | 3.468074322267619802                | 2.0890288903225808781     | ??           |
+| Case 3: HTTP/10 threads/No pooling (AWS) | ![](path to image in img/)   | 316                        | 32.264295990851515228               | 5.0170719070175442411     | ??           |
