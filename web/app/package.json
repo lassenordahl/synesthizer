@@ -11,7 +11,7 @@
     "awesome-debounce-promise": "^2.1.0",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-duration-format": "^2.3.2",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
